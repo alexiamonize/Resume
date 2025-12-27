@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexia Monize | AI Systems Architect</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #00ff41;
+            --accent: #00d4ff;
+            --bg-black: #000000;
+            --bg-dark: #0a0a0a;
+            --bg-card: #111111;
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+            --text-dim: #666666;
+            --border: #1a1a1a;
+            --glow: rgba(0, 255, 65, 0.5);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-black);
+            color: var(--text-white);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Grid background effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        /* Spotlight effect */
+        .spotlight {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(0, 255, 65, 0.1) 0%, transparent 50%);
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 60px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Header */
+        .header {
+            margin-bottom: 80px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 60px;
+            position: relative;
+        }
+        
+        .name {
+            font-size: 72px;
+            font-weight: 900;
+            color: var(--text-white);
+            letter-spacing: -3px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            line-height: 1;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .tagline {
+            font-size: 20px;
+            color: var(--primary);
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease 0.1s backwards;
+        }
+        
+        .contact-links {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+        
+        .contact-link {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 12px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            color: var(--text-white);
+        }
+        
+        .contact-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Section styling */
+        .section {
+            margin-bottom: 80px;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 100%;
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--glow);
+        }
+        
+        .summary-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-gray);
+            max-width: 1200px;
+            font-weight: 300;
+        }
+        
+        /* Job cards */
+        .job {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 40px;
+            margin-bottom: 24px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .job::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 0;
+            background: linear-gradient(180deg, var(--primary), var(--accent));
+            transition: height 0.3s ease;
+            box-shadow: 0 0 20px var(--glow);
+        }
+        
+        .job:hover {
+            background: var(--bg-dark);
+            border-color: var(--primary);
+            transform: translateX(10px);
+        }
+        
+        .job:hover::before {
+            height: 100%;
+        }
+        
+        .job-header {
+            margin-bottom: 8px;
+        }
+        
+        .job-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-white);
+            margin-right: 12px;
+            letter-spacing: -0.5px;
+        }
+        
+        .job-company {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+        
+        .job-location-date {
+            font-size: 13px;
+            color: var(--text-dim);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        
+        .job-subtitle {
+            font-size: 14px;
+            font-style: italic;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        
+        .achievements {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .achievements li {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 14px;
+            padding-left: 24px;
+            position: relative;
+            color: var(--text-gray);
+            font-weight: 300;
+        }
+        
+        .achievements li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            transform: rotate(45deg);
+        }
+        
+        .achievements li strong {
+            color: var(--text-white);
+            font-weight: 600;
+        }
+        
+        /* Education */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 24px;
+        }
+        
+        .education-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 40px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .education-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .education-item:hover {
+            background: var(--bg-dark);
+            border-color: var(--primary);
+        }
+        
+        .education-item:hover::after {
+            width: 100%;
+        }
+        
+        .education-degree {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-white);
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        
+        .education-school {
+            font-size: 16px;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .education-details {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        
+        .skill-category {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 32px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .skill-category:hover {
+            background: var(--bg-dark);
+            border-color: var(--primary);
+        }
+        
+        .skill-category:hover::before {
+            left: 100%;
+        }
+        
+        .skill-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .skill-items {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+        
+        /* Tags */
+        .cert-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .cert-tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-gray);
+            padding: 12px 24px;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cert-tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .cert-tag:hover {
+            border-color: var(--primary);
+            color: var(--text-white);
+        }
+        
+        .cert-tag:hover::before {
+            left: 100%;
+        }
+        
+        .cert-tag[data-cert] {
+            cursor: pointer;
+        }
+        
+        /* Certificate Modal */
+        .cert-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .cert-modal-content {
+            position: relative;
+            margin: 2% auto;
+            width: 90%;
+            max-width: 1200px;
+            height: 90vh;
+            background: var(--bg-card);
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 50px var(--glow);
+            animation: slideDown 0.4s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .cert-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: var(--text-white);
+            font-size: 40px;
+            font-weight: 300;
+            cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s ease;
+            line-height: 1;
+        }
+        
+        .cert-close:hover {
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+        
+        .cert-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: white;
+        }
+        
+        /* Two column */
+        .two-column {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 24px;
+        }
+        
+        .info-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .info-box:hover {
+            background: var(--bg-dark);
+            border-color: var(--primary);
+        }
+        
+        .info-box-content {
+            font-size: 15px;
+            color: var(--text-gray);
+            line-height: 1.9;
+            font-weight: 300;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-dim);
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-top: 1px solid var(--border);
+            margin-top: 80px;
+        }
+        
+        .footer span {
+            color: var(--primary);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 60px 30px;
+            }
+            
+            .name {
+                font-size: 48px;
+            }
+            
+            .tagline {
+                font-size: 16px;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .job,
+            .education-item,
+            .skill-category,
+            .info-box {
+                padding: 30px;
+            }
+            
+            .skills-grid,
+            .education-grid,
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--bg-black);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            transition: background 0.3s ease;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+        
+        /* Fade in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        body {
+            animation: fadeIn 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Spotlight effect -->
+    <div class="spotlight"></div>
+    
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="name">ALEXIA MONIZE</div>
+            <div class="tagline">AI Systems Architect & Innovation Strategist</div>
+            <div class="contact-links">
+                <a href="tel:+16478256564" class="contact-link">+1 647-825-6564</a>
+                <a href="mailto:alexiarmonize@gmail.com" class="contact-link">alexiarmonize@gmail.com</a>
+                <a href="https://linkedin.com/in/alexia-monize" class="contact-link" target="_blank">linkedin.com/in/alexia-monize</a>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="section">
+            <div class="section-title">Executive Summary</div>
+            <p class="summary-text">
+                AI systems architect and conversational design strategist specializing in NLU optimization, IVR modernization, and automation at scale. Led end-to-end ownership of Porter Airlines' conversational AI program—from architecture and design through implementation, training, and operations—delivering 750% intent expansion and eliminating misroutes across 2M+ customer interactions. HBSc in Cognitive Science (University of Toronto, 2022) with hands-on expertise in Amazon Connect, Dialogflow CX, ML pipeline design, and AI governance. Active researcher in AI & Law, focused on youth privacy protections in social platforms.
+            </p>
+        </div>
+
+        <!-- Experience -->
+        <div class="section">
+            <div class="section-title">Professional Experience</div>
+            
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Intent Recognition Specialist</span> | <span class="job-company">Porter Airlines</span>
+                </div>
+                <div class="job-location-date">Toronto, ON • February 2024 – September 2025</div>
+                <div class="job-subtitle">Led architecture, design, implementation, training, and operational management of enterprise conversational AI program</div>
+                <ul class="achievements">
+                    <li><strong>Architected and scaled</strong> NLU system from 6 to 51 intents (English/French), designing intent taxonomy and automation pathways that reduced peak-period agent load across 2M+ annual customer interactions</li>
+                    <li><strong>Engineered and deployed</strong> data-driven model optimizations through high-volume call driver analysis, utterance refinements, and feature engineering—improving routing precision and first-contact resolution</li>
+                    <li><strong>Redesigned and standardized</strong> Amazon Connect IVR architecture using modular flows and conversational design principles, enabling faster cross-functional deployment across 100+ agent operations</li>
+                    <li><strong>Built and managed</strong> performance-tracking infrastructure (error monitoring, intent drift detection, dataset validation) that increased NLU accuracy and eliminated misroute escalations</li>
+                    <li><strong>Authored and implemented</strong> enterprise AI Operations Playbook formalizing processes, SLAs, and troubleshooting workflows—cutting onboarding time and operational errors</li>
+                    <li><strong>Led cross-functional alignment</strong> with Engineering, CX, Operations, and Product teams to ensure NLU/IVR systems met business objectives and regulatory constraints</li>
+                    <li><strong>Established governance standards</strong> including version control, dataset hygiene protocols, and evaluation frameworks ensuring long-term scalability and model resilience</li>
+                    <li><strong>Trained stakeholders</strong> on system capabilities, troubleshooting procedures, and optimization best practices, increasing self-service completion rates</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Founder & Chief Innovation Officer</span> | <span class="job-company">ARM Innovation Solutions</span>
+                </div>
+                <div class="job-location-date">Toronto, ON • January 2025 – Present</div>
+                <ul class="achievements">
+                    <li>Launched tech consulting practice and secured AI-music startup client developing behavioral analytics tools linking auditory preferences to workplace team dynamics</li>
+                    <li>Restructured product-market strategy during critical pivot phase, identifying defensible competitive positioning in AI-music intersection</li>
+                    <li>Streamlined R&D workflows by eliminating inefficiencies and refocusing resources on validated use cases via competitive and market analysis</li>
+                    <li>Conducted industry research and user landscape assessments informing product direction, GTM positioning, and long-term growth roadmap</li>
+                    <li>Co-designed core AI algorithm with engineering team, building behavioral data models correlating music patterns with team performance metrics</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Chief Technology Officer</span> | <span class="job-company">StealthAICo.</span>
+                </div>
+                <div class="job-location-date">Toronto, ON • January 2024 – May 2024</div>
+                <ul class="achievements">
+                    <li>Architected business continuity plan ensuring data protection during disaster scenarios and extended outages</li>
+                    <li>Managed platform configuration, network integration, and company-level architecture for AI-powered fashion technology using database systems, AR, and wireframing tools</li>
+                    <li>Translated complex technical risks into executive-ready frameworks and actionable mitigation strategies</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Associate Consultant</span> | <span class="job-company">Bain & Company</span>
+                </div>
+                <div class="job-location-date">Toronto, ON • August 2022 – November 2023</div>
+                <ul class="achievements">
+                    <li>Supported major Canadian bank's regulatory transition from Category 4 to Category 3 through comprehensive risk research and expert network management</li>
+                    <li>Designed organization structures across multiple mining sites, delivering 25%+ value creation</li>
+                    <li>Enhanced DE&I initiatives by developing digital dashboard, stakeholder survey, and streamlined data operations for analytics team</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Director of Artificial Intelligence</span> | <span class="job-company">Braintech Robotics LC</span>
+                </div>
+                <div class="job-location-date">Toronto, ON • August 2025 – Present</div>
+                <ul class="achievements">
+                    <li>Leading AI integration across STEM learning ecosystem through adaptive curriculum design and real-time performance analytics</li>
+                    <li>Architecting ML pipelines enhancing personalization, safety monitoring, and operational efficiency</li>
+                    <li>Embedding AI ethics, privacy, and governance frameworks across product and program operations</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">STEM Program Director</span> | <span class="job-company">Braintech Robotics LC</span>
+                </div>
+                <div class="job-location-date">Toronto, ON • April 2019 – August 2023</div>
+                <ul class="achievements">
+                    <li>Instructed 6–18-year-olds in programming, robotics, and drones while optimizing event strategy through data-driven content creation to secure program funding</li>
+                    <li>Managed budgeting, scheduling, and resource allocation across operations</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="section">
+            <div class="section-title">Education</div>
+            <div class="education-grid">
+                <div class="education-item">
+                    <div class="education-degree">Honours Bachelor of Science with Distinction</div>
+                    <div class="education-school">University of Toronto (St. George)</div>
+                    <div class="education-details">
+                        Major: Cognitive Science (Computational Cognition)<br>
+                        Major: Book and Media Studies<br>
+                        Minor: Digital Humanities<br>
+                        Graduated: 2022
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-degree">EarthQUAICS Program</div>
+                    <div class="education-school">Protexxa</div>
+                    <div class="education-details">
+                        Cybersecurity, Quantum Computing, and Artificial Intelligence<br>
+                        2025–2026 (In Progress)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="section">
+            <div class="section-title">Core Competencies</div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-label">AI & Automation</div>
+                    <div class="skill-items">Conversational AI (Amazon Connect, Dialogflow CX, Watson) • NLU Strategy & Intent Engineering • IVR Modernization • Generative AI & LLM Integration • AI Ethics & Governance</div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-label">Technical Stack</div>
+                    <div class="skill-items">AWS Lambda • Python • Google Cloud Platform • Data Analytics & Performance Benchmarking • ML Pipeline Design • HTML/CSS</div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-label">Strategy & Design</div>
+                    <div class="skill-items">Customer Experience Design • Technical Project Management (Agile) • Documentation & Playbook Creation</div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-label">Leadership</div>
+                    <div class="skill-items">Stakeholder Communication • Executive Reporting • Cross-Functional Team Alignment • Public Speaking</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="section">
+            <div class="section-title">Certifications</div>
+            <div class="cert-tags">
+                <span class="cert-tag" data-cert="certificates/AI & Law.pdf">AI & Law (Lund University)</span>
+                <span class="cert-tag" data-cert="certificates/Amazon Connect - Troubleshooting.pdf">Amazon Connect - Troubleshooting</span>
+                <span class="cert-tag" data-cert="certificates/Instance Fundamentals.pdf">Amazon Connect Instance Fundamentals</span>
+                <span class="cert-tag" data-cert="certificates/Contact Center AI- Conversational Design Fundamentals.pdf">Conversational Design Fundamentals</span>
+                <span class="cert-tag" data-cert="certificates/Contact Center AI- Operations and Implementation.pdf">Contact Center AI Operations</span>
+                <span class="cert-tag" data-cert="certificates/Virtual Agent Development in Dialogflow CX for Citizen Devs.pdf">Dialogflow CX - Citizen Devs</span>
+                <span class="cert-tag" data-cert="certificates/Customer Experiences with Contact Center AI - Dialogflow CX.pdf">Dialogflow CX Specialization</span>
+                <span class="cert-tag" data-cert="certificates/Generative AI with Large Language Models.pdf">Generative AI with LLMs</span>
+                <span class="cert-tag" data-cert="certificates/Getting Started with AI using IBM Watson.pdf">IBM Watson</span>
+                <span class="cert-tag" data-cert="certificates/Introduction to Artificial Intelligence (AI).pdf">IBM AI Introduction</span>
+                <span class="cert-tag" data-cert="certificates/Learn to Program- The Fundamentals.pdf">Programming Fundamentals (UofT)</span>
+                <span class="cert-tag" data-cert="certificates/Learning and Artificial Intelligence.pdf">ML & AI Fundamentals</span>
+                <span class="cert-tag" data-cert="certificates/Exploring Artificial Intelligence.pdf">Exploring AI Use Cases</span>
+                <span class="cert-tag" data-cert="certificates/MIT Sustainability in Action.pdf">Bain Sustainability (MIT Sloan)</span>
+            </div>
+        </div>
+
+        <!-- Certificate Modal -->
+        <div id="certModal" class="cert-modal">
+            <div class="cert-modal-content">
+                <span class="cert-close">&times;</span>
+                <iframe id="certFrame" class="cert-frame"></iframe>
+            </div>
+        </div>
+
+        <!-- Languages & Interests -->
+        <div class="section">
+            <div class="two-column">
+                <div class="info-box">
+                    <div class="section-title">Languages</div>
+                    <div class="info-box-content">
+                        English (Fluent)<br>
+                        French (Fluent)
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <div class="section-title">Interests</div>
+                    <div class="info-box-content">
+                        Classical pianist, vocalist, percussionist<br>
+                        Youth STEM mentorship<br>
+                        AI policy research<br>
+                        Kayaking
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Built with <span>passion</span> & <span>code</span>
+        </div>
+    </div>
+
+    <script>
+        // Add intersection observer for staggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all job cards
+        document.querySelectorAll('.job, .education-item, .skill-category').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // Certificate Modal Functionality
+        const modal = document.getElementById('certModal');
+        const certFrame = document.getElementById('certFrame');
+        const closeBtn = document.querySelector('.cert-close');
+        
+        // Add click handlers to all certificate tags with data-cert attribute
+        document.querySelectorAll('.cert-tag[data-cert]').forEach(tag => {
+            tag.addEventListener('click', function() {
+                const certPath = this.getAttribute('data-cert');
+                certFrame.src = certPath;
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // Close modal when clicking X
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+            certFrame.src = '';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modal when clicking outside
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                certFrame.src = '';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.style.display === 'block') {
+                modal.style.display = 'none';
+                certFrame.src = '';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
