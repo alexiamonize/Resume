@@ -1,974 +1,1035 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alexia Monize | AI Systems Architect</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --primary: #00ff41;
-            --accent: #00d4ff;
-            --bg-black: #000000;
-            --bg-dark: #0a0a0a;
-            --bg-card: #111111;
-            --text-white: #ffffff;
-            --text-gray: #a0a0a0;
-            --text-dim: #666666;
-            --border: #1a1a1a;
-            --glow: rgba(0, 255, 65, 0.5);
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-black);
-            color: var(--text-white);
-            line-height: 1.6;
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-        
-        /* Grid background effect */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: 1;
-            pointer-events: none;
-        }
-        
-        /* Spotlight effect */
-        .spotlight {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background: radial-gradient(circle at 50% 0%, rgba(0, 255, 65, 0.1) 0%, transparent 50%);
-            z-index: 2;
-            pointer-events: none;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 80px 60px;
-            position: relative;
-            z-index: 10;
-        }
-        
-        /* Header */
-        .header {
-            margin-bottom: 80px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 60px;
-            position: relative;
-        }
-        
-        .name {
-            font-size: 72px;
-            font-weight: 900;
-            color: var(--text-white);
-            letter-spacing: -3px;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            line-height: 1;
-            animation: fadeInUp 0.8s ease;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .tagline {
-            font-size: 20px;
-            color: var(--primary);
-            font-weight: 400;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 40px;
-            animation: fadeInUp 0.8s ease 0.1s backwards;
-        }
-        
-        .contact-links {
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.2s backwards;
-        }
-        
-        .contact-link {
-            color: var(--text-gray);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            padding: 12px 0;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        
-        .contact-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-        
-        .contact-link:hover {
-            color: var(--text-white);
-        }
-        
-        .contact-link:hover::after {
-            width: 100%;
-        }
-        
-        /* Section styling */
-        .section {
-            margin-bottom: 80px;
-            animation: fadeInUp 0.8s ease;
-        }
-        
-        .section-title {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 30px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            position: relative;
-            padding-left: 20px;
-        }
-        
-        .section-title::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 3px;
-            height: 100%;
-            background: var(--primary);
-            box-shadow: 0 0 10px var(--glow);
-        }
-        
-        .summary-text {
-            font-size: 16px;
-            line-height: 1.8;
-            color: var(--text-gray);
-            max-width: 1200px;
-            font-weight: 300;
-        }
-        
-        /* Job cards */
-        .job {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 40px;
-            margin-bottom: 24px;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .job::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 2px;
-            height: 0;
-            background: linear-gradient(180deg, var(--primary), var(--accent));
-            transition: height 0.3s ease;
-            box-shadow: 0 0 20px var(--glow);
-        }
-        
-        .job:hover {
-            background: var(--bg-dark);
-            border-color: var(--primary);
-            transform: translateX(10px);
-        }
-        
-        .job:hover::before {
-            height: 100%;
-        }
-        
-        .job-header {
-            margin-bottom: 8px;
-        }
-        
-        .job-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--text-white);
-            margin-right: 12px;
-            letter-spacing: -0.5px;
-        }
-        
-        .job-company {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: -0.5px;
-        }
-        
-        .job-location-date {
-            font-size: 13px;
-            color: var(--text-dim);
-            font-weight: 400;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-        
-        .job-subtitle {
-            font-size: 14px;
-            font-style: italic;
-            color: var(--accent);
-            margin-bottom: 20px;
-            font-weight: 400;
-        }
-        
-        .achievements {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .achievements li {
-            font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 14px;
-            padding-left: 24px;
-            position: relative;
-            color: var(--text-gray);
-            font-weight: 300;
-        }
-        
-        .achievements li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 10px;
-            width: 6px;
-            height: 6px;
-            background: var(--primary);
-            transform: rotate(45deg);
-        }
-        
-        .achievements li strong {
-            color: var(--text-white);
-            font-weight: 600;
-        }
-        
-        /* Education */
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 24px;
-        }
-        
-        .education-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 40px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .education-item::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-        
-        .education-item:hover {
-            background: var(--bg-dark);
-            border-color: var(--primary);
-        }
-        
-        .education-item:hover::after {
-            width: 100%;
-        }
-        
-        .education-degree {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--text-white);
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
-        
-        .education-school {
-            font-size: 16px;
-            color: var(--primary);
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-        
-        .education-details {
-            font-size: 14px;
-            color: var(--text-gray);
-            line-height: 1.7;
-            font-weight: 300;
-        }
-        
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
-        
-        .skill-category {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 32px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .skill-category::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            transition: left 0.5s ease;
-        }
-        
-        .skill-category:hover {
-            background: var(--bg-dark);
-            border-color: var(--primary);
-        }
-        
-        .skill-category:hover::before {
-            left: 100%;
-        }
-        
-        .skill-label {
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 16px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        
-        .skill-items {
-            font-size: 14px;
-            color: var(--text-gray);
-            line-height: 1.8;
-            font-weight: 300;
-        }
-        
-        /* Tags */
-        .cert-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-        
-        .cert-tag {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            color: var(--text-gray);
-            padding: 12px 24px;
-            font-size: 13px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cert-tag::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-        
-        .cert-tag:hover {
-            border-color: var(--primary);
-            color: var(--text-white);
-        }
-        
-        .cert-tag:hover::before {
-            left: 100%;
-        }
-        
-        .cert-tag[data-cert] {
-            cursor: pointer;
-        }
-        
-        /* Certificate Modal */
-        .cert-modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            animation: fadeIn 0.3s ease;
-        }
-        
-        .cert-modal-content {
-            position: relative;
-            margin: 2% auto;
-            width: 90%;
-            max-width: 1200px;
-            height: 90vh;
-            background: var(--bg-card);
-            border: 2px solid var(--primary);
-            box-shadow: 0 0 50px var(--glow);
-            animation: slideDown 0.4s ease;
-        }
-        
-        @keyframes slideDown {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        
-        .cert-close {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            color: var(--text-white);
-            font-size: 40px;
-            font-weight: 300;
-            cursor: pointer;
-            z-index: 1001;
-            transition: all 0.3s ease;
-            line-height: 1;
-        }
-        
-        .cert-close:hover {
-            color: var(--primary);
-            transform: rotate(90deg);
-        }
-        
-        .cert-frame {
-            width: 100%;
-            height: 100%;
-            border: none;
-            background: white;
-        }
-        
-        /* Two column */
-        .two-column {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 24px;
-        }
-        
-        .info-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 40px;
-            transition: all 0.3s ease;
-        }
-        
-        .info-box:hover {
-            background: var(--bg-dark);
-            border-color: var(--primary);
-        }
-        
-        .info-box-content {
-            font-size: 15px;
-            color: var(--text-gray);
-            line-height: 1.9;
-            font-weight: 300;
-        }
-        
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--text-dim);
-            font-size: 13px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border-top: 1px solid var(--border);
-            margin-top: 80px;
-        }
-        
-        .footer span {
-            color: var(--primary);
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 60px 30px;
-            }
-            
-            .name {
-                font-size: 48px;
-            }
-            
-            .tagline {
-                font-size: 16px;
-            }
-            
-            .contact-links {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .job,
-            .education-item,
-            .skill-category,
-            .info-box {
-                padding: 30px;
-            }
-            
-            .skills-grid,
-            .education-grid,
-            .two-column {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: var(--bg-black);
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: var(--border);
-            transition: background 0.3s ease;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary);
-        }
-        
-        /* Fade in animation */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        body {
-            animation: fadeIn 0.5s ease;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alexia Monize | AI Product Leader &amp; Conversational AI Strategist</title>
+<meta name="description" content="Alexia Monize — AI product leader, conversational AI strategist, and NLU architect. Scaled Porter Airlines' AI platform to 2M+ users. Available for AI consulting, contract, and leadership roles.">
+<meta name="keywords" content="Alexia Monize, AI product manager, conversational AI, NLU strategist, AI consultant, IVR modernization, Dialogflow CX, Amazon Connect, AI governance, AI engineer, AI consultant Toronto, AI integration, post-quantum cryptography, responsible AI, generative AI product leader">
+<meta name="author" content="Alexia Monize">
+<meta property="og:title" content="Alexia Monize | AI Product Leader">
+<meta property="og:description" content="AI systems architect and conversational design strategist. Available for AI consulting, contract, and leadership roles.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://alexiamonize.github.io/Resume/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --seafoam:#7fffd4; --seafoam-dim:#4dd9c0; --seafoam-faint:rgba(127,255,212,0.10);
+  --seafoam-glow:rgba(127,255,212,0.22); --teal:#2dd4bf; --accent-blue:#67e8f9; --accent-violet:#a78bfa;
+  --bg-deep:#060c12; --bg-mid:#0b1420; --bg-glass:rgba(127,255,212,0.04);
+  --border-glass:rgba(127,255,212,0.18); --border-dim:rgba(127,255,212,0.07);
+  --text-white:#f0faf7; --text-light:#c8ede4; --text-mid:#7fb3a4; --text-dim:#3d6b5e;
+  --toggle-bg:rgba(127,255,212,0.12); --toggle-icon:#7fffd4;
+  --beam-opacity:0.55; --font-display:'Syne',sans-serif; --font-body:'DM Sans',sans-serif;
+}
+body.light {
+  --seafoam:#0d9488; --seafoam-dim:#0f766e; --seafoam-faint:rgba(13,148,136,0.08);
+  --seafoam-glow:rgba(13,148,136,0.18); --teal:#14b8a6; --accent-blue:#0891b2; --accent-violet:#7c3aed;
+  --bg-deep:#f0faf8; --bg-mid:#e2f5f1; --bg-glass:rgba(13,148,136,0.05);
+  --border-glass:rgba(13,148,136,0.22); --border-dim:rgba(13,148,136,0.10);
+  --text-white:#0a2420; --text-light:#134e4a; --text-mid:#2d6a62; --text-dim:#7fb3a4;
+  --toggle-bg:rgba(13,148,136,0.12); --toggle-icon:#0d9488; --beam-opacity:0.28;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);background:var(--bg-deep);color:var(--text-light);line-height:1.65;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background 0.5s ease,color 0.4s ease;}
+#beamCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:var(--beam-opacity);transition:opacity 0.5s ease;}
+body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(var(--border-dim) 1px,transparent 1px),linear-gradient(90deg,var(--border-dim) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:1;transition:background-image 0.5s ease;}
+.top-bar{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:flex-end;gap:16px;padding:14px 48px;background:rgba(6,12,18,0.76);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);border-bottom:1px solid var(--border-dim);transition:background 0.5s ease,border-color 0.4s ease;flex-wrap:wrap;}
+body.light .top-bar{background:rgba(240,250,248,0.85);}
+.lang-selector{display:flex;align-items:center;gap:4px;flex-wrap:wrap;}
+.lang-btn{background:none;border:1px solid transparent;color:var(--text-mid);font-family:var(--font-body);font-size:12px;font-weight:500;letter-spacing:0.5px;padding:5px 10px;cursor:pointer;border-radius:3px;transition:all 0.22s ease;white-space:nowrap;}
+.lang-btn:hover{border-color:var(--border-glass);color:var(--text-white);}
+.lang-btn.active{border-color:var(--seafoam);color:var(--seafoam);background:var(--seafoam-faint);}
+.lang-divider{width:1px;height:18px;background:var(--border-glass);margin:0 6px;flex-shrink:0;}
+.theme-toggle{display:flex;align-items:center;gap:8px;background:var(--toggle-bg);border:1px solid var(--border-glass);border-radius:40px;padding:6px 14px;cursor:pointer;transition:all 0.25s ease;font-family:var(--font-body);font-size:12px;color:var(--toggle-icon);font-weight:500;letter-spacing:0.5px;white-space:nowrap;}
+.theme-toggle:hover{border-color:var(--seafoam);background:var(--seafoam-faint);}
+.theme-toggle svg{width:14px;height:14px;fill:currentColor;flex-shrink:0;transition:transform 0.4s ease;}
+body.light .theme-toggle .icon-moon{display:none;}
+body:not(.light) .theme-toggle .icon-sun{display:none;}
+.container{max-width:1320px;margin:0 auto;padding:120px 64px 80px;position:relative;z-index:10;}
+.glass{background:var(--bg-glass);border:1px solid var(--border-glass);backdrop-filter:blur(14px) saturate(130%);-webkit-backdrop-filter:blur(14px) saturate(130%);position:relative;overflow:hidden;transition:border-color 0.3s ease,background 0.3s ease,transform 0.3s ease,box-shadow 0.3s ease;}
+.glass::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(127,255,212,0.05) 0%,transparent 55%,rgba(103,232,249,0.03) 100%);pointer-events:none;transition:opacity 0.4s ease;}
+body.light .glass::after{background:linear-gradient(135deg,rgba(13,148,136,0.04) 0%,transparent 55%,rgba(8,145,178,0.02) 100%);}
+.glass:hover{border-color:rgba(127,255,212,0.42);background:rgba(127,255,212,0.07);box-shadow:0 4px 32px rgba(127,255,212,0.08);}
+body.light .glass:hover{border-color:rgba(13,148,136,0.42);background:rgba(13,148,136,0.07);box-shadow:0 4px 32px rgba(13,148,136,0.08);}
+.header{margin-bottom:80px;padding-bottom:60px;border-bottom:1px solid var(--border-dim);transition:border-color 0.4s ease;}
+.name{font-family:var(--font-display);font-size:clamp(52px,7vw,88px);font-weight:800;letter-spacing:-2px;line-height:1;margin-bottom:16px;background:linear-gradient(100deg,var(--seafoam) 0%,var(--accent-blue) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:riseIn 0.9s cubic-bezier(.22,1,.36,1) both;}
+.tagline{font-family:var(--font-display);font-size:14px;font-weight:500;color:var(--seafoam-dim);letter-spacing:3px;text-transform:uppercase;margin-bottom:44px;animation:riseIn 0.9s cubic-bezier(.22,1,.36,1) 0.1s both;transition:color 0.4s ease;}
+.contact-links{display:flex;gap:36px;flex-wrap:wrap;animation:riseIn 0.9s cubic-bezier(.22,1,.36,1) 0.2s both;}
+.contact-link{color:var(--text-mid);text-decoration:none;font-size:14px;font-weight:400;position:relative;padding-bottom:4px;transition:color 0.25s;}
+.contact-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--seafoam);transition:width 0.3s ease;}
+.contact-link:hover{color:var(--seafoam);}
+.contact-link:hover::after{width:100%;}
+.section{margin-bottom:80px;}
+.section-label{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-size:11px;font-weight:700;color:var(--seafoam);letter-spacing:4px;text-transform:uppercase;margin-bottom:28px;transition:color 0.4s ease;}
+.section-label::before{content:'';display:block;width:3px;height:16px;background:linear-gradient(180deg,var(--seafoam) 0%,var(--accent-blue) 100%);border-radius:2px;box-shadow:0 0 8px var(--seafoam-glow);flex-shrink:0;transition:background 0.4s ease,box-shadow 0.4s ease;}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border-dim);transition:background 0.4s ease;}
+.summary-text{font-size:16px;line-height:1.85;color:var(--text-light);font-weight:300;max-width:980px;transition:color 0.4s ease;}
+.summary-text strong{color:var(--seafoam);font-weight:500;}
+.job{padding:40px 44px;margin-bottom:20px;border-radius:2px;}
+.job:hover{transform:translateX(8px);}
+.job::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:linear-gradient(180deg,var(--seafoam) 0%,var(--accent-blue) 100%);transition:height 0.35s ease;box-shadow:0 0 12px var(--seafoam-glow);}
+.job:hover::before{height:100%;}
+.job-title{font-family:var(--font-display);font-size:19px;font-weight:700;color:var(--text-white);letter-spacing:-0.3px;transition:color 0.4s ease;}
+.job-sep{color:var(--border-glass);margin:0 8px;font-weight:300;}
+.job-company{font-family:var(--font-display);font-size:19px;font-weight:700;color:var(--seafoam);transition:color 0.4s ease;}
+.job-meta{font-size:12px;color:var(--text-dim);font-weight:400;letter-spacing:1px;text-transform:uppercase;margin:6px 0 10px;transition:color 0.4s ease;}
+.job-subtitle{font-size:14px;font-style:italic;color:var(--accent-blue);margin-bottom:20px;font-weight:300;transition:color 0.4s ease;}
+.achievements{list-style:none;padding:0;}
+.achievements li{font-size:14.5px;line-height:1.75;margin-bottom:12px;padding-left:22px;position:relative;color:var(--text-mid);font-weight:300;transition:color 0.4s ease;}
+.achievements li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;background:var(--seafoam-dim);transform:rotate(45deg);border-radius:1px;transition:background 0.4s ease;}
+.achievements li strong{color:var(--text-white);font-weight:500;transition:color 0.4s ease;}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+.skill-card{padding:28px 32px;border-radius:2px;}
+.skill-label{font-family:var(--font-display);font-size:11px;font-weight:700;color:var(--seafoam);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px;transition:color 0.4s ease;}
+.skill-items{font-size:13.5px;color:var(--text-mid);line-height:1.85;font-weight:300;transition:color 0.4s ease;}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:20px;}
+.edu-card{padding:36px 40px;border-radius:2px;}
+.edu-degree{font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--text-white);margin-bottom:6px;transition:color 0.4s ease;}
+.edu-school{font-size:15px;font-weight:500;color:var(--seafoam);margin-bottom:12px;transition:color 0.4s ease;}
+.edu-details{font-size:13.5px;color:var(--text-mid);line-height:1.75;font-weight:300;transition:color 0.4s ease;}
+.tags{display:flex;flex-wrap:wrap;gap:12px;}
+.tag{background:var(--bg-glass);border:1px solid var(--border-glass);color:var(--text-mid);padding:10px 20px;font-size:13px;font-weight:400;letter-spacing:0.3px;cursor:default;position:relative;overflow:hidden;border-radius:1px;transition:all 0.25s ease;}
+.tag::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(127,255,212,0.08),transparent);transform:translateX(-100%);transition:transform 0.5s ease;}
+body.light .tag::before{background:linear-gradient(90deg,transparent,rgba(13,148,136,0.08),transparent);}
+.tag:hover{border-color:var(--seafoam);color:var(--text-white);}
+.tag:hover::before{transform:translateX(100%);}
+.tag[data-cert]{cursor:pointer;}
+.two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;}
+.info-card{padding:36px 40px;border-radius:2px;}
+.info-content{font-size:14.5px;color:var(--text-mid);line-height:1.9;font-weight:300;transition:color 0.4s ease;}
+.cert-modal{display:none;position:fixed;inset:0;z-index:9000;background:rgba(6,12,18,0.94);backdrop-filter:blur(10px);animation:fadeIn 0.25s ease;}
+body.light .cert-modal{background:rgba(240,250,248,0.92);}
+.cert-modal-inner{position:relative;margin:2% auto;width:90%;max-width:1100px;height:90vh;border:1px solid var(--border-glass);background:var(--bg-mid);box-shadow:0 0 60px rgba(127,255,212,0.12);animation:slideDown 0.35s cubic-bezier(.22,1,.36,1);}
+.cert-close{position:absolute;top:-44px;right:0;font-size:36px;font-weight:300;color:var(--text-mid);cursor:pointer;line-height:1;transition:color 0.2s,transform 0.3s;}
+.cert-close:hover{color:var(--seafoam);transform:rotate(90deg);}
+.cert-frame{width:100%;height:100%;border:none;background:white;}
+.footer{text-align:center;padding:56px 20px 40px;border-top:1px solid var(--border-dim);margin-top:60px;color:var(--text-dim);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;transition:border-color 0.4s ease,color 0.4s ease;}
+.footer span{color:var(--seafoam);}
+@keyframes riseIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-40px);}to{opacity:1;transform:translateY(0);}}
+::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-track{background:var(--bg-deep);}::-webkit-scrollbar-thumb{background:var(--border-dim);border-radius:3px;}::-webkit-scrollbar-thumb:hover{background:var(--seafoam-dim);}
+@media(max-width:900px){.top-bar{padding:12px 20px;gap:8px;}.lang-btn{font-size:11px;padding:4px 7px;}}
+@media(max-width:768px){.container{padding:110px 20px 60px;}.name{font-size:44px;letter-spacing:-1px;}.contact-links{flex-direction:column;gap:16px;}.job{padding:24px;}.job:hover{transform:translateX(4px);}.skill-card,.edu-card,.info-card{padding:20px;}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important;}#beamCanvas{display:none;}}
+</style>
 </head>
 <body>
-    <!-- Spotlight effect -->
-    <div class="spotlight"></div>
-    
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <div class="name">ALEXIA MONIZE</div>
-            <div class="tagline">AI Systems Architect & Innovation Strategist</div>
-            <div class="contact-links">
-                <a href="mailto:alexiarmonize@gmail.com" class="contact-link">alexiarmonize@gmail.com</a>
-                <a href="https://linkedin.com/in/alexia-monize" class="contact-link" target="_blank">linkedin.com/in/alexia-monize</a>
-            </div>
-        </div>
+<canvas id="beamCanvas" aria-hidden="true"></canvas>
+<div class="top-bar" role="navigation" aria-label="Site controls">
+  <div class="lang-selector" role="group" aria-label="Language selector">
+    <button class="lang-btn active" data-lang="en"  aria-pressed="true">EN</button>
+    <button class="lang-btn"        data-lang="fr"  aria-pressed="false">FR</button>
+    <button class="lang-btn"        data-lang="es"  aria-pressed="false">ES</button>
+    <button class="lang-btn"        data-lang="it"  aria-pressed="false">IT</button>
+    <button class="lang-btn"        data-lang="zh"  aria-pressed="false">中文</button>
+    <button class="lang-btn"        data-lang="ru"  aria-pressed="false">RU</button>
+    <button class="lang-btn"        data-lang="no"  aria-pressed="false">NO</button>
+    <button class="lang-btn"        data-lang="ja"  aria-pressed="false">日本語</button>
+    <button class="lang-btn"        data-lang="ko"  aria-pressed="false">한국어</button>
+  </div>
+  <div class="lang-divider" aria-hidden="true"></div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+    <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <span id="toggleLabel">Light</span>
+  </button>
+</div>
+<div class="container">
+<header class="header">
+  <h1 class="name">ALEXIA MONIZE</h1>
+  <p class="tagline" data-i18n="tagline">AI Product Leader · Conversational AI Architect · Emerging Technology Strategist</p>
+  <nav class="contact-links" aria-label="Contact">
+    <a href="mailto:alexiarmonize@gmail.com" class="contact-link">alexiarmonize@gmail.com</a>
+    <a href="https://linkedin.com/in/alexia-monize" class="contact-link" target="_blank" rel="noopener">linkedin.com/in/alexia-monize</a>
+    <a href="https://alexiamonize.github.io/Resume/" class="contact-link" target="_blank" rel="noopener">alexiamonize.github.io/Resume</a>
+  </nav>
+</header>
+<section class="section" aria-labelledby="lbl-about">
+  <div class="section-label" id="lbl-about" data-i18n="sec_about">About</div>
+  <p class="summary-text" data-i18n="summary"><strong>AI product leader and conversational systems architect</strong> with a track record of building AI-powered products from the ground up and scaling them to enterprise impact. Led end-to-end ownership of Porter Airlines' conversational AI platform—from architecture and NLU design through cross-functional deployment and governance—achieving <strong>750% intent expansion</strong> across <strong>2M+ annual customer interactions</strong>. Deep hands-on fluency across the AI stack: Amazon Connect, Dialogflow CX, AWS Lambda, ML pipeline design, and LLM integration. Grounded in Cognitive Science (University of Toronto, HBSc with Distinction, 2022) with active credentialing in cybersecurity, quantum computing, and responsible AI. Available for AI consulting, contract engagements, and senior leadership roles.</p>
+</section>
 
-        <!-- Summary -->
-        <div class="section">
-            <div class="section-title">Executive Summary</div>
-            <p class="summary-text">
-                AI systems architect and conversational design strategist specializing in NLU optimization, IVR modernization, and automation at scale. Led end-to-end ownership of Porter Airlines' conversational AI program—from architecture and design through implementation, training, and operations—delivering 750% intent expansion and eliminating misroutes across 2M+ customer interactions. HBSc in Cognitive Science (University of Toronto, 2022) with hands-on expertise in Amazon Connect, Dialogflow CX, ML pipeline design, and AI governance. Active researcher in AI & Law, focused on youth privacy protections in social platforms.
-            </p>
-        </div>
+<section class="section" aria-labelledby="lbl-exp">
+  <div class="section-label" id="lbl-exp" data-i18n="sec_experience">Experience</div>
 
-        <!-- Experience -->
-        <div class="section">
-            <div class="section-title">Professional Experience</div>
-            
-            <div class="job">
-                <div class="job-header">
-                    <span class="job-title">AI Product Lead & Strategic Operations Manager</span> | <span class="job-company">Porter Airlines</span>
-                </div>
-                <div class="job-location-date">Toronto, ON • February 2024 – September 2025</div>
-                <div class="job-subtitle">Owned end-to-end product strategy and operational execution for conversational AI platform serving 2M+ customers—driving 750% feature expansion, cross-functional alignment, and AI governance at enterprise scale</div>
-                <ul class="achievements">
-                    <li><strong>Defined and executed product strategy</strong> for conversational AI platform serving 2M+ annual customers, scaling from 6 to 51 intents (750% growth) through strategic roadmap planning, user journey mapping, and data-driven feature prioritization</li>
-                    <li><strong>Architected, developed, and deployed</strong> end-to-end technical implementation of NLU/IVR systems—from initial design through production launch—while simultaneously managing product strategy, cross-functional alignment, and operational scaling</li>
-                    <li><strong>Redesigned and standardized</strong> Amazon Connect IVR architecture using modular flows and conversational design principles, enabling faster cross-functional deployment across 100+ agent operations</li>
-                    <li><strong>Built and managed</strong> performance-tracking infrastructure (error monitoring, intent drift detection, dataset validation) that increased NLU accuracy and eliminated misroute escalations</li>
-                    <li><strong>Authored and implemented</strong> enterprise AI Operations Playbook formalizing processes, SLAs, and troubleshooting workflows—cutting onboarding time and operational errors</li>
-                    <li><strong>Led cross-functional alignment</strong> with Engineering, CX, Operations, and Product teams to ensure NLU/IVR systems met business objectives and regulatory constraints</li>
-                    <li><strong>Established governance standards</strong> including version control, dataset hygiene protocols, and evaluation frameworks ensuring long-term scalability and model resilience</li>
-                    <li><strong>Trained stakeholders</strong> on system capabilities, troubleshooting procedures, and optimization best practices, increasing self-service completion rates</li>
-                </ul>
-            </div>
+  <article class="job glass">
+    <div class="job-header"><span class="job-title" data-i18n="j1_title">AI Product Lead &amp; Strategic Operations Manager</span><span class="job-sep">|</span><span class="job-company">Porter Airlines</span></div>
+    <div class="job-meta" data-i18n="j1_meta">Toronto, ON · February 2024 – September 2025</div>
+    <div class="job-subtitle" data-i18n="j1_sub">End-to-end ownership of enterprise conversational AI platform serving 2M+ customers — product strategy, NLU architecture, AI governance, and operational scale</div>
+    <ul class="achievements">
+      <li data-i18n="j1_b1"><strong>Defined and executed product strategy</strong> for conversational AI platform serving 2M+ annual customers, scaling from 6 to 51 intents (750% growth) through roadmap planning, user journey mapping, and data-driven feature prioritization</li>
+      <li data-i18n="j1_b2"><strong>Architected and deployed</strong> end-to-end NLU/IVR systems on Amazon Connect — from initial design through production launch — while managing product strategy, cross-functional alignment, and operational scaling simultaneously</li>
+      <li data-i18n="j1_b3"><strong>Led cross-functional delivery</strong> across Engineering, CX, Operations, and Product teams to ship the NLU modernization initiative, standardizing release processes and aligning stakeholders on quarterly OKRs</li>
+      <li data-i18n="j1_b4"><strong>Drove activation and engagement</strong> by analyzing high-volume behavioural data, implementing A/B testing frameworks, and optimizing conversation flows — increasing self-service completion rates and reducing escalations</li>
+      <li data-i18n="j1_b5"><strong>Built performance analytics infrastructure</strong> with real-time dashboards tracking intent accuracy, routing precision, and CSAT — enabling data-driven iterations and executive reporting</li>
+      <li data-i18n="j1_b6"><strong>Established AI governance framework</strong> including model evaluation standards, version control protocols, and SLA definitions across 100+ agent operations</li>
+      <li data-i18n="j1_b7"><strong>Authored enterprise AI Operations Playbook</strong> reducing stakeholder onboarding time by 40% and scaling organizational AI literacy</li>
+      <li data-i18n="j1_b8"><strong>Led bilingual product expansion</strong> (English/French), partnering with language experts and conducting market analysis to ensure full feature parity</li>
+    </ul>
+  </article>
 
-            <div class="job">
-                <div class="job-header">
-                    <span class="job-title">Founder & Chief Innovation Officer</span> | <span class="job-company">ARM Innovation Solutions</span>
-                </div>
-                <div class="job-location-date">Toronto, ON • January 2025 – Present</div>
-                <div class="job-subtitle">Built specialized AI product consultancy from zero, securing high-profile startup client and leading strategic pivot to product-market fit in emerging AI-music analytics space</div>
-                <ul class="achievements">
-                    <li>Launched tech consulting practice and secured AI-music startup client developing behavioral analytics tools linking auditory preferences to workplace team dynamics</li>
-                    <li>Restructured product-market strategy during critical pivot phase, identifying defensible competitive positioning in AI-music intersection</li>
-                    <li>Streamlined R&D workflows by eliminating inefficiencies and refocusing resources on validated use cases via competitive and market analysis</li>
-                    <li>Conducted industry research and user landscape assessments informing product direction, GTM positioning, and long-term growth roadmap</li>
-                    <li>Co-designed core AI algorithm with engineering team, building behavioral data models correlating music patterns with team performance metrics</li>
-                </ul>
-            </div>
-            
-            <div class="job">
-                <div class="job-header">
-                    <span class="job-title">Chief Technology Officer</span> | <span class="job-company">Lenavix</span>
-                </div>
-                <div class="job-location-date">Toronto, ON • January 2026 – February 2026</div>
-                <div class="job-subtitle">Led a technical team of 4: 2 Software Engineers, 2 UX engineers; Supporting the CEO with their first founder journey</div>
-                <ul class="achievements">
-                    <li>Defined and executed technical and product strategy for a pre-seed startup, leading MVP development from concept to demo</li>
-                    <li>Collaborated with founders to support fundraising efforts, including technical storytelling, investor presentations, and due diligence discussions</li>
-                    <li>Managed investor relations from a technical standpoint, translating product vision, roadmap, and scalability into clear business value</li>
-                    <li>Navigated legal and regulatory requirements to ensure compliance in product design, data handling, and operational processes</li>
-                    <li>Established governance and compliance frameworks to support scalable and audit-ready operations</li>
-                    <li>Secured early demo users and pilot partners, enabling real-world validation of the MVP and informing product iteration</li>
-                    <li>Built and maintained strategic partnerships for long-term product deployment and growth</li>
-                    <li>Led cross-functional execution across engineering, product, and external stakeholders in a fast-paced startup environment</li>
-                    <li>Made key architectural and tooling decisions to balance speed, cost, and scalability under early-stage constraints</li>
-                </ul>
-            </div>
+  <article class="job glass">
+    <div class="job-header"><span class="job-title" data-i18n="j2_title">Director of Artificial Intelligence</span><span class="job-sep">|</span><span class="job-company">Braintech Robotics LC</span></div>
+    <div class="job-meta" data-i18n="j2_meta">Toronto, ON · August 2025 – Present</div>
+    <div class="job-subtitle" data-i18n="j2_sub">Defining AI product roadmap for adaptive learning, ML-driven personalization, and ethical AI deployment across youth STEM education platform</div>
+    <ul class="achievements">
+      <li data-i18n="j2_b1"><strong>Leading AI product transformation</strong> of STEM learning platform through adaptive curriculum design, real-time analytics integration, and personalized learning pathways</li>
+      <li data-i18n="j2_b2"><strong>Defining AI product roadmap</strong> including feature prioritization, success metrics, and partnership strategy to enhance safety monitoring and operational efficiency</li>
+      <li data-i18n="j2_b3"><strong>Establishing AI ethics and governance standards</strong> for youth-facing products — privacy compliance, bias mitigation, and responsible AI deployment at scale</li>
+    </ul>
+  </article>
 
-            <div class="job">
-                <div class="job-header">
-                    <span class="job-title">Chief Technology Officer</span> | <span class="job-company">StealthAICo.</span>
-                </div>
-                <div class="job-location-date">Toronto, ON • January 2024 – May 2024</div>
-                <ul class="achievements">
-                    <li>Architected business continuity plan ensuring data protection during disaster scenarios and extended outages</li>
-                    <li>Managed platform configuration, network integration, and company-level architecture for AI-powered fashion technology using database systems, AR, and wireframing tools</li>
-                    <li>Translated complex technical risks into executive-ready frameworks and actionable mitigation strategies</li>
-                </ul>
-            </div>
+  <article class="job glass">
+    <div class="job-header"><span class="job-title" data-i18n="j3_title">Founder &amp; Chief Innovation Officer</span><span class="job-sep">|</span><span class="job-company">ARM Innovation Solutions</span></div>
+    <div class="job-meta" data-i18n="j3_meta">Toronto, ON · January 2025 – Present</div>
+    <div class="job-subtitle" data-i18n="j3_sub">Specialized AI product consultancy — secured high-profile startup client and led strategic pivot to product-market fit in emerging AI-music analytics space</div>
+    <ul class="achievements">
+      <li data-i18n="j3_b1"><strong>Founded specialized AI consulting practice</strong> and secured AI-music startup client by identifying white space in an emerging market and articulating a differentiated value proposition</li>
+      <li data-i18n="j3_b2"><strong>Led product-market fit pivot</strong> during critical growth phase — competitive analysis, user research, and market segmentation to reposition product in a defensible niche</li>
+      <li data-i18n="j3_b3"><strong>Drove go-to-market strategy</strong> including positioning, messaging, pricing, and channel partner identification</li>
+      <li data-i18n="j3_b4"><strong>Co-designed core AI algorithm</strong> with engineering team, translating business requirements into technical specifications for behavioural data models linking auditory preferences to team performance KPIs</li>
+    </ul>
+  </article>
 
-            <div class="job">
-                <div class="job-header">
-                    <span class="job-title">Associate Consultant</span> | <span class="job-company">Bain & Company</span>
-                </div>
-                <div class="job-location-date">Toronto, ON • August 2022 – November 2023</div>
-                <div class="job-subtitle">Drove strategic transformation initiatives for Fortune 500 clients across financial services and mining, delivering 25%+ value creation through organizational design and operational optimization</div>
-                <div class="job-subtitle">Building Entrepreneurial Leaders (BEL) Intern 2020, Associate Consultant Intern (ACI) 2021</div>
-                <ul class="achievements">
-                    <li>Supported major Canadian banks' regulatory transition from Category 4 to Category 3 through comprehensive risk research and expert network management</li>
-                    <li>Designed organization structures across multiple mining sites, delivering 25%+ value creation</li>
-                    <li>Enhanced DE&I initiatives by developing a digital dashboard, a stakeholder survey, and streamlined data operations for analytics team</li>
-                </ul>
-            </div>
+  <article class="job glass">
+    <div class="job-header"><span class="job-title" data-i18n="j4_title">Chief Technology Officer</span><span class="job-sep">|</span><span class="job-company">StealthAICo.</span></div>
+    <div class="job-meta" data-i18n="j4_meta">Toronto, ON · January 2024 – May 2024</div>
+    <ul class="achievements">
+      <li data-i18n="j4_b1"><strong>Led platform architecture decisions</strong> for AI-powered fashion technology — build vs. buy tradeoffs, technology stack selection, and integration of AR, database systems, and design tools</li>
+      <li data-i18n="j4_b2"><strong>Architected business continuity strategy</strong> ensuring platform resilience and data protection during disaster scenarios, defining recovery time objectives and data protocols</li>
+      <li data-i18n="j4_b3"><strong>Translated technical complexity</strong> into executive risk frameworks, technology roadmaps, and investment prioritization recommendations for C-suite decision-making</li>
+    </ul>
+  </article>
 
-            <div class="job">
-                <div class="job-header">
-                    <span class="job-title">Director of Artificial Intelligence</span> | <span class="job-company">Braintech Robotics LC</span>
-                </div>
-                <div class="job-location-date">Toronto, ON • August 2025 – Present</div>
-                <div class="job-subtitle">Spearheading AI-powered transformation of youth STEM education platform, defining product roadmap for adaptive learning, ML-driven personalization, and ethical AI deployment at scale</div>
-                <ul class="achievements">
-                    <li>Leading AI integration across STEM learning ecosystem through adaptive curriculum design and real-time performance analytics</li>
-                    <li>Architecting ML pipelines enhancing personalization, safety monitoring, and operational efficiency</li>
-                    <li>Embedding AI ethics, privacy, and governance frameworks across product and program operations</li>
-                </ul>
-            </div>
-            
-            <div class="job">
-                <div class="job-header">
-                    <span class="job-title">STEM Program Director</span> | <span class="job-company">Braintech Robotics LC</span>
-                </div>
-                <div class="job-location-date">Toronto, ON • April 2019 – August 2023</div>
-                <ul class="achievements">
-                    <li>Instructed 6–18-year-olds in programming, robotics, and drones while optimizing event strategy through data-driven content creation to secure program funding</li>
-                    <li>Managed budgeting, scheduling, and resource allocation across operations</li>
-                </ul>
-            </div>
-            
-            <div class="job">
-                <div class="job-header">
-                    <span class="job-title">AI Training Specialist</span> | <span class="job-company">ByteDance</span>
-                </div>
-                <div class="job-location-date">Toronto, ON • April 2019 – October 2019</div>
-                <div class="job-subtitle">Contributed to training and optimization of ML-powered caption generation systems for one of the world's leading AI-driven social platforms</div>
-                <ul class="achievements">
-                    <li>Trained and evaluated caption generation models by labeling large-scale datasets and providing systematic feedback on AI-generated outputs to improve accuracy and contextual relevance</li>
-                    <li>Collaborated with ML engineering teams to identify edge cases, biases, and performance gaps in automated caption systems</li>
-                    <li>Documented failure patterns and recommended training data enhancements to support iterative model improvements</li>
-                    <li>Ensured annotation consistency and data quality across diverse content types for ByteDance's AI products</li>
-                </ul>
-            </div>
-            
-            <div class="job">
-                <div class="job-header">
-                    <span class="job-title">Sports, Music, and Entertainment Business Development Intern</span> | <span class="job-company">AccessAR</span>
-                </div>
-                <div class="job-location-date">Toronto, ON • Summer 2019</div>
-                <div class="job-subtitle">Contributed to training and optimization of ML-powered caption generation systems for one of the world's leading AI-driven social platforms</div>
-                <ul class="achievements">
-                    <li>Delivered templated, personalized Snapchat lenses and Instagram filters for clients across sports, music, and entertainment</li>
-                    <li>Built and tested AR experiences using Snapchat Lens Studio, ensuring performance and alignment with client requirements</li>
-                    <li>Collaborated with the CEO post-client meetings to translate feedback into actionable product improvements with developers</li>
-                    <li>Supported rapid prototyping and iteration of AR campaigns, bridging client needs and technical execution</li>
-                    <li>Tracked project budgets and campaign performance to improve cost efficiency and delivery outcomes</li>
-                    <li>Assisted in sales and go-to-market planning, contributing to rollout strategies for branded AR experiences</li>
-                </ul>
-            </div>
-            
-        </div>
-        <!-- Education -->
-        <div class="section">
-            <div class="section-title">Education</div>
-            <div class="education-grid">
-                <div class="education-item">
-                    <div class="education-degree">Honours Bachelor of Science with Distinction</div>
-                    <div class="education-school">University of Toronto (St. George)</div>
-                    <div class="education-details">
-                        Major: Cognitive Science (Computational Cognition)<br>
-                        Major: Book and Media Studies<br>
-                        Minor: Digital Humanities<br>
-                        Graduated: 2022
-                    </div>
-                </div>
+  <article class="job glass">
+    <div class="job-header"><span class="job-title" data-i18n="j5_title">Associate Consultant</span><span class="job-sep">|</span><span class="job-company">Bain &amp; Company</span></div>
+    <div class="job-meta" data-i18n="j5_meta">Toronto, ON · August 2022 – November 2023</div>
+    <div class="job-subtitle" data-i18n="j5_sub">Strategic transformation for Fortune 500 clients across financial services and mining — delivering 25%+ value creation through organisational design and operational optimisation</div>
+    <ul class="achievements">
+      <li data-i18n="j5_b1"><strong>Supported major Canadian bank's regulatory transition</strong> (Category 4 to Category 3) through risk analysis, expert network engagement, and stakeholder alignment</li>
+      <li data-i18n="j5_b2"><strong>Designed organisational restructuring</strong> across multiple mining sites, delivering 25%+ value creation through operational efficiency and structural optimisation</li>
+      <li data-i18n="j5_b3"><strong>Led DE&amp;I product development</strong> — built digital dashboard, designed stakeholder surveys, and streamlined data operations enabling data-driven diversity metrics</li>
+    </ul>
+  </article>
 
-                <div class="education-item">
-                    <div class="education-degree">EarthQUAICS Program</div>
-                    <div class="education-school">Protexxa</div>
-                    <div class="education-details">
-                        Cybersecurity, Quantum Computing, and Artificial Intelligence<br>
-                        2025–2026 (Completed) - 92.86%
-                    </div>
-                </div>
-            </div>
-        </div>
+  <article class="job glass">
+    <div class="job-header"><span class="job-title" data-i18n="j6_title">AI Training Specialist</span><span class="job-sep">|</span><span class="job-company">ByteDance</span></div>
+    <div class="job-meta" data-i18n="j6_meta">Toronto, ON · April 2019 – October 2019</div>
+    <div class="job-subtitle" data-i18n="j6_sub">Trained and optimised ML-powered caption generation systems for one of the world's leading AI-driven social platforms</div>
+    <ul class="achievements">
+      <li data-i18n="j6_b1"><strong>Trained and evaluated caption generation models</strong> through large-scale dataset labelling and systematic feedback on AI outputs to improve accuracy and contextual relevance</li>
+      <li data-i18n="j6_b2"><strong>Collaborated with ML engineering teams</strong> to identify edge cases, biases, and performance gaps in automated caption systems</li>
+      <li data-i18n="j6_b3"><strong>Documented failure patterns and recommended training data enhancements</strong> to support iterative model improvements and annotation quality</li>
+    </ul>
+  </article>
 
-        <!-- Skills -->
-        <div class="section">
-            <div class="section-title">Core Competencies</div>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <div class="skill-label">AI & Automation</div>
-                    <div class="skill-items">Conversational AI (Amazon Connect, Dialogflow CX, Watson) • NLU Strategy & Intent Engineering • IVR Modernization • Generative AI & LLM Integration • AI Ethics & Governance</div>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-label">Technical Stack</div>
-                    <div class="skill-items">AWS Lambda • AWS Lex • AWS Connect • AWS QuickSight • Amazon Q • Python • Google Cloud Platform • Data Analytics & Performance Benchmarking • ML Pipeline Design • HTML/CSS</div>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-label">Strategy & Design</div>
-                    <div class="skill-items">Customer Experience Design • UX Design • SaaS • Scrum • Technical Project Management (Agile) • Documentation & Playbook Creation</div>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-label">Leadership</div>
-                    <div class="skill-items">Stakeholder Communication • Executive Reporting • Cross-Functional Team Alignment • Public Speaking • Sales</div>
-                </div>
-            </div>
-        </div>
+  <article class="job glass">
+    <div class="job-header"><span class="job-title" data-i18n="j7_title">STEM Program Director</span><span class="job-sep">|</span><span class="job-company">Braintech Robotics LC</span></div>
+    <div class="job-meta" data-i18n="j7_meta">Toronto, ON · April 2019 – August 2023</div>
+    <ul class="achievements">
+      <li data-i18n="j7_b1">Instructed youth ages 6–18 in programming, robotics, and drones while optimising event strategy through data-driven content creation to secure program funding</li>
+      <li data-i18n="j7_b2">Managed budgeting, scheduling, and resource allocation across operations</li>
+    </ul>
+  </article>
+</section>
 
-        <!-- Certifications -->
-        <div class="section">
-            <div class="section-title">Certifications</div>
-            <div class="cert-tags">
-                <span class="cert-tag" data-cert="certificates/AI & Law.pdf">AI & Law (Lund University)</span>
-                <span class="cert-tag" data-cert="certificates/Amazon Connect - Troubleshooting.pdf">Amazon Connect - Troubleshooting</span>
-                <span class="cert-tag" data-cert="certificates/Instance Fundamentals.pdf">Amazon Connect Instance Fundamentals</span>
-                <span class="cert-tag" data-cert="certificates/Contact Center AI- Conversational Design Fundamentals.pdf">Conversational Design Fundamentals</span>
-                <span class="cert-tag" data-cert="certificates/Contact Center AI- Operations and Implementation.pdf">Contact Center AI Operations</span>
-                <span class="cert-tag" data-cert="certificates/Virtual Agent Development in Dialogflow CX for Citizen Devs.pdf">Dialogflow CX - Citizen Devs</span>
-                <span class="cert-tag" data-cert="certificates/Customer Experiences with Contact Center AI - Dialogflow CX.pdf">Dialogflow CX Specialization</span>
-                <span class="cert-tag" data-cert="certificates/Generative AI with Large Language Models.pdf">Generative AI with LLMs</span>
-                <span class="cert-tag" data-cert="certificates/Getting Started with AI using IBM Watson.pdf">IBM Watson</span>
-                <span class="cert-tag" data-cert="certificates/Introduction to Artificial Intelligence (AI).pdf">IBM AI Introduction</span>
-                <span class="cert-tag" data-cert="certificates/Learn to Program- The Fundamentals.pdf">Programming Fundamentals (UofT)</span>
-                <span class="cert-tag" data-cert="certificates/Learning and Artificial Intelligence.pdf">ML & AI Fundamentals</span>
-                <span class="cert-tag" data-cert="certificates/Exploring Artificial Intelligence.pdf">Exploring AI Use Cases</span>
-                <span class="cert-tag" data-cert="certificates/ISO 270012022Compliant Cybersecurity Getting Started.pdf">ISO 27001:2022-Compliant Cybersecurity: Getting Started</span>
-                <span class="cert-tag" data-cert="certificates/MIT Sustainability in Action.pdf">Bain Sustainability (MIT Sloan)</span>
-                <span class="cert-tag" data-cert="certificates/Alexia Monize-Basic Kayak-Sea Kayak-Skills.pdf">Sea Kayaking Level 1</span>
-                <span class="cert-tag" data-cert="certificates/Intro to Cyber Sec Cisco.pdf">Introduction to Cybersecurity (Cisco)</span>
+<section class="section" aria-labelledby="lbl-skills">
+  <div class="section-label" id="lbl-skills" data-i18n="sec_skills">Core Competencies</div>
+  <div class="skills-grid">
+    <div class="skill-card glass"><div class="skill-label" data-i18n="sk1_label">AI Product &amp; Strategy</div><div class="skill-items" data-i18n="sk1_items">Conversational AI Design · NLU Architecture · IVR Modernization · Generative AI Integration · LLM Product Design · AI Adoption &amp; Change Management · AI Frameworks &amp; Governance · Responsible AI · AI Agents · AI Security · Product Roadmap Development · Go-to-Market Strategy · OKR Framework Design · Feature Prioritization</div></div>
+    <div class="skill-card glass"><div class="skill-label" data-i18n="sk2_label">Technical Stack</div><div class="skill-items" data-i18n="sk2_items">Amazon Connect · AWS Lambda · AWS Lex · AWS Glue · Amazon Q · AWS QuickSight · Dialogflow CX · Google Cloud Platform · Python · APIs &amp; Integration · SQL Fundamentals · ML Pipeline Design · AI Prompting &amp; Optimization · Google Workspace · Microsoft Office</div></div>
+    <div class="skill-card glass"><div class="skill-label" data-i18n="sk3_label">Research &amp; Analysis</div><div class="skill-items" data-i18n="sk3_items">Market Research &amp; Competitor Analysis · Market Trend Research · Deep Learning Concepts · Data Storytelling · Behavioural Analytics · Audience Analysis · Funnel Analysis · Retention Strategy · User Research &amp; Personas · A/B Testing &amp; Experimentation</div></div>
+    <div class="skill-card glass"><div class="skill-label" data-i18n="sk4_label">Execution &amp; Delivery</div><div class="skill-items" data-i18n="sk4_items">Agile / Scrum · Waterfall · IT &amp; Agile Change Management · Lean Change Management · Technical Project Management · Data Tracking · Documentation &amp; Playbook Creation · Quality Assurance · Operational Scaling · Risk Management · Compliance Strategy</div></div>
+    <div class="skill-card glass"><div class="skill-label" data-i18n="sk5_label">Content &amp; Communication</div><div class="skill-items" data-i18n="sk5_items">Educational Content Development · Training Content Development · Adapting Content for Diverse Audiences · Digital &amp; Oral Storytelling · Public Speaking · Executive Reporting · Stakeholder Communication · Cross-Functional Team Alignment · Conflict Resolution</div></div>
+    <div class="skill-card glass"><div class="skill-label" data-i18n="sk6_label">Leadership &amp; Character</div><div class="skill-items" data-i18n="sk6_items">Emotional Intelligence · Interpersonal Relationships · Motivating &amp; Supervising Teams · Analytical Thinking · High Attention to Detail · Growth Mindset · Active Learning · Creative Teams Leadership · Sales · Strategic Insights</div></div>
+  </div>
+</section>
 
-            </div>
-        </div>
-        <!-- Beta Testing & Early Adoption -->
-        <div class="section">
-            <div class="section-title">Beta Testing & Early Technology Adoption</div>
-            <div class="cert-tags">
-                <span class="cert-tag">OpenAI Private Beta (GPT, Codex) - 2020-2021</span>
-                <span class="cert-tag">Apple iOS Public Beta - 2017-2022</span>
-                <span class="cert-tag">Instagram Beta Tester - 2009-2021</span>
-                <span class="cert-tag">Snapchat Beta Tester - 2018-2020</span>
-                <span class="cert-tag">Skype Translator - 2014</span>
-                <span class="cert-tag">Hype Machine - 2012-2015</span>
-            </div>
-        </div>
-        <!-- Certificate Modal -->
-        <div id="certModal" class="cert-modal">
-            <div class="cert-modal-content">
-                <span class="cert-close">&times;</span>
-                <iframe id="certFrame" class="cert-frame"></iframe>
-            </div>
-        </div>
+<section class="section" aria-labelledby="lbl-edu">
+  <div class="section-label" id="lbl-edu" data-i18n="sec_education">Education</div>
+  <div class="edu-grid">
+    <div class="edu-card glass"><div class="edu-degree" data-i18n="edu1_deg">Honours Bachelor of Science with Distinction</div><div class="edu-school" data-i18n="edu1_school">University of Toronto (St. George)</div><div class="edu-details" data-i18n="edu1_details">Major: Cognitive Science (Computational Cognition)<br>Major: Book &amp; Media Studies<br>Minor: Digital Humanities<br>Graduated: 2022</div></div>
+    <div class="edu-card glass"><div class="edu-degree" data-i18n="edu2_deg">EarthQUAICS Program</div><div class="edu-school" data-i18n="edu2_school">Protexxa</div><div class="edu-details" data-i18n="edu2_details">Cybersecurity, Quantum Computing &amp; Artificial Intelligence<br>2025–2026 · Score: 92.86%</div></div>
+  </div>
+</section>
 
-        <!-- Languages & Interests -->
-        <div class="section">
-            <div class="two-column">
-                <div class="info-box">
-                    <div class="section-title">Languages</div>
-                    <div class="info-box-content">
-                        English (Fluent)<br>
-                        French (Fluent)
-                    </div>
-                </div>
-                
-                <div class="info-box">
-                    <div class="section-title">Interests</div>
-                    <div class="info-box-content">
-                        Classical pianist, vocalist, percussionist<br>
-                        Youth STEM mentorship<br>
-                        AI policy research<br>
-                        Entrepreneurship<br>
-                        AI ethics<br>
-                        Emerging science & technologies<br>
-                        Kayaking
-                    </div>
-                </div>
-            </div>
-        </div>
+<section class="section" aria-labelledby="lbl-certs">
+  <div class="section-label" id="lbl-certs" data-i18n="sec_certs">Certifications</div>
+  <div class="tags">
+    <span class="tag" data-cert="certificates/AI & Law.pdf" data-i18n="cert1">AI &amp; Law — Lund University</span>
+    <span class="tag" data-cert="certificates/Generative AI with Large Language Models.pdf" data-i18n="cert2">Generative AI with LLMs — DeepLearning.AI</span>
+    <span class="tag" data-cert="certificates/Customer Experiences with Contact Center AI - Dialogflow CX.pdf" data-i18n="cert3">Dialogflow CX Specialization — Google</span>
+    <span class="tag" data-cert="certificates/Virtual Agent Development in Dialogflow CX for Citizen Devs.pdf" data-i18n="cert4">Dialogflow CX — Citizen Devs</span>
+    <span class="tag" data-cert="certificates/Contact Center AI- Conversational Design Fundamentals.pdf" data-i18n="cert5">Conversational Design Fundamentals</span>
+    <span class="tag" data-cert="certificates/Contact Center AI- Operations and Implementation.pdf" data-i18n="cert6">Contact Center AI Operations</span>
+    <span class="tag" data-cert="certificates/Amazon Connect - Troubleshooting.pdf" data-i18n="cert7">Amazon Connect — Troubleshooting</span>
+    <span class="tag" data-cert="certificates/Instance Fundamentals.pdf" data-i18n="cert8">Amazon Connect — Instance Fundamentals</span>
+    <span class="tag" data-cert="certificates/Getting Started with AI using IBM Watson.pdf" data-i18n="cert9">IBM Watson</span>
+    <span class="tag" data-cert="certificates/Introduction to Artificial Intelligence (AI).pdf" data-i18n="cert10">IBM AI Introduction</span>
+    <span class="tag" data-cert="certificates/Learning and Artificial Intelligence.pdf" data-i18n="cert11">ML &amp; AI Fundamentals</span>
+    <span class="tag" data-cert="certificates/Exploring Artificial Intelligence.pdf" data-i18n="cert12">Exploring AI Use Cases</span>
+    <span class="tag" data-cert="certificates/Learn to Program- The Fundamentals.pdf" data-i18n="cert13">Programming Fundamentals — UofT</span>
+    <span class="tag" data-cert="certificates/MIT Sustainability in Action.pdf" data-i18n="cert14">Bain Sustainability in Action — MIT Sloan</span>
+  </div>
+</section>
 
-        <div class="footer">
-            <p>&copy; 2026 Alexia Monize | Built with <span>passion</span> & <span>code</span></p>
-        </div>
-    </div>
+<section class="section" aria-labelledby="lbl-beta">
+  <div class="section-label" id="lbl-beta" data-i18n="sec_beta">Early Technology Adoption</div>
+  <div class="tags">
+    <span class="tag" data-i18n="beta1">OpenAI Private Beta — GPT &amp; Codex (2020–2021)</span>
+    <span class="tag" data-i18n="beta2">Apple iOS Public Beta (2017–2022)</span>
+    <span class="tag" data-i18n="beta3">Instagram Beta — Pre-Meta Acquisition (2009–2021)</span>
+    <span class="tag" data-i18n="beta4">Snapchat Beta Tester (2018–2020)</span>
+    <span class="tag" data-i18n="beta5">Skype Translator Beta (2014)</span>
+    <span class="tag" data-i18n="beta6">Hype Machine Beta (2012–2015)</span>
+  </div>
+</section>
 
-    <script>
-        // Add intersection observer for staggered animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, index * 100);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all job cards
-        document.querySelectorAll('.job, .education-item, .skill-category').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-        
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-        
-        // Certificate Modal Functionality
-        const modal = document.getElementById('certModal');
-        const certFrame = document.getElementById('certFrame');
-        const closeBtn = document.querySelector('.cert-close');
-        
-        // Add click handlers to all certificate tags with data-cert attribute
-        document.querySelectorAll('.cert-tag[data-cert]').forEach(tag => {
-            tag.addEventListener('click', function() {
-                const certPath = this.getAttribute('data-cert');
-                certFrame.src = certPath;
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            });
-        });
-        
-        // Close modal when clicking X
-        closeBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-            certFrame.src = '';
-            document.body.style.overflow = 'auto';
-        });
-        
-        // Close modal when clicking outside
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                certFrame.src = '';
-                document.body.style.overflow = 'auto';
-            }
-        });
-        
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && modal.style.display === 'block') {
-                modal.style.display = 'none';
-                certFrame.src = '';
-                document.body.style.overflow = 'auto';
-            }
-        });
-    </script>
+<section class="section">
+  <div class="two-col">
+    <div class="info-card glass"><div class="section-label" data-i18n="sec_languages">Languages</div><div class="info-content" data-i18n="lang_content">English — Fluent<br>French — Fluent</div></div>
+    <div class="info-card glass"><div class="section-label" data-i18n="sec_interests">Interests</div><div class="info-content" data-i18n="interests_content">Classical pianist, vocalist &amp; percussionist<br>Youth STEM mentorship<br>AI policy research &amp; ethics<br>Entrepreneurship<br>Emerging science &amp; technologies<br>Kayaking</div></div>
+  </div>
+</section>
+
+<footer class="footer"><p data-i18n="footer">&copy; 2026 <span>Alexia Monize</span> &nbsp;&middot;&nbsp; Built with precision &amp; <span>purpose</span></p></footer>
+</div>
+
+<div id="certModal" class="cert-modal" role="dialog" aria-modal="true">
+  <div class="cert-modal-inner">
+    <span class="cert-close" role="button" tabindex="0" aria-label="Close">&times;</span>
+    <iframe id="certFrame" class="cert-frame" title="Certificate"></iframe>
+  </div>
+</div>
+<script>
+const T = {
+  en: {
+    tagline:"AI Product Leader · Conversational AI Architect · Emerging Technology Strategist",
+    toggleDark:"Dark",toggleLight:"Light",
+    sec_about:"About",sec_experience:"Experience",sec_skills:"Core Competencies",
+    sec_education:"Education",sec_certs:"Certifications",sec_beta:"Early Technology Adoption",
+    sec_languages:"Languages",sec_interests:"Interests",
+    summary:"<strong>AI product leader and conversational systems architect</strong> with a track record of building AI-powered products from the ground up and scaling them to enterprise impact. Led end-to-end ownership of Porter Airlines\u2019 conversational AI platform\u2014from architecture and NLU design through cross-functional deployment and governance\u2014achieving <strong>750% intent expansion</strong> across <strong>2M+ annual customer interactions</strong>. Deep hands-on fluency across the AI stack: Amazon Connect, Dialogflow CX, AWS Lambda, ML pipeline design, and LLM integration. Grounded in Cognitive Science (University of Toronto, HBSc with Distinction, 2022) with active credentialing in cybersecurity, quantum computing, and responsible AI. Available for AI consulting, contract engagements, and senior leadership roles.",
+    j1_title:"AI Product Lead &amp; Strategic Operations Manager",j1_meta:"Toronto, ON \u00b7 February 2024 \u2013 September 2025",
+    j1_sub:"End-to-end ownership of enterprise conversational AI platform serving 2M+ customers \u2014 product strategy, NLU architecture, AI governance, and operational scale",
+    j1_b1:"<strong>Defined and executed product strategy</strong> for conversational AI platform serving 2M+ annual customers, scaling from 6 to 51 intents (750% growth) through roadmap planning, user journey mapping, and data-driven feature prioritization",
+    j1_b2:"<strong>Architected and deployed</strong> end-to-end NLU/IVR systems on Amazon Connect \u2014 from initial design through production launch \u2014 while managing product strategy, cross-functional alignment, and operational scaling simultaneously",
+    j1_b3:"<strong>Led cross-functional delivery</strong> across Engineering, CX, Operations, and Product teams to ship the NLU modernization initiative, standardizing release processes and aligning stakeholders on quarterly OKRs",
+    j1_b4:"<strong>Drove activation and engagement</strong> by analyzing high-volume behavioural data, implementing A/B testing frameworks, and optimizing conversation flows \u2014 increasing self-service completion rates and reducing escalations",
+    j1_b5:"<strong>Built performance analytics infrastructure</strong> with real-time dashboards tracking intent accuracy, routing precision, and CSAT \u2014 enabling data-driven iterations and executive reporting",
+    j1_b6:"<strong>Established AI governance framework</strong> including model evaluation standards, version control protocols, and SLA definitions across 100+ agent operations",
+    j1_b7:"<strong>Authored enterprise AI Operations Playbook</strong> reducing stakeholder onboarding time by 40% and scaling organizational AI literacy",
+    j1_b8:"<strong>Led bilingual product expansion</strong> (English/French), partnering with language experts and conducting market analysis to ensure full feature parity",
+    j2_title:"Director of Artificial Intelligence",j2_meta:"Toronto, ON \u00b7 August 2025 \u2013 Present",
+    j2_sub:"Defining AI product roadmap for adaptive learning, ML-driven personalization, and ethical AI deployment across youth STEM education platform",
+    j2_b1:"<strong>Leading AI product transformation</strong> of STEM learning platform through adaptive curriculum design, real-time analytics integration, and personalized learning pathways",
+    j2_b2:"<strong>Defining AI product roadmap</strong> including feature prioritization, success metrics, and partnership strategy to enhance safety monitoring and operational efficiency",
+    j2_b3:"<strong>Establishing AI ethics and governance standards</strong> for youth-facing products \u2014 privacy compliance, bias mitigation, and responsible AI deployment at scale",
+    j3_title:"Founder &amp; Chief Innovation Officer",j3_meta:"Toronto, ON \u00b7 January 2025 \u2013 Present",
+    j3_sub:"Specialized AI product consultancy \u2014 secured high-profile startup client and led strategic pivot to product-market fit in emerging AI-music analytics space",
+    j3_b1:"<strong>Founded specialized AI consulting practice</strong> and secured AI-music startup client by identifying white space in an emerging market and articulating a differentiated value proposition",
+    j3_b2:"<strong>Led product-market fit pivot</strong> during critical growth phase \u2014 competitive analysis, user research, and market segmentation to reposition product in a defensible niche",
+    j3_b3:"<strong>Drove go-to-market strategy</strong> including positioning, messaging, pricing, and channel partner identification",
+    j3_b4:"<strong>Co-designed core AI algorithm</strong> with engineering team, translating business requirements into technical specifications for behavioural data models linking auditory preferences to team performance KPIs",
+    j4_title:"Chief Technology Officer",j4_meta:"Toronto, ON \u00b7 January 2024 \u2013 May 2024",
+    j4_b1:"<strong>Led platform architecture decisions</strong> for AI-powered fashion technology \u2014 build vs. buy tradeoffs, technology stack selection, and integration of AR, database systems, and design tools",
+    j4_b2:"<strong>Architected business continuity strategy</strong> ensuring platform resilience and data protection during disaster scenarios, defining recovery time objectives and data protocols",
+    j4_b3:"<strong>Translated technical complexity</strong> into executive risk frameworks, technology roadmaps, and investment prioritization recommendations for C-suite decision-making",
+    j5_title:"Associate Consultant",j5_meta:"Toronto, ON \u00b7 August 2022 \u2013 November 2023",
+    j5_sub:"Strategic transformation for Fortune 500 clients across financial services and mining \u2014 delivering 25%+ value creation through organisational design and operational optimisation",
+    j5_b1:"<strong>Supported major Canadian bank\u2019s regulatory transition</strong> (Category 4 to Category 3) through risk analysis, expert network engagement, and stakeholder alignment",
+    j5_b2:"<strong>Designed organisational restructuring</strong> across multiple mining sites, delivering 25%+ value creation through operational efficiency and structural optimisation",
+    j5_b3:"<strong>Led DE&amp;I product development</strong> \u2014 built digital dashboard, designed stakeholder surveys, and streamlined data operations enabling data-driven diversity metrics",
+    j6_title:"AI Training Specialist",j6_meta:"Toronto, ON \u00b7 April 2019 \u2013 October 2019",
+    j6_sub:"Trained and optimised ML-powered caption generation systems for one of the world\u2019s leading AI-driven social platforms",
+    j6_b1:"<strong>Trained and evaluated caption generation models</strong> through large-scale dataset labelling and systematic feedback on AI outputs to improve accuracy and contextual relevance",
+    j6_b2:"<strong>Collaborated with ML engineering teams</strong> to identify edge cases, biases, and performance gaps in automated caption systems",
+    j6_b3:"<strong>Documented failure patterns and recommended training data enhancements</strong> to support iterative model improvements and annotation quality",
+    j7_title:"STEM Program Director",j7_meta:"Toronto, ON \u00b7 April 2019 \u2013 August 2023",
+    j7_b1:"Instructed youth ages 6\u201318 in programming, robotics, and drones while optimising event strategy through data-driven content creation to secure program funding",
+    j7_b2:"Managed budgeting, scheduling, and resource allocation across operations",
+    sk1_label:"AI Product &amp; Strategy",sk1_items:"Conversational AI Design \u00b7 NLU Architecture \u00b7 IVR Modernization \u00b7 Generative AI Integration \u00b7 LLM Product Design \u00b7 AI Adoption &amp; Change Management \u00b7 AI Frameworks &amp; Governance \u00b7 Responsible AI \u00b7 AI Agents \u00b7 AI Security \u00b7 Product Roadmap Development \u00b7 Go-to-Market Strategy \u00b7 OKR Framework Design \u00b7 Feature Prioritization",
+    sk2_label:"Technical Stack",sk2_items:"Amazon Connect \u00b7 AWS Lambda \u00b7 AWS Lex \u00b7 AWS Glue \u00b7 Amazon Q \u00b7 AWS QuickSight \u00b7 Dialogflow CX \u00b7 Google Cloud Platform \u00b7 Python \u00b7 APIs &amp; Integration \u00b7 SQL Fundamentals \u00b7 ML Pipeline Design \u00b7 AI Prompting &amp; Optimization \u00b7 Google Workspace \u00b7 Microsoft Office",
+    sk3_label:"Research &amp; Analysis",sk3_items:"Market Research &amp; Competitor Analysis \u00b7 Market Trend Research \u00b7 Deep Learning Concepts \u00b7 Data Storytelling \u00b7 Behavioural Analytics \u00b7 Audience Analysis \u00b7 Funnel Analysis \u00b7 Retention Strategy \u00b7 User Research &amp; Personas \u00b7 A/B Testing &amp; Experimentation",
+    sk4_label:"Execution &amp; Delivery",sk4_items:"Agile / Scrum \u00b7 Waterfall \u00b7 IT &amp; Agile Change Management \u00b7 Lean Change Management \u00b7 Technical Project Management \u00b7 Data Tracking \u00b7 Documentation &amp; Playbook Creation \u00b7 Quality Assurance \u00b7 Operational Scaling \u00b7 Risk Management \u00b7 Compliance Strategy",
+    sk5_label:"Content &amp; Communication",sk5_items:"Educational Content Development \u00b7 Training Content Development \u00b7 Adapting Content for Diverse Audiences \u00b7 Digital &amp; Oral Storytelling \u00b7 Public Speaking \u00b7 Executive Reporting \u00b7 Stakeholder Communication \u00b7 Cross-Functional Team Alignment \u00b7 Conflict Resolution",
+    sk6_label:"Leadership &amp; Character",sk6_items:"Emotional Intelligence \u00b7 Interpersonal Relationships \u00b7 Motivating &amp; Supervising Teams \u00b7 Analytical Thinking \u00b7 High Attention to Detail \u00b7 Growth Mindset \u00b7 Active Learning \u00b7 Creative Teams Leadership \u00b7 Sales \u00b7 Strategic Insights",
+    edu1_deg:"Honours Bachelor of Science with Distinction",edu1_school:"University of Toronto (St. George)",
+    edu1_details:"Major: Cognitive Science (Computational Cognition)<br>Major: Book &amp; Media Studies<br>Minor: Digital Humanities<br>Graduated: 2022",
+    edu2_deg:"EarthQUAICS Program",edu2_school:"Protexxa",
+    edu2_details:"Cybersecurity, Quantum Computing &amp; Artificial Intelligence<br>2025\u20132026 \u00b7 Score: 92.86%",
+    cert1:"AI &amp; Law \u2014 Lund University",cert2:"Generative AI with LLMs \u2014 DeepLearning.AI",
+    cert3:"Dialogflow CX Specialization \u2014 Google",cert4:"Dialogflow CX \u2014 Citizen Devs",
+    cert5:"Conversational Design Fundamentals",cert6:"Contact Center AI Operations",
+    cert7:"Amazon Connect \u2014 Troubleshooting",cert8:"Amazon Connect \u2014 Instance Fundamentals",
+    cert9:"IBM Watson",cert10:"IBM AI Introduction",cert11:"ML &amp; AI Fundamentals",
+    cert12:"Exploring AI Use Cases",cert13:"Programming Fundamentals \u2014 UofT",
+    cert14:"Bain Sustainability in Action \u2014 MIT Sloan",
+    beta1:"OpenAI Private Beta \u2014 GPT &amp; Codex (2020\u20132021)",beta2:"Apple iOS Public Beta (2017\u20132022)",
+    beta3:"Instagram Beta \u2014 Pre-Meta Acquisition (2009\u20132021)",beta4:"Snapchat Beta Tester (2018\u20132020)",
+    beta5:"Skype Translator Beta (2014)",beta6:"Hype Machine Beta (2012\u20132015)",
+    lang_content:"English \u2014 Fluent<br>French \u2014 Fluent",
+    interests_content:"Classical pianist, vocalist &amp; percussionist<br>Youth STEM mentorship<br>AI policy research &amp; ethics<br>Entrepreneurship<br>Emerging science &amp; technologies<br>Kayaking",
+    footer:"&copy; 2026 <span>Alexia Monize</span> &nbsp;&middot;&nbsp; Built with precision &amp; <span>purpose</span>"
+  },
+  fr: {
+    tagline:"Leader en Produits IA \u00b7 Architecte IA Conversationnelle \u00b7 Strat\u00e8ge en Technologies \u00c9mergentes",
+    toggleDark:"Sombre",toggleLight:"Clair",
+    sec_about:"À Propos",sec_experience:"Exp\u00e9rience",sec_skills:"Comp\u00e9tences Cl\u00e9s",
+    sec_education:"Formation",sec_certs:"Certifications",sec_beta:"Adoption Technologique Pr\u00e9coce",
+    sec_languages:"Langues",sec_interests:"Int\u00e9r\u00eats",
+    summary:"<strong>Leader en produits IA et architecte de syst\u00e8mes conversationnels</strong> avec un historique prouv\u00e9 de cr\u00e9ation de produits propuls\u00e9s par l'IA et de d\u00e9ploiement \u00e0 l'\u00e9chelle entreprise. Gestion de bout en bout de la plateforme d'IA conversationnelle de Porter Airlines\u2014de l'architecture et la conception NLU jusqu'au d\u00e9ploiement et \u00e0 la gouvernance\u2014atteignant une <strong>expansion de 750% des intentions</strong> sur <strong>plus de 2 millions d'interactions clients annuelles</strong>. Ma\u00eetrise approfondie de la pile IA\u00a0: Amazon Connect, Dialogflow CX, AWS Lambda, conception de pipelines ML et int\u00e9gration LLM. Form\u00e9e en Sciences Cognitives (Universit\u00e9 de Toronto, HBSc avec distinction, 2022) avec des accr\u00e9ditations actives en cybers\u00e9curit\u00e9, informatique quantique et IA responsable. Disponible pour du conseil en IA, des mandats contractuels et des postes de direction senior.",
+    j1_title:"Responsable Produit IA &amp; Directrice des Op\u00e9rations Strat\u00e9giques",j1_meta:"Toronto, ON \u00b7 F\u00e9vrier 2024 \u2013 Septembre 2025",
+    j1_sub:"Responsabilit\u00e9 de bout en bout d'une plateforme d'IA conversationnelle d'entreprise desservant 2M+ clients",
+    j1_b1:"<strong>D\u00e9finition et ex\u00e9cution de la strat\u00e9gie produit</strong> pour une plateforme d'IA conversationnelle desservant 2M+ clients annuels, passant de 6 \u00e0 51 intentions (croissance de 750%)",
+    j1_b2:"<strong>Architecture et d\u00e9ploiement</strong> de syst\u00e8mes NLU/IVR de bout en bout sur Amazon Connect",
+    j1_b3:"<strong>Direction de la livraison transversale</strong> avec les \u00e9quipes Ing\u00e9nierie, CX, Op\u00e9rations et Produit",
+    j1_b4:"<strong>Stimulation de l'activation et de l'engagement</strong> via l'analyse de donn\u00e9es comportementales et des tests A/B",
+    j1_b5:"<strong>Construction d'une infrastructure d'analytique de performance</strong> avec des tableaux de bord en temps r\u00e9el",
+    j1_b6:"<strong>\u00c9tablissement d'un cadre de gouvernance IA</strong> incluant les standards d'\u00e9valuation des mod\u00e8les",
+    j1_b7:"<strong>R\u00e9daction du Playbook Op\u00e9rationnel IA d'entreprise</strong> r\u00e9duisant le temps d'int\u00e9gration de 40%",
+    j1_b8:"<strong>Direction de l'expansion bilingue du produit</strong> (anglais/fran\u00e7ais)",
+    j2_title:"Directrice de l'Intelligence Artificielle",j2_meta:"Toronto, ON \u00b7 Ao\u00fbt 2025 \u2013 Pr\u00e9sent",
+    j2_sub:"D\u00e9finition de la feuille de route produit IA pour l'apprentissage adaptatif et le d\u00e9ploiement \u00e9thique de l'IA",
+    j2_b1:"<strong>Direction de la transformation produit IA</strong> de la plateforme d'apprentissage STEM",
+    j2_b2:"<strong>D\u00e9finition de la feuille de route produit IA</strong> incluant la priorisation des fonctionnalit\u00e9s et la strat\u00e9gie de partenariat",
+    j2_b3:"<strong>\u00c9tablissement des normes d'\u00e9thique IA</strong> pour les produits destin\u00e9s aux jeunes",
+    j3_title:"Fondatrice &amp; Directrice de l'Innovation",j3_meta:"Toronto, ON \u00b7 Janvier 2025 \u2013 Pr\u00e9sent",
+    j3_sub:"Cabinet de conseil sp\u00e9cialis\u00e9 en produits IA \u2014 client startup de premier plan s\u00e9curis\u00e9",
+    j3_b1:"<strong>Fondation d'un cabinet de conseil IA sp\u00e9cialis\u00e9</strong> et s\u00e9curisation d'un client startup en IA-musique",
+    j3_b2:"<strong>Direction du pivot d'ad\u00e9quation produit-march\u00e9</strong> \u2014 analyse concurrentielle et recherche utilisateurs",
+    j3_b3:"<strong>\u00c9laboration de la strat\u00e9gie de mise sur le march\u00e9</strong> incluant positionnement et tarification",
+    j3_b4:"<strong>Co-conception de l'algorithme IA central</strong> avec l'\u00e9quipe d'ing\u00e9nierie",
+    j4_title:"Directrice Technique",j4_meta:"Toronto, ON \u00b7 Janvier 2024 \u2013 Mai 2024",
+    j4_b1:"<strong>Direction des d\u00e9cisions d'architecture de plateforme</strong> pour une technologie de mode propuls\u00e9e par l'IA",
+    j4_b2:"<strong>Architecture d'une strat\u00e9gie de continuit\u00e9 d'activit\u00e9</strong> assurant la r\u00e9silience et la protection des donn\u00e9es",
+    j4_b3:"<strong>Traduction de la complexit\u00e9 technique</strong> en cadres de risque ex\u00e9cutifs",
+    j5_title:"Consultante Associ\u00e9e",j5_meta:"Toronto, ON \u00b7 Ao\u00fbt 2022 \u2013 Novembre 2023",
+    j5_sub:"Transformation strat\u00e9gique pour des clients Fortune 500 \u2014 25%+ de cr\u00e9ation de valeur",
+    j5_b1:"<strong>Soutien \u00e0 la transition r\u00e9glementaire d'une grande banque canadienne</strong> (Cat\u00e9gorie 4 \u00e0 Cat\u00e9gorie 3)",
+    j5_b2:"<strong>Conception d'une restructuration organisationnelle</strong> sur plusieurs sites miniers \u2014 25%+ de cr\u00e9ation de valeur",
+    j5_b3:"<strong>Direction du d\u00e9veloppement produit DE&amp;I</strong> \u2014 tableau de bord num\u00e9rique et sondages",
+    j6_title:"Sp\u00e9cialiste en Formation IA",j6_meta:"Toronto, ON \u00b7 Avril 2019 \u2013 Octobre 2019",
+    j6_sub:"Formation et optimisation de syst\u00e8mes de g\u00e9n\u00e9ration de l\u00e9gendes propuls\u00e9s par ML",
+    j6_b1:"<strong>Formation et \u00e9valuation de mod\u00e8les de g\u00e9n\u00e9ration de l\u00e9gendes</strong> par \u00e9tiquetage de jeux de donn\u00e9es",
+    j6_b2:"<strong>Collaboration avec les \u00e9quipes d'ing\u00e9nierie ML</strong> pour identifier les cas limites",
+    j6_b3:"<strong>Documentation des patterns d'\u00e9chec et recommandations d'am\u00e9liorations</strong>",
+    j7_title:"Directrice du Programme STEM",j7_meta:"Toronto, ON \u00b7 Avril 2019 \u2013 Ao\u00fbt 2023",
+    j7_b1:"Enseignement de la programmation, de la robotique et des drones \u00e0 des jeunes de 6 \u00e0 18 ans",
+    j7_b2:"Gestion du budget, de la planification et de l'allocation des ressources",
+    sk1_label:"Produit IA &amp; Strat\u00e9gie",sk1_items:"Conception d'IA Conversationnelle \u00b7 Architecture NLU \u00b7 Modernisation IVR \u00b7 Int\u00e9gration IA G\u00e9n\u00e9rative \u00b7 Conception de Produits LLM \u00b7 Adoption de l'IA \u00b7 Gouvernance IA \u00b7 IA Responsable \u00b7 Agents IA \u00b7 S\u00e9curit\u00e9 IA \u00b7 Feuille de Route \u00b7 Go-to-Market \u00b7 OKR",
+    sk2_label:"Stack Technique",sk2_items:"Amazon Connect \u00b7 AWS Lambda \u00b7 AWS Lex \u00b7 AWS Glue \u00b7 Amazon Q \u00b7 AWS QuickSight \u00b7 Dialogflow CX \u00b7 Google Cloud Platform \u00b7 Python \u00b7 APIs &amp; Int\u00e9gration \u00b7 SQL \u00b7 Pipelines ML \u00b7 Optimisation des Prompts IA",
+    sk3_label:"Recherche &amp; Analyse",sk3_items:"\u00c9tude de March\u00e9 &amp; Analyse Concurrentielle \u00b7 Tendances de March\u00e9 \u00b7 Deep Learning \u00b7 Storytelling de Donn\u00e9es \u00b7 Analytique Comportementale \u00b7 Tests A/B",
+    sk4_label:"Ex\u00e9cution &amp; Livraison",sk4_items:"Agile / Scrum \u00b7 Cascade \u00b7 Gestion du Changement \u00b7 Gestion de Projet Technique \u00b7 Documentation \u00b7 Assurance Qualit\u00e9 \u00b7 Gestion des Risques",
+    sk5_label:"Contenu &amp; Communication",sk5_items:"D\u00e9veloppement de Contenu \u00c9ducatif \u00b7 Formation \u00b7 Adaptation de Contenu \u00b7 Storytelling \u00b7 Prise de Parole \u00b7 Rapports Ex\u00e9cutifs \u00b7 Communication avec les Parties Prenantes",
+    sk6_label:"Leadership &amp; Caract\u00e8re",sk6_items:"Intelligence \u00c9motionnelle \u00b7 Relations Interpersonnelles \u00b7 Motivation d'\u00c9quipes \u00b7 Pens\u00e9e Analytique \u00b7 Souci du D\u00e9tail \u00b7 Mentalit\u00e9 de Croissance \u00b7 Apprentissage Actif \u00b7 Leadership Cr\u00e9atif",
+    edu1_deg:"Baccalaur\u00e9at \u00e8s sciences avec distinction",edu1_school:"Universit\u00e9 de Toronto (St. George)",
+    edu1_details:"Majeure\u00a0: Sciences Cognitives (Cognition Computationnelle)<br>Majeure\u00a0: \u00c9tudes du Livre et des M\u00e9dias<br>Mineure\u00a0: Humanit\u00e9s Num\u00e9riques<br>Obtenu\u00a0: 2022",
+    edu2_deg:"Programme EarthQUAICS",edu2_school:"Protexxa",
+    edu2_details:"Cybers\u00e9curit\u00e9, Informatique Quantique &amp; Intelligence Artificielle<br>2025\u20132026 \u00b7 Note\u00a0: 92.86%",
+    cert1:"IA &amp; Droit \u2014 Universit\u00e9 de Lund",cert2:"IA G\u00e9n\u00e9rative avec LLM \u2014 DeepLearning.AI",
+    cert3:"Sp\u00e9cialisation Dialogflow CX \u2014 Google",cert4:"Dialogflow CX \u2014 D\u00e9veloppeurs Citoyens",
+    cert5:"Fondamentaux de la Conception Conversationnelle",cert6:"Op\u00e9rations IA Contact Center",
+    cert7:"Amazon Connect \u2014 D\u00e9pannage",cert8:"Amazon Connect \u2014 Fondamentaux",
+    cert9:"IBM Watson",cert10:"Introduction \u00e0 l'IA IBM",cert11:"Fondamentaux ML &amp; IA",
+    cert12:"Cas d'Usage IA",cert13:"Fondamentaux de Programmation \u2014 UofT",
+    cert14:"Durabilit\u00e9 Bain \u2014 MIT Sloan",
+    beta1:"B\u00eata Priv\u00e9e OpenAI \u2014 GPT &amp; Codex (2020\u20132021)",beta2:"B\u00eata iOS Publique Apple (2017\u20132022)",
+    beta3:"B\u00eata Instagram \u2014 Pr\u00e9-Acquisition Meta (2009\u20132021)",beta4:"Testeur B\u00eata Snapchat (2018\u20132020)",
+    beta5:"B\u00eata Skype Translator (2014)",beta6:"B\u00eata Hype Machine (2012\u20132015)",
+    lang_content:"Anglais \u2014 Courant<br>Fran\u00e7ais \u2014 Courant",
+    interests_content:"Pianiste classique, chanteuse &amp; percussionniste<br>Mentorat jeunesse STEM<br>Recherche en politique IA &amp; \u00e9thique<br>Entrepreneuriat<br>Sciences &amp; technologies \u00e9mergentes<br>Kayak",
+    footer:"&copy; 2026 <span>Alexia Monize</span> &nbsp;&middot;&nbsp; Construit avec pr\u00e9cision &amp; <span>intention</span>"
+  },  es: {
+    tagline:"L\u00edder de Producto IA \u00b7 Arquitecta de IA Conversacional \u00b7 Estrat\u00e9ga en Tecnolog\u00edas Emergentes",
+    toggleDark:"Oscuro",toggleLight:"Claro",
+    sec_about:"Sobre M\u00ed",sec_experience:"Experiencia",sec_skills:"Competencias Clave",
+    sec_education:"Formaci\u00f3n",sec_certs:"Certificaciones",sec_beta:"Adopci\u00f3n Temprana de Tecnolog\u00eda",
+    sec_languages:"Idiomas",sec_interests:"Intereses",
+    summary:"<strong>L\u00edder de producto IA y arquitecta de sistemas conversacionales</strong> con un historial probado en la construcci\u00f3n de productos impulsados por IA y su escalamiento a nivel empresarial. Dirigi\u00f3 la propiedad integral de la plataforma de IA conversacional de Porter Airlines logrando una <strong>expansi\u00f3n del 750% en intenciones</strong> en m\u00e1s de <strong>2 millones de interacciones anuales con clientes</strong>. Dominio t\u00e9cnico de la pila IA: Amazon Connect, Dialogflow CX, AWS Lambda, ML e integraci\u00f3n LLM. Formada en Ciencias Cognitivas (Universidad de Toronto, 2022) con acreditaciones en ciberseguridad, computaci\u00f3n cu\u00e1ntica e IA responsable.",
+    j1_title:"L\u00edder de Producto IA &amp; Gerente de Operaciones Estrat\u00e9gicas",j1_meta:"Toronto, ON \u00b7 Febrero 2024 \u2013 Septiembre 2025",
+    j1_sub:"Propiedad integral de plataforma de IA conversacional empresarial para 2M+ clientes",
+    j1_b1:"<strong>Defini\u00f3 y ejecut\u00f3 la estrategia de producto</strong> escalando de 6 a 51 intenciones (750%)",
+    j1_b2:"<strong>Dise\u00f1\u00f3 y despleg\u00f3</strong> sistemas NLU/IVR de extremo a extremo en Amazon Connect",
+    j1_b3:"<strong>Lider\u00f3 la entrega interfuncional</strong> con equipos de Ingenier\u00eda, CX, Operaciones y Producto",
+    j1_b4:"<strong>Impuls\u00f3 la activaci\u00f3n y el compromiso</strong> analizando datos conductuales y optimizando flujos",
+    j1_b5:"<strong>Construy\u00f3 infraestructura de an\u00e1lisis de rendimiento</strong> con paneles en tiempo real",
+    j1_b6:"<strong>Estableci\u00f3 el marco de gobernanza de IA</strong> con est\u00e1ndares de evaluaci\u00f3n de modelos",
+    j1_b7:"<strong>Redact\u00f3 el Playbook Operacional de IA</strong> reduciendo el tiempo de incorporaci\u00f3n en 40%",
+    j1_b8:"<strong>Lider\u00f3 la expansi\u00f3n biling\u00fce del producto</strong> (ingl\u00e9s/franc\u00e9s)",
+    j2_title:"Directora de Inteligencia Artificial",j2_meta:"Toronto, ON \u00b7 Agosto 2025 \u2013 Presente",
+    j2_sub:"Definici\u00f3n de hoja de ruta de producto IA para aprendizaje adaptativo en plataforma educativa STEM juvenil",
+    j2_b1:"<strong>Liderando la transformaci\u00f3n de producto IA</strong> de la plataforma de aprendizaje STEM",
+    j2_b2:"<strong>Definiendo la hoja de ruta de producto IA</strong> con m\u00e9tricas de \u00e9xito y estrategia de asociaciones",
+    j2_b3:"<strong>Estableciendo est\u00e1ndares de \u00e9tica y gobernanza IA</strong> para productos dirigidos a j\u00f3venes",
+    j3_title:"Fundadora &amp; Directora de Innovaci\u00f3n",j3_meta:"Toronto, ON \u00b7 Enero 2025 \u2013 Presente",
+    j3_sub:"Consultor\u00eda especializada en productos IA \u2014 cliente startup de alto perfil asegurado",
+    j3_b1:"<strong>Fund\u00f3 pr\u00e1ctica de consultor\u00eda IA especializada</strong> y asegur\u00f3 cliente startup IA-m\u00fasica",
+    j3_b2:"<strong>Lider\u00f3 el pivote de adecuaci\u00f3n producto-mercado</strong> con an\u00e1lisis competitivo",
+    j3_b3:"<strong>Impuls\u00f3 la estrategia go-to-market</strong> incluyendo posicionamiento y precios",
+    j3_b4:"<strong>Co-dise\u00f1\u00f3 el algoritmo IA central</strong> con el equipo de ingenier\u00eda",
+    j4_title:"Directora de Tecnolog\u00eda",j4_meta:"Toronto, ON \u00b7 Enero 2024 \u2013 Mayo 2024",
+    j4_b1:"<strong>Lider\u00f3 decisiones de arquitectura de plataforma</strong> para tecnolog\u00eda de moda impulsada por IA",
+    j4_b2:"<strong>Dise\u00f1\u00f3 estrategia de continuidad de negocio</strong> asegurando resiliencia y protecci\u00f3n de datos",
+    j4_b3:"<strong>Tradujo complejidad t\u00e9cnica</strong> en marcos de riesgo ejecutivos",
+    j5_title:"Consultora Asociada",j5_meta:"Toronto, ON \u00b7 Agosto 2022 \u2013 Noviembre 2023",
+    j5_sub:"Transformaci\u00f3n estrat\u00e9gica para clientes Fortune 500 \u2014 25%+ de creaci\u00f3n de valor",
+    j5_b1:"<strong>Apoy\u00f3 la transici\u00f3n regulatoria de banco canadiense importante</strong> (Categor\u00eda 4 a Categor\u00eda 3)",
+    j5_b2:"<strong>Dise\u00f1\u00f3 reestructuraci\u00f3n organizacional</strong> en m\u00faltiples sitios mineros \u2014 25%+ de creaci\u00f3n de valor",
+    j5_b3:"<strong>Lider\u00f3 desarrollo de producto DE&amp;I</strong> \u2014 panel digital y encuestas",
+    j6_title:"Especialista en Entrenamiento IA",j6_meta:"Toronto, ON \u00b7 Abril 2019 \u2013 Octubre 2019",
+    j6_sub:"Entrenamiento y optimizaci\u00f3n de sistemas de generaci\u00f3n de leyendas impulsados por ML",
+    j6_b1:"<strong>Entren\u00f3 y evalu\u00f3 modelos de generaci\u00f3n de leyendas</strong> mediante etiquetado a gran escala",
+    j6_b2:"<strong>Colabor\u00f3 con equipos de ingenier\u00eda ML</strong> para identificar casos l\u00edmite",
+    j6_b3:"<strong>Document\u00f3 patrones de fallo y recomend\u00f3 mejoras</strong> en los datos de entrenamiento",
+    j7_title:"Directora del Programa STEM",j7_meta:"Toronto, ON \u00b7 Abril 2019 \u2013 Agosto 2023",
+    j7_b1:"Instruy\u00f3 a j\u00f3venes de 6 a 18 a\u00f1os en programaci\u00f3n, rob\u00f3tica y drones",
+    j7_b2:"Gestion\u00f3 presupuesto, programaci\u00f3n y asignaci\u00f3n de recursos",
+    sk1_label:"Producto IA &amp; Estrategia",sk1_items:"Dise\u00f1o de IA Conversacional \u00b7 Arquitectura NLU \u00b7 Modernizaci\u00f3n IVR \u00b7 Integraci\u00f3n IA Generativa \u00b7 IA Responsable \u00b7 Agentes IA \u00b7 Seguridad IA \u00b7 Go-to-Market \u00b7 OKR",
+    sk2_label:"Stack T\u00e9cnico",sk2_items:"Amazon Connect \u00b7 AWS Lambda \u00b7 AWS Lex \u00b7 Dialogflow CX \u00b7 Google Cloud Platform \u00b7 Python \u00b7 SQL \u00b7 ML Pipelines",
+    sk3_label:"Investigaci\u00f3n &amp; An\u00e1lisis",sk3_items:"Investigaci\u00f3n de Mercado \u00b7 An\u00e1lisis Competitivo \u00b7 Deep Learning \u00b7 Storytelling de Datos \u00b7 Tests A/B",
+    sk4_label:"Ejecuci\u00f3n &amp; Entrega",sk4_items:"Agile / Scrum \u00b7 Gesti\u00f3n del Cambio \u00b7 Gesti\u00f3n de Proyectos \u00b7 Documentaci\u00f3n \u00b7 Gesti\u00f3n de Riesgos",
+    sk5_label:"Contenido &amp; Comunicaci\u00f3n",sk5_items:"Desarrollo de Contenido Educativo \u00b7 Formaci\u00f3n \u00b7 Storytelling \u00b7 Hablar en P\u00fablico \u00b7 Comunicaci\u00f3n con Partes Interesadas",
+    sk6_label:"Liderazgo &amp; Car\u00e1cter",sk6_items:"Inteligencia Emocional \u00b7 Motivaci\u00f3n de Equipos \u00b7 Pensamiento Anal\u00edtico \u00b7 Mentalidad de Crecimiento \u00b7 Liderazgo Creativo",
+    edu1_deg:"Licenciatura en Ciencias con Distinci\u00f3n",edu1_school:"Universidad de Toronto (St. George)",
+    edu1_details:"Especializaci\u00f3n: Ciencias Cognitivas (Cognici\u00f3n Computacional)<br>Especializaci\u00f3n: Estudios del Libro y los Medios<br>Menor: Humanidades Digitales<br>Graduada: 2022",
+    edu2_deg:"Programa EarthQUAICS",edu2_school:"Protexxa",
+    edu2_details:"Ciberseguridad, Computaci\u00f3n Cu\u00e1ntica &amp; Inteligencia Artificial<br>2025\u20132026 \u00b7 Calificaci\u00f3n: 92.86%",
+    cert1:"IA &amp; Derecho \u2014 Universidad de Lund",cert2:"IA Generativa con LLMs \u2014 DeepLearning.AI",
+    cert3:"Especializaci\u00f3n Dialogflow CX \u2014 Google",cert4:"Dialogflow CX \u2014 Devs Ciudadanos",
+    cert5:"Fundamentos de Dise\u00f1o Conversacional",cert6:"Operaciones IA Contact Center",
+    cert7:"Amazon Connect \u2014 Soluci\u00f3n de Problemas",cert8:"Amazon Connect \u2014 Fundamentos",
+    cert9:"IBM Watson",cert10:"Introducci\u00f3n IA IBM",cert11:"Fundamentos ML &amp; IA",
+    cert12:"Casos de Uso IA",cert13:"Fundamentos de Programaci\u00f3n \u2014 UofT",cert14:"Sostenibilidad Bain \u2014 MIT Sloan",
+    beta1:"Beta Privada OpenAI \u2014 GPT &amp; Codex (2020\u20132021)",beta2:"Beta iOS P\u00fablica Apple (2017\u20132022)",
+    beta3:"Beta Instagram \u2014 Pre-Adquisici\u00f3n Meta (2009\u20132021)",beta4:"Tester Beta Snapchat (2018\u20132020)",
+    beta5:"Beta Skype Translator (2014)",beta6:"Beta Hype Machine (2012\u20132015)",
+    lang_content:"Ingl\u00e9s \u2014 Fluido<br>Franc\u00e9s \u2014 Fluido",
+    interests_content:"Pianista cl\u00e1sica, vocalista &amp; percusionista<br>Mentor\u00eda juvenil STEM<br>Investigaci\u00f3n en pol\u00edtica IA &amp; \u00e9tica<br>Emprendimiento<br>Ciencias &amp; tecnolog\u00edas emergentes<br>Kayak",
+    footer:"&copy; 2026 <span>Alexia Monize</span> &nbsp;&middot;&nbsp; Construido con precisi\u00f3n &amp; <span>prop\u00f3sito</span>"
+  },
+  it: {
+    tagline:"Leader di Prodotto IA \u00b7 Architetta di IA Conversazionale \u00b7 Stratega in Tecnologie Emergenti",
+    toggleDark:"Scuro",toggleLight:"Chiaro",
+    sec_about:"Chi Sono",sec_experience:"Esperienza",sec_skills:"Competenze Chiave",
+    sec_education:"Formazione",sec_certs:"Certificazioni",sec_beta:"Adozione Precoce della Tecnologia",
+    sec_languages:"Lingue",sec_interests:"Interessi",
+    summary:"<strong>Leader di prodotto IA e architetta di sistemi conversazionali</strong> con un track record comprovato. Ha gestito end-to-end la piattaforma di IA conversazionale di Porter Airlines raggiungendo un'<strong>espansione del 750% negli intent</strong> su <strong>2M+ interazioni clienti annuali</strong>. Competenza approfondita in: Amazon Connect, Dialogflow CX, AWS Lambda, ML e integrazione LLM. Formata in Scienze Cognitive (Universit\u00e0 di Toronto, 2022) con credenziali attive in cybersecurity e quantum computing.",
+    j1_title:"Responsabile Prodotto IA &amp; Direttrice Operazioni Strategiche",j1_meta:"Toronto, ON \u00b7 Febbraio 2024 \u2013 Settembre 2025",
+    j1_sub:"Gestione end-to-end della piattaforma di IA conversazionale enterprise per 2M+ clienti",
+    j1_b1:"<strong>Definizione ed esecuzione della strategia di prodotto</strong> scalando da 6 a 51 intent (750%)",
+    j1_b2:"<strong>Progettazione e deployment</strong> di sistemi NLU/IVR end-to-end su Amazon Connect",
+    j1_b3:"<strong>Leadership della delivery interfunzionale</strong> con i team di Ingegneria, CX, Operazioni e Prodotto",
+    j1_b4:"<strong>Ottimizzazione dell'attivazione e del coinvolgimento</strong> tramite analisi comportamentale e test A/B",
+    j1_b5:"<strong>Costruzione di infrastruttura analytics</strong> con dashboard in tempo reale",
+    j1_b6:"<strong>Definizione del framework di governance IA</strong> con standard di valutazione dei modelli",
+    j1_b7:"<strong>Redazione del Playbook Operativo IA enterprise</strong> che riduce i tempi di onboarding del 40%",
+    j1_b8:"<strong>Leadership dell'espansione bilingue del prodotto</strong> (inglese/francese)",
+    j2_title:"Direttrice dell'Intelligenza Artificiale",j2_meta:"Toronto, ON \u00b7 Agosto 2025 \u2013 Presente",
+    j2_sub:"Definizione della roadmap di prodotto IA per apprendimento adattivo su piattaforma STEM giovanile",
+    j2_b1:"<strong>Guida della trasformazione di prodotto IA</strong> della piattaforma di apprendimento STEM",
+    j2_b2:"<strong>Definizione della roadmap di prodotto IA</strong> con metriche di successo e strategia di partnership",
+    j2_b3:"<strong>Definizione di standard di etica e governance IA</strong> per prodotti rivolti ai giovani",
+    j3_title:"Fondatrice &amp; Chief Innovation Officer",j3_meta:"Toronto, ON \u00b7 Gennaio 2025 \u2013 Presente",
+    j3_sub:"Consulenza specializzata in prodotti IA \u2014 cliente startup di alto profilo acquisito",
+    j3_b1:"<strong>Fondazione di una pratica di consulenza IA specializzata</strong> con cliente startup IA-musica",
+    j3_b2:"<strong>Leadership del pivot product-market fit</strong> con analisi competitiva e ricerca utenti",
+    j3_b3:"<strong>Sviluppo della strategia go-to-market</strong> con posizionamento e pricing",
+    j3_b4:"<strong>Co-progettazione dell'algoritmo IA core</strong> con il team di ingegneria",
+    j4_title:"Chief Technology Officer",j4_meta:"Toronto, ON \u00b7 Gennaio 2024 \u2013 Maggio 2024",
+    j4_b1:"<strong>Leadership delle decisioni architetturali</strong> per tecnologia fashion basata su IA",
+    j4_b2:"<strong>Progettazione della strategia di business continuity</strong> per resilienza e protezione dei dati",
+    j4_b3:"<strong>Traduzione della complessit\u00e0 tecnica</strong> in framework di rischio esecutivi",
+    j5_title:"Consulente Associata",j5_meta:"Toronto, ON \u00b7 Agosto 2022 \u2013 Novembre 2023",
+    j5_sub:"Trasformazione strategica per clienti Fortune 500 \u2014 25%+ di creazione di valore",
+    j5_b1:"<strong>Supporto alla transizione regolamentare di una grande banca canadese</strong> (Categoria 4 a Categoria 3)",
+    j5_b2:"<strong>Progettazione di ristrutturazione organizzativa</strong> su pi\u00f9 siti minerari \u2014 25%+ di creazione di valore",
+    j5_b3:"<strong>Leadership dello sviluppo prodotto DE&amp;I</strong> \u2014 dashboard digitale e sondaggi",
+    j6_title:"Specialista in Training IA",j6_meta:"Toronto, ON \u00b7 Aprile 2019 \u2013 Ottobre 2019",
+    j6_sub:"Training e ottimizzazione di sistemi di generazione di didascalie basati su ML",
+    j6_b1:"<strong>Training e valutazione di modelli di generazione di didascalie</strong> tramite etichettatura di dataset",
+    j6_b2:"<strong>Collaborazione con team di ingegneria ML</strong> per identificare edge case",
+    j6_b3:"<strong>Documentazione dei pattern di errore e raccomandazioni</strong> per miglioramenti ai dati di training",
+    j7_title:"Direttrice del Programma STEM",j7_meta:"Toronto, ON \u00b7 Aprile 2019 \u2013 Agosto 2023",
+    j7_b1:"Istruzione di giovani dai 6 ai 18 anni in programmazione, robotica e droni",
+    j7_b2:"Gestione di budget, pianificazione e allocazione delle risorse",
+    sk1_label:"Prodotto IA &amp; Strategia",sk1_items:"Progettazione IA Conversazionale \u00b7 Architettura NLU \u00b7 Modernizzazione IVR \u00b7 Integrazione IA Generativa \u00b7 IA Responsabile \u00b7 Agenti IA \u00b7 Sicurezza IA \u00b7 Go-to-Market \u00b7 OKR",
+    sk2_label:"Stack Tecnico",sk2_items:"Amazon Connect \u00b7 AWS Lambda \u00b7 Dialogflow CX \u00b7 Google Cloud Platform \u00b7 Python \u00b7 SQL \u00b7 Pipeline ML",
+    sk3_label:"Ricerca &amp; Analisi",sk3_items:"Ricerca di Mercato \u00b7 Analisi Competitiva \u00b7 Deep Learning \u00b7 Data Storytelling \u00b7 Test A/B",
+    sk4_label:"Esecuzione &amp; Consegna",sk4_items:"Agile / Scrum \u00b7 Change Management \u00b7 Project Management \u00b7 Documentazione \u00b7 Risk Management",
+    sk5_label:"Contenuto &amp; Comunicazione",sk5_items:"Sviluppo di Contenuti Educativi \u00b7 Formazione \u00b7 Storytelling \u00b7 Public Speaking \u00b7 Reporting Esecutivo",
+    sk6_label:"Leadership &amp; Carattere",sk6_items:"Intelligenza Emotiva \u00b7 Motivazione dei Team \u00b7 Pensiero Analitico \u00b7 Mentalit\u00e0 di Crescita \u00b7 Leadership Creativa",
+    edu1_deg:"Laurea Triennale in Scienze con Distinzione",edu1_school:"Universit\u00e0 di Toronto (St. George)",
+    edu1_details:"Specializzazione: Scienze Cognitive<br>Specializzazione: Studi del Libro e dei Media<br>Minor: Umanit\u00e0 Digitali<br>Laureata: 2022",
+    edu2_deg:"Programma EarthQUAICS",edu2_school:"Protexxa",
+    edu2_details:"Cybersecurity, Quantum Computing &amp; Intelligenza Artificiale<br>2025\u20132026 \u00b7 Voto: 92.86%",
+    cert1:"IA &amp; Diritto \u2014 Universit\u00e0 di Lund",cert2:"IA Generativa con LLM \u2014 DeepLearning.AI",
+    cert3:"Specializzazione Dialogflow CX \u2014 Google",cert4:"Dialogflow CX \u2014 Citizen Dev",
+    cert5:"Fondamentali di Progettazione Conversazionale",cert6:"Operazioni IA Contact Center",
+    cert7:"Amazon Connect \u2014 Troubleshooting",cert8:"Amazon Connect \u2014 Fondamentali",
+    cert9:"IBM Watson",cert10:"Introduzione IA IBM",cert11:"Fondamentali ML &amp; IA",
+    cert12:"Casi d'Uso IA",cert13:"Fondamentali di Programmazione \u2014 UofT",cert14:"Sostenibilit\u00e0 Bain \u2014 MIT Sloan",
+    beta1:"Beta Privata OpenAI \u2014 GPT &amp; Codex (2020\u20132021)",beta2:"Beta iOS Pubblica Apple (2017\u20132022)",
+    beta3:"Beta Instagram \u2014 Pre-Acquisizione Meta (2009\u20132021)",beta4:"Tester Beta Snapchat (2018\u20132020)",
+    beta5:"Beta Skype Translator (2014)",beta6:"Beta Hype Machine (2012\u20132015)",
+    lang_content:"Inglese \u2014 Fluente<br>Francese \u2014 Fluente",
+    interests_content:"Pianista classica, cantante &amp; percussionista<br>Mentoring giovanile STEM<br>Ricerca in politica IA &amp; etica<br>Imprenditorialit\u00e0<br>Scienze &amp; tecnologie emergenti<br>Kayak",
+    footer:"&copy; 2026 <span>Alexia Monize</span> &nbsp;&middot;&nbsp; Costruito con precisione &amp; <span>scopo</span>"
+  },  zh: {
+    tagline:"AI \u4ea7\u54c1\u8d1f\u8d23\u4eba \u00b7 \u5bf9\u8bdd\u5f0fAI\u67b6\u6784\u5e08 \u00b7 \u65b0\u5174\u6280\u672f\u6218\u7565\u5bb6",
+    toggleDark:"\u6df1\u8272",toggleLight:"\u6d45\u8272",
+    sec_about:"\u5173\u4e8e\u6211",sec_experience:"\u5de5\u4f5c\u7ecf\u5386",sec_skills:"\u6838\u5fc3\u80fd\u529b",
+    sec_education:"\u6559\u80b2\u80cc\u666f",sec_certs:"\u8bc1\u4e66\u8ba4\u5b9a",sec_beta:"\u65e9\u671f\u6280\u672f\u91c7\u7528",
+    sec_languages:"\u8bed\u8a00\u80fd\u529b",sec_interests:"\u5174\u8da3\u7231\u597d",
+    summary:"<strong>AI\u4ea7\u54c1\u8d1f\u8d23\u4eba\u53ca\u5bf9\u8bdd\u7cfb\u7edf\u67b6\u6784\u5e08</strong>\uff0c\u62e5\u6709\u4ece\u96f6\u6784\u5efa AI \u4ea7\u54c1\u5e76\u6269\u5c55\u81f3\u4f01\u4e1a\u89c4\u6a21\u7684\u4e30\u5bcc\u7ecf\u9a8c\u3002\u5168\u7a0b\u4e3b\u5bfc Porter \u822a\u7a7a\u5bf9\u8bdd AI \u5e73\u53f0\u7684\u7aef\u5230\u7aef\u5efa\u8bbe\uff0c\u5b9e\u73b0 <strong>\u610f\u56fe750%\u6269\u5c55</strong>\uff0c\u8986\u76d6 <strong>\u8d85\u8fc7200\u4e07\u5e74\u5ea6\u5ba2\u6237\u4e92\u52a8</strong>\u3002\u6df1\u5ea6\u638c\u63e1 Amazon Connect\u3001Dialogflow CX\u3001AWS Lambda\u3001ML\u7ba1\u9053\u8bbe\u8ba1\u53ca LLM \u96c6\u6210\u3002\u591a\u4f26\u591a\u5927\u5b66\u8ba4\u77e5\u79d1\u5b66\u5b66\u58eb\uff082022\u5e74\uff0c\u4f18\u5f02\u6bd5\u4e1a\uff09\uff0c\u5e76\u6301\u6709\u7f51\u7edc\u5b89\u5168\u3001\u91cf\u5b50\u8ba1\u7b97\u53ca\u8d23\u4efb\u5e74 AI \u9886\u57df\u7684\u5728\u804c\u8ba4\u8bc1\u3002",
+    j1_title:"AI\u4ea7\u54c1\u8d1f\u8d23\u4eba &amp; \u6218\u7565\u8fd0\u8425\u603b\u76d1",j1_meta:"\u591a\u4f26\u591a, ON \u00b7 2024\u5e742\u6708 \u2013 2025\u5e749\u6708",
+    j1_sub:"\u5168\u9762\u8d1f\u8d23\u670d\u52a1200\u4e07+\u5ba2\u6237\u7684\u4f01\u4e1a\u5bf9\u8bdd AI \u5e73\u53f0",
+    j1_b1:"<strong>\u5236\u5b9a\u5e76\u6267\u884c\u4ea7\u54c1\u6218\u7565</strong>\uff0c\u5c06\u610f\u56fe\u4ece6\u4e2a\u6269\u5c55\u81f351\u4e2a\uff08750%\u589e\u957f\uff09",
+    j1_b2:"<strong>\u67b6\u6784\u5e76\u90e8\u7f72</strong> Amazon Connect \u4e0a\u7684\u7aef\u5230\u7aef NLU/IVR \u7cfb\u7edf",
+    j1_b3:"<strong>\u9886\u5bfc\u8de8\u804c\u80fd\u4ea4\u4ed8</strong>\uff0c\u534f\u540c\u5de5\u7a0b\u3001CX\u3001\u8fd0\u8425\u548c\u4ea7\u54c1\u56e2\u961f",
+    j1_b4:"<strong>\u63a8\u52a8\u6fc0\u6d3b\u548c\u53c2\u4e0e\u5ea6\u63d0\u5347</strong>\uff0c\u901a\u8fc7\u884c\u4e3a\u6570\u636e\u5206\u6790\u548c A/B \u6d4b\u8bd5",
+    j1_b5:"<strong>\u6784\u5efa\u6027\u80fd\u5206\u6790\u57fa\u7840\u8bbe\u65bd</strong>\uff0c\u5b9e\u65f6\u4eea\u8868\u677f\u8ffd\u8e2a\u610f\u56fe\u51c6\u786e\u7387",
+    j1_b6:"<strong>\u5efa\u7acb AI \u6cbb\u7406\u6846\u67b6</strong>\uff0c\u5305\u62ec\u6a21\u578b\u8bc4\u4f30\u6807\u51c6\u548c SLA \u5b9a\u4e49",
+    j1_b7:"<strong>\u64b0\u5199\u4f01\u4e1a AI \u8fd0\u8425\u624b\u518c</strong>\uff0c\u5c06\u5165\u804c\u65f6\u95f4\u7f29\u77ed40%",
+    j1_b8:"<strong>\u4e3b\u5bfc\u53cc\u8bed\u4ea7\u54c1\u6269\u5c55</strong>\uff08\u82f1\u8bed/\u6cd5\u8bed\uff09",
+    j2_title:"\u4eba\u5de5\u667a\u80fd\u603b\u76d1",j2_meta:"\u591a\u4f26\u591a, ON \u00b7 2025\u5e748\u6708 \u2013 \u81f3\u4eca",
+    j2_sub:"\u4e3a\u9752\u5c11\u5e74 STEM \u6559\u80b2\u5e73\u53f0\u5236\u5b9a AI \u4ea7\u54c1\u8def\u7ebf\u56fe",
+    j2_b1:"<strong>\u4e3b\u5bfc STEM \u5b66\u4e60\u5e73\u53f0\u7684 AI \u4ea7\u54c1\u8f6c\u578b</strong>",
+    j2_b2:"<strong>\u5236\u5b9a AI \u4ea7\u54c1\u8def\u7ebf\u56fe</strong>\uff0c\u5305\u542b\u529f\u80fd\u4f18\u5148\u7ea7\u548c\u5408\u4f5c\u4f19\u4f34\u6218\u7565",
+    j2_b3:"<strong>\u5efa\u7acb\u9762\u5411\u9752\u5c11\u5e74\u4ea7\u54c1\u7684 AI \u4f26\u7406\u6807\u51c6</strong>",
+    j3_title:"\u521b\u59cb\u4eba &amp; \u9996\u5e2d\u521b\u65b0\u5b98",j3_meta:"\u591a\u4f26\u591a, ON \u00b7 2025\u5e741\u6708 \u2013 \u81f3\u4eca",
+    j3_sub:"\u4e13\u4e1a AI \u4ea7\u54c1\u548c\u5546\u8bc2\u516c\u53f8 \u2014 \u6210\u529f\u83b7\u53d6\u9ad8\u77e5\u540d\u5ea6\u521d\u521b\u5ba2\u6237",
+    j3_b1:"<strong>\u521b\u7acb\u4e13\u4e1a AI \u548c\u8be2\u5b9e\u8df5</strong>\uff0c\u83b7\u53d6 AI \u97f3\u4e50\u521d\u521b\u4f01\u4e1a\u5ba2\u6237",
+    j3_b2:"<strong>\u4e3b\u5bfc\u4ea7\u54c1\u5e02\u573a\u9002\u5408\u6027\u8f6c\u578b</strong> \u2014 \u7ade\u4e89\u5206\u6790\u548c\u7528\u6237\u7814\u7a76",
+    j3_b3:"<strong>\u63a8\u52a8 GTM \u6218\u7565</strong>\uff0c\u5305\u542b\u5b9a\u4f4d\u548c\u4ef7\u683c\u5236\u5b9a",
+    j3_b4:"<strong>\u4e0e\u5de5\u7a0b\u56e2\u961f\u8054\u5408\u8bbe\u8ba1\u6838\u5fc3 AI \u7b97\u6cd5</strong>",
+    j4_title:"\u9996\u5e2d\u6280\u672f\u5b98",j4_meta:"\u591a\u4f26\u591a, ON \u00b7 2024\u5e741\u6708 \u2013 2024\u5e745\u6708",
+    j4_b1:"<strong>\u4e3b\u5bfc AI \u65f6\u5c1a\u6280\u672f\u5e73\u53f0\u67b6\u6784\u51b3\u7b56</strong>",
+    j4_b2:"<strong>\u8bbe\u8ba1\u4e1a\u52a1\u8fde\u7eed\u6027\u6218\u7565</strong>\uff0c\u786e\u4fdd\u5e73\u53f0\u5f39\u6027\u548c\u6570\u636e\u4fdd\u62a4",
+    j4_b3:"<strong>\u5c06\u6280\u672f\u590d\u6742\u6027\u8f6c\u5316</strong>\u4e3a\u9762\u5411\u9ad8\u7ba1\u7684\u98ce\u9669\u6846\u67b6",
+    j5_title:"\u526f\u987e\u95ee",j5_meta:"\u591a\u4f26\u591a, ON \u00b7 2022\u5e748\u6708 \u2013 2023\u5e7411\u6708",
+    j5_sub:"\u4e3a\u300a\u8d22\u5bcc\u300b500\u5f3a\u5ba2\u6237\u63d0\u4f9b\u6218\u7565\u8f6c\u578b \u2014 \u521b\u9020 25%+ \u4ef7\u5024",
+    j5_b1:"<strong>\u652f\u6301\u52a0\u62ff\u5927\u5927\u578b\u94f6\u884c\u76d1\u7ba1\u8fc7\u6e21</strong>\uff08\u7b2c4\u7c7b\u5230\u7b2c3\u7c7b\uff09",
+    j5_b2:"<strong>\u8bbe\u8ba1\u591a\u4e2a\u77ff\u573a\u7684\u7ec4\u7ec7\u91cd\u7ec4\u65b9\u6848</strong> \u2014 25%+ \u4ef7\u5024\u521b\u9020",
+    j5_b3:"<strong>\u4e3b\u5bfc DE&amp;I \u4ea7\u54c1\u5f00\u53d1</strong> \u2014 \u6570\u5b57\u4eea\u8868\u677f\u548c\u5229\u76ca\u76f8\u5173\u8005\u8c03\u67e5",
+    j6_title:"AI \u8bad\u7ec3\u4e13\u5bb6",j6_meta:"\u591a\u4f26\u591a, ON \u00b7 2019\u5e744\u6708 \u2013 2019\u5e7410\u6708",
+    j6_sub:"\u4e3a\u5168\u7403\u9886\u5148 AI \u9a71\u52a8\u793e\u4ea4\u5e73\u53f0\u7684 ML \u5b57\u5e55\u751f\u6210\u7cfb\u7edf\u8fdb\u884c\u8bad\u7ec3\u4e0e\u4f18\u5316",
+    j6_b1:"<strong>\u8bad\u7ec3\u548c\u8bc4\u4f30\u5b57\u5e55\u751f\u6210\u6a21\u578b</strong>\uff0c\u901a\u8fc7\u5927\u89c4\u6a21\u6570\u636e\u96c6\u6807\u6ce8",
+    j6_b2:"<strong>\u4e0e ML \u5de5\u7a0b\u56e2\u961f\u5408\u4f5c</strong>\uff0c\u8bc6\u522b\u8fb9\u7f18\u6848\u4f8b\u548c\u6027\u80fd\u5dee\u8ddd",
+    j6_b3:"<strong>\u8bb0\u5f55\u6545\u969c\u6a21\u5f0f\u5e76\u63a8\u8350\u8bad\u7ec3\u6570\u636e\u6539\u8fdb\u65b9\u6848</strong>",
+    j7_title:"STEM\u9879\u76ee\u603b\u76d1",j7_meta:"\u591a\u4f26\u591a, ON \u00b7 2019\u5e744\u6708 \u2013 2023\u5e748\u6708",
+    j7_b1:"\u6307\u52996\u201318\u5c81\u9752\u5c11\u5e74\u5b66\u4e60\u7f16\u7a0b\u3001\u673a\u5668\u4eba\u548c\u65e0\u4eba\u673a",
+    j7_b2:"\u7ba1\u7406\u9884\u7b97\u3001\u65e5\u7a0b\u5b89\u6392\u548c\u8d44\u6e90\u5206\u914d",
+    sk1_label:"AI\u4ea7\u54c1\u4e0e\u6218\u7565",sk1_items:"\u5bf9\u8bdd AI \u8bbe\u8ba1 \u00b7 NLU \u67b6\u6784 \u00b7 IVR \u73b0\u4ee3\u5316 \u00b7 \u751f\u6210\u5f0f AI \u96c6\u6210 \u00b7 \u8d23\u4efb\u5e74 AI \u00b7 AI \u4ee3\u7406 \u00b7 AI \u5b89\u5168 \u00b7 GTM \u6218\u7565 \u00b7 OKR",
+    sk2_label:"\u6280\u672f\u6808",sk2_items:"Amazon Connect \u00b7 AWS Lambda \u00b7 Dialogflow CX \u00b7 Google Cloud Platform \u00b7 Python \u00b7 SQL \u00b7 ML \u7ba1\u9053",
+    sk3_label:"\u7814\u7a76\u4e0e\u5206\u6790",sk3_items:"\u5e02\u573a\u8c03\u67e5 \u00b7 \u7ade\u4e89\u5206\u6790 \u00b7 \u6df1\u5ea6\u5b66\u4e60 \u00b7 \u6570\u636e\u6545\u4e8b\u8bb2\u8ff0 \u00b7 A/B \u6d4b\u8bd5",
+    sk4_label:"\u6267\u884c\u4e0e\u4ea4\u4ed8",sk4_items:"\u654f\u6377/Scrum \u00b7 \u53d8\u9769\u7ba1\u7406 \u00b7 \u9879\u76ee\u7ba1\u7406 \u00b7 \u6587\u6863\u5316 \u00b7 \u98ce\u9669\u7ba1\u7406",
+    sk5_label:"\u5185\u5bb9\u4e0e\u6c9f\u901a",sk5_items:"\u6559\u80b2\u5185\u5bb9\u5f00\u53d1 \u00b7 \u57f9\u8bad \u00b7 \u6545\u4e8b\u8bb2\u8ff0 \u00b7 \u516c\u5f00\u6f14\u8bb2 \u00b7 \u5229\u76ca\u76f8\u5173\u8005\u6c9f\u901a",
+    sk6_label:"\u9886\u5bfc\u529b\u4e0e\u4eba\u683c",sk6_items:"\u60c5\u5546 \u00b7 \u5bf9\u4eba\u5173\u7cfb \u00b7 \u6fc0\u52b1\u56e2\u961f \u00b7 \u5206\u6790\u601d\u7ef4 \u00b7 \u6210\u957f\u578b\u601d\u7ef4",
+    edu1_deg:"\u7406\u5b66\u8363\u8a89\u5b66\u58eb\uff08\u4f18\u5f02\u6bd5\u4e1a\uff09",edu1_school:"\u591a\u4f26\u591a\u5927\u5b66\uff08\u5723\u4e54\u6cbb\u6821\u533a\uff09",
+    edu1_details:"\u4e3b\u4fee\uff1a\u8ba4\u77e5\u79d1\u5b66\uff08\u8ba1\u7b97\u8ba4\u77e5\uff09<br>\u4e3b\u4fee\uff1a\u56fe\u4e66\u4e0e\u5a92\u4f53\u7814\u7a76<br>\u8f85\u4fee\uff1a\u6570\u5b57\u4eba\u6587<br>\u6bd5\u4e1a\uff1a2022\u5e74",
+    edu2_deg:"EarthQUAICS\u9879\u76ee",edu2_school:"Protexxa",
+    edu2_details:"\u7f51\u7edc\u5b89\u5168\u3001\u91cf\u5b50\u8ba1\u7b97\u4e0e\u4eba\u5de5\u667a\u80fd<br>2025\u20132026 \u00b7 \u6210\u7ee9\uff1a92.86%",
+    cert1:"AI\u4e0e\u6cd5\u5f8b \u2014 \u9686\u5fb7\u5927\u5b66",cert2:"\u751f\u6210\u5f0fAI\u4e0eLLM \u2014 DeepLearning.AI",
+    cert3:"Dialogflow CX\u4e13\u9879\u8ba4\u8bc1 \u2014 Google",cert4:"Dialogflow CX \u2014 \u516c\u6c11\u5f00\u53d1\u8005",
+    cert5:"\u5bf9\u8bdd\u8bbe\u8ba1\u57fa\u7840",cert6:"\u8054\u7cfb\u4e2d\u5fc3AI\u8fd0\u8425",
+    cert7:"Amazon Connect \u2014 \u6545\u969c\u6392\u9664",cert8:"Amazon Connect \u2014 \u5b9e\u4f8b\u57fa\u7840",
+    cert9:"IBM Watson",cert10:"IBM AI\u7b80\u4ecb",cert11:"\u673a\u5668\u5b66\u4e60\u4e0eAI\u57fa\u7840",
+    cert12:"AI\u5e94\u7528\u573a\u666f\u63a2\u7d22",cert13:"\u7f16\u7a0b\u57fa\u7840 \u2014 \u591a\u5927",cert14:"Bain\u53ef\u6301\u7eed\u53d1\u5c55 \u2014 MIT\u65af\u9686",
+    beta1:"OpenAI\u79c1\u4eba\u6d4b\u8bd5\u7248 \u2014 GPT &amp; Codex (2020\u20132021)",beta2:"Apple iOS\u516c\u5f00\u6d4b\u8bd5\u7248 (2017\u20132022)",
+    beta3:"Instagram\u6d4b\u8bd5\u7248 \u2014 Meta\u6536\u8d2d\u524d (2009\u20132021)",beta4:"Snapchat\u6d4b\u8bd5\u5458 (2018\u20132020)",
+    beta5:"Skype\u7ffb\u8bd5\u6d4b\u8bd5\u7248 (2014)",beta6:"Hype Machine\u6d4b\u8bd5\u7248 (2012\u20132015)",
+    lang_content:"\u82f1\u8bed \u2014 \u6d41\u5229<br>\u6cd5\u8bed \u2014 \u6d41\u5229",
+    interests_content:"\u53e4\u5178\u9522\u7434\u5bb6\u3001\u6b4c\u624b\u548c\u6253\u51fb\u4e50\u6f14\u594f\u8005<br>\u9752\u5c11\u5e74STEM\u5bfc\u5e08<br>AI\u653f\u7b56\u7814\u7a76\u4e0e\u4f26\u7406<br>\u521b\u4e1a<br>\u65b0\u5174\u79d1\u5b66\u4e0e\u6280\u672f<br>\u76ae\u5212\u8361",
+    footer:"&copy; 2026 <span>Alexia Monize</span> &nbsp;&middot;&nbsp; \u4ee5\u7cbe\u51c6\u4e0e<span>\u76ee\u6807</span>\u6784\u5efa"
+  },
+  ru: {
+    tagline:"\u041b\u0438\u0434\u0435\u0440 \u043f\u0440\u043e\u0434\u0443\u043a\u0442\u0430 \u0418\u0418 \u00b7 \u0410\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u043e\u0440 \u0440\u0430\u0437\u0433\u043e\u0432\u043e\u0440\u043d\u043e\u0433\u043e \u0418\u0418 \u00b7 \u0421\u0442\u0440\u0430\u0442\u0435\u0433 \u0432 \u043e\u0431\u043b\u0430\u0441\u0442\u0438 \u043d\u043e\u0432\u044b\u0445 \u0442\u0435\u0445\u043d\u043e\u043b\u043e\u0433\u0438\u0439",
+    toggleDark:"\u0422\u0451\u043c\u043d\u044b\u0439",toggleLight:"\u0421\u0432\u0435\u0442\u043b\u044b\u0439",
+    sec_about:"\u041e \u0441\u0435\u0431\u0435",sec_experience:"\u041e\u043f\u044b\u0442 \u0440\u0430\u0431\u043e\u0442\u044b",sec_skills:"\u041a\u043b\u044e\u0447\u0435\u0432\u044b\u0435 \u043a\u043e\u043c\u043f\u0435\u0442\u0435\u043d\u0446\u0438\u0438",
+    sec_education:"\u041e\u0431\u0440\u0430\u0437\u043e\u0432\u0430\u043d\u0438\u0435",sec_certs:"\u0421\u0435\u0440\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u044b",sec_beta:"\u0420\u0430\u043d\u043d\u0435\u0435 \u043e\u0441\u0432\u043e\u0435\u043d\u0438\u0435 \u0442\u0435\u0445\u043d\u043e\u043b\u043e\u0433\u0438\u0439",
+    sec_languages:"\u042f\u0437\u044b\u043a\u0438",sec_interests:"\u0418\u043d\u0442\u0435\u0440\u0435\u0441\u044b",
+    summary:"<strong>\u041b\u0438\u0434\u0435\u0440 \u043f\u0440\u043e\u0434\u0443\u043a\u0442\u043e\u0432 \u0418\u0418 \u0438 \u0430\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u043e\u0440 \u0440\u0430\u0437\u0433\u043e\u0432\u043e\u0440\u043d\u044b\u0445 \u0441\u0438\u0441\u0442\u0435\u043c</strong> \u0441 \u043f\u043e\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0451\u043d\u043d\u044b\u043c \u043e\u043f\u044b\u0442\u043e\u043c. \u041e\u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0438\u043b\u0430 \u043f\u043e\u043b\u043d\u043e\u0435 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u043f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u043e\u0439 \u0440\u0430\u0437\u0433\u043e\u0432\u043e\u0440\u043d\u043e\u0433\u043e \u0418\u0418 Porter Airlines, \u0434\u043e\u0441\u0442\u0438\u0433\u043d\u0443\u0432 <strong>\u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043d\u0438\u044f \u043d\u0430\u043c\u0435\u0440\u0435\u043d\u0438\u0439 \u043d\u0430 750%</strong> \u0432 \u0440\u0430\u043c\u043a\u0430\u0445 <strong>\u0431\u043e\u043b\u0435\u0435 2 \u043c\u043b\u043d \u0432\u0437\u0430\u0438\u043c\u043e\u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0439 \u0441 \u043a\u043b\u0438\u0435\u043d\u0442\u0430\u043c\u0438 \u0432 \u0433\u043e\u0434</strong>. \u0413\u043b\u0443\u0431\u043e\u043a\u043e\u0435 \u0432\u043b\u0430\u0434\u0435\u043d\u0438\u0435 \u0441\u0442\u0435\u043a\u043e\u043c \u0418\u0418: Amazon Connect, Dialogflow CX, AWS Lambda, ML \u0438 LLM. \u041e\u0431\u0440\u0430\u0437\u043e\u0432\u0430\u043d\u0438\u0435 \u0432 \u043e\u0431\u043b\u0430\u0441\u0442\u0438 \u043a\u043e\u0433\u043d\u0438\u0442\u0438\u0432\u043d\u044b\u0445 \u043d\u0430\u0443\u043a (\u0423\u043d\u0438\u0432\u0435\u0440\u0441\u0438\u0442\u0435\u0442 \u0422\u043e\u0440\u043e\u043d\u0442\u043e, 2022).",
+    j1_title:"\u0412\u0435\u0434\u0443\u0449\u0438\u0439 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043f\u0440\u043e\u0434\u0443\u043a\u0442\u0430 \u0418\u0418 &amp; \u0414\u0438\u0440\u0435\u043a\u0442\u043e\u0440 \u0441\u0442\u0440\u0430\u0442\u0435\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u043e\u043f\u0435\u0440\u0430\u0446\u0438\u0439",j1_meta:"\u0422\u043e\u0440\u043e\u043d\u0442\u043e, ON \u00b7 \u0424\u0435\u0432\u0440\u0430\u043b\u044c 2024 \u2013 \u0421\u0435\u043d\u0442\u044f\u0431\u0440\u044c 2025",
+    j1_sub:"\u041a\u043e\u043c\u043f\u043b\u0435\u043a\u0441\u043d\u043e\u0435 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u043f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u043e\u0439 \u0440\u0430\u0437\u0433\u043e\u0432\u043e\u0440\u043d\u043e\u0433\u043e \u0418\u0418 \u0434\u043b\u044f 2M+ \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432",
+    j1_b1:"<strong>\u0420\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0430\u043b\u0430 \u0438 \u0440\u0435\u0430\u043b\u0438\u0437\u043e\u0432\u0430\u043b\u0430 \u0441\u0442\u0440\u0430\u0442\u0435\u0433\u0438\u044e \u043f\u0440\u043e\u0434\u0443\u043a\u0442\u0430</strong>, \u043c\u0430\u0441\u0448\u0442\u0430\u0431\u0438\u0440\u043e\u0432\u0430\u0432 \u0441 6 \u0434\u043e 51 \u043d\u0430\u043c\u0435\u0440\u0435\u043d\u0438\u044f (750%)",
+    j1_b2:"<strong>\u0421\u043f\u0440\u043e\u0435\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u043b\u0430 \u0438 \u0440\u0430\u0437\u0432\u0435\u0440\u043d\u0443\u043b\u0430</strong> \u0441\u043a\u0432\u043e\u0437\u043d\u044b\u0435 \u0441\u0438\u0441\u0442\u0435\u043c\u044b NLU/IVR \u043d\u0430 Amazon Connect",
+    j1_b3:"<strong>\u0420\u0443\u043a\u043e\u0432\u043e\u0434\u0438\u043b\u0430 \u043a\u0440\u043e\u0441\u0441-\u0444\u0443\u043d\u043a\u0446\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u043c\u0438 \u043f\u043e\u0441\u0442\u0430\u0432\u043a\u0430\u043c\u0438</strong> \u0441 \u043a\u043e\u043c\u0430\u043d\u0434\u0430\u043c\u0438 \u0438\u043d\u0436\u0435\u043d\u0435\u0440\u0438\u0438, CX \u0438 \u043e\u043f\u0435\u0440\u0430\u0446\u0438\u0439",
+    j1_b4:"<strong>\u041e\u0431\u0435\u0441\u043f\u0435\u0447\u0438\u043b\u0430 \u0440\u043e\u0441\u0442 \u0430\u043a\u0442\u0438\u0432\u0430\u0446\u0438\u0438 \u0438 \u0432\u043e\u0432\u043b\u0435\u0447\u0435\u043d\u043d\u043e\u0441\u0442\u0438</strong> \u0447\u0435\u0440\u0435\u0437 A/B-\u0442\u0435\u0441\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435",
+    j1_b5:"<strong>\u0421\u043e\u0437\u0434\u0430\u043b\u0430 \u0438\u043d\u0444\u0440\u0430\u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0443 \u0430\u043d\u0430\u043b\u0438\u0442\u0438\u043a\u0438</strong> \u0441 \u0434\u0430\u0448\u0431\u043e\u0440\u0434\u0430\u043c\u0438 \u0432 \u0440\u0435\u0430\u043b\u044c\u043d\u043e\u043c \u0432\u0440\u0435\u043c\u0435\u043d\u0438",
+    j1_b6:"<strong>\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u043b\u0430 \u0441\u0438\u0441\u0442\u0435\u043c\u0443 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u0418\u0418</strong> \u0441\u043e \u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u0430\u043c\u0438 \u043e\u0446\u0435\u043d\u043a\u0438 \u043c\u043e\u0434\u0435\u043b\u0435\u0439",
+    j1_b7:"<strong>\u041d\u0430\u043f\u0438\u0441\u0430\u043b\u0430 \u043a\u043e\u0440\u043f\u043e\u0440\u0430\u0442\u0438\u0432\u043d\u044b\u0439 \u043e\u043f\u0435\u0440\u0430\u0446\u0438\u043e\u043d\u043d\u044b\u0439 \u043f\u043b\u0435\u0439\u0431\u0443\u043a \u0418\u0418</strong>, \u0441\u043e\u043a\u0440\u0430\u0442\u0438\u0432 \u0432\u0440\u0435\u043c\u044f \u043e\u043d\u0431\u043e\u0440\u0434\u0438\u043d\u0433\u0430 \u043d\u0430 40%",
+    j1_b8:"<strong>\u0420\u0443\u043a\u043e\u0432\u043e\u0434\u0438\u043b\u0430 \u0434\u0432\u0443\u044f\u0437\u044b\u0447\u043d\u044b\u043c \u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043d\u0438\u0435\u043c \u043f\u0440\u043e\u0434\u0443\u043a\u0442\u0430</strong> (\u0430\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0439/\u0444\u0440\u0430\u043d\u0446\u0443\u0437\u0441\u043a\u0438\u0439)",
+    j2_title:"\u0414\u0438\u0440\u0435\u043a\u0442\u043e\u0440 \u043f\u043e \u0438\u0441\u043a\u0443\u0441\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u043c\u0443 \u0438\u043d\u0442\u0435\u043b\u043b\u0435\u043a\u0442\u0443",j2_meta:"\u0422\u043e\u0440\u043e\u043d\u0442\u043e, ON \u00b7 \u0410\u0432\u0433\u0443\u0441\u0442 2025 \u2013 \u043d\u0430\u0441\u0442\u043e\u044f\u0449\u0435\u0435 \u0432\u0440\u0435\u043c\u044f",
+    j2_sub:"\u0420\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430 \u0434\u043e\u0440\u043e\u0436\u043d\u043e\u0439 \u043a\u0430\u0440\u0442\u044b \u043f\u0440\u043e\u0434\u0443\u043a\u0442\u0430 \u0418\u0418 \u0434\u043b\u044f \u0430\u0434\u0430\u043f\u0442\u0438\u0432\u043d\u043e\u0433\u043e \u043e\u0431\u0443\u0447\u0435\u043d\u0438\u044f",
+    j2_b1:"<strong>\u0420\u0443\u043a\u043e\u0432\u043e\u0434\u0441\u0442\u0432\u043e \u0442\u0440\u0430\u043d\u0441\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u0435\u0439 \u043f\u0440\u043e\u0434\u0443\u043a\u0442\u0430 \u0418\u0418</strong> \u0443\u0447\u0435\u0431\u043d\u043e\u0439 \u043f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u044b STEM",
+    j2_b2:"<strong>\u0420\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430 \u0434\u043e\u0440\u043e\u0436\u043d\u043e\u0439 \u043a\u0430\u0440\u0442\u044b \u043f\u0440\u043e\u0434\u0443\u043a\u0442\u0430 \u0418\u0418</strong> \u0441 \u043f\u0440\u0438\u043e\u0440\u0438\u0442\u0435\u0442\u0430\u043c\u0438 \u0444\u0443\u043d\u043a\u0446\u0438\u0439",
+    j2_b3:"<strong>\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0430 \u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u043e\u0432 \u044d\u0442\u0438\u043a\u0438 \u0418\u0418</strong> \u0434\u043b\u044f \u043f\u0440\u043e\u0434\u0443\u043a\u0442\u043e\u0432 \u0434\u043b\u044f \u043c\u043e\u043b\u043e\u0434\u0451\u0436\u0438",
+    j3_title:"\u041e\u0441\u043d\u043e\u0432\u0430\u0442\u0435\u043b\u044c &amp; \u0414\u0438\u0440\u0435\u043a\u0442\u043e\u0440 \u043f\u043e \u0438\u043d\u043d\u043e\u0432\u0430\u0446\u0438\u044f\u043c",j3_meta:"\u0422\u043e\u0440\u043e\u043d\u0442\u043e, ON \u00b7 \u042f\u043d\u0432\u0430\u0440\u044c 2025 \u2013 \u043d\u0430\u0441\u0442\u043e\u044f\u0449\u0435\u0435 \u0432\u0440\u0435\u043c\u044f",
+    j3_sub:"\u0421\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0437\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u0439 \u043a\u043e\u043d\u0441\u0430\u043b\u0442\u0438\u043d\u0433 \u043f\u043e \u043f\u0440\u043e\u0434\u0443\u043a\u0442\u0430\u043c \u0418\u0418",
+    j3_b1:"<strong>\u041e\u0441\u043d\u043e\u0432\u0430\u043b\u0430 \u0441\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0437\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u0443\u044e \u043a\u043e\u043d\u0441\u0430\u043b\u0442\u0438\u043d\u0433\u043e\u0432\u0443\u044e \u043f\u0440\u0430\u043a\u0442\u0438\u043a\u0443 \u0418\u0418</strong>",
+    j3_b2:"<strong>\u0420\u0443\u043a\u043e\u0432\u043e\u0434\u0438\u043b\u0430 \u0441\u0442\u0440\u0430\u0442\u0435\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u043c \u043f\u043e\u0432\u043e\u0440\u043e\u0442\u043e\u043c</strong> \u0441 \u043a\u043e\u043d\u043a\u0443\u0440\u0435\u043d\u0442\u043d\u044b\u043c \u0430\u043d\u0430\u043b\u0438\u0437\u043e\u043c",
+    j3_b3:"<strong>\u0420\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0430\u043b\u0430 \u0441\u0442\u0440\u0430\u0442\u0435\u0433\u0438\u044e \u0432\u044b\u0445\u043e\u0434\u0430 \u043d\u0430 \u0440\u044b\u043d\u043e\u043a</strong> \u0441 \u043f\u043e\u0437\u0438\u0446\u0438\u043e\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435\u043c \u0438 \u0446\u0435\u043d\u043e\u043e\u0431\u0440\u0430\u0437\u043e\u0432\u0430\u043d\u0438\u0435\u043c",
+    j3_b4:"<strong>\u0421\u043e\u0432\u043c\u0435\u0441\u0442\u043d\u043e \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0430\u043b\u0430 \u043e\u0441\u043d\u043e\u0432\u043d\u043e\u0439 \u0430\u043b\u0433\u043e\u0440\u0438\u0442\u043c \u0418\u0418</strong> \u0441 \u043a\u043e\u043c\u0430\u043d\u0434\u043e\u0439 \u0438\u043d\u0436\u0435\u043d\u0435\u0440\u043e\u0432",
+    j4_title:"\u0422\u0435\u0445\u043d\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",j4_meta:"\u0422\u043e\u0440\u043e\u043d\u0442\u043e, ON \u00b7 \u042f\u043d\u0432\u0430\u0440\u044c 2024 \u2013 \u041c\u0430\u0439 2024",
+    j4_b1:"<strong>\u0420\u0443\u043a\u043e\u0432\u043e\u0434\u0438\u043b\u0430 \u0430\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u0443\u0440\u043d\u044b\u043c\u0438 \u0440\u0435\u0448\u0435\u043d\u0438\u044f\u043c\u0438 \u043f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u044b</strong> \u0434\u043b\u044f \u0418\u0418-\u0442\u0435\u0445\u043d\u043e\u043b\u043e\u0433\u0438\u0438 \u0432 \u043c\u043e\u0434\u0435",
+    j4_b2:"<strong>\u0420\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0430\u043b\u0430 \u0441\u0442\u0440\u0430\u0442\u0435\u0433\u0438\u044e \u043d\u0435\u043f\u0440\u0435\u0440\u044b\u0432\u043d\u043e\u0441\u0442\u0438 \u0431\u0438\u0437\u043d\u0435\u0441\u0430</strong> \u0434\u043b\u044f \u0437\u0430\u0449\u0438\u0442\u044b \u0434\u0430\u043d\u043d\u044b\u0445",
+    j4_b3:"<strong>\u041f\u0435\u0440\u0435\u0432\u0435\u043b\u0430 \u0442\u0435\u0445\u043d\u0438\u0447\u0435\u0441\u043a\u0443\u044e \u0441\u043b\u043e\u0436\u043d\u043e\u0441\u0442\u044c</strong> \u0432 \u0438\u0441\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c\u043d\u044b\u0435 \u0440\u0438\u0441\u043a-\u0444\u0440\u0435\u0439\u043c\u0432\u043e\u0440\u043a\u0438",
+    j5_title:"\u041c\u043b\u0430\u0434\u0448\u0438\u0439 \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442",j5_meta:"\u0422\u043e\u0440\u043e\u043d\u0442\u043e, ON \u00b7 \u0410\u0432\u0433\u0443\u0441\u0442 2022 \u2013 \u041d\u043e\u044f\u0431\u0440\u044c 2023",
+    j5_sub:"\u0421\u0442\u0440\u0430\u0442\u0435\u0433\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u0442\u0440\u0430\u043d\u0441\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u0434\u043b\u044f \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432 Fortune 500 \u2014 \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u0441\u0442\u043e\u0438\u043c\u043e\u0441\u0442\u0438 25%+",
+    j5_b1:"<strong>\u041f\u043e\u0434\u0434\u0435\u0440\u0436\u0430\u043b\u0430 \u0440\u0435\u0433\u0443\u043b\u044f\u0442\u043e\u0440\u043d\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u043a\u0440\u0443\u043f\u043d\u043e\u0433\u043e \u043a\u0430\u043d\u0430\u0434\u0441\u043a\u043e\u0433\u043e \u0431\u0430\u043d\u043a\u0430</strong>",
+    j5_b2:"<strong>\u0420\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0430\u043b\u0430 \u043e\u0440\u0433\u0430\u043d\u0438\u0437\u0430\u0446\u0438\u043e\u043d\u043d\u0443\u044e \u0440\u0435\u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0438\u0437\u0430\u0446\u0438\u044e</strong> \u0434\u043b\u044f \u0433\u043e\u0440\u043d\u043e\u0434\u043e\u0431\u044b\u0432\u0430\u044e\u0449\u0438\u0445 \u043f\u043b\u043e\u0449\u0430\u0434\u043e\u043a",
+    j5_b3:"<strong>\u0420\u0443\u043a\u043e\u0432\u043e\u0434\u0438\u043b\u0430 \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u043e\u0439 \u043f\u0440\u043e\u0434\u0443\u043a\u0442\u0430 DE&amp;I</strong> \u2014 \u0446\u0438\u0444\u0440\u043e\u0432\u0430\u044f \u043f\u0430\u043d\u0435\u043b\u044c",
+    j6_title:"\u0421\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0441\u0442 \u043f\u043e \u043e\u0431\u0443\u0447\u0435\u043d\u0438\u044e \u0418\u0418",j6_meta:"\u0422\u043e\u0440\u043e\u043d\u0442\u043e, ON \u00b7 \u0410\u043f\u0440\u0435\u043b\u044c 2019 \u2013 \u041e\u043a\u0442\u044f\u0431\u0440\u044c 2019",
+    j6_sub:"\u041e\u0431\u0443\u0447\u0435\u043d\u0438\u0435 \u0438 \u043e\u043f\u0442\u0438\u043c\u0438\u0437\u0430\u0446\u0438\u044f \u0441\u0438\u0441\u0442\u0435\u043c \u0433\u0435\u043d\u0435\u0440\u0430\u0446\u0438\u0438 \u043f\u043e\u0434\u043f\u0438\u0441\u0435\u0439 \u043d\u0430 ML",
+    j6_b1:"<strong>\u041e\u0431\u0443\u0447\u0435\u043d\u0438\u0435 \u0438 \u043e\u0446\u0435\u043d\u043a\u0430 \u043c\u043e\u0434\u0435\u043b\u0435\u0439 \u0433\u0435\u043d\u0435\u0440\u0430\u0446\u0438\u0438 \u043f\u043e\u0434\u043f\u0438\u0441\u0435\u0439</strong> \u0447\u0435\u0440\u0435\u0437 \u0440\u0430\u0437\u043c\u0435\u0442\u043a\u0443 \u043d\u0430\u0431\u043e\u0440\u043e\u0432 \u0434\u0430\u043d\u043d\u044b\u0445",
+    j6_b2:"<strong>\u0421\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0441 \u043a\u043e\u043c\u0430\u043d\u0434\u0430\u043c\u0438 ML-\u0438\u043d\u0436\u0435\u043d\u0435\u0440\u0438\u0438</strong> \u0434\u043b\u044f \u0432\u044b\u044f\u0432\u043b\u0435\u043d\u0438\u044f \u043f\u0440\u043e\u0431\u043b\u0435\u043c",
+    j6_b3:"<strong>\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0438\u0440\u043e\u0432\u0430\u043b\u0430 \u043f\u0430\u0442\u0442\u0435\u0440\u043d\u044b \u0441\u0431\u043e\u0435\u0432 \u0438 \u0440\u0435\u043a\u043e\u043c\u0435\u043d\u0434\u0430\u0446\u0438\u0438</strong> \u043f\u043e \u0443\u043b\u0443\u0447\u0448\u0435\u043d\u0438\u044e",
+    j7_title:"\u0414\u0438\u0440\u0435\u043a\u0442\u043e\u0440 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u044b STEM",j7_meta:"\u0422\u043e\u0440\u043e\u043d\u0442\u043e, ON \u00b7 \u0410\u043f\u0440\u0435\u043b\u044c 2019 \u2013 \u0410\u0432\u0433\u0443\u0441\u0442 2023",
+    j7_b1:"\u041e\u0431\u0443\u0447\u0430\u043b\u0430 \u043c\u043e\u043b\u043e\u0434\u0451\u0436\u044c 6\u201318 \u043b\u0435\u0442 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044e, \u0440\u043e\u0431\u043e\u0442\u043e\u0442\u0435\u0445\u043d\u0438\u043a\u0435 \u0438 \u0434\u0440\u043e\u043d\u0430\u043c",
+    j7_b2:"\u0423\u043f\u0440\u0430\u0432\u043b\u044f\u043b\u0430 \u0431\u044e\u0434\u0436\u0435\u0442\u043e\u043c, \u043f\u043b\u0430\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435\u043c \u0438 \u0440\u0430\u0441\u043f\u0440\u0435\u0434\u0435\u043b\u0435\u043d\u0438\u0435\u043c \u0440\u0435\u0441\u0443\u0440\u0441\u043e\u0432",
+    sk1_label:"\u041f\u0440\u043e\u0434\u0443\u043a\u0442 \u0418\u0418 &amp; \u0421\u0442\u0440\u0430\u0442\u0435\u0433\u0438\u044f",sk1_items:"\u041f\u0440\u043e\u0435\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u0440\u0430\u0437\u0433\u043e\u0432\u043e\u0440\u043d\u043e\u0433\u043e \u0418\u0418 \u00b7 \u0410\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u0443\u0440\u0430 NLU \u00b7 \u041c\u043e\u0434\u0435\u0440\u043d\u0438\u0437\u0430\u0446\u0438\u044f IVR \u00b7 \u0418\u043d\u0442\u0435\u0433\u0440\u0430\u0446\u0438\u044f \u0433\u0435\u043d\u0435\u0440\u0430\u0442\u0438\u0432\u043d\u043e\u0433\u043e \u0418\u0418 \u00b7 \u041e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0439 \u0418\u0418 \u00b7 \u0410\u0433\u0435\u043d\u0442\u044b \u0418\u0418 \u00b7 Go-to-Market \u00b7 OKR",
+    sk2_label:"\u0422\u0435\u0445\u043d\u043e\u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u0441\u0442\u0435\u043a",sk2_items:"Amazon Connect \u00b7 AWS Lambda \u00b7 Dialogflow CX \u00b7 Google Cloud Platform \u00b7 Python \u00b7 SQL \u00b7 ML-\u043a\u043e\u043d\u0432\u0435\u0439\u0435\u0440\u044b",
+    sk3_label:"\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f &amp; \u0410\u043d\u0430\u043b\u0438\u0437",sk3_items:"\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u0435 \u0440\u044b\u043d\u043a\u0430 \u00b7 \u041a\u043e\u043d\u043a\u0443\u0440\u0435\u043d\u0442\u043d\u044b\u0439 \u0430\u043d\u0430\u043b\u0438\u0437 \u00b7 \u0413\u043b\u0443\u0431\u043e\u043a\u043e\u0435 \u043e\u0431\u0443\u0447\u0435\u043d\u0438\u0435 \u00b7 A/B-\u0442\u0435\u0441\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435",
+    sk4_label:"\u0418\u0441\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u0435 &amp; \u041f\u043e\u0441\u0442\u0430\u0432\u043a\u0430",sk4_items:"Agile / Scrum \u00b7 \u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u044f\u043c\u0438 \u00b7 \u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u043f\u0440\u043e\u0435\u043a\u0442\u0430\u043c\u0438 \u00b7 \u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u044f",
+    sk5_label:"\u041a\u043e\u043d\u0442\u0435\u043d\u0442 &amp; \u041a\u043e\u043c\u043c\u0443\u043d\u0438\u043a\u0430\u0446\u0438\u0438",sk5_items:"\u041e\u0431\u0440\u0430\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c\u043d\u044b\u0439 \u043a\u043e\u043d\u0442\u0435\u043d\u0442 \u00b7 \u041e\u0431\u0443\u0447\u0435\u043d\u0438\u0435 \u00b7 \u0421\u0442\u043e\u0440\u0438\u0442\u0435\u043b\u043b\u0438\u043d\u0433 \u00b7 \u041f\u0443\u0431\u043b\u0438\u0447\u043d\u044b\u0435 \u0432\u044b\u0441\u0442\u0443\u043f\u043b\u0435\u043d\u0438\u044f",
+    sk6_label:"\u041b\u0438\u0434\u0435\u0440\u0441\u0442\u0432\u043e &amp; \u0425\u0430\u0440\u0430\u043a\u0442\u0435\u0440",sk6_items:"\u042d\u043c\u043e\u0446\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0439 \u0438\u043d\u0442\u0435\u043b\u043b\u0435\u043a\u0442 \u00b7 \u041c\u043e\u0442\u0438\u0432\u0430\u0446\u0438\u044f \u043a\u043e\u043c\u0430\u043d\u0434 \u00b7 \u0410\u043d\u0430\u043b\u0438\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0435 \u043c\u044b\u0448\u043b\u0435\u043d\u0438\u0435 \u00b7 \u0423\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0430 \u043d\u0430 \u0440\u043e\u0441\u0442",
+    edu1_deg:"\u0411\u0430\u043a\u0430\u043b\u0430\u0432\u0440 \u043d\u0430\u0443\u043a \u0441 \u043e\u0442\u043b\u0438\u0447\u0438\u0435\u043c",edu1_school:"\u0423\u043d\u0438\u0432\u0435\u0440\u0441\u0438\u0442\u0435\u0442 \u0422\u043e\u0440\u043e\u043d\u0442\u043e (\u0421\u0435\u043d\u0442-\u0414\u0436\u043e\u0440\u0434\u0436)",
+    edu1_details:"\u0421\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u044f: \u043a\u043e\u0433\u043d\u0438\u0442\u0438\u0432\u043d\u044b\u0435 \u043d\u0430\u0443\u043a\u0438<br>\u0421\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u044f: \u043a\u043d\u0438\u0433\u043e\u0432\u0435\u0434\u0435\u043d\u0438\u0435 \u0438 \u043c\u0435\u0434\u0438\u0430\u0438\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f<br>\u0414\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c\u043d\u044b\u0439 \u043a\u0443\u0440\u0441: \u0446\u0438\u0444\u0440\u043e\u0432\u044b\u0435 \u0433\u0443\u043c\u0430\u043d\u0438\u0442\u0430\u0440\u043d\u044b\u0435 \u043d\u0430\u0443\u043a\u0438<br>\u0413\u043e\u0434 \u043e\u043a\u043e\u043d\u0447\u0430\u043d\u0438\u044f: 2022",
+    edu2_deg:"\u041f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0430 EarthQUAICS",edu2_school:"Protexxa",
+    edu2_details:"\u041a\u0438\u0431\u0435\u0440\u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u044c, \u043a\u0432\u0430\u043d\u0442\u043e\u0432\u044b\u0435 \u0432\u044b\u0447\u0438\u0441\u043b\u0435\u043d\u0438\u044f &amp; \u0418\u0418<br>2025\u20132026 \u00b7 \u041e\u0446\u0435\u043d\u043a\u0430: 92.86%",
+    cert1:"\u0418\u0418 &amp; \u043f\u0440\u0430\u0432\u043e \u2014 \u0423\u043d\u0438\u0432\u0435\u0440\u0441\u0438\u0442\u0435\u0442 \u041b\u0443\u043d\u0434\u0430",cert2:"\u0413\u0435\u043d\u0435\u0440\u0430\u0442\u0438\u0432\u043d\u044b\u0439 \u0418\u0418 \u0441 LLM \u2014 DeepLearning.AI",
+    cert3:"\u0421\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u044f Dialogflow CX \u2014 Google",cert4:"Dialogflow CX \u2014 \u0433\u0440\u0430\u0436\u0434\u0430\u043d\u0441\u043a\u0438\u0435 \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0447\u0438\u043a\u0438",
+    cert5:"\u041e\u0441\u043d\u043e\u0432\u044b \u0440\u0430\u0437\u0433\u043e\u0432\u043e\u0440\u043d\u043e\u0433\u043e \u0434\u0438\u0437\u0430\u0439\u043d\u0430",cert6:"\u041e\u043f\u0435\u0440\u0430\u0446\u0438\u0438 \u0418\u0418 \u043a\u043e\u043d\u0442\u0430\u043a\u0442-\u0446\u0435\u043d\u0442\u0440\u0430",
+    cert7:"Amazon Connect \u2014 \u0443\u0441\u0442\u0440\u0430\u043d\u0435\u043d\u0438\u0435 \u043d\u0435\u043f\u043e\u043b\u0430\u0434\u043e\u043a",cert8:"Amazon Connect \u2014 \u043e\u0441\u043d\u043e\u0432\u044b",
+    cert9:"IBM Watson",cert10:"\u0412\u0432\u0435\u0434\u0435\u043d\u0438\u0435 \u0432 \u0418\u0418 IBM",cert11:"\u041e\u0441\u043d\u043e\u0432\u044b ML &amp; \u0418\u0418",
+    cert12:"\u0421\u0446\u0435\u043d\u0430\u0440\u0438\u0438 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u044f \u0418\u0418",cert13:"\u041e\u0441\u043d\u043e\u0432\u044b \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f \u2014 UofT",cert14:"Bain \u0443\u0441\u0442\u043e\u0439\u0447\u0438\u0432\u043e\u0435 \u0440\u0430\u0437\u0432\u0438\u0442\u0438\u0435 \u2014 MIT Sloan",
+    beta1:"\u0427\u0430\u0441\u0442\u043d\u0430\u044f \u0431\u0435\u0442\u0430 OpenAI \u2014 GPT &amp; Codex (2020\u20132021)",beta2:"\u041f\u0443\u0431\u043b\u0438\u0447\u043d\u0430\u044f \u0431\u0435\u0442\u0430 Apple iOS (2017\u20132022)",
+    beta3:"\u0411\u0435\u0442\u0430 Instagram \u2014 \u0434\u043e \u043f\u0440\u0438\u043e\u0431\u0440\u0435\u0442\u0435\u043d\u0438\u044f Meta (2009\u20132021)",beta4:"\u0411\u0435\u0442\u0430-\u0442\u0435\u0441\u0442\u0435\u0440 Snapchat (2018\u20132020)",
+    beta5:"\u0411\u0435\u0442\u0430 Skype Translator (2014)",beta6:"\u0411\u0435\u0442\u0430 Hype Machine (2012\u20132015)",
+    lang_content:"\u0410\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0439 \u2014 \u0441\u0432\u043e\u0431\u043e\u0434\u043d\u044b\u0439<br>\u0424\u0440\u0430\u043d\u0446\u0443\u0437\u0441\u043a\u0438\u0439 \u2014 \u0441\u0432\u043e\u0431\u043e\u0434\u043d\u044b\u0439",
+    interests_content:"\u041a\u043b\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u043f\u0438\u0430\u043d\u0438\u0441\u0442, \u0432\u043e\u043a\u0430\u043b\u0438\u0441\u0442 &amp; \u0443\u0434\u0430\u0440\u043d\u0438\u043a<br>\u041d\u0430\u0441\u0442\u0430\u0432\u043d\u0438\u0447\u0435\u0441\u0442\u0432\u043e STEM<br>\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f \u0432 \u043e\u0431\u043b\u0430\u0441\u0442\u0438 \u043f\u043e\u043b\u0438\u0442\u0438\u043a\u0438 \u0418\u0418 &amp; \u044d\u0442\u0438\u043a\u0438<br>\u041f\u0440\u0435\u0434\u043f\u0440\u0438\u043d\u0438\u043c\u0430\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e<br>\u041d\u043e\u0432\u044b\u0435 \u043d\u0430\u0443\u043a\u0438 &amp; \u0442\u0435\u0445\u043d\u043e\u043b\u043e\u0433\u0438\u0438<br>\u041a\u0430\u044f\u043a\u0438\u043d\u0433",
+    footer:"&copy; 2026 <span>Alexia Monize</span> &nbsp;&middot;&nbsp; \u0421\u043e\u0437\u0434\u0430\u043d\u043e \u0441 \u0442\u043e\u0447\u043d\u043e\u0441\u0442\u044c\u044e &amp; <span>\u0446\u0435\u043b\u044c\u044e</span>"
+  },  no: {
+    tagline:"AI-produktleder \u00b7 Arkitekt for konversasjons-AI \u00b7 Strateg innen fremvoksende teknologier",
+    toggleDark:"M\u00f8rk",toggleLight:"Lys",
+    sec_about:"Om meg",sec_experience:"Erfaring",sec_skills:"Kjernekompetanser",
+    sec_education:"Utdanning",sec_certs:"Sertifiseringer",sec_beta:"Tidlig teknologiadopsjon",
+    sec_languages:"Spr\u00e5k",sec_interests:"Interesser",
+    summary:"<strong>AI-produktleder og arkitekt for samtalesystemer</strong> med dokumentert erfaring med \u00e5 bygge AI-drevne produkter fra grunnen av og skalere dem til bedriftsniv\u00e5. Ledet ende-til-ende-eierskapet av Porter Airlines\u2019 konversasjons-AI-plattform, og oppn\u00e5dde <strong>750% intensjonsutvidelse</strong> over <strong>2M+ kundeinteraksjoner per \u00e5r</strong>. Dyp praktisk kompetanse i AI-stakken: Amazon Connect, Dialogflow CX, AWS Lambda, ML-pipeline-design og LLM-integrasjon. Utdannet i Kognisjonsvitenskap (Universitetet i Toronto, 2022) med aktive sertifiseringer innen cybersikkerhet og kvanteberegning.",
+    j1_title:"AI-produktleder &amp; Strategisk driftssjef",j1_meta:"Toronto, ON \u00b7 Februar 2024 \u2013 September 2025",
+    j1_sub:"Ende-til-ende-eierskap av bedrifts-konversasjons-AI-plattform for 2M+ kunder",
+    j1_b1:"<strong>Definerte og gjennomf\u00f8rte produktstrategi</strong> og skalert fra 6 til 51 intensjoner (750% vekst)",
+    j1_b2:"<strong>Arkitekterte og distribuerte</strong> ende-til-ende NLU/IVR-systemer p\u00e5 Amazon Connect",
+    j1_b3:"<strong>Ledet tverrfunksjonell levering</strong> med ingenj\u00f8r-, CX-, drifts- og produktteam",
+    j1_b4:"<strong>Drev aktivering og engasjement</strong> gjennom atferdsanalyse og A/B-testing",
+    j1_b5:"<strong>Bygde ytelsesanalyseinfrastruktur</strong> med sanntidsdashboards",
+    j1_b6:"<strong>Etablerte AI-styringsrammeverk</strong> med modellevalueringsstandarder",
+    j1_b7:"<strong>Forfattet bedriftens AI-driftsplaybook</strong> som reduserte innf\u00f8ringstiden med 40%",
+    j1_b8:"<strong>Ledet tospr\u00e5klig produktutvidelse</strong> (engelsk/fransk)",
+    j2_title:"Direkt\u00f8r for kunstig intelligens",j2_meta:"Toronto, ON \u00b7 August 2025 \u2013 n\u00e5",
+    j2_sub:"Definerer AI-produktveikart for adaptiv l\u00e6ring p\u00e5 STEM-plattform",
+    j2_b1:"<strong>Leder AI-produkttransformasjon</strong> av STEM-l\u00e6ringsplattformen",
+    j2_b2:"<strong>Definerer AI-produktveikart</strong> med funksjonsprioritering og partnerskapsstrategi",
+    j2_b3:"<strong>Etablerer AI-etikk og styringsstandarder</strong> for produkter rettet mot ungdom",
+    j3_title:"Grunnlegger &amp; Direkt\u00f8r for innovasjon",j3_meta:"Toronto, ON \u00b7 Januar 2025 \u2013 n\u00e5",
+    j3_sub:"Spesialisert AI-produktr\u00e5dgivning \u2014 sikret h\u00f8yprofilert startupp-klient",
+    j3_b1:"<strong>Grunnla spesialisert AI-r\u00e5dgivningspraksis</strong> og sikret AI-musikk-startupp-klient",
+    j3_b2:"<strong>Ledet produkt-markedstilpasningspivot</strong> med konkurranseanalyse og brukerunders\u00f8kelse",
+    j3_b3:"<strong>Drev go-to-market-strategi</strong> med posisjonering og prissetting",
+    j3_b4:"<strong>Samutviklet kjerne-AI-algoritmen</strong> med ingenj\u00f8rteamet",
+    j4_title:"Teknologidirekt\u00f8r",j4_meta:"Toronto, ON \u00b7 Januar 2024 \u2013 Mai 2024",
+    j4_b1:"<strong>Ledet plattformarkitekturbeslutninger</strong> for AI-drevet moteteknologi",
+    j4_b2:"<strong>Arkitekterte forretningskontinuitetsstrategi</strong> for plattformresiliens og databeskyttelse",
+    j4_b3:"<strong>Oversatte teknisk kompleksitet</strong> til lederrisikorammer og teknologiveikart",
+    j5_title:"Assosiert konsulent",j5_meta:"Toronto, ON \u00b7 August 2022 \u2013 November 2023",
+    j5_sub:"Strategisk transformasjon for Fortune 500-klienter \u2014 25%+ verdiskaping",
+    j5_b1:"<strong>St\u00f8ttet regulatorisk overgang for stor kanadisk bank</strong> (Kategori 4 til Kategori 3)",
+    j5_b2:"<strong>Designet organisatorisk restrukturering</strong> p\u00e5 tvers av gruvelokasjoner \u2014 25%+ verdiskaping",
+    j5_b3:"<strong>Ledet DE&amp;I-produktutvikling</strong> \u2014 digitalt dashboard og interessentunders\u00f8kelser",
+    j6_title:"AI-treningsspesialist",j6_meta:"Toronto, ON \u00b7 April 2019 \u2013 Oktober 2019",
+    j6_sub:"Trening og optimalisering av ML-drevne bildetekstgenereringssystemer",
+    j6_b1:"<strong>Trente og evaluerte bildetekstgenereringsmodeller</strong> gjennom storskala datasettetiketting",
+    j6_b2:"<strong>Samarbeidet med ML-ingenj\u00f8rteam</strong> for \u00e5 identifisere kanttilfeller",
+    j6_b3:"<strong>Dokumenterte feilm\u00f8nstre og anbefalte forbedringer</strong> av treningsdata",
+    j7_title:"STEM-programdirekt\u00f8r",j7_meta:"Toronto, ON \u00b7 April 2019 \u2013 August 2023",
+    j7_b1:"Instruerte ungdom fra 6 til 18 \u00e5r i programmering, robotikk og droner",
+    j7_b2:"Administrerte budsjett, planlegging og ressursallokering",
+    sk1_label:"AI-produkt &amp; Strategi",sk1_items:"Konversasjons-AI-design \u00b7 NLU-arkitektur \u00b7 IVR-modernisering \u00b7 Generativ AI-integrasjon \u00b7 Ansvarlig AI \u00b7 AI-agenter \u00b7 Go-to-Market \u00b7 OKR",
+    sk2_label:"Teknologistakk",sk2_items:"Amazon Connect \u00b7 AWS Lambda \u00b7 Dialogflow CX \u00b7 Google Cloud Platform \u00b7 Python \u00b7 SQL \u00b7 ML-pipelines",
+    sk3_label:"Forskning &amp; Analyse",sk3_items:"Markedsunders\u00f8kelse \u00b7 Konkurrentanalyse \u00b7 Deep Learning \u00b7 Datastorytelling \u00b7 A/B-testing",
+    sk4_label:"Utf\u00f8relse &amp; Leveranse",sk4_items:"Agile / Scrum \u00b7 Endringsledelse \u00b7 Prosjektledelse \u00b7 Dokumentasjon \u00b7 Risikostyring",
+    sk5_label:"Innhold &amp; Kommunikasjon",sk5_items:"Utvikling av pedagogisk innhold \u00b7 Oppl\u00e6ring \u00b7 Historiefortelling \u00b7 Offentlig tale \u00b7 Interessentkommunikasjon",
+    sk6_label:"Lederskap &amp; Karakter",sk6_items:"Emosjonell intelligens \u00b7 Motivering av team \u00b7 Analytisk tenkning \u00b7 Vekstmentalitet \u00b7 Kreativt lederskap",
+    edu1_deg:"Honours Bachelor of Science med utmerkelse",edu1_school:"Universitetet i Toronto (St. George)",
+    edu1_details:"Hovedfag: Kognisjonsvitenskap<br>Hovedfag: Bok- og mediestudier<br>Bifag: Digital humaniora<br>Uteksaminert: 2022",
+    edu2_deg:"EarthQUAICS-programmet",edu2_school:"Protexxa",
+    edu2_details:"Cybersikkerhet, kvanteberegning &amp; kunstig intelligens<br>2025\u20132026 \u00b7 Karakter: 92.86%",
+    cert1:"AI &amp; Rett \u2014 Universitetet i Lund",cert2:"Generativ AI med LLM \u2014 DeepLearning.AI",
+    cert3:"Dialogflow CX-spesialisering \u2014 Google",cert4:"Dialogflow CX \u2014 Borgerutviklere",
+    cert5:"Grunnleggende samtaldesign",cert6:"Kontaktsenter AI-operasjoner",
+    cert7:"Amazon Connect \u2014 Feils\u00f8king",cert8:"Amazon Connect \u2014 Instansgrunnleggende",
+    cert9:"IBM Watson",cert10:"IBM AI-introduksjon",cert11:"ML &amp; AI-grunnleggende",
+    cert12:"Utforske AI-brukstilfeller",cert13:"Programmeringsgrunnleggende \u2014 UofT",cert14:"Bain b\u00e6rekraft \u2014 MIT Sloan",
+    beta1:"OpenAI privat beta \u2014 GPT &amp; Codex (2020\u20132021)",beta2:"Apple iOS offentlig beta (2017\u20132022)",
+    beta3:"Instagram beta \u2014 F\u00f8r Meta-oppkj\u00f8p (2009\u20132021)",beta4:"Snapchat-betatester (2018\u20132020)",
+    beta5:"Skype Translator beta (2014)",beta6:"Hype Machine beta (2012\u20132015)",
+    lang_content:"Engelsk \u2014 Fl\u00fctende<br>Fransk \u2014 Fl\u00fctende",
+    interests_content:"Klassisk pianist, vokalist &amp; perkusjonist<br>STEM-mentoring for ungdom<br>AI-politikkforskning &amp; etikk<br>Entrepenj\u00f8rskap<br>Fremvoksende vitenskap &amp; teknologier<br>Kajakk",
+    footer:"&copy; 2026 <span>Alexia Monize</span> &nbsp;&middot;&nbsp; Bygd med presisjon &amp; <span>form\u00e5l</span>"
+  },
+  ja: {
+    tagline:"AI\u30d7\u30ed\u30c0\u30af\u30c8\u30ea\u30fc\u30c0\u30fc \u00b7 \u4f1a\u8a71\u578bAI\u30a2\u30fc\u30ad\u30c6\u30af\u30c8 \u00b7 \u65b0\u8208\u6280\u8853\u30b9\u30c8\u30e9\u30c6\u30b8\u30b9\u30c8",
+    toggleDark:"\u30c0\u30fc\u30af",toggleLight:"\u30e9\u30a4\u30c8",
+    sec_about:"\u30d7\u30ed\u30d5\u30a3\u30fc\u30eb",sec_experience:"\u8077\u6b74",sec_skills:"\u30b3\u30a2\u30b3\u30f3\u30d4\u30c6\u30f3\u30b7\u30fc",
+    sec_education:"\u5b66\u6b74",sec_certs:"\u8cc7\u683c\u30fb\u8a8d\u5b9a",sec_beta:"\u30c6\u30af\u30ce\u30ed\u30b8\u30fc\u30a2\u30fc\u30ea\u30fc\u30a2\u30c0\u30d7\u30bf\u30fc",
+    sec_languages:"\u8a00\u8a9e",sec_interests:"\u8da3\u5473\u30fb\u95a2\u5fc3",
+    summary:"<strong>AI\u30d7\u30ed\u30c0\u30af\u30c8\u30ea\u30fc\u30c0\u30fc\u30fb\u4f1a\u8a71\u578bAI\u30b7\u30b9\u30c6\u30e0\u30a2\u30fc\u30ad\u30c6\u30af\u30c8</strong>\u3068\u3057\u3066\u3001AI\u30d7\u30ed\u30c0\u30af\u30c8\u3092\u30bc\u30ed\u304b\u3089\u69cb\u7bc9\u3057\u30a8\u30f3\u30bf\u30fc\u30d7\u30e9\u30a4\u30ba\u898f\u6a21\u306b\u30b9\u30b1\u30fc\u30eb\u3055\u305b\u305f\u5b9f\u7e3e\u3092\u6301\u3061\u307e\u3059\u3002Porter Airlines\u306e\u4f1a\u8a71\u578bAI\u30d7\u30e9\u30c3\u30c8\u30d5\u30a9\u30fc\u30e0\u3092\u4e3b\u5c0e\u3057\u3001<strong>\u30a4\u30f3\u30c6\u30f3\u30c8750%\u62e1\u5f35</strong>\u3092\u9054\u6210\u3002Amazon Connect\u3001Dialogflow CX\u3001AWS Lambda\u3001ML\u30d1\u30a4\u30d7\u30e9\u30a4\u30f3\u306b\u7cbe\u901a\u3002\u30c8\u30ed\u30f3\u30c8\u5927\u5b66\u8a8d\u77e5\u79d1\u5b66\u5b66\u58eb\uff082022\u5e74\uff09\u53d6\u5f97\u3002",
+    j1_title:"AI\u30d7\u30ed\u30c0\u30af\u30c8\u30ea\u30fc\u30c9 &amp; \u6226\u7565\u30aa\u30da\u30ec\u30fc\u30b7\u30e7\u30f3\u30de\u30cd\u30fc\u30b8\u30e3\u30fc",j1_meta:"\u30c8\u30ed\u30f3\u30c8, ON \u00b7 2024\u5e742\u6708 \u2013 2025\u5e749\u6708",
+    j1_sub:"200\u4e07\u4eba\u4ee5\u4e0a\u306e\u9867\u5ba2\u306b\u30b5\u30fc\u30d3\u30b9\u3092\u63d0\u4f9b\u3059\u308b\u30a8\u30f3\u30bf\u30fc\u30d7\u30e9\u30a4\u30ba\u4f1a\u8a71\u578bAI\u30d7\u30e9\u30c3\u30c8\u30d5\u30a9\u30fc\u30e0\u306e\u30a8\u30f3\u30c9\u30c4\u30fc\u30a8\u30f3\u30c9\u8cac\u4efb\u8005",
+    j1_b1:"<strong>\u30d7\u30ed\u30c0\u30af\u30c8\u6226\u7565\u306e\u7b56\u5b9a\u30fb\u5b9f\u884c</strong>\uff1a\u30a4\u30f3\u30c6\u30f3\u30c8\u306e6\u500b\u304b\u308951\u500b\u3078\u306e\u62e1\u5f35\uff08750%\u6210\u9577\uff09",
+    j1_b2:"<strong>NLU/IVR\u30b7\u30b9\u30c6\u30e0\u306e\u8a2d\u8a08\u30fb\u5c55\u958b</strong>\uff1aAmazon Connect\u4e0a\u3067\u306e\u30a8\u30f3\u30c9\u30c4\u30fc\u30a8\u30f3\u30c9\u5b9f\u88c5",
+    j1_b3:"<strong>\u30af\u30ed\u30b9\u30d5\u30a1\u30f3\u30af\u30b7\u30e7\u30ca\u30eb\u30c7\u30ea\u30d0\u30ea\u30fc\u306e\u30ea\u30fc\u30c9</strong>\uff1a\u30a8\u30f3\u30b8\u30cb\u30a2\u30ea\u30f3\u30b0\u3001CX\u3001\u30aa\u30da\u30ec\u30fc\u30b7\u30e7\u30f3\u30c1\u30fc\u30e0\u3068\u9023\u643a",
+    j1_b4:"<strong>\u30a2\u30af\u30c6\u30a3\u30d9\u30fc\u30b7\u30e7\u30f3\u3068\u30a8\u30f3\u30b2\u30fc\u30b8\u30e1\u30f3\u30c8\u306e\u5411\u4e0a</strong>\uff1a\u884c\u52d5\u30c7\u30fc\u30bf\u5206\u6790\u3068A/B\u30c6\u30b9\u30c8",
+    j1_b5:"<strong>\u30d1\u30d5\u30a9\u30fc\u30de\u30f3\u30b9\u5206\u6790\u30a4\u30f3\u30d5\u30e9\u306e\u69cb\u7bc9</strong>\uff1a\u30ea\u30a2\u30eb\u30bf\u30a4\u30e0\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9",
+    j1_b6:"<strong>AI\u30ac\u30d0\u30ca\u30f3\u30b9\u30d5\u30ec\u30fc\u30e0\u30ef\u30fc\u30af\u306e\u78ba\u7acb</strong>\uff1a\u30e2\u30c7\u30eb\u8a55\u4fa1\u57fa\u6e96\u3068SLA\u5b9a\u7fa9",
+    j1_b7:"<strong>\u30a8\u30f3\u30bf\u30fc\u30d7\u30e9\u30a4\u30baAI\u904b\u7528\u30d7\u30ec\u30a4\u30d6\u30c3\u30af\u306e\u4f5c\u6210</strong>\uff1a\u30aa\u30f3\u30dc\u30fc\u30c7\u30a3\u30f3\u30b0\u6642\u9593\u3092\u30001\u5272\u5c0f\u30fb\u7e2e",
+    j1_b8:"<strong>\u4e8c\u8a00\u8a9e\u88fd\u54c1\u62e1\u5c55\u306e\u30ea\u30fc\u30c9</strong>\uff08\u82f1\u8a9e/\u30d5\u30e9\u30f3\u30b9\u8a9e\uff09",
+    j2_title:"\u4eba\u5de5\u77e5\u80fd\u30c7\u30a3\u30ec\u30af\u30bf\u30fc",j2_meta:"\u30c8\u30ed\u30f3\u30c8, ON \u00b7 2025\u5e748\u6708 \u2013 \u73fe\u5728",
+    j2_sub:"\u9752\u5c11\u5e74\u5411\u3051STEM\u6559\u80b2\u30d7\u30e9\u30c3\u30c8\u30d5\u30a9\u30fc\u30e0\u306eAI\u88fd\u54c1\u30ed\u30fc\u30c9\u30de\u30c3\u30d7\u306e\u7b56\u5b9a",
+    j2_b1:"<strong>STEM\u5b66\u7fd2\u30d7\u30e9\u30c3\u30c8\u30d5\u30a9\u30fc\u30e0\u306eAI\u88fd\u54c1\u5909\u9769\u3092\u4e3b\u5c0e</strong>",
+    j2_b2:"<strong>AI\u88fd\u54c1\u30ed\u30fc\u30c9\u30de\u30c3\u30d7\u306e\u7b56\u5b9a</strong>\uff1a\u6a5f\u80fd\u512a\u5148\u9806\u4f4d\u3068\u30d1\u30fc\u30c8\u30ca\u30fc\u30b7\u30c3\u30d7\u6226\u7565",
+    j2_b3:"<strong>\u9752\u5c11\u5e74\u5411\u3051\u88fd\u54c1\u306eAI\u502b\u7406\u30fb\u30ac\u30d0\u30ca\u30f3\u30b9\u57fa\u6e96\u306e\u78ba\u7acb</strong>",
+    j3_title:"\u5275\u696d\u8005 &amp; \u30c1\u30fc\u30d5\u30a4\u30ce\u30d9\u30fc\u30b7\u30e7\u30f3\u30aa\u30d5\u30a3\u30b5\u30fc",j3_meta:"\u30c8\u30ed\u30f3\u30c8, ON \u00b7 2025\u5e741\u6708 \u2013 \u73fe\u5728",
+    j3_sub:"\u5c02\u9580AIProduct\u30b3\u30f3\u30b5\u30eb\u30c6\u30a3\u30f3\u30b0\u4f1a\u793e \u2014 \u9ad8\u77e5\u540d\u5ea6\u30b9\u30bf\u30fc\u30c8\u30a2\u30c3\u30d7\u30af\u30e9\u30a4\u30a2\u30f3\u30c8\u3092\u78ba\u4fdd",
+    j3_b1:"<strong>\u5c02\u9580AI\u30b3\u30f3\u30b5\u30eb\u30c6\u30a3\u30f3\u30b0\u5b9f\u52d9\u3092\u5275\u8a2d</strong>\u3057\u3001AI\u97f3\u697d\u30b9\u30bf\u30fc\u30c8\u30a2\u30c3\u30d7\u30af\u30e9\u30a4\u30a2\u30f3\u30c8\u3092\u78ba\u4fdd",
+    j3_b2:"<strong>\u88fd\u54c1\u30fb\u5e02\u5834\u9069\u5408\u6027\u30d4\u30dc\u30c3\u30c8\u3092\u4e3b\u5c0e</strong>\uff1a\u7af6\u5408\u5206\u6790\u3068\u30e6\u30fc\u30b6\u30fc\u30ea\u30b5\u30fc\u30c1",
+    j3_b3:"<strong>GTM\u6226\u7565\u3092\u63a8\u9032</strong>\uff1a\u30dd\u30b8\u30b7\u30e7\u30cb\u30f3\u30b0\u3068\u4fa1\u683c\u8a2d\u5b9a",
+    j3_b4:"<strong>\u30a8\u30f3\u30b8\u30cb\u30a2\u30ea\u30f3\u30b0\u30c1\u30fc\u30e0\u3068\u30b3\u30a2AI\u30a2\u30eb\u30b4\u30ea\u30ba\u30e0\u3092\u5171\u540c\u8a2d\u8a08</strong>",
+    j4_title:"\u6700\u9ad8\u6280\u8853\u8cac\u4efb\u8005",j4_meta:"\u30c8\u30ed\u30f3\u30c8, ON \u00b7 2024\u5e741\u6708 \u2013 2024\u5e745\u6708",
+    j4_b1:"<strong>AI\u30d5\u30a1\u30c3\u30b7\u30e7\u30f3\u6280\u8853\u306e\u30d7\u30e9\u30c3\u30c8\u30d5\u30a9\u30fc\u30e0\u30a2\u30fc\u30ad\u30c6\u30af\u30c1\u30e3\u6c7a\u5b9a\u3092\u4e3b\u5c0e</strong>",
+    j4_b2:"<strong>\u30d3\u30b8\u30cd\u30b9\u7d99\u7d9a\u6027\u6226\u7565\u306e\u8a2d\u8a08</strong>\uff1a\u30c7\u30fc\u30bf\u4fdd\u8b77\u3068\u30d7\u30e9\u30c3\u30c8\u30d5\u30a9\u30fc\u30e0\u306e\u5fa9\u5143\u529b",
+    j4_b3:"<strong>\u6280\u8853\u7684\u8907\u96d1\u6027\u3092\u7d4c\u55b6\u9663\u3078\u306e\u30ea\u30b9\u30af\u30d5\u30ec\u30fc\u30e0\u30ef\u30fc\u30af\u306b\u5909\u63db</strong>",
+    j5_title:"\u30a2\u30bd\u30b7\u30a8\u30a4\u30c8\u30b3\u30f3\u30b5\u30eb\u30bf\u30f3\u30c8",j5_meta:"\u30c8\u30ed\u30f3\u30c8, ON \u00b7 2022\u5e748\u6708 \u2013 2023\u5e7411\u6708",
+    j5_sub:"Fortune 500\u30af\u30e9\u30a4\u30a2\u30f3\u30c8\u5411\u3051\u6226\u7565\u7684\u5909\u9769 \u2014 25%+\u306e\u4fa1\u5024\u5275\u51fa",
+    j5_b1:"<strong>\u30ab\u30ca\u30c0\u5927\u624b\u9280\u884c\u306e\u898f\u5236\u79fb\u884c\u3092\u30b5\u30dd\u30fc\u30c8</strong>\uff08\u30ab\u30c6\u30b4\u30ea\u30fc4\u304b\u30893\u3078\uff09",
+    j5_b2:"<strong>\u8907\u6570\u306e\u9271\u5c71\u30b5\u30a4\u30c8\u306b\u308f\u305f\u308b\u7d44\u7e54\u518d\u7de8\u3092\u8a2d\u8a08</strong> \u2014 25%+\u306e\u4fa1\u5024\u5275\u51fa",
+    j5_b3:"<strong>DE&amp;I\u88fd\u54c1\u958b\u767a\u306e\u30ea\u30fc\u30c9</strong> \u2014 \u30c7\u30b8\u30bf\u30eb\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9",
+    j6_title:"AI\u30c8\u30ec\u30fc\u30cb\u30f3\u30b0\u30b9\u30da\u30b7\u30e3\u30ea\u30b9\u30c8",j6_meta:"\u30c8\u30ed\u30f3\u30c8, ON \u00b7 2019\u5e744\u6708 \u2013 2019\u5e7410\u6708",
+    j6_sub:"\u4e16\u754c\u6709\u6570\u306eAI\u9a71\u52d5\u578b\u30bd\u30fc\u30b7\u30e3\u30eb\u30d7\u30e9\u30c3\u30c8\u30d5\u30a9\u30fc\u30e0\u306eMLS\u30ad\u30e3\u30d7\u30b7\u30e7\u30f3\u751f\u6210\u30b7\u30b9\u30c6\u30e0\u306e\u30c8\u30ec\u30fc\u30cb\u30f3\u30b0",
+    j6_b1:"<strong>\u30ad\u30e3\u30d7\u30b7\u30e7\u30f3\u751f\u6210\u30e2\u30c7\u30eb\u306e\u30c8\u30ec\u30fc\u30cb\u30f3\u30b0\u30fb\u8a55\u4fa1</strong>\uff1a\u5927\u898f\u6a21\u30c7\u30fc\u30bf\u30bb\u30c3\u30c8\u306e\u30e9\u30d9\u30ea\u30f3\u30b0",
+    j6_b2:"<strong>ML\u30a8\u30f3\u30b8\u30cb\u30a2\u30ea\u30f3\u30b0\u30c1\u30fc\u30e0\u3068\u5354\u529b</strong>\uff1a\u30a8\u30c3\u30b8\u30b1\u30fc\u30b9\u3068\u30d1\u30d5\u30a9\u30fc\u30de\u30f3\u30b9\u30ae\u30e3\u30c3\u30d7\u306e\u7279\u5b9a",
+    j6_b3:"<strong>\u969c\u5bb3\u30d1\u30bf\u30fc\u30f3\u306e\u6587\u66f8\u5316\u3068\u6539\u5584\u63a8\u5968</strong>",
+    j7_title:"STEM\u30d7\u30ed\u30b0\u30e9\u30e0\u30c7\u30a3\u30ec\u30af\u30bf\u30fc",j7_meta:"\u30c8\u30ed\u30f3\u30c8, ON \u00b7 2019\u5e744\u6708 \u2013 2023\u5e748\u6708",
+    j7_b1:"6\u301c18\u6b73\u306e\u9752\u5c11\u5e74\u306b\u30d7\u30ed\u30b0\u30e9\u30df\u30f3\u30b0\u30fb\u30ed\u30dc\u30c6\u30a3\u30af\u30b9\u30fb\u30c9\u30ed\u30fc\u30f3\u3092\u6307\u5c0e",
+    j7_b2:"\u4e88\u7b97\u30fb\u65e5\u7a0b\u30fb\u30ea\u30bd\u30fc\u30b9\u914d\u5206\u3092\u7ba1\u7406",
+    sk1_label:"AI\u88fd\u54c1 &amp; \u6226\u7565",sk1_items:"\u4f1a\u8a71\u578bAI\u8a2d\u8a08 \u00b7 NLU\u30a2\u30fc\u30ad\u30c6\u30af\u30c1\u30e3 \u00b7 IVR\u30e2\u30c0\u30ca\u30a4\u30bc\u30fc\u30b7\u30e7\u30f3 \u00b7 \u751f\u6210AI\u7d71\u5408 \u00b7 \u8cac\u4efb\u3042\u308bAI \u00b7 AI\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8 \u00b7 GTM \u00b7 OKR",
+    sk2_label:"\u6280\u8853\u30b9\u30bf\u30c3\u30af",sk2_items:"Amazon Connect \u00b7 AWS Lambda \u00b7 Dialogflow CX \u00b7 Google Cloud Platform \u00b7 Python \u00b7 SQL \u00b7 ML\u30d1\u30a4\u30d7\u30e9\u30a4\u30f3",
+    sk3_label:"\u8abf\u67fb &amp; \u5206\u6790",sk3_items:"\u5e02\u5834\u8abf\u67fb \u00b7 \u7af6\u5408\u5206\u6790 \u00b7 \u30c7\u30a3\u30fc\u30d7\u30e9\u30fc\u30cb\u30f3\u30b0 \u00b7 \u30c7\u30fc\u30bf\u30b9\u30c8\u30fc\u30ea\u30fc\u30c6\u30ea\u30f3\u30b0 \u00b7 A/B\u30c6\u30b9\u30c8",
+    sk4_label:"\u5b9f\u884c &amp; \u30c7\u30ea\u30d0\u30ea\u30fc",sk4_items:"\u30a2\u30b8\u30e3\u30a4\u30eb/\u30b9\u30af\u30e9\u30e0 \u00b7 \u30c1\u30a7\u30f3\u30b8\u30de\u30cd\u30b8\u30e1\u30f3\u30c8 \u00b7 \u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u30de\u30cd\u30b8\u30e1\u30f3\u30c8 \u00b7 \u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\u4f5c\u6210",
+    sk5_label:"\u30b3\u30f3\u30c6\u30f3\u30c4 &amp; \u30b3\u30df\u30e5\u30cb\u30b1\u30fc\u30b7\u30e7\u30f3",sk5_items:"\u6559\u80b2\u30b3\u30f3\u30c6\u30f3\u30c4\u958b\u767a \u00b7 \u7814\u4fee \u00b7 \u30b9\u30c8\u30fc\u30ea\u30fc\u30c6\u30ea\u30f3\u30b0 \u00b7 \u30d1\u30d6\u30ea\u30c3\u30af\u30b9\u30d4\u30fc\u30ad\u30f3\u30b0 \u00b7 \u30b9\u30c6\u30fc\u30af\u30db\u30eb\u30c0\u30fc\u30b3\u30df\u30e5\u30cb\u30b1\u30fc\u30b7\u30e7\u30f3",
+    sk6_label:"\u30ea\u30fc\u30c0\u30fc\u30b7\u30c3\u30d7 &amp; \u4eba\u683c",sk6_items:"\u30a8\u30e2\u30fc\u30b7\u30e7\u30ca\u30eb\u30a4\u30f3\u30c6\u30ea\u30b8\u30a7\u30f3\u30b9 \u00b7 \u30c1\u30fc\u30e0\u306e\u30e2\u30c1\u30d9\u30fc\u30b7\u30e7\u30f3\u5411\u4e0a \u00b7 \u5206\u6790\u7684\u601d\u8003 \u00b7 \u6210\u9577\u30de\u30a4\u30f3\u30c9\u30bb\u30c3\u30c8 \u00b7 \u30af\u30ea\u30a8\u30a4\u30c6\u30a3\u30d6\u30ea\u30fc\u30c0\u30fc\u30b7\u30c3\u30d7",
+    edu1_deg:"\u7406\u5b66\u512a\u7b49\u5b66\u58eb\uff08\u512a\u7b49\u5352\u696d\uff09",edu1_school:"\u30c8\u30ed\u30f3\u30c8\u5927\u5b66\uff08\u30bb\u30f3\u30c8\u30b8\u30e7\u30fc\u30b8\uff09",
+    edu1_details:"\u4e3b\u5c02\u653b\uff1a\u8a8d\u77e5\u79d1\u5b66\uff08\u8a08\u7b97\u8a8d\u77e5\uff09<br>\u4e3b\u5c02\u653b\uff1a\u56f3\u66f8\u30fb\u30e1\u30c7\u30a3\u30a2\u7814\u7a76<br>\u526f\u5c02\u653b\uff1a\u30c7\u30b8\u30bf\u30eb\u4eba\u6587\u5b66<br>\u5352\u696d\uff1a2022\u5e74",
+    edu2_deg:"EarthQUAICS\u30d7\u30ed\u30b0\u30e9\u30e0",edu2_school:"Protexxa",
+    edu2_details:"\u30b5\u30a4\u30d0\u30fc\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3001\u91cf\u5b50\u30b3\u30f3\u30d4\u30e5\u30fc\u30c6\u30a3\u30f3\u30b0 &amp; \u4eba\u5de5\u77e5\u80fd<br>2025\u20132026 \u00b7 \u30b9\u30b3\u30a2\uff1a92.86%",
+    cert1:"AI &amp; \u6cd5\u5f8b \u2014 \u30eb\u30f3\u30c9\u5927\u5b66",cert2:"LLM\u306b\u3088\u308b\u751f\u6210AI \u2014 DeepLearning.AI",
+    cert3:"Dialogflow CX\u5c02\u9580\u8a8d\u5b9a \u2014 Google",cert4:"Dialogflow CX \u2014 \u30b7\u30c1\u30ba\u30f3\u30c7\u30d9\u30ed\u30c3\u30d1\u30fc",
+    cert5:"\u4f1a\u8a71\u8a2d\u8a08\u306e\u57fa\u790e",cert6:"\u30b3\u30f3\u30bf\u30af\u30c8\u30bb\u30f3\u30bf\u30fcAI\u904b\u7528",
+    cert7:"Amazon Connect \u2014 \u30c8\u30e9\u30d6\u30eb\u30b7\u30e5\u30fc\u30c6\u30a3\u30f3\u30b0",cert8:"Amazon Connect \u2014 \u30a4\u30f3\u30b9\u30bf\u30f3\u30b9\u57fa\u790e",
+    cert9:"IBM Watson",cert10:"IBM AI\u5165\u9580",cert11:"ML &amp; AI\u57fa\u790e",
+    cert12:"AI\u30e6\u30fc\u30b9\u30b1\u30fc\u30b9\u63a2\u7d22",cert13:"\u30d7\u30ed\u30b0\u30e9\u30df\u30f3\u30b0\u57fa\u790e \u2014 UofT",cert14:"Bain\u30b5\u30b9\u30c6\u30ca\u30d3\u30ea\u30c6\u30a3 \u2014 MIT\u30b9\u30ed\u30fc\u30f3",
+    beta1:"OpenAI\u30d7\u30e9\u30a4\u30d9\u30fc\u30c8\u30d9\u30fc\u30bf \u2014 GPT &amp; Codex (2020\u20132021)",beta2:"Apple iOS\u30d1\u30d6\u30ea\u30c3\u30af\u30d9\u30fc\u30bf (2017\u20132022)",
+    beta3:"Instagram\u30d9\u30fc\u30bf \u2014 Meta\u8cb7\u53ce\u524d (2009\u20132021)",beta4:"Snapchat\u30d9\u30fc\u30bf\u30c6\u30b9\u30bf\u30fc (2018\u20132020)",
+    beta5:"Skype Translator\u30d9\u30fc\u30bf (2014)",beta6:"Hype Machine\u30d9\u30fc\u30bf (2012\u20132015)",
+    lang_content:"\u82f1\u8a9e \u2014 \u6d41\u6578<br>\u30d5\u30e9\u30f3\u30b9\u8a9e \u2014 \u6d41\u6578",
+    interests_content:"\u30af\u30e9\u30b7\u30c3\u30af\u30d4\u30a2\u30cb\u30b9\u30c8\u3001\u30dc\u30fc\u30ab\u30ea\u30b9\u30c8 &amp; \u30d1\u30fc\u30ab\u30c3\u30b7\u30e7\u30cb\u30b9\u30c8<br>\u9752\u5c11\u5e74STEM\u30e1\u30f3\u30bf\u30ea\u30f3\u30b0<br>AI\u653f\u7b56\u7814\u7a76 &amp; \u502b\u7406<br>\u8d77\u696d\u5bb6\u7cbe\u795e<br>\u65b0\u8208\u79d1\u5b66 &amp; \u6280\u8853<br>\u30ab\u30e4\u30c3\u30af",
+    footer:"&copy; 2026 <span>Alexia Monize</span> &nbsp;&middot;&nbsp; \u7cbe\u5c04\u3055\u3068<span>\u76ee\u7684</span>\u3092\u6301\u3063\u3066\u69cb\u7bc9"
+  },
+  ko: {
+    tagline:"AI \uc81c\ud488 \ub9ac\ub354 \u00b7 \ub300\ud654\ud615 AI \uc544\ud0a4\ud14d\ud2b8 \u00b7 \uc2e0\ud765 \uae30\uc220 \uc804\ub7b5\uac00",
+    toggleDark:"\ub2e4\ud06c",toggleLight:"\ub77c\uc774\ud2b8",
+    sec_about:"\uc18c\uac1c",sec_experience:"\uacbd\ub825",sec_skills:"\ud575\uc2ec \uc5ed\ub7c9",
+    sec_education:"\ud559\ub825",sec_certs:"\uc790\uaca9\uc99d",sec_beta:"\ucd08\uae30 \uae30\uc220 \ub3c4\uc785",
+    sec_languages:"\uc5b8\uc5b4",sec_interests:"\uad00\uc2ec\uc0ac",
+    summary:"<strong>AI \uc81c\ud488 \ub9ac\ub354 \ubc0f \ub300\ud654\ud615 \uc2dc\uc2a4\ud15c \uc544\ud0a4\ud14d\ud2b8</strong>\ub85c\uc11c Porter Airlines\uc758 \ub300\ud654\ud615 AI \ud50c\ub7ab\ud3fc\uc744 \uc8fc\ub3c4\ud558\ec\bdec <strong>\uc778\ud150\ud2b8 750% \ud655\uc7a5</strong>\uc744 \ub2ec\uc131\ud558\uc5ec <strong>\uc5f0\uac04 200\ub9cc \uac74 \uc774\uc0c1\uc758 \uace0\uac1d \uc0c1\ud638\uc791\uc6a9</strong>\uc744 \uc9c0\uc6d0\ud588\uc2b5\ub2c8\ub2e4. Amazon Connect, Dialogflow CX, AWS Lambda, ML \ud30c\uc774\ud504\ub77c\uc778 \uc124\uacc4 \ubc0f LLM \ud1b5\ud569\uc5d0 \uc815\ud1b5. \ud1a0\ub860\ud1a0 \ub300\ud559\uad50 \uc778\uc9c0\uacfc\ud559 \ud559\uc0ac\uc5ed(2022\ub144, \uc6b0\ub4f1 \uc5f0\ub9c9)\uc744 \ubcf4\uc720\ud558\uace0 \uc788\uc2b5\ub2c8\ub2e4.",
+    j1_title:"AI \uc81c\ud488 \ub9ac\ub354 &amp; \uc804\ub7b5 \uc6b4\uc601 \uad00\ub9ac\uc790",j1_meta:"\ud1a0\ub860\ud1a0, ON \u00b7 2024\ub144 2\uc6d4 \u2013 2025\ub144 9\uc6d4",
+    j1_sub:"200\ub9cc \uba85 \uc774\uc0c1\uc758 \uace0\uac1d\uc5d0\uac8c \uc11c\ube44\uc2a4\ub97c \uc81c\uacf5\ud558\ub294 \uae30\uc5c5\uc6a9 \ub300\ud654\ud615 AI \ud50c\ub7ab\ud3fc\uc758 \uc5d4\ub4dc\ud22c\uc5d4\ub4dc \ub2f4\ub2f9\uc790",
+    j1_b1:"<strong>\uc81c\ud488 \uc804\ub7b5 \uc218\ub9bd \ubc0f \uc2e4\ud589</strong>\uc778\ud150\ud2b8\ub97c 6\uac1c\uc5d0\uc11c 51\uac1c\ub85c \ud655\uc7a5(750% \uc131\uc7a5)",
+    j1_b2:"<strong>NLU/IVR \uc2dc\uc2a4\ud15c \uc124\uacc4 \ubc0f \ubc30\ud3ec</strong>Amazon Connect\uc5d0\uc11c \uc5d4\ub4dc\ud22c\uc5d4\ub4dc \uad6c\ud604",
+    j1_b3:"<strong>\ud06c\ub85c\uc2a4\ud39c\uc154\ub110 \ub518\ub9ac\ubc84\ub9ac \uc8fc\ub3c4</strong>\uc5d4\uc9c0\ub2c8\uc5b4\ub9c1, CX, \uc6b4\uc601, \uc81c\ud488 \ud300\uacfc \ud611\ub825",
+    j1_b4:"<strong>\ud65c\uc131\ud654 \ubc0f \ucc38\uc5ec\ub3c4 \ud5a5\uc0c1</strong>A/B \ud14c\uc2a4\ud2b8 \ud504\ub808\uc784\uc6cc\ud06c \uad6c\ud604 \ubc0f \ub300\ud654 \ud750\ub984 \ucd5c\uc801\ud654",
+    j1_b5:"<strong>\uc131\ub2a5 \ubd84\uc11d \uc778\ud504\ub77c \uad6c\ucd95</strong>\uc2e4\uc2dc\uac04 \ub300\uc2dc\ubcf4\ub4dc\ub85c \uc778\ud150\ud2b8 \uc815\ud655\ub3c4 \ucd94\uc801",
+    j1_b6:"<strong>AI \uac70\ubc84\ub10c\uc2a4 \ud504\ub808\uc784\uc6cc\ud06c \ud655\ub9bd</strong>\ubaa8\ub378 \ud3c9\uac00 \uae30\uc900 \ubc0f SLA \uc815\uc758",
+    j1_b7:"<strong>\uae30\uc5c5\uc6a9 AI \uc6b4\uc601 \ud50c\ub808\uc774\ubd81 \uc791\uc131</strong>\uc628\ubcf4\ub529 \uc2dc\uac04 40% \ub2e8\ucd95",
+    j1_b8:"<strong>\uc774\uc911 \uc5b8\uc5b4 \uc81c\ud488 \ud655\uc7a5 \uc8fc\ub3c4</strong>(\uc601\uc5b4/\ud504\ub791\uc2a4\uc5b4)",
+    j2_title:"\uc778\uacf5\uc9c0\ub2a5 \ub514\ub809\ud130",j2_meta:"\ud1a0\ub860\ud1a0, ON \u00b7 2025\ub144 8\uc6d4 \u2013 \ud604\uc7ac",
+    j2_sub:"\uccad\uc18c\ub144 STEM \uad50\uc721 \ud50c\ub7ab\ud3fc\uc758 \uc801\uc751\ud615 \ud559\uc2b5\uacfc \uc724\ub9ac\uc801 AI \ubc30\ud3ec\ub97c \uc704\ud55c AI \uc81c\ud488 \ub85c\ub4dc\ub9f5 \uc218\ub9bd",
+    j2_b1:"<strong>STEM \ud559\uc2b5 \ud50c\ub7ab\ud3fc AI \uc81c\ud488 \ubcc0\ud601 \uc8fc\ub3c4</strong>",
+    j2_b2:"<strong>AI \uc81c\ud488 \ub85c\ub4dc\ub9f5 \uc218\ub9bd</strong>\uae30\ub2a5 \uc6b0\uc120\uc21c\uc704 \ubc0f \ud30c\ud2b8\ub108\uc2ed \uc804\ub7b5",
+    j2_b3:"<strong>\uccad\uc18c\ub144 \ub300\uc0c1 \uc81c\ud488\uc758 AI \uc724\ub9ac \ubc0f \uac70\ubc84\ub10c\uc2a4 \uae30\uc900 \ud655\ub9bd</strong>",
+    j3_title:"\ucc3d\uc5c5\uc790 &amp; \uce58\uc81c\ud601\uc2e0\uc785\ub2c8\ub2e4\uc790",j3_meta:"\ud1a0\ub860\ud1a0, ON \u00b7 2025\ub144 1\uc6d4 \u2013 \ud604\uc7ac",
+    j3_sub:"\uc804\ubb38 AI \uc81c\ud488 \ucee8\uc124\ud305 \ud68c\uc0ac \u2014 \uace0\ud504\ub85c\ud30c\uc77c \uc2a4\ud0c0\ud2b8\uc5c5 \uace0\uac1d \ud655\ubcf4",
+    j3_b1:"<strong>\uc804\ubb38 AI \ucee8\uc124\ud305 \uc2e4\ubb34 \ucc3d\uc124</strong>AI \uc74c\uc545 \uc2a4\ud0c0\ud2b8\uc5c5 \uace0\uac1d \ud655\ubcf4",
+    j3_b2:"<strong>\uc81c\ud488-\uc2dc\uc7a5 \uc801\ud569\uc131 \ud53c\ubc97 \uc8fc\ub3c4</strong>\uacbd\uc7c1 \ubd84\uc11d \ubc0f \uc0ac\uc6a9\uc790 \uc5f0\uad6c",
+    j3_b3:"<strong>GTM \uc804\ub7b5 \ucd94\uc9c4</strong>\ud3ec\uc9c0\uc154\ub2dd\uacfc \uac00\uaca9 \uc811\uadfc",
+    j3_b4:"<strong>\uc5d4\uc9c0\ub2c8\uc5b4\ub9c1 \ud300\uacfc \ucf54\uc5b4 AI \uc54c\uace0\ub9ac\uc998 \uacf5\ub3d9 \uc124\uacc4</strong>",
+    j4_title:"\ucd5c\uace0\uae30\uc220\ucc45\uc784\uc790",j4_meta:"\ud1a0\ub860\ud1a0, ON \u00b7 2024\ub144 1\uc6d4 \u2013 2024\ub144 5\uc6d4",
+    j4_b1:"<strong>AI \ud328\uc158 \uae30\uc220 \ud50c\ub7ab\ud3fc \uc544\ud0a4\ud14d\uc518 \uacb0\uc815 \uc8fc\ub3c4</strong>",
+    j4_b2:"<strong>\ube44\uc988\ub2c8\uc2a4 \uc5f0\uc18d\uc131 \uc804\ub7b5 \uc124\uacc4</strong>\ub370\uc774\ud130 \ubcf4\ud638 \ubc0f \ud50c\ub7ab\ud3fc \ubcf5\uc6d0\ub825",
+    j4_b3:"<strong>\uae30\uc220\uc801 \ubcf5\uc7a1\uc131\uc744 \uacbd\uc601\uc9c4 \ub9ac\uc2a4\ud06c \ud504\ub808\uc784\uc6cc\ud06c\ub85c \ubcc0\ud658</strong>",
+    j5_title:"\uc5b4\uc18c\uc2dc\uc5d0\uc774\ud2b8 \ucee8\uc124\ud134\ud2b8",j5_meta:"\ud1a0\ub860\ud1a0, ON \u00b7 2022\ub144 8\uc6d4 \u2013 2023\ub144 11\uc6d4",
+    j5_sub:"Fortune 500 \uace0\uac1d\uc744 \uc704\ud55c \uc804\ub7b5\uc801 \ubcc0\ud601 \u2014 25%+ \uac00\uce58 \ucc3d\ucd9c",
+    j5_b1:"<strong>\uce90\ub098\ub2e4 \ub300\ud615 \uc740\ud589\uc758 \uaddc\uc81c \uc804\ud658\uc744 \uc9c0\uc6d0</strong>(\uce74\ud14c\uace0\ub9ac 4\uc5d0\uc11c 3\uc73c\ub85c)",
+    j5_b2:"<strong>\ub2e4\uc218\uc758 \uad11\uc0b0 \ud604\uc7a5\uc5d0 \uac78\uce5c \uc870\uc9c1 \uac1c\ud3b8 \uc124\uacc4</strong> \u2014 25%+ \uac00\uce58 \ucc3d\ucd9c",
+    j5_b3:"<strong>DE&amp;I \uc81c\ud488 \uac1c\ubc1c \uc8fc\ub3c4</strong>\ub514\uc9c0\ud138 \ub300\uc2dc\ubcf4\ub4dc \ubc0f \uc774\ud574\uad00\uacc4\uc790 \uc124\ubb38 \uc870\uc0ac",
+    j6_title:"AI \ud2b8\ub808\uc774\ub2dd \uc2a4\ud398\uc15c\ub9ac\uc2a4\ud2b8",j6_meta:"\ud1a0\ub860\ud1a0, ON \u00b7 2019\ub144 4\uc6d4 \u2013 2019\ub144 10\uc6d4",
+    j6_sub:"\uc138\uacc4 \uc120\ub3c4\uc801\uc778 AI \uae30\ubc18 \uc18c\uc15c \ud50c\ub7ab\ud3fc\uc758 ML \uae30\ubc18 \uce90\uc158 \uc0dd\uc131 \uc2dc\uc2a4\ud15c \ud6c8\ub828 \ubc0f \ucd5c\uc801\ud654",
+    j6_b1:"<strong>\uce90\uc158 \uc0dd\uc131 \ubaa8\ub378 \ud6c8\ub828 \ubc0f \ud3c9\uac00</strong>\ub300\uaddc\ubaa8 \ub370\uc774\ud130\uc14b \ub77c\ubca8\ub9c1",
+    j6_b2:"<strong>ML \uc5d4\uc9c0\ub2c8\uc5b4\ub9c1 \ud300\uacfc \ud611\ub825</strong>\uc5d3\uc9c0 \ucf00\uc774\uc2a4 \ubc0f \uc131\ub2a5 \uaca9\ucc28 \uc2dd\ubcc4",
+    j6_b3:"<strong>\uc7a5\uc560 \ud328\ud134 \ubb38\uc11c\ud654 \ubc0f \ud6c8\ub828 \ub370\uc774\ud130 \uac1c\uc120 \uad8c\uc7a5</strong>",
+    j7_title:"STEM \ud504\ub85c\uadf8\ub7a8 \ub514\ub809\ud130",j7_meta:"\ud1a0\ub860\ud1a0, ON \u00b7 2019\ub144 4\uc6d4 \u2013 2023\ub144 8\uc6d4",
+    j7_b1:"6\ub144\uc5d0\uc11c 18\uc138 \uccad\uc18c\ub144\uc5d0\uac8c \ud504\ub85c\uadf8\ub798\ubc0d, \ub85c\ubcf4\ud2f1\uc2a4, \ub4dc\ub860 \uad50\uc721",
+    j7_b2:"\uc608\uc0b0, \uc77c\uc815, \ub9ac\uc18c\uc2a4 \ubc30\ubd84 \uad00\ub9ac",
+    sk1_label:"AI \uc81c\ud488 &amp; \uc804\ub7b5",sk1_items:"\ub300\ud654\ud615 AI \uc124\uacc4 \u00b7 NLU \uc544\ud0a4\ud14d\uce58 \u00b7 IVR \ud604\ub300\ud654 \u00b7 \uc0dd\uc131\ud615 AI \ud1b5\ud569 \u00b7 \uc1a1\uc784\ub294 AI \u00b7 AI \uc5d0\uc774\uc804\ud2b8 \u00b7 GTM \uc804\ub7b5 \u00b7 OKR",
+    sk2_label:"\uae30\uc220 \uc2a4\ud0dd",sk2_items:"Amazon Connect \u00b7 AWS Lambda \u00b7 Dialogflow CX \u00b7 Google Cloud Platform \u00b7 Python \u00b7 SQL \u00b7 ML \ud30c\uc774\ud504\ub77c\uc778",
+    sk3_label:"\ub9ac\uc11c\uce58 &amp; \ubd84\uc11d",sk3_items:"\uc2dc\uc7a5 \uc870\uc0ac \u00b7 \uacbd\uc7c1\uc0ac \ubd84\uc11d \u00b7 \ub525\ub7ec\ub2dd \u00b7 \ub370\uc774\ud130 \uc2a4\ud1a0\ub9ac\ud154\ub9c1 \u00b7 A/B \ud14c\uc2a4\ud2b8",
+    sk4_label:"\uc2e4\ud589 &amp; \ub518\ub9ac\ubc84\ub9ac",sk4_items:"\uc560\uc790\uc77c/\uc2a4\ud06c\ub7fc \u00b7 \ubcc0\ud654 \uad00\ub9ac \u00b7 \ud504\ub85c\uc81d\ud2b8 \uad00\ub9ac \u00b7 \ubb38\uc11c\ud654 \u00b7 \ub9ac\uc2a4\ud06c \uad00\ub9ac",
+    sk5_label:"\ucf58\ud150\uce20 &amp; \ucee4\ubba4\ub2c8\ucf00\uc774\uc158",sk5_items:"\uad50\uc721 \ucf58\ud150\uce20 \uac1c\ubc1c \u00b7 \uad50\uc721 \u00b7 \uc2a4\ud1a0\ub9ac\ud154\ub9c1 \u00b7 \ud37c\ube14\ub9ad \uc2a4\ud53c\ud0b9 \u00b7 \uc774\ud574\uad00\uacc4\uc790 \uc18c\ud1b5",
+    sk6_label:"\ub9ac\ub354\uc2ed &amp; \uc778\uc131",sk6_items:"\uac10\uc131 \uc9c0\ub2a5 \u00b7 \ud300 \ub3d9\uae30\ubd80\uc5ec \u00b7 \ubd84\uc11d\uc801 \uc0ac\uace0 \u00b7 \uc131\uc7a5 \ub9c8\uc778\ub4dc\uc14b \u00b7 \ud06c\ub9ac\uc5d0\uc774\ud2f0\ube0c \ub9ac\ub354\uc2ed",
+    edu1_deg:"\uc774\ud559 \uc6b0\ub4f1 \ud559\uc0ac(\uc6b0\ub4f1 \uc810\uc5b8)",edu1_school:"\ud1a0\ub860\ud1a0 \ub300\ud559\uad50(\uc138\uc778\ud2b8 \uc870\uc9c0)",
+    edu1_details:"\uc804\uacf5: \uc778\uc9c0\uacfc\ud559(\ucabc\uc0b0 \uc778\uc9c0)<br>\uc804\uacf5: \ub3c4\uc11c \ubc0f \ubbf8\ub514\uc5b4 \uc5f0\uad6c<br>\ubd80\uc804\uacf5: \ub514\uc9c0\ud138 \uc778\ubb38\ud559<br>\uc878\uc5c5: 2022\ub144",
+    edu2_deg:"EarthQUAICS \ud504\ub85c\uadf8\ub7a8",edu2_school:"Protexxa",
+    edu2_details:"\uc0ac\uc774\ubc84\ubcf4\uc548, \uc591\uc790 \ucef4\ud4e8\ud305 &amp; \uc778\uacf5\uc9c0\ub2a5<br>2025\u20132026 \u00b7 \uc810\uc218: 92.86%",
+    cert1:"AI &amp; \ubc95\ub960 \u2014 \ub8ec\ub4dc \ub300\ud559\uad50",cert2:"LLM\uc744 \uc774\uc6a9\ud55c \uc0dd\uc131\ud615 AI \u2014 DeepLearning.AI",
+    cert3:"Dialogflow CX \uc804\ubb38\ud654 \u2014 Google",cert4:"Dialogflow CX \u2014 \uc2dc\ubbfc \uac1c\ubc1c\uc790",
+    cert5:"\ub300\ud654 \uc124\uacc4 \uae30\ucd08",cert6:"\ucf58\ud0dd\ud2b8 \uc13c\ud130 AI \uc6b4\uc601",
+    cert7:"Amazon Connect \u2014 \ubb38\uc81c \ud574\uacb0",cert8:"Amazon Connect \u2014 \uc778\uc2a4\ud134\uc2a4 \uae30\ucd08",
+    cert9:"IBM Watson",cert10:"IBM AI \uc18c\uac1c",cert11:"ML &amp; AI \uae30\ucd08",
+    cert12:"AI \uc0ac\uc6a9 \uc0ac\ub840 \ud0d0\uc0c9",cert13:"\ud504\ub85c\uadf8\ub798\ubc0d \uae30\ucd08 \u2014 UofT",cert14:"Bain \uc9c0\uc18d\uac00\ub2a5\uc131 \u2014 MIT \uc2ac\ub860",
+    beta1:"OpenAI \ube44\uacf5\uac1c \ubca0\ud0c0 \u2014 GPT &amp; Codex (2020\u20132021)",beta2:"Apple iOS \uacf5\uac1c \ubca0\ud0c0 (2017\u20132022)",
+    beta3:"Instagram \ubca0\ud0c0 \u2014 Meta \uc778\uc218 \uc774\uc804 (2009\u20132021)",beta4:"Snapchat \ubca0\ud0c0 \ud14c\uc2a4\ud130 (2018\u20132020)",
+    beta5:"Skype \ubc88\uc5ed\uae30 \ubca0\ud0c0 (2014)",beta6:"Hype Machine \ubca0\ud0c0 (2012\u20132015)",
+    lang_content:"\uc601\uc5b4 \u2014 \uc720\cc3d\ub2c8\ub2e4\u3C2e\uc720\ub9bc<br>\ud504\ub791\uc2a4\uc5b4 \u2014 \uc720\cc3d\ub2c8\ub2e4",
+    interests_content:"\ud074\ub798\uc2dd \ud53c\uc544\ub2c8\uc2a4\ud2b8, \ubcf4\ucec0\ub9ac\uc2a4\ud2b8 &amp; \ud0c0\uc545\uae30 \uc5f0\uc8fc\uc790<br>\uccad\uc18c\ub144 STEM \uba58\ud1a0\ub9c1<br>AI \uc815\uc1c5 \uc5f0\uad6c &amp; \uc724\ub9ac<br>\uae30\uc5c5\uac00 \uc815\uc2e0<br>\uc2e0\ud765 \uacfc\ud559 &amp; \uae30\uc220<br>\uce74\uc57d",
+    footer:"&copy; 2026 <span>Alexia Monize</span> &nbsp;&middot;&nbsp; \uc815\ubc00\ud568\uacfc <span>\ubaa9\uc801</span>\uc73c\ub85c \uad6c\ucd95"
+  }
+};
+
+let currentLang = 'en';
+
+function applyTranslation(lang) {
+  const t = T[lang];
+  if (!t) return;
+  currentLang = lang;
+  const langMap = {en:'en',fr:'fr',es:'es',it:'it',zh:'zh-Hans',ru:'ru',no:'no',ja:'ja',ko:'ko'};
+  document.documentElement.lang = langMap[lang] || lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  const label = document.getElementById('toggleLabel');
+  const isLight = document.body.classList.contains('light');
+  if (label) label.textContent = isLight ? (t.toggleDark || 'Dark') : (t.toggleLight || 'Light');
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const active = btn.dataset.lang === lang;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', String(active));
+  });
+}
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => applyTranslation(btn.dataset.lang));
+});
+
+const themeToggle = document.getElementById('themeToggle');
+const toggleLabel = document.getElementById('toggleLabel');
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('light');
+  const isLight = document.body.classList.contains('light');
+  const t = T[currentLang];
+  toggleLabel.textContent = isLight ? (t.toggleDark || 'Dark') : (t.toggleLight || 'Light');
+});
+
+(function() {
+  const canvas = document.getElementById('beamCanvas');
+  const ctx = canvas.getContext('2d');
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+  const BEAMS = [
+    { angle:35,  speed:0.18, width:160, color:[127,255,212], alpha:0.28, offset:0 },
+    { angle:-28, speed:0.11, width:90,  color:[103,232,249], alpha:0.22, offset:0.4 },
+    { angle:52,  speed:0.09, width:200, color:[167,139,250], alpha:0.16, offset:0.2 },
+    { angle:-15, speed:0.14, width:120, color:[45,212,191],  alpha:0.20, offset:0.7 },
+    { angle:70,  speed:0.07, width:80,  color:[103,232,249], alpha:0.18, offset:0.55 },
+    { angle:-50, speed:0.12, width:140, color:[127,255,212], alpha:0.14, offset:0.85 },
+  ];
+  let t = 0;
+  const diag = Math.sqrt(Math.max(window.screen.width,1920)**2 + Math.max(window.screen.height,1080)**2);
+  function drawBeam(beam, time) {
+    const w = canvas.width, h = canvas.height;
+    const isLight = document.body.classList.contains('light');
+    const opacityScale = isLight ? 0.45 : 1.0;
+    const phase = (time * beam.speed + beam.offset) % 1;
+    const rad = (beam.angle * Math.PI) / 180;
+    const perpX = Math.cos(rad + Math.PI/2), perpY = Math.sin(rad + Math.PI/2);
+    const sweep = Math.sin(phase * Math.PI * 2) * 0.5 + 0.5;
+    const cx = w * sweep, cy = h * 0.5;
+    const dx = Math.cos(rad)*diag, dy = Math.sin(rad)*diag;
+    const bw = beam.width;
+    const grad = ctx.createLinearGradient(cx+perpX*bw, cy+perpY*bw, cx-perpX*bw, cy-perpY*bw);
+    const [r,g,b] = beam.color;
+    const a = beam.alpha * opacityScale;
+    grad.addColorStop(0,   `rgba(${r},${g},${b},0)`);
+    grad.addColorStop(0.4, `rgba(${r},${g},${b},0)`);
+    grad.addColorStop(0.5, `rgba(${r},${g},${b},${a})`);
+    grad.addColorStop(0.6, `rgba(${r},${g},${b},0)`);
+    grad.addColorStop(1,   `rgba(${r},${g},${b},0)`);
+    ctx.save();
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = bw * 2;
+    ctx.beginPath();
+    ctx.moveTo(cx-dx, cy-dy);
+    ctx.lineTo(cx+dx, cy+dy);
+    ctx.stroke();
+    ctx.restore();
+  }
+  function frame() { ctx.clearRect(0,0,canvas.width,canvas.height); t+=0.0015; BEAMS.forEach(b=>drawBeam(b,t)); requestAnimationFrame(frame); }
+  frame();
+})();
+
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => { entry.target.style.opacity='1'; entry.target.style.transform='translateY(0)'; }, i*75);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold:0.08, rootMargin:'0px 0px -60px 0px' });
+document.querySelectorAll('.job,.skill-card,.edu-card,.info-card').forEach(el => {
+  el.style.opacity='0'; el.style.transform='translateY(22px)';
+  el.style.transition='opacity 0.55s ease, transform 0.55s ease';
+  revealObserver.observe(el);
+});
+
+const modal = document.getElementById('certModal');
+const certFrame = document.getElementById('certFrame');
+const closeBtn = document.querySelector('.cert-close');
+function openModal(src) { certFrame.src=src; modal.style.display='block'; document.body.style.overflow='hidden'; }
+function closeModal() { modal.style.display='none'; certFrame.src=''; document.body.style.overflow=''; }
+document.querySelectorAll('.tag[data-cert]').forEach(tag => tag.addEventListener('click', ()=>openModal(tag.dataset.cert)));
+if(closeBtn){ closeBtn.addEventListener('click', closeModal); closeBtn.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' ') closeModal(); }); }
+if(modal){ modal.addEventListener('click', e=>{ if(e.target===modal) closeModal(); }); }
+document.addEventListener('keydown', e=>{ if(e.key==='Escape'&&modal&&modal.style.display==='block') closeModal(); });
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Alexia Monize","jobTitle":"AI Product Leader & Conversational AI Architect","description":"AI product leader and conversational systems architect specializing in NLU optimization, IVR modernization, AI governance, and enterprise AI strategy.","email":"alexiarmonize@gmail.com","url":"https://alexiamonize.github.io/Resume/","sameAs":["https://linkedin.com/in/alexia-monize"],"alumniOf":{"@type":"CollegeOrUniversity","name":"University of Toronto"},"knowsAbout":["Artificial Intelligence","Conversational AI","NLU","Amazon Connect","Dialogflow CX","AI Governance","Post-Quantum Cryptography","Machine Learning","Generative AI","Product Management","AI Ethics"]}
+</script>
 </body>
 </html>
