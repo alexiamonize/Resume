@@ -260,80 +260,13 @@ body.light .engagement:hover{background:rgba(13,148,136,0.05);}
   <article class="job glass">
     <div class="job-header"><span class="job-title" data-i18n="j3_title">Founder &amp; Chief Innovation Officer</span><span class="job-sep">|</span><span class="job-company">ARM Innovation Solutions</span></div>
     <div class="job-meta" data-i18n="j3_meta">Toronto, ON · January 2025 – Present</div>
-    <div class="job-subtitle" data-i18n="j3_sub">Independent AI consultancy delivering production systems and advisory work on contract, currently engaged on sales-intelligence infrastructure for a workforce-learning client</div>
+    <div class="job-subtitle" data-i18n="j3_sub">Independent AI consultancy delivering production systems and advisory work on contract, from architecture through to the evaluation that determines whether output can be trusted</div>
     <ul class="achievements">
       <li data-i18n="j3_b1"><strong>Built the practice around a specific gap:</strong> teams adopting AI faster than they can verify what it produces. Engagements cover architecture, production delivery, and the evaluation work that determines whether output is trustworthy enough to act on</li>
       <li data-i18n="j3_b2"><strong>Repositioned an AI-music analytics startup into a defensible niche</strong> during a critical growth phase, running the competitive analysis, user research, and segmentation that established where the product could actually win</li>
       <li data-i18n="j3_b3"><strong>Owned the commercial layer alongside the technical one</strong>, setting positioning, messaging, pricing, and channel partnerships rather than handing strategy back to the client as a deck</li>
       <li data-i18n="j3_b4"><strong>Co-designed the core algorithm</strong> with the engineering team, translating commercial requirements into technical specifications for behavioural models linking auditory preference data to team performance measures</li>
     </ul>
-
-    <div class="engagement-label" data-i18n="j3_eng_label">Client Engagements</div>
-    <div class="engagement">
-      <div class="engagement-header"><span class="engagement-client" data-i18n="el_client">Workforce-learning platform</span><span class="job-sep">|</span><span class="engagement-role" data-i18n="el_role">AI Systems Architect</span></div>
-      <div class="engagement-meta">Client engagement · June 2026 – Present</div>
-      <div class="job-subtitle" data-i18n="el_sub">Architected FieldCRM, a production sales-intelligence platform turning public source signals into researched, outreach-ready pipeline, owning data ingestion, LLM orchestration, and the guardrails that determine when the system is permitted to assert a fact</div>
-      <ul class="achievements">
-        <li data-i18n="el_b1"><strong>Designed a six-stage agent pipeline</strong> covering source discovery, ICP classification, domain verification, account creation, OSINT enrichment, and outreach drafting. Each stage resumes independently and carries per-row state, so a half-finished run can be read rather than rerun</li>
-        <li data-i18n="el_b2"><strong>Built the failure detection the tooling didn't provide.</strong> Token truncation was silently degrading every row, a duplicate service was answering health checks while running stale code, and API-level guessing was attaching real people to the wrong companies. All three reported success</li>
-        <li data-i18n="el_b3"><strong>Made "not found" a valid answer.</strong> Unverifiable records are quarantined for human review instead of filled with a best guess, enforced in the pipeline rather than left to reviewer discretion</li>
-      </ul>
-      <details class="job-more">
-        <summary class="job-more-toggle"><span class="show-more" data-i18n="more">View more</span><span class="show-less" data-i18n="less">View less</span></summary>
-        <div class="job-more-content">
-          <div class="job-more-block">
-            <div class="job-more-label" data-i18n="el_L1">Scale &amp; Output</div>
-            <div class="metrics">
-              <div class="metric glass"><div class="metric-n">200+</div><div class="metric-l" data-i18n="el_m1">Leads qualified &amp; ICP-graded end to end</div></div>
-              <div class="metric glass"><div class="metric-n">400+</div><div class="metric-l" data-i18n="el_m2">Accounts domain-verified before promotion</div></div>
-              <div class="metric glass"><div class="metric-n">6</div><div class="metric-l" data-i18n="el_m3">Pipeline stages, independently resumable</div></div>
-              <div class="metric glass"><div class="metric-n">A/B</div><div class="metric-l" data-i18n="el_m4">Controlled outreach-copy testing</div></div>
-            </div>
-          </div>
-          <div class="job-more-block">
-            <div class="job-more-label" data-i18n="el_L2">What It Demonstrates</div>
-            <ul class="achievements">
-              <li data-i18n="el_b4"><strong>Pipeline architecture.</strong> Source discovery → ICP classification → domain verification → account creation → OSINT research → outreach drafting, each stage independently resumable</li>
-              <li data-i18n="el_b5"><strong>LLM systems engineering.</strong> Multi-model orchestration, structured-output classification against a documented rubric, claims-hygiene guardrails, controlled A/B variant generation</li>
-              <li data-i18n="el_b6"><strong>Failure-mode discipline.</strong> Verification built for the failures that report success: token truncation, duplicate services on stale code, API-level guessing</li>
-              <li data-i18n="el_b7"><strong>Data integrity as a product rule.</strong> <em>Not found</em> is a valid answer, enforced in the pipeline rather than left to reviewer discretion</li>
-            </ul>
-          </div>
-          <div class="job-more-block">
-            <div class="job-more-label" data-i18n="el_L3">Working With AI</div>
-            <ul class="achievements">
-              <li data-i18n="el_b8"><strong>Scoped and supervised multi-agent research runs</strong>, identifying agents that returned placeholder text shaped like findings and retiring the prompting patterns that produced them</li>
-              <li data-i18n="el_b9"><strong>Validated model output against the database</strong> rather than exit codes, HTTP status, or an agent's own progress report, on the principle that a claim is not a result until something independent confirms it</li>
-              <li data-i18n="el_b10"><strong>Enforced source precedence over model recall</strong>, so freshly retrieved data always overrides what a model remembers about a company</li>
-              <li data-i18n="el_b11"><strong>Re-architected sequential 40-hour research runs into parallel overnight jobs</strong>, and halted runs that were consuming spend against an unavailable dependency</li>
-            </ul>
-          </div>
-          <div class="job-more-block">
-            <div class="job-more-label" data-i18n="el_L4">Judgment Under Production Conditions</div>
-            <ul class="achievements">
-              <li data-i18n="el_b12"><strong>Found a quality gate that ran but never actually gated.</strong> The anti-fabrication QA check computed a ship/no-ship verdict on every account report, but the persistence layer wrote the report to the database regardless of the result. A blocked report reached the database identically to a clean one. Located the missing conditional, cited the line, and specified the fix before it reached a salesperson's screen.</li>
-              <li data-i18n="el_b13"><strong>Caught the system inventing freshness and certainty it didn't have.</strong> Buying-signal timestamps were being stamped with request time instead of the actual observation date, making a 19-month-old funding round read as "today." Source URLs were being discarded and replaced with empty strings. Per-signal and per-contact confidence scores were hardcoded to a flat default, erasing the real distinction between a verified decision-maker and an unconfirmed name.</li>
-              <li data-i18n="el_b14"><strong>One funding event, two cards, double-counted.</strong> A regex truncation bug split a single event into two buying-signal cards, which then scored into both the Timing and Budget dimensions of the same account. One data point became two independent reasons to prioritize it.</li>
-              <li data-i18n="el_b15">Every defect above was confirmed against live API responses and database rows, not read off the code. Each fix brief cites the file, the line number, and a query that reproduces it.</li>
-            </ul>
-          </div>
-          <div class="job-more-block">
-            <div class="job-more-label" data-i18n="el_L5">Stack</div>
-            <div class="tags">
-              <span class="tag" data-i18n="el_t1">Next.js / React / TypeScript</span>
-              <span class="tag" data-i18n="el_t2">FastAPI / Python</span>
-              <span class="tag" data-i18n="el_t3">PostgreSQL + pgvector</span>
-              <span class="tag" data-i18n="el_t4">LLM Orchestration</span>
-              <span class="tag" data-i18n="el_t5">RAG</span>
-              <span class="tag" data-i18n="el_t6">Self-Hosted GPU Inference</span>
-              <span class="tag" data-i18n="el_t7">OSINT Tooling</span>
-              <span class="tag" data-i18n="el_t8">MCP</span>
-              <span class="tag" data-i18n="el_t9">Multi-Agent Systems</span>
-            </div>
-          </div>
-        </div>
-      </details>
-    </div>
   </article>
 
   <article class="job glass">
@@ -512,7 +445,7 @@ const T = {
     j2_b3:"<strong>Establishing AI ethics and governance standards</strong> for youth-facing products — privacy compliance, bias mitigation, and responsible AI deployment at scale",
     j3_title:"Founder &amp; Chief Innovation Officer",
     j3_meta:"Toronto, ON · January 2025 – Present",
-    j3_sub:"Independent AI consultancy delivering production systems and advisory work on contract, currently engaged on sales-intelligence infrastructure for a workforce-learning client",
+    j3_sub:"Independent AI consultancy delivering production systems and advisory work on contract, from architecture through to the evaluation that determines whether output can be trusted",
     j3_b1:"<strong>Built the practice around a specific gap:</strong> teams adopting AI faster than they can verify what it produces. Engagements cover architecture, production delivery, and the evaluation work that determines whether output is trustworthy enough to act on",
     j3_b2:"<strong>Repositioned an AI-music analytics startup into a defensible niche</strong> during a critical growth phase, running the competitive analysis, user research, and segmentation that established where the product could actually win",
     j3_b3:"<strong>Owned the commercial layer alongside the technical one</strong>, setting positioning, messaging, pricing, and channel partnerships rather than handing strategy back to the client as a deck",
@@ -607,46 +540,11 @@ const T = {
     px_t5:"IETF PLANTS",
     px_t6:"Cloudflare TLS testing",
     px_t7:"Construal-Level Theory",
-    el_sub:"Architected FieldCRM, a production sales-intelligence platform turning public source signals into researched, outreach-ready pipeline, owning data ingestion, LLM orchestration, and the guardrails that determine when the system is permitted to assert a fact",
-    el_b1:"<strong>Designed a six-stage agent pipeline</strong> covering source discovery, ICP classification, domain verification, account creation, OSINT enrichment, and outreach drafting. Each stage resumes independently and carries per-row state, so a half-finished run can be read rather than rerun",
-    el_b2:"<strong>Built the failure detection the tooling didn't provide.</strong> Token truncation was silently degrading every row, a duplicate service was answering health checks while running stale code, and API-level guessing was attaching real people to the wrong companies. All three reported success",
-    el_b3:"<strong>Made \"not found\" a valid answer.</strong> Unverifiable records are quarantined for human review instead of filled with a best guess, enforced in the pipeline rather than left to reviewer discretion",
-    el_L1:"Scale &amp; Output",
-    el_m1:"Leads qualified &amp; ICP-graded end to end",
-    el_m2:"Accounts domain-verified before promotion",
-    el_m3:"Pipeline stages, independently resumable",
-    el_m4:"Controlled outreach-copy testing",
-    el_L2:"What It Demonstrates",
-    el_b4:"<strong>Pipeline architecture.</strong> Source discovery → ICP classification → domain verification → account creation → OSINT research → outreach drafting, each stage independently resumable",
-    el_b5:"<strong>LLM systems engineering.</strong> Multi-model orchestration, structured-output classification against a documented rubric, claims-hygiene guardrails, controlled A/B variant generation",
-    el_b6:"<strong>Failure-mode discipline.</strong> Verification built for the failures that report success: token truncation, duplicate services on stale code, API-level guessing",
-    el_b7:"<strong>Data integrity as a product rule.</strong> <em>Not found</em> is a valid answer, enforced in the pipeline rather than left to reviewer discretion",
-    el_L3:"Working With AI",
-    el_b8:"<strong>Scoped and supervised multi-agent research runs</strong>, identifying agents that returned placeholder text shaped like findings and retiring the prompting patterns that produced them",
-    el_b9:"<strong>Validated model output against the database</strong> rather than exit codes, HTTP status, or an agent's own progress report, on the principle that a claim is not a result until something independent confirms it",
-    el_b10:"<strong>Enforced source precedence over model recall</strong>, so freshly retrieved data always overrides what a model remembers about a company",
-    el_b11:"<strong>Re-architected sequential 40-hour research runs into parallel overnight jobs</strong>, and halted runs that were consuming spend against an unavailable dependency",
-    el_L4:"Judgment Under Production Conditions",
-    el_b12:"<strong>Found a quality gate that ran but never actually gated.</strong> The anti-fabrication QA check computed a ship/no-ship verdict on every account report, but the persistence layer wrote the report to the database regardless of the result. A blocked report reached the database identically to a clean one. Located the missing conditional, cited the line, and specified the fix before it reached a salesperson's screen.",
-    el_b13:"<strong>Caught the system inventing freshness and certainty it didn't have.</strong> Buying-signal timestamps were being stamped with request time instead of the actual observation date, making a 19-month-old funding round read as \"today.\" Source URLs were being discarded and replaced with empty strings. Per-signal and per-contact confidence scores were hardcoded to a flat default, erasing the real distinction between a verified decision-maker and an unconfirmed name.",
-    el_b14:"<strong>One funding event, two cards, double-counted.</strong> A regex truncation bug split a single event into two buying-signal cards, which then scored into both the Timing and Budget dimensions of the same account. One data point became two independent reasons to prioritize it.",
-    el_b15:"Every defect above was confirmed against live API responses and database rows, not read off the code. Each fix brief cites the file, the line number, and a query that reproduces it.",
-    el_L5:"Stack",
-    el_t1:"Next.js / React / TypeScript",
-    el_t2:"FastAPI / Python",
-    el_t3:"PostgreSQL + pgvector",
-    el_t4:"LLM Orchestration",
-    el_t5:"RAG",
-    el_t6:"Self-Hosted GPU Inference",
-    el_t7:"OSINT Tooling",
-    el_t8:"MCP",
-    el_t9:"Multi-Agent Systems",
     j5_prior_label:"Prior Roles",
     j5_prior1:"<strong>Associate Consultant Intern</strong>, Summer 2021",
     j5_prior2:"<strong>Building Entrepreneurial Leaders (BEL) Intern</strong>, Summer 2020",
     more:"View more",
     less:"View less",
-    j3_eng_label:"Client Engagements",
     px_r1:"<strong>Support the development of Protexxa&rsquo;s post-quantum methodology and framework</strong>, contributing structure to a practice being built rather than applying an established playbook",
     px_r2:"<strong>Contribute to PQC readiness assessments across client environments</strong>, identifying and evaluating cryptographic keys and certificates to establish where an organisation actually stands before any migration plan is drawn",
     px_r3:"<strong>Build cryptographic inventories using modern open-source tooling.</strong> Most organisations cannot say which algorithms they depend on or where, and that inventory is the precondition for every decision that follows",
@@ -654,9 +552,7 @@ const T = {
     px_r5:"<strong>Work directly with the Practice Lead</strong> in an emerging domain where the standards are recent, the tooling is unsettled, and the implementation guidance is still being written",
     px_proj_label:"Project",
     px_proj_meta:"Authored &middot; Two-part programme",
-    px_proj_sub:"Built on a premise most PQC material misses: the same migration reads as a different problem depending on which seat you occupy",
-    el_client:"Workforce-learning platform",
-    el_role:"AI Systems Architect"
+    px_proj_sub:"Built on a premise most PQC material misses: the same migration reads as a different problem depending on which seat you occupy"
   },
   fr: {
     tagline:"Leader en Produits IA · Architecte IA Conversationnelle · Stratège en Technologies Émergentes",
@@ -690,7 +586,7 @@ const T = {
     j2_b3:"<strong>J'établis les normes d'éthique et de gouvernance de l'IA</strong> pour des produits destinés aux jeunes : conformité en matière de vie privée, réduction des biais et déploiement responsable à grande échelle",
     j3_title:"Fondatrice &amp; Directrice de l'Innovation",
     j3_meta:"Toronto, ON · Janvier 2025 – Présent",
-    j3_sub:"Cabinet de conseil indépendant en IA, livrant des systèmes en production et des missions de conseil sous contrat ; actuellement engagé sur une infrastructure d'intelligence commerciale pour un client du secteur de la formation professionnelle",
+    j3_sub:"Cabinet de conseil indépendant en IA, livrant des systèmes en production et des missions de conseil sous contrat, de l'architecture jusqu'à l'évaluation qui détermine si les résultats méritent qu'on s'y fie",
     j3_b1:"<strong>J'ai bâti le cabinet autour d'un manque précis :</strong> des équipes qui adoptent l'IA plus vite qu'elles ne peuvent vérifier ce qu'elle produit. Les missions couvrent l'architecture, la mise en production et le travail d'évaluation qui détermine si les résultats méritent qu'on agisse dessus",
     j3_b2:"<strong>J'ai repositionné une start-up d'analyse musicale par IA sur une niche défendable</strong> lors d'une phase de croissance décisive, en menant l'analyse concurrentielle, la recherche utilisateur et la segmentation qui ont établi où le produit pouvait réellement l'emporter",
     j3_b3:"<strong>J'ai porté le volet commercial autant que le volet technique</strong>, en définissant positionnement, discours, tarification et partenariats de distribution, plutôt que de rendre la stratégie au client sous forme de présentation",
@@ -785,46 +681,11 @@ const T = {
     px_t5:"Groupe de travail IETF PLANTS",
     px_t6:"Tests TLS de Cloudflare",
     px_t7:"Théorie des niveaux de représentation",
-    el_sub:"Conception de FieldCRM, une plateforme d'intelligence commerciale en production qui transforme des signaux issus de sources publiques en prospects documentés et prêts à être contactés, avec la responsabilité de l'ingestion des données, de l'orchestration des LLM et des garde-fous qui déterminent quand le système est autorisé à affirmer un fait",
-    el_b1:"<strong>Conçu un pipeline d'agents en six étapes</strong> : découverte des sources, classification selon le profil client idéal, vérification du domaine, création du compte, enrichissement par sources ouvertes et rédaction du message. Chaque étape reprend indépendamment et conserve l'état ligne par ligne, de sorte qu'une exécution interrompue se lit au lieu d'être relancée",
-    el_b2:"<strong>Construit la détection de pannes que l'outillage ne fournissait pas.</strong> La troncature de jetons dégradait silencieusement chaque ligne, un service en double répondait aux contrôles de santé tout en exécutant du code obsolète, et des suppositions au niveau de l'API rattachaient de vraies personnes aux mauvaises entreprises. Les trois signalaient un succès",
-    el_b3:"<strong>Fait de « non trouvé » une réponse valide.</strong> Les enregistrements invérifiables sont mis en attente de relecture humaine au lieu d'être complétés par la meilleure hypothèse, et cette règle est appliquée dans le pipeline plutôt que laissée au jugement du relecteur",
-    el_L1:"Volume et résultats",
-    el_m1:"Prospects qualifiés et notés selon le profil",
-    el_m2:"Comptes au domaine vérifié avant transfert",
-    el_m3:"Étapes du pipeline, reprises indépendamment",
-    el_m4:"Tests contrôlés des messages",
-    el_L2:"Ce que cela démontre",
-    el_b4:"<strong>Architecture du pipeline.</strong> Découverte des sources → classification selon le profil → vérification du domaine → création du compte → recherche en sources ouvertes → rédaction du message, chaque étape reprenant indépendamment",
-    el_b5:"<strong>Ingénierie de systèmes fondés sur les LLM.</strong> Orchestration de plusieurs modèles, classification à sortie structurée selon une grille documentée, garde-fous sur la véracité des affirmations, génération contrôlée de variantes pour tests A/B",
-    el_b6:"<strong>Discipline face aux modes de défaillance.</strong> Vérifications conçues pour les pannes qui se déclarent réussies : troncature de jetons, services en double sur du code obsolète, suppositions au niveau de l'API",
-    el_b7:"<strong>Intégrité des données comme règle produit.</strong> <em>Non trouvé</em> est une réponse valide, appliquée dans le pipeline plutôt que laissée au jugement du relecteur",
-    el_L3:"Travailler avec l'IA",
-    el_b8:"<strong>Cadré et supervisé des campagnes de recherche multi-agents</strong>, en repérant les agents qui renvoyaient un texte de remplissage ayant l'apparence d'un résultat et en abandonnant les schémas de requête qui les produisaient",
-    el_b9:"<strong>Validé les sorties des modèles contre la base de données</strong> plutôt que contre des codes de sortie, des statuts HTTP ou le compte rendu d'avancement de l'agent lui-même, en partant du principe qu'une affirmation n'est pas un résultat tant qu'une source indépendante ne l'a pas confirmée",
-    el_b10:"<strong>Imposé la primauté de la source sur la mémoire du modèle</strong> : les données fraîchement collectées l'emportent toujours sur ce qu'un modèle croit savoir d'une entreprise",
-    el_b11:"<strong>Refondu des traitements séquentiels de 40 heures en travaux nocturnes parallèles</strong>, et interrompu les exécutions qui consommaient du budget face à une dépendance indisponible",
-    el_L4:"Jugement en conditions réelles",
-    el_b12:"<strong>Trouvé un contrôle qualité qui s'exécutait sans jamais rien bloquer.</strong> La vérification anti-fabrication rendait un verdict de publication sur chaque rapport de compte, mais la couche de persistance écrivait le rapport en base quel qu'en soit le résultat. Un rapport bloqué arrivait en base exactement comme un rapport valide. J'ai localisé la condition manquante, cité la ligne et spécifié le correctif avant que le rapport n'atteigne l'écran d'un commercial.",
-    el_b13:"<strong>Repéré que le système s'inventait une fraîcheur et une certitude qu'il n'avait pas.</strong> Les signaux d'achat étaient horodatés à l'heure de la requête et non à la date d'observation réelle, si bien qu'une levée de fonds vieille de 19 mois s'affichait comme datant du jour. Les adresses des sources étaient supprimées et remplacées par des chaînes vides. Les indices de confiance par signal et par contact étaient figés à une valeur unique, effaçant la différence entre un décideur vérifié et un nom jamais contrôlé.",
-    el_b14:"<strong>Un financement, deux fiches, compté deux fois.</strong> Un défaut d'expression régulière scindait un événement unique en deux fiches de signal, qui alimentaient ensuite à la fois la dimension calendrier et la dimension budget du même compte. Une seule donnée devenait deux raisons indépendantes de le prioriser.",
-    el_b15:"Chacun des défauts ci-dessus a été confirmé sur les réponses de l'API en service et sur les enregistrements en base, et non déduit du code. Chaque note de correction cite le fichier, le numéro de ligne et une requête qui reproduit le problème.",
-    el_L5:"Technologies",
-    el_t1:"Next.js / React / TypeScript",
-    el_t2:"FastAPI / Python",
-    el_t3:"PostgreSQL + pgvector",
-    el_t4:"Orchestration de LLM",
-    el_t5:"RAG",
-    el_t6:"Inférence sur GPU auto-hébergés",
-    el_t7:"Outils de sources ouvertes",
-    el_t8:"MCP",
-    el_t9:"Systèmes multi-agents",
     j5_prior_label:"Postes précédents",
     j5_prior1:"<strong>Stagiaire Associate Consultant</strong>, été 2021",
     j5_prior2:"<strong>Stagiaire Building Entrepreneurial Leaders (BEL)</strong>, été 2020",
     more:"Voir plus",
     less:"Voir moins",
-    j3_eng_label:"Missions clients",
     px_r1:"<strong>J'appuie le développement de la méthodologie et du cadre post-quantiques de Protexxa</strong>, en contribuant à structurer une pratique en cours de constitution plutôt qu'en appliquant une méthode déjà établie",
     px_r2:"<strong>Je contribue aux évaluations de préparation PQC dans les environnements clients</strong>, en recensant et en évaluant clés et certificats cryptographiques afin d'établir où l'organisation se situe réellement avant qu'un plan de migration ne soit tracé",
     px_r3:"<strong>Je constitue des inventaires cryptographiques à l'aide d'outils open source récents.</strong> La plupart des organisations ne savent pas dire de quels algorithmes elles dépendent ni où, et cet inventaire conditionne toutes les décisions qui suivent",
@@ -832,9 +693,7 @@ const T = {
     px_r5:"<strong>Je travaille directement avec le responsable de la pratique</strong>, dans un domaine émergent où les normes sont récentes, l'outillage incertain et les guides de mise en œuvre encore en cours de rédaction",
     px_proj_label:"Projet",
     px_proj_meta:"Rédigé &middot; Programme en deux parties",
-    px_proj_sub:"Fondé sur une prémisse que la plupart des documents sur la cryptographie post-quantique négligent : la même migration se lit comme un problème différent selon le siège que l'on occupe",
-    el_client:"Plateforme de formation professionnelle",
-    el_role:"Architecte de systèmes IA"
+    px_proj_sub:"Fondé sur une prémisse que la plupart des documents sur la cryptographie post-quantique négligent : la même migration se lit comme un problème différent selon le siège que l'on occupe"
   },
   es: {
     tagline:"Líder de Producto IA · Arquitecta de IA Conversacional · Estratéga en Tecnologías Emergentes",
@@ -868,7 +727,7 @@ const T = {
     j2_b3:"<strong>Establezco los estándares de ética y gobernanza de IA</strong> para productos dirigidos a menores: cumplimiento en privacidad, mitigación de sesgos y despliegue responsable a escala",
     j3_title:"Fundadora &amp; Directora de Innovación",
     j3_meta:"Toronto, ON · Enero 2025 – Presente",
-    j3_sub:"Consultoría independiente de IA que entrega sistemas en producción y trabajo de asesoría por contrato; actualmente en un proyecto de infraestructura de inteligencia comercial para un cliente del sector de la formación profesional",
+    j3_sub:"Consultoría independiente de IA que entrega sistemas en producción y trabajo de asesoría por contrato, desde la arquitectura hasta la evaluación que determina si se puede confiar en el resultado",
     j3_b1:"<strong>Construí la consultoría en torno a una carencia concreta:</strong> equipos que adoptan la IA más rápido de lo que pueden verificar lo que produce. Los encargos abarcan arquitectura, puesta en producción y el trabajo de evaluación que determina si un resultado merece que se actúe sobre él",
     j3_b2:"<strong>Reposicioné una empresa de análisis musical con IA en un nicho defendible</strong> durante una fase de crecimiento decisiva, dirigiendo el análisis competitivo, la investigación de usuarios y la segmentación que establecieron dónde podía ganar realmente el producto",
     j3_b3:"<strong>Asumí la capa comercial junto con la técnica</strong>, fijando posicionamiento, mensajes, precios y alianzas de canal, en lugar de devolverle la estrategia al cliente en forma de presentación",
@@ -963,46 +822,11 @@ const T = {
     px_t5:"Grupo de trabajo IETF PLANTS",
     px_t6:"Pruebas TLS de Cloudflare",
     px_t7:"Teoría del nivel de interpretación",
-    el_sub:"Diseñé FieldCRM, una plataforma de inteligencia comercial en producción que convierte señales de fuentes públicas en oportunidades documentadas y listas para el contacto, asumiendo la ingesta de datos, la orquestación de LLM y los límites que determinan cuándo el sistema puede afirmar un hecho",
-    el_b1:"<strong>Diseñé un pipeline de agentes en seis etapas</strong>: descubrimiento de fuentes, clasificación según el perfil de cliente ideal, verificación del dominio, creación de la cuenta, enriquecimiento con fuentes abiertas y redacción del mensaje. Cada etapa se reanuda por separado y guarda el estado de cada fila, de modo que una ejecución a medias se puede leer en lugar de repetir",
-    el_b2:"<strong>Construí la detección de fallos que las herramientas no ofrecían.</strong> El truncamiento de tokens degradaba en silencio cada fila, un servicio duplicado respondía a las comprobaciones de estado mientras ejecutaba código antiguo, y las suposiciones a nivel de API asignaban personas reales a empresas equivocadas. Los tres informaban de éxito",
-    el_b3:"<strong>Convertí «no encontrado» en una respuesta válida.</strong> Los registros no verificables quedan apartados para revisión humana en lugar de rellenarse con la suposición más probable, y la regla se aplica en el pipeline en vez de dejarse al criterio de quien revisa",
-    el_L1:"Alcance y resultados",
-    el_m1:"Contactos cualificados y valorados por perfil",
-    el_m2:"Cuentas con dominio verificado antes de pasar",
-    el_m3:"Etapas del pipeline, reanudables por separado",
-    el_m4:"Pruebas controladas de los mensajes",
-    el_L2:"Qué demuestra",
-    el_b4:"<strong>Arquitectura del pipeline.</strong> Descubrimiento de fuentes → clasificación por perfil → verificación del dominio → creación de la cuenta → investigación en fuentes abiertas → redacción del mensaje, con cada etapa reanudable por separado",
-    el_b5:"<strong>Ingeniería de sistemas con LLM.</strong> Orquestación de varios modelos, clasificación con salida estructurada según una rúbrica documentada, límites sobre la veracidad de las afirmaciones y generación controlada de variantes para pruebas A/B",
-    el_b6:"<strong>Disciplina ante los modos de fallo.</strong> Verificaciones pensadas para los fallos que se declaran exitosos: truncamiento de tokens, servicios duplicados con código antiguo, suposiciones a nivel de API",
-    el_b7:"<strong>Integridad de los datos como norma de producto.</strong> <em>No encontrado</em> es una respuesta válida, aplicada en el pipeline y no dejada al criterio de quien revisa",
-    el_L3:"Trabajar con IA",
-    el_b8:"<strong>Delimité y supervisé investigaciones con varios agentes</strong>, detectando agentes que devolvían texto de relleno con apariencia de hallazgo y retirando los patrones de consulta que lo provocaban",
-    el_b9:"<strong>Validé la salida del modelo contra la base de datos</strong> en lugar de fiarme de códigos de salida, estados HTTP o del propio informe de avance del agente, partiendo de que una afirmación no es un resultado hasta que algo independiente la confirma",
-    el_b10:"<strong>Impuse la primacía de la fuente sobre la memoria del modelo</strong>: los datos recién obtenidos siempre prevalecen sobre lo que el modelo recuerda de una empresa",
-    el_b11:"<strong>Rediseñé procesos secuenciales de 40 horas como trabajos nocturnos en paralelo</strong>, y detuve ejecuciones que gastaban presupuesto contra una dependencia caída",
-    el_L4:"Criterio en condiciones reales",
-    el_b12:"<strong>Encontré un control de calidad que se ejecutaba pero nunca bloqueaba nada.</strong> La comprobación contra datos inventados emitía un veredicto sobre cada informe de cuenta, pero la capa de persistencia escribía el informe en la base de datos con independencia del resultado. Un informe bloqueado llegaba a la base igual que uno correcto. Localicé la condición que faltaba, cité la línea y especifiqué la corrección antes de que llegara a la pantalla de un comercial.",
-    el_b13:"<strong>Detecté que el sistema se inventaba una actualidad y una certeza que no tenía.</strong> Las señales de compra se fechaban con la hora de la petición en lugar de la fecha real de observación, de modo que una ronda de financiación de hace 19 meses figuraba como de hoy. Las direcciones de las fuentes se descartaban y se sustituían por cadenas vacías. Los niveles de confianza por señal y por contacto estaban fijados a un valor único, borrando la diferencia entre un responsable verificado y un nombre sin comprobar.",
-    el_b14:"<strong>Un hecho de financiación, dos fichas, contado dos veces.</strong> Un error en una expresión regular partía un único hecho en dos fichas de señal, que luego puntuaban tanto en la dimensión de oportunidad temporal como en la de presupuesto de la misma cuenta. Un solo dato se convertía en dos razones independientes para priorizarla.",
-    el_b15:"Cada uno de los defectos anteriores se confirmó contra las respuestas de la API en servicio y los registros de la base de datos, no leyéndolo del código. Cada nota de corrección cita el archivo, el número de línea y una consulta que reproduce el problema.",
-    el_L5:"Tecnologías",
-    el_t1:"Next.js / React / TypeScript",
-    el_t2:"FastAPI / Python",
-    el_t3:"PostgreSQL + pgvector",
-    el_t4:"Orquestación de LLM",
-    el_t5:"RAG",
-    el_t6:"Inferencia en GPU propias",
-    el_t7:"Herramientas de fuentes abiertas",
-    el_t8:"MCP",
-    el_t9:"Sistemas multiagente",
     j5_prior_label:"Puestos anteriores",
     j5_prior1:"<strong>Associate Consultant Intern</strong>, verano de 2021",
     j5_prior2:"<strong>Building Entrepreneurial Leaders (BEL) Intern</strong>, verano de 2020",
     more:"Ver más",
     less:"Ver menos",
-    j3_eng_label:"Proyectos con clientes",
     px_r1:"<strong>Apoyo el desarrollo de la metodología y el marco poscuánticos de Protexxa</strong>, aportando estructura a una práctica que se está construyendo en lugar de aplicar un método ya establecido",
     px_r2:"<strong>Contribuyo a las evaluaciones de preparación PQC en entornos de clientes</strong>, identificando y valorando claves y certificados criptográficos para establecer dónde se encuentra realmente una organización antes de trazar cualquier plan de migración",
     px_r3:"<strong>Elaboro inventarios criptográficos con herramientas de código abierto actuales.</strong> La mayoría de las organizaciones no sabe decir de qué algoritmos depende ni dónde, y ese inventario es la condición previa de todas las decisiones posteriores",
@@ -1010,9 +834,7 @@ const T = {
     px_r5:"<strong>Trabajo directamente con el responsable de la práctica</strong> en un ámbito emergente donde las normas son recientes, las herramientas no están asentadas y la guía de implantación aún se está escribiendo",
     px_proj_label:"Proyecto",
     px_proj_meta:"De mi autoría &middot; Programa en dos partes",
-    px_proj_sub:"Construido sobre una premisa que la mayoría del material sobre criptografía poscuántica pasa por alto: la misma migración se lee como un problema distinto según el sillón que se ocupe",
-    el_client:"Plataforma de formación profesional",
-    el_role:"Arquitecta de sistemas de IA"
+    px_proj_sub:"Construido sobre una premisa que la mayoría del material sobre criptografía poscuántica pasa por alto: la misma migración se lee como un problema distinto según el sillón que se ocupe"
   },
   it: {
     tagline:"Leader di Prodotto IA · Architetta di IA Conversazionale · Stratega in Tecnologie Emergenti",
@@ -1046,7 +868,7 @@ const T = {
     j2_b3:"<strong>Stabilisco gli standard di etica e governance dell'IA</strong> per prodotti rivolti ai minori: conformità sulla privacy, mitigazione dei bias e adozione responsabile su larga scala",
     j3_title:"Fondatrice &amp; Chief Innovation Officer",
     j3_meta:"Toronto, ON · Gennaio 2025 – Presente",
-    j3_sub:"Consulenza indipendente sull'IA che realizza sistemi in produzione e attività di advisory a contratto; attualmente impegnata su un'infrastruttura di sales intelligence per un cliente del settore della formazione professionale",
+    j3_sub:"Consulenza indipendente sull'IA che realizza sistemi in produzione e attività di advisory a contratto, dall'architettura fino alla valutazione che stabilisce se ci si possa fidare del risultato",
     j3_b1:"<strong>Ho costruito l'attività attorno a una carenza precisa:</strong> team che adottano l'IA più rapidamente di quanto riescano a verificare ciò che produce. Gli incarichi coprono architettura, messa in produzione e il lavoro di valutazione che stabilisce se un risultato meriti di essere seguito da un'azione",
     j3_b2:"<strong>Ho riposizionato una startup di analisi musicale basata sull'IA in una nicchia difendibile</strong> in una fase di crescita decisiva, conducendo l'analisi competitiva, la ricerca sugli utenti e la segmentazione che hanno stabilito dove il prodotto potesse davvero affermarsi",
     j3_b3:"<strong>Ho tenuto insieme il piano commerciale e quello tecnico</strong>, definendo posizionamento, messaggi, prezzi e partnership di canale invece di restituire la strategia al cliente sotto forma di presentazione",
@@ -1141,46 +963,11 @@ const T = {
     px_t5:"Gruppo di lavoro IETF PLANTS",
     px_t6:"Test TLS di Cloudflare",
     px_t7:"Teoria del livello di interpretazione",
-    el_sub:"Ho progettato FieldCRM, una piattaforma di sales intelligence in produzione che trasforma segnali da fonti pubbliche in contatti documentati e pronti da avvicinare, con la responsabilità dell'acquisizione dei dati, dell'orchestrazione degli LLM e dei limiti che stabiliscono quando il sistema è autorizzato ad affermare un fatto",
-    el_b1:"<strong>Ho progettato una pipeline di agenti in sei fasi</strong>: individuazione delle fonti, classificazione secondo il profilo di cliente ideale, verifica del dominio, creazione dell'anagrafica, arricchimento da fonti aperte e stesura del messaggio. Ogni fase riprende in modo indipendente e conserva lo stato riga per riga, così un'esecuzione interrotta si legge invece di essere rilanciata",
-    el_b2:"<strong>Ho costruito il rilevamento dei guasti che gli strumenti non fornivano.</strong> Il troncamento dei token degradava silenziosamente ogni riga, un servizio duplicato rispondeva ai controlli di stato eseguendo codice obsoleto e le supposizioni a livello di API associavano persone reali alle aziende sbagliate. Tutti e tre segnalavano successo",
-    el_b3:"<strong>Ho reso «non trovato» una risposta valida.</strong> I record non verificabili vengono messi da parte per la revisione umana anziché riempiti con l'ipotesi più probabile, e la regola è applicata nella pipeline invece di essere lasciata al giudizio di chi revisiona",
-    el_L1:"Portata e risultati",
-    el_m1:"Contatti qualificati e valutati per profilo",
-    el_m2:"Aziende con dominio verificato prima del passaggio",
-    el_m3:"Fasi della pipeline, riavviabili singolarmente",
-    el_m4:"Test controllati dei messaggi",
-    el_L2:"Che cosa dimostra",
-    el_b4:"<strong>Architettura della pipeline.</strong> Individuazione delle fonti → classificazione per profilo → verifica del dominio → creazione dell'anagrafica → ricerca su fonti aperte → stesura del messaggio, con ogni fase riavviabile singolarmente",
-    el_b5:"<strong>Ingegneria di sistemi basati su LLM.</strong> Orchestrazione di più modelli, classificazione con output strutturato secondo una griglia documentata, limiti sulla fondatezza delle affermazioni, generazione controllata di varianti per test A/B",
-    el_b6:"<strong>Disciplina sui modi di guasto.</strong> Verifiche pensate per i guasti che si dichiarano riusciti: troncamento dei token, servizi duplicati su codice obsoleto, supposizioni a livello di API",
-    el_b7:"<strong>Integrità dei dati come regola di prodotto.</strong> <em>Non trovato</em> è una risposta valida, applicata nella pipeline e non lasciata al giudizio di chi revisiona",
-    el_L3:"Lavorare con l'IA",
-    el_b8:"<strong>Ho delimitato e supervisionato ricerche condotte da più agenti</strong>, individuando gli agenti che restituivano testo di riempimento dall'aspetto di un risultato e abbandonando gli schemi di richiesta che lo producevano",
-    el_b9:"<strong>Ho validato l'output dei modelli sulla base di dati</strong> anziché su codici di uscita, stati HTTP o sul resoconto di avanzamento dell'agente stesso, partendo dal principio che un'affermazione non è un risultato finché qualcosa di indipendente non la conferma",
-    el_b10:"<strong>Ho imposto il primato della fonte sulla memoria del modello</strong>: i dati appena raccolti prevalgono sempre su ciò che un modello ricorda di un'azienda",
-    el_b11:"<strong>Ho riprogettato elaborazioni sequenziali da 40 ore in lavori notturni paralleli</strong> e ho fermato esecuzioni che consumavano budget contro una dipendenza non disponibile",
-    el_L4:"Giudizio in condizioni reali",
-    el_b12:"<strong>Ho trovato un controllo qualità che veniva eseguito senza però bloccare nulla.</strong> La verifica contro i dati inventati emetteva un verdetto su ogni report aziendale, ma il livello di persistenza scriveva comunque il report nel database, qualunque fosse l'esito. Un report bloccato arrivava nel database esattamente come uno corretto. Ho individuato la condizione mancante, citato la riga e specificato la correzione prima che arrivasse sullo schermo di un commerciale.",
-    el_b13:"<strong>Ho colto il sistema mentre si inventava un'attualità e una certezza che non aveva.</strong> I segnali d'acquisto venivano datati con l'ora della richiesta anziché con la data effettiva di osservazione, così un round di finanziamento di 19 mesi prima risultava odierno. Gli indirizzi delle fonti venivano scartati e sostituiti da stringhe vuote. I livelli di affidabilità per segnale e per contatto erano fissati a un valore unico, cancellando la differenza tra un decisore verificato e un nome mai controllato.",
-    el_b14:"<strong>Un evento di finanziamento, due schede, contato due volte.</strong> Un difetto in un'espressione regolare divideva un singolo evento in due schede di segnale, che poi pesavano sia sulla dimensione temporale sia su quella di budget della stessa azienda. Un solo dato diventava due ragioni indipendenti per darle priorità.",
-    el_b15:"Ognuno dei difetti sopra descritti è stato confermato sulle risposte dell'API in esercizio e sui record del database, non dedotto dal codice. Ogni nota di correzione cita il file, il numero di riga e una query che riproduce il problema.",
-    el_L5:"Tecnologie",
-    el_t1:"Next.js / React / TypeScript",
-    el_t2:"FastAPI / Python",
-    el_t3:"PostgreSQL + pgvector",
-    el_t4:"Orchestrazione di LLM",
-    el_t5:"RAG",
-    el_t6:"Inferenza su GPU proprie",
-    el_t7:"Strumenti per fonti aperte",
-    el_t8:"MCP",
-    el_t9:"Sistemi multi-agente",
     j5_prior_label:"Ruoli precedenti",
     j5_prior1:"<strong>Associate Consultant Intern</strong>, estate 2021",
     j5_prior2:"<strong>Building Entrepreneurial Leaders (BEL) Intern</strong>, estate 2020",
     more:"Mostra altro",
     less:"Mostra meno",
-    j3_eng_label:"Incarichi per clienti",
     px_r1:"<strong>Sostengo lo sviluppo della metodologia e del framework post-quantistici di Protexxa</strong>, contribuendo a dare struttura a una practice in costruzione anziché applicare un metodo già consolidato",
     px_r2:"<strong>Contribuisco alle valutazioni di preparazione PQC negli ambienti dei clienti</strong>, individuando e valutando chiavi e certificati crittografici per stabilire dove l'organizzazione si trovi realmente prima che venga tracciato un piano di migrazione",
     px_r3:"<strong>Costruisco inventari crittografici con strumenti open source aggiornati.</strong> Gran parte delle organizzazioni non sa dire da quali algoritmi dipende né dove, e quell'inventario è il presupposto di ogni decisione successiva",
@@ -1188,9 +975,7 @@ const T = {
     px_r5:"<strong>Lavoro direttamente con il responsabile della practice</strong> in un ambito emergente in cui gli standard sono recenti, gli strumenti non sono consolidati e le linee guida per l'implementazione sono ancora in scrittura",
     px_proj_label:"Progetto",
     px_proj_meta:"Scritto da me &middot; Programma in due parti",
-    px_proj_sub:"Costruito su una premessa che gran parte del materiale sulla crittografia post-quantistica trascura: la stessa migrazione si legge come un problema diverso a seconda della poltrona che si occupa",
-    el_client:"Piattaforma di formazione professionale",
-    el_role:"Architetta di sistemi IA"
+    px_proj_sub:"Costruito su una premessa che gran parte del materiale sulla crittografia post-quantistica trascura: la stessa migrazione si legge come un problema diverso a seconda della poltrona che si occupa"
   },
   zh: {
     tagline:"AI 产品负责人 · 对话式AI架构师 · 新兴技术战略家",
@@ -1224,7 +1009,7 @@ const T = {
     j2_b3:"<strong>建立人工智能伦理与治理标准</strong>，面向青少年产品落实隐私合规、偏见缓解与大规模负责任部署",
     j3_title:"创始人 &amp; 首席创新官",
     j3_meta:"多伦多, ON · 2025年1月 – 至今",
-    j3_sub:"独立人工智能咨询业务，以合同形式交付生产级系统与顾问服务；目前正为一家职业培训领域的客户开展销售情报基础设施项目",
+    j3_sub:"独立人工智能咨询业务，以合同形式交付生产级系统与顾问服务，涵盖从架构设计到判定产出是否值得信赖的评估工作",
     j3_b1:"<strong>这项业务围绕一个具体的空缺建立：</strong>团队采用人工智能的速度，快过他们核验其产出的能力。项目涵盖架构设计、生产落地，以及决定某项产出是否值得据以行动的评估工作",
     j3_b2:"<strong>在关键增长阶段，将一家人工智能音乐分析初创公司重新定位到具备防御力的细分领域</strong>，主导竞争分析、用户研究与市场细分，厘清产品真正能够取胜的方向",
     j3_b3:"<strong>商业层面与技术层面一并承担</strong>，确定定位、信息表达、定价与渠道合作，而不是把战略以一份演示文稿的形式交还客户",
@@ -1319,46 +1104,11 @@ const T = {
     px_t5:"IETF PLANTS 工作组",
     px_t6:"Cloudflare TLS 测试",
     px_t7:"解释水平理论",
-    el_sub:"设计并构建 FieldCRM，一套已投入生产的销售情报平台，将公开来源的信号转化为经过调研、可直接触达的客户名单；负责数据接入、大语言模型编排，以及决定系统何时才被允许断言某项事实的约束机制",
-    el_b1:"<strong>设计了六阶段的智能体流水线</strong>：来源发现、理想客户画像分类、域名核验、账户创建、公开来源信息补全与触达文案撰写。各阶段可独立续跑并按行保存状态，因此中断的运行可以被读懂，而不必重跑",
-    el_b2:"<strong>补上了工具本身没有提供的故障检测。</strong>令牌截断在无声中降低了每一行的质量，一个重复运行的服务一边响应健康检查一边执行着旧代码，接口层面的猜测则把真实的人关联到了错误的公司。这三者都报告运行成功",
-    el_b3:"<strong>让「未找到」成为一个有效答案。</strong>无法核实的记录会被留存交由人工复核，而不是用最像样的猜测填上，并且这一规则写入流水线，而非交由复核者自行判断",
-    el_L1:"规模与产出",
-    el_m1:"完成资格判定与画像评分的线索",
-    el_m2:"移交前完成域名核验的公司",
-    el_m3:"流水线阶段，均可独立续跑",
-    el_m4:"受控的触达文案测试",
-    el_L2:"这体现了什么",
-    el_b4:"<strong>流水线架构。</strong>来源发现 → 画像分类 → 域名核验 → 账户创建 → 公开来源调研 → 触达文案撰写，各阶段均可独立续跑",
-    el_b5:"<strong>大语言模型系统工程。</strong>多模型编排、依据成文评分标准的结构化输出分类、论据可靠性约束，以及用于 A/B 测试的受控变体生成",
-    el_b6:"<strong>面向故障模式的严谨性。</strong>校验专为那些「报告成功」的故障而设：令牌截断、运行旧代码的重复服务、接口层面的猜测",
-    el_b7:"<strong>数据完整性作为产品规则。</strong><em>未找到</em>是有效答案，写入流水线执行，而非交由复核者自行判断",
-    el_L3:"与人工智能协作",
-    el_b8:"<strong>界定并监督多智能体调研任务</strong>，识别出那些返回「形似结论的占位文本」的智能体，并弃用了导致这种输出的提示模式",
-    el_b9:"<strong>以数据库校验模型输出</strong>，而不是依赖退出码、HTTP 状态或智能体自述的进度，原则是：在独立来源确认之前，一项断言还算不上结果",
-    el_b10:"<strong>确立来源优先于模型记忆</strong>：新抓取的数据始终优先于模型对某家公司的既有印象",
-    el_b11:"<strong>将耗时 40 小时的串行调研重构为并行夜间任务</strong>，并叫停了那些在依赖服务不可用时仍在消耗预算的运行",
-    el_L4:"生产环境下的判断",
-    el_b12:"<strong>发现了一道会运行却从不拦截的质量闸门。</strong>反编造检查会对每份客户报告给出「可否发布」的结论，但持久化环节无论结果如何都会把报告写入数据库。被判定拦截的报告与合格报告一样进入了数据库。我定位到缺失的判断条件，指明了具体行号，并在报告出现在销售人员屏幕之前给出了修复方案。",
-    el_b13:"<strong>察觉系统在虚构自己并不具备的时效性与确定性。</strong>购买信号的时间戳记录的是请求发生的时刻，而非实际观测日期，致使一轮 19 个月前的融资显示为「今天」。来源链接被丢弃并替换为空字符串。每条信号与每位联系人的置信度被硬编码为同一个默认值，抹去了「已核实的决策者」与「未经核实的姓名」之间的真实差别。",
-    el_b14:"<strong>一次融资事件，两张卡片，被重复计算。</strong>一处正则截断缺陷把单一事件拆成两张信号卡片，随后同时计入同一家公司的时机维度与预算维度。一个数据点变成了两条彼此独立的优先级理由。",
-    el_b15:"上述每一处缺陷，都是对照运行中的接口响应与数据库记录逐一确认的，而非从代码推断。每份修复说明都注明了文件、行号，以及可复现该问题的查询语句。",
-    el_L5:"技术栈",
-    el_t1:"Next.js / React / TypeScript",
-    el_t2:"FastAPI / Python",
-    el_t3:"PostgreSQL + pgvector",
-    el_t4:"大语言模型编排",
-    el_t5:"检索增强生成（RAG）",
-    el_t6:"自建 GPU 推理",
-    el_t7:"公开来源情报工具",
-    el_t8:"MCP",
-    el_t9:"多智能体系统",
     j5_prior_label:"此前职位",
     j5_prior1:"<strong>顾问助理实习生（Associate Consultant Intern）</strong>，2021 年夏季",
     j5_prior2:"<strong>Building Entrepreneurial Leaders（BEL）项目实习生</strong>，2020 年夏季",
     more:"展开详情",
     less:"收起",
-    j3_eng_label:"客户项目",
     px_r1:"<strong>支持 Protexxa 后量子方法论与框架的建设</strong>，为一项正在成形的业务提供结构，而非套用既有的做法",
     px_r2:"<strong>参与客户环境的后量子就绪度评估</strong>，识别并评估密码密钥与证书，在制定任何迁移方案之前先厘清组织的真实现状",
     px_r3:"<strong>借助现代开源工具建立密码资产清单。</strong>多数组织说不清自己依赖哪些算法、分布在何处，而这份清单是此后所有决策的前提",
@@ -1366,9 +1116,7 @@ const T = {
     px_r5:"<strong>与实践负责人直接协作</strong>，所处领域标准新近发布、工具尚未定型、实施指南仍在编写之中",
     px_proj_label:"项目",
     px_proj_meta:"本人撰写 &middot; 两部分课程",
-    px_proj_sub:"立足于多数后量子密码材料所忽略的一点：同一场迁移，会因所坐的位置不同而呈现为不同的问题",
-    el_client:"职业培训平台",
-    el_role:"人工智能系统架构师"
+    px_proj_sub:"立足于多数后量子密码材料所忽略的一点：同一场迁移，会因所坐的位置不同而呈现为不同的问题"
   },
   ru: {
     tagline:"Лидер продукта ИИ · Архитектор разговорного ИИ · Стратег в области новых технологий",
@@ -1402,7 +1150,7 @@ const T = {
     j2_b3:"<strong>Устанавливаю стандарты этики и управления ИИ</strong> для продуктов, ориентированных на молодёжь: соблюдение приватности, снижение предвзятости и ответственное внедрение ИИ в масштабе",
     j3_title:"Основатель &amp; Директор по инновациям",
     j3_meta:"Торонто, ON · Январь 2025 – настоящее время",
-    j3_sub:"Независимый консалтинг в области ИИ: разработка систем для промышленной эксплуатации и экспертное сопровождение по контракту; в настоящее время — проект по инфраструктуре для работы с данными о продажах для клиента из сферы профессионального обучения",
+    j3_sub:"Независимый консалтинг в области ИИ: разработка систем для промышленной эксплуатации и экспертное сопровождение по контракту — от архитектуры до оценки, которая определяет, можно ли доверять результату",
     j3_b1:"<strong>Я построила практику вокруг конкретного пробела:</strong> команды внедряют ИИ быстрее, чем успевают проверять то, что он выдаёт. Проекты охватывают архитектуру, вывод в эксплуатацию и ту оценочную работу, которая определяет, заслуживает ли результат того, чтобы на его основании действовать",
     j3_b2:"<strong>Перевела стартап в области ИИ-анализа музыки в защищённую нишу</strong> на решающем этапе роста, проведя конкурентный анализ, исследование пользователей и сегментацию, которые показали, где продукт действительно может выигрывать",
     j3_b3:"<strong>Вела коммерческую сторону наравне с технической</strong>, определяя позиционирование, коммуникацию, ценообразование и канальные партнёрства, а не возвращая клиенту стратегию в виде презентации",
@@ -1497,46 +1245,11 @@ const T = {
     px_t5:"Рабочая группа IETF PLANTS",
     px_t6:"Тесты TLS от Cloudflare",
     px_t7:"Теория уровня интерпретации",
-    el_sub:"Спроектировала FieldCRM — работающую в промышленной эксплуатации платформу для работы с данными о продажах, которая превращает сигналы из открытых источников в проверенный список клиентов, готовых к контакту; отвечала за приём данных, оркестрацию LLM и ограничители, определяющие, когда системе позволено утверждать факт",
-    el_b1:"<strong>Спроектировала шестиэтапный агентный конвейер</strong>: поиск источников, классификация по профилю целевого клиента, проверка домена, создание учётной записи, обогащение данными из открытых источников и подготовка письма. Каждый этап возобновляется независимо и хранит состояние по каждой строке, поэтому прерванный запуск можно прочитать, а не запускать заново",
-    el_b2:"<strong>Построила обнаружение сбоев, которого не давали инструменты.</strong> Обрезание токенов незаметно ухудшало каждую строку, дублирующий сервис отвечал на проверки работоспособности, выполняя устаревший код, а предположения на уровне API привязывали реальных людей к чужим компаниям. Все три случая отчитывались об успехе",
-    el_b3:"<strong>Сделала ответ «не найдено» допустимым.</strong> Непроверяемые записи отправляются на ручную проверку, а не заполняются наиболее правдоподобным предположением, причём это заложено в конвейере, а не оставлено на усмотрение проверяющего",
-    el_L1:"Масштаб и результат",
-    el_m1:"Лидов квалифицировано и оценено по профилю",
-    el_m2:"Компаний с проверенным доменом до передачи",
-    el_m3:"Этапов конвейера, каждый возобновляем",
-    el_m4:"Контролируемое тестирование текстов",
-    el_L2:"Что это показывает",
-    el_b4:"<strong>Архитектура конвейера.</strong> Поиск источников → классификация по профилю → проверка домена → создание учётной записи → исследование открытых источников → подготовка письма, каждый этап возобновляется независимо",
-    el_b5:"<strong>Инженерия систем на базе LLM.</strong> Оркестрация нескольких моделей, классификация со структурированным выводом по документированным критериям, ограничители достоверности утверждений, контролируемая генерация вариантов для A/B",
-    el_b6:"<strong>Работа с режимами отказа.</strong> Проверки построены для сбоев, которые отчитываются об успехе: обрезание токенов, дублирующие сервисы на устаревшем коде, предположения на уровне API",
-    el_b7:"<strong>Целостность данных как продуктовое правило.</strong> <em>Не найдено</em> — допустимый ответ, закреплённый в конвейере, а не оставленный на усмотрение проверяющего",
-    el_L3:"Работа с ИИ",
-    el_b8:"<strong>Определяла рамки и контролировала работу мультиагентных исследований</strong>, выявляя агентов, которые возвращали текст-заглушку, внешне похожий на результат, и отказываясь от порождавших это шаблонов запросов",
-    el_b9:"<strong>Проверяла вывод модели по базе данных</strong>, а не по кодам завершения, статусам HTTP или собственным отчётам агента о ходе работы, исходя из того, что утверждение не становится результатом, пока его не подтвердит независимый источник",
-    el_b10:"<strong>Закрепила приоритет источника над памятью модели</strong>: свежие полученные данные всегда важнее того, что модель помнит о компании",
-    el_b11:"<strong>Перестроила последовательные 40-часовые исследования в параллельные ночные задания</strong> и останавливала запуски, расходовавшие бюджет на недоступную зависимость",
-    el_L4:"Решения в рабочих условиях",
-    el_b12:"<strong>Обнаружила контроль качества, который срабатывал, но ничего не блокировал.</strong> Проверка на выдуманные сведения выносила вердикт по каждому отчёту о компании, однако слой сохранения записывал отчёт в базу независимо от результата. Заблокированный отчёт попадал в базу так же, как и чистый. Нашла пропущенное условие, указала строку и описала исправление до того, как отчёт дошёл до экрана продавца.",
-    el_b13:"<strong>Заметила, что система придумывает свежесть и уверенность, которых у неё нет.</strong> Время сигналов о намерении покупки проставлялось моментом запроса, а не датой фактического наблюдения, из-за чего раунд финансирования 19-месячной давности выглядел сегодняшним. Ссылки на источники отбрасывались и заменялись пустыми строками. Оценки достоверности по каждому сигналу и контакту были жёстко заданы одним значением, что стирало разницу между подтверждённым лицом, принимающим решения, и непроверенным именем.",
-    el_b14:"<strong>Одно событие финансирования, две карточки, двойной учёт.</strong> Ошибка в регулярном выражении разделила единое событие на две карточки сигналов, которые затем учитывались и в измерении сроков, и в измерении бюджета одной и той же компании. Один факт превратился в два независимых основания для приоритета.",
-    el_b15:"Каждый из описанных дефектов был подтверждён ответами работающего API и записями в базе данных, а не прочитан по коду. В каждом описании исправления указаны файл, номер строки и запрос, воспроизводящий проблему.",
-    el_L5:"Технологии",
-    el_t1:"Next.js / React / TypeScript",
-    el_t2:"FastAPI / Python",
-    el_t3:"PostgreSQL + pgvector",
-    el_t4:"Оркестрация LLM",
-    el_t5:"RAG",
-    el_t6:"Инференс на собственных GPU",
-    el_t7:"Инструменты OSINT",
-    el_t8:"MCP",
-    el_t9:"Мультиагентные системы",
     j5_prior_label:"Предыдущие позиции",
     j5_prior1:"<strong>Стажёр-консультант (Associate Consultant Intern)</strong>, лето 2021",
     j5_prior2:"<strong>Стажёр программы Building Entrepreneurial Leaders (BEL)</strong>, лето 2020",
     more:"Подробнее",
     less:"Свернуть",
-    j3_eng_label:"Клиентские проекты",
     px_r1:"<strong>Поддерживаю развитие методологии и рабочей модели постквантового перехода в Protexxa</strong>, внося структуру в практику, которая только выстраивается, а не применяя готовую схему",
     px_r2:"<strong>Участвую в оценке готовности клиентских сред к постквантовому переходу</strong>: выявляю и анализирую криптографические ключи и сертификаты, чтобы установить реальное положение дел до того, как будет составлен план миграции",
     px_r3:"<strong>Составляю криптографические инвентаризации с помощью современных инструментов с открытым исходным кодом.</strong> Большинство организаций не может сказать, от каких алгоритмов они зависят и где именно, а такая опись — обязательное условие для всех последующих решений",
@@ -1544,9 +1257,7 @@ const T = {
     px_r5:"<strong>Работаю напрямую с руководителем практики</strong> в новой области, где стандарты появились недавно, инструментарий ещё не устоялся, а руководства по внедрению продолжают писаться",
     px_proj_label:"Проект",
     px_proj_meta:"Авторская работа &middot; Программа из двух частей",
-    px_proj_sub:"Построена на предпосылке, которую упускает большинство материалов о постквантовой криптографии: один и тот же переход выглядит разной задачей в зависимости от того, в каком кресле вы сидите",
-    el_client:"Платформа профессионального обучения",
-    el_role:"Архитектор систем ИИ"
+    px_proj_sub:"Построена на предпосылке, которую упускает большинство материалов о постквантовой криптографии: один и тот же переход выглядит разной задачей в зависимости от того, в каком кресле вы сидите"
   },
   no: {
     tagline:"AI-produktleder · Arkitekt for konversasjons-AI · Strateg innen fremvoksende teknologier",
@@ -1580,7 +1291,7 @@ const T = {
     j2_b3:"<strong>Jeg fastsetter standarder for KI-etikk og styring</strong> for produkter rettet mot barn og unge: personvern, tiltak mot skjevheter og ansvarlig bruk i stor skala",
     j3_title:"Grunnlegger &amp; Direktør for innovasjon",
     j3_meta:"Toronto, ON · Januar 2025 – nå",
-    j3_sub:"Uavhengig KI-rådgivning som leverer systemer i drift og rådgivningsarbeid på kontrakt; for tiden engasjert med infrastruktur for salgsinnsikt for en kunde innen yrkesopplæring",
+    j3_sub:"Uavhengig KI-rådgivning som leverer systemer i drift og rådgivningsarbeid på kontrakt, fra arkitektur til den vurderingen som avgjør om resultatet er til å stole på",
     j3_b1:"<strong>Jeg bygde virksomheten rundt et bestemt hull:</strong> team som tar i bruk KI raskere enn de rekker å kontrollere hva den produserer. Oppdragene omfatter arkitektur, produksjonssetting og det vurderingsarbeidet som avgjør om et resultat er til å handle på",
     j3_b2:"<strong>Jeg flyttet en oppstart innen KI-basert musikkanalyse over i en nisje som lot seg forsvare</strong> i en avgjørende vekstfase, og ledet konkurrentanalysen, brukerundersøkelsene og segmenteringen som fastslo hvor produktet faktisk kunne vinne",
     j3_b3:"<strong>Jeg tok ansvar for det kommersielle så vel som det tekniske</strong>, og fastsatte posisjonering, budskap, prissetting og kanalsamarbeid i stedet for å levere strategien tilbake til kunden som en presentasjon",
@@ -1675,46 +1386,11 @@ const T = {
     px_t5:"IETF PLANTS-arbeidsgruppen",
     px_t6:"Cloudflares TLS-tester",
     px_t7:"Teorien om tolkningsnivå",
-    el_sub:"Utformet FieldCRM, en plattform for salgsinnsikt i drift som gjør signaler fra åpne kilder om til undersøkte kundeemner klare for kontakt, med ansvar for datainnhenting, orkestrering av språkmodeller og de grensene som avgjør når systemet får slå noe fast",
-    el_b1:"<strong>Utformet en agentpipeline i seks trinn</strong>: kildesøk, klassifisering mot ideell kundeprofil, domenekontroll, opprettelse av konto, berikelse fra åpne kilder og utkast til henvendelse. Hvert trinn gjenopptas uavhengig og har tilstand per rad, slik at en halvferdig kjøring kan leses i stedet for å kjøres på nytt",
-    el_b2:"<strong>Bygde feilsøkingen verktøyene ikke ga.</strong> Avkortede tokens forringet stille hver eneste rad, en duplisert tjeneste svarte på helsesjekker mens den kjørte utdatert kode, og gjetting på API-nivå knyttet virkelige personer til feil selskaper. Alle tre meldte om vellykket kjøring",
-    el_b3:"<strong>Gjorde «ikke funnet» til et gyldig svar.</strong> Poster som ikke lar seg bekrefte settes til side for manuell gjennomgang i stedet for å fylles med det mest sannsynlige gjettet, og regelen håndheves i pipelinen fremfor å overlates til den som gjennomgår",
-    el_L1:"Omfang og resultat",
-    el_m1:"Kundeemner kvalifisert og vurdert mot profil",
-    el_m2:"Selskaper med bekreftet domene før overføring",
-    el_m3:"Trinn i pipelinen, hvert gjenopptas for seg",
-    el_m4:"Kontrollert testing av henvendelser",
-    el_L2:"Hva det viser",
-    el_b4:"<strong>Pipelinearkitektur.</strong> Kildesøk → klassifisering mot profil → domenekontroll → opprettelse av konto → søk i åpne kilder → utkast til henvendelse, hvert trinn gjenopptas for seg",
-    el_b5:"<strong>Systemutvikling med språkmodeller.</strong> Orkestrering av flere modeller, klassifisering med strukturert utdata mot dokumenterte kriterier, grenser for hva som kan påstås, kontrollert generering av varianter for A/B-testing",
-    el_b6:"<strong>Disiplin rundt feilmåter.</strong> Kontroller bygget for de feilene som melder om suksess: avkortede tokens, dupliserte tjenester på utdatert kode, gjetting på API-nivå",
-    el_b7:"<strong>Dataintegritet som produktregel.</strong> <em>Ikke funnet</em> er et gyldig svar, håndhevet i pipelinen og ikke overlatt til den som gjennomgår",
-    el_L3:"Arbeid med KI",
-    el_b8:"<strong>Rammet inn og fulgte opp undersøkelser med flere agenter</strong>, fant agenter som returnerte fyllstoff som så ut som funn, og gikk bort fra de spørremønstrene som skapte dem",
-    el_b9:"<strong>Kontrollerte modellenes utdata mot databasen</strong> fremfor exit-koder, HTTP-status eller agentens egen framdriftsrapport, ut fra at en påstand ikke er et resultat før noe uavhengig bekrefter den",
-    el_b10:"<strong>Slo fast at kilden går foran modellens hukommelse</strong>: ferskt innhentede data veier alltid tyngre enn det en modell mener å vite om et selskap",
-    el_b11:"<strong>Bygde om sekvensielle kjøringer på 40 timer til parallelle nattjobber</strong>, og stanset kjøringer som brukte budsjett mot en avhengighet som var nede",
-    el_L4:"Vurderinger i drift",
-    el_b12:"<strong>Fant en kvalitetssperre som kjørte, men aldri sperret noe.</strong> Kontrollen mot oppdiktede opplysninger avga en dom om publisering for hver selskapsrapport, men lagringslaget skrev rapporten til databasen uansett utfall. En blokkert rapport havnet i databasen på linje med en ren. Jeg fant den manglende betingelsen, viste til linjen og beskrev rettelsen før rapporten nådde skjermen til en selger.",
-    el_b13:"<strong>Avdekket at systemet fant på en ferskhet og en sikkerhet det ikke hadde.</strong> Kjøpssignaler ble tidsstemplet med tidspunktet for forespørselen i stedet for datoen de faktisk ble observert, slik at en emisjon fra 19 måneder tilbake fremsto som dagsfersk. Kildeadresser ble forkastet og erstattet med tomme strenger. Sikkerhetsgraden per signal og per kontakt var låst til én fast verdi, noe som visket ut forskjellen mellom en bekreftet beslutningstaker og et navn ingen hadde sjekket.",
-    el_b14:"<strong>Én emisjon, to kort, telt to ganger.</strong> En feil i et regulært uttrykk delte én hendelse i to signalkort, som deretter talte både i tidsdimensjonen og budsjettdimensjonen for det samme selskapet. Ett datapunkt ble til to uavhengige grunner til å prioritere det.",
-    el_b15:"Hver av feilene over ble bekreftet mot svar fra API-et i drift og mot rader i databasen, ikke lest ut av koden. Hvert rettelsesnotat viser til fil, linjenummer og en spørring som gjenskaper problemet.",
-    el_L5:"Teknologi",
-    el_t1:"Next.js / React / TypeScript",
-    el_t2:"FastAPI / Python",
-    el_t3:"PostgreSQL + pgvector",
-    el_t4:"Orkestrering av språkmodeller",
-    el_t5:"RAG",
-    el_t6:"Inferens på egne GPU-er",
-    el_t7:"Verktøy for åpne kilder",
-    el_t8:"MCP",
-    el_t9:"Fleragentsystemer",
     j5_prior_label:"Tidligere roller",
     j5_prior1:"<strong>Associate Consultant Intern</strong>, sommeren 2021",
     j5_prior2:"<strong>Building Entrepreneurial Leaders (BEL) Intern</strong>, sommeren 2020",
     more:"Vis mer",
     less:"Vis mindre",
-    j3_eng_label:"Kundeoppdrag",
     px_r1:"<strong>Jeg støtter utviklingen av Protexxas postkvantemetodikk og rammeverk</strong>, og bidrar med struktur til et fagmiljø som bygges opp, i stedet for å anvende en ferdig oppskrift",
     px_r2:"<strong>Jeg bidrar i PQC-beredskapsvurderinger hos kunder</strong>, og kartlegger og vurderer kryptografiske nøkler og sertifikater for å fastslå hvor virksomheten faktisk står før noen migreringsplan tegnes",
     px_r3:"<strong>Jeg bygger kryptografiske oversikter med moderne åpen kildekode-verktøy.</strong> De fleste virksomheter kan ikke si hvilke algoritmer de er avhengige av eller hvor, og den oversikten er forutsetningen for alle beslutninger som følger",
@@ -1722,9 +1398,7 @@ const T = {
     px_r5:"<strong>Jeg arbeider tett med fagansvarlig</strong> i et felt der standardene er ferske, verktøyene uavklarte og veiledningen for gjennomføring fortsatt skrives",
     px_proj_label:"Prosjekt",
     px_proj_meta:"Skrevet av meg &middot; Program i to deler",
-    px_proj_sub:"Bygget på en forutsetning det meste av materiale om postkvantekryptografi overser: den samme migreringen leses som et ulikt problem avhengig av hvilken stol du sitter i",
-    el_client:"Plattform for yrkesopplæring",
-    el_role:"Arkitekt for KI-systemer"
+    px_proj_sub:"Bygget på en forutsetning det meste av materiale om postkvantekryptografi overser: den samme migreringen leses som et ulikt problem avhengig av hvilken stol du sitter i"
   },
   ja: {
     tagline:"AIプロダクトリーダー · 会話型AIアーキテクト · 新興技術ストラテジスト",
@@ -1758,7 +1432,7 @@ const T = {
     j2_b3:"<strong>AI倫理とガバナンスの基準を策定</strong>。若年層向けプロダクトにおけるプライバシー遵守、バイアスの低減、大規模での責任ある導入を対象とする",
     j3_title:"創業者 &amp; チーフイノベーションオフィサー",
     j3_meta:"トロント, ON · 2025年1月 – 現在",
-    j3_sub:"独立系のAIコンサルティング。本番稼働するシステムの構築と助言業務を業務委託で提供。現在は職業訓練分野の顧客向けにセールスインテリジェンス基盤に取り組んでいる",
+    j3_sub:"独立系のAIコンサルティング。本番稼働するシステムの構築と助言業務を業務委託で提供し、アーキテクチャから、その出力が信頼に足るかを見極める評価までを担う",
     j3_b1:"<strong>事業は明確な欠落を軸に立ち上げた。</strong>すなわち、AIの導入速度が、その出力を検証できる速度を上回っているという状況である。案件はアーキテクチャ、本番導入、そしてその出力が行動に値するかを見極める評価作業までを対象とする",
     j3_b2:"<strong>AI音楽解析のスタートアップを、守りやすい領域へ位置づけ直した。</strong>重要な成長局面で競合分析、ユーザー調査、市場セグメンテーションを主導し、その製品が実際に勝てる場所を明らかにした",
     j3_b3:"<strong>技術面と併せて事業面も担った。</strong>ポジショニング、訴求メッセージ、価格設定、販売パートナーシップを自ら定め、戦略を資料として顧客に返す形はとらなかった",
@@ -1853,46 +1527,11 @@ const T = {
     px_t5:"IETF PLANTS ワーキンググループ",
     px_t6:"Cloudflare の TLS 検証",
     px_t7:"解釈レベル理論",
-    el_sub:"FieldCRMを設計。公開情報のシグナルを、調査済みで接触可能な見込み顧客へと変える本番稼働のセールスインテリジェンス基盤であり、データ取り込み、大規模言語モデルの制御、そしてシステムがいつ事実を断定してよいかを定める歯止めまでを担当した",
-    el_b1:"<strong>六段階のエージェントパイプラインを設計</strong>。情報源の探索、理想顧客像に基づく分類、ドメイン確認、アカウント作成、公開情報による補強、アプローチ文案の作成から成る。各段階は個別に再開でき、行ごとに状態を保持するため、途中で止まった処理は やり直さずとも内容を追える",
-    el_b2:"<strong>ツール側が備えていなかった障害検知を構築。</strong>トークンの打ち切りがすべての行の品質を静かに損ない、重複して動作していたサービスは古いコードのままヘルスチェックに応答し、API段階での推測が実在の人物を誤った企業に紐づけていた。いずれも「成功」と報告していた",
-    el_b3:"<strong>「該当なし」を正当な答えとして扱えるようにした。</strong>裏付けの取れない記録は、もっともらしい推測で埋めるのではなく人手の確認に回す。この判断は確認者の裁量に委ねず、パイプライン側で担保している",
-    el_L1:"規模と成果",
-    el_m1:"評価・分類を完了した見込み顧客",
-    el_m2:"引き渡し前にドメインを確認した企業",
-    el_m3:"パイプラインの段階、いずれも個別に再開可能",
-    el_m4:"条件を揃えたアプローチ文案の検証",
-    el_L2:"そこで示されること",
-    el_b4:"<strong>パイプライン設計。</strong>情報源の探索 → 顧客像による分類 → ドメイン確認 → アカウント作成 → 公開情報調査 → アプローチ文案の作成。各段階は個別に再開できる",
-    el_b5:"<strong>大規模言語モデルを用いたシステム構築。</strong>複数モデルの制御、明文化された基準に沿った構造化出力による分類、主張の裏付けに関する歯止め、A/B検証のための条件を揃えた文案生成",
-    el_b6:"<strong>障害の型に対する備え。</strong>「成功」と報告してしまう類の障害を想定した検証。トークンの打ち切り、古いコードで動く重複サービス、API段階での推測が対象",
-    el_b7:"<strong>データの正確性をプロダクトの原則に。</strong><em>該当なし</em>は正当な答えであり、確認者の裁量ではなくパイプラインで担保される",
-    el_L3:"AIとの協働",
-    el_b8:"<strong>複数エージェントによる調査の範囲設定と監督</strong>。調査結果らしい体裁の空文を返すエージェントを見つけ出し、それを生んでいた指示の型を取りやめた",
-    el_b9:"<strong>モデルの出力をデータベースに照らして検証</strong>。終了コードやHTTPステータス、エージェント自身の進捗報告には依拠しない。独立した裏付けが取れるまで、主張は結果とは見なさないという原則に基づく",
-    el_b10:"<strong>モデルの記憶より情報源を優先する方針を徹底</strong>。新たに取得したデータは、モデルがその企業について記憶している内容に常に優先する",
-    el_b11:"<strong>40時間を要していた逐次処理を、並列の夜間ジョブへ再設計</strong>。依存先が停止しているまま費用を消費していた処理は停止させた",
-    el_L4:"実運用下での判断",
-    el_b12:"<strong>動作してはいるが何も止めていない品質ゲートを発見。</strong>捏造を防ぐ検査は各社レポートについて公開可否の判定を出していたが、保存処理はその結果にかかわらずレポートをデータベースへ書き込んでいた。差し止めと判定されたレポートも、問題のないレポートとまったく同じように保存されていた。欠けていた条件分岐を特定し、該当行を示したうえで、営業担当の画面に届く前に修正方針をまとめた。",
-    el_b13:"<strong>システムが、持っていないはずの鮮度と確度を作り出していることを察知。</strong>購買シグナルの時刻は実際の観測日ではなくリクエスト時刻で記録されており、19か月前の資金調達が「本日」のものとして表示されていた。出典のURLは破棄され空文字に置き換えられていた。シグナルごと・担当者ごとの確度は一律の既定値に固定されており、確認済みの意思決定者と未確認の氏名との実質的な差が失われていた。",
-    el_b14:"<strong>一件の資金調達が二枚のカードとなり、二重に計上されていた。</strong>正規表現の打ち切りの不具合により単一の事象が二枚のシグナルカードに分かれ、同一企業の「時期」と「予算」という二つの評価軸に別々に加算されていた。一つの事実が、優先度を上げる独立した二つの理由に化けていた。",
-    el_b15:"上記の不具合はいずれも、コードから読み取ったのではなく、稼働中のAPIの応答とデータベースの記録に照らして確認したもの。各修正メモには、ファイル名、行番号、そして再現用のクエリを明記している。",
-    el_L5:"技術スタック",
-    el_t1:"Next.js / React / TypeScript",
-    el_t2:"FastAPI / Python",
-    el_t3:"PostgreSQL + pgvector",
-    el_t4:"大規模言語モデルの制御",
-    el_t5:"検索拡張生成（RAG）",
-    el_t6:"自社GPUでの推論",
-    el_t7:"公開情報調査ツール",
-    el_t8:"MCP",
-    el_t9:"マルチエージェントシステム",
     j5_prior_label:"それ以前の職務",
     j5_prior1:"<strong>アソシエイトコンサルタント・インターン</strong>、2021年夏",
     j5_prior2:"<strong>Building Entrepreneurial Leaders（BEL）インターン</strong>、2020年夏",
     more:"詳細を見る",
     less:"閉じる",
-    j3_eng_label:"クライアント案件",
     px_r1:"<strong>Protexxaの耐量子暗号に関する方法論とフレームワークの構築を支援</strong>。確立した手順を当てはめるのではなく、これから形づくられる分野に構造を与える立場で関わっている",
     px_r2:"<strong>顧客環境におけるPQC対応状況の評価に従事</strong>。暗号鍵と証明書を洗い出して評価し、移行計画を引く前に組織が実際にどの位置にあるのかを明らかにする",
     px_r3:"<strong>新しいオープンソースの道具立てを用いて暗号資産の棚卸しを作成。</strong>どの暗号方式にどこで依存しているかを答えられない組織がほとんどであり、この棚卸しこそ以降のあらゆる判断の前提となる",
@@ -1900,9 +1539,7 @@ const T = {
     px_r5:"<strong>プラクティスリードと直接協働</strong>。標準が定まって間もなく、道具立ても固まらず、実装指針がなお書かれつつある領域での仕事である",
     px_proj_label:"プロジェクト",
     px_proj_meta:"執筆 &middot; 二部構成のプログラム",
-    px_proj_sub:"耐量子計算機暗号に関する資料の多くが見落としている前提、すなわち「同じ移行でも、座っている席によって別の問題に見える」という点を出発点としている",
-    el_client:"職業訓練プラットフォーム",
-    el_role:"AIシステムアーキテクト"
+    px_proj_sub:"耐量子計算機暗号に関する資料の多くが見落としている前提、すなわち「同じ移行でも、座っている席によって別の問題に見える」という点を出発点としている"
   },
   ko: {
     tagline:"AI 제품 리더 · 대화형 AI 아키텍트 · 신흥 기술 전략가",
@@ -1936,7 +1573,7 @@ const T = {
     j2_b3:"<strong>AI 윤리·거버넌스 기준을 마련하고 있습니다.</strong> 청소년 대상 제품의 개인정보 보호 준수, 편향 완화, 대규모 환경에서의 책임 있는 도입을 다룹니다",
     j3_title:"창업자 &amp; 치제혁신입니다자",
     j3_meta:"토론토, ON · 2025년 1월 – 현재",
-    j3_sub:"독립 AI 컨설팅으로 실제 운영되는 시스템 구축과 자문 업무를 계약 형태로 수행하고 있으며, 현재 직업 교육 분야 고객을 위한 영업 인텔리전스 기반 작업을 진행 중입니다",
+    j3_sub:"독립 AI 컨설팅으로 실제 운영되는 시스템 구축과 자문 업무를 계약 형태로 수행하며, 아키텍처부터 그 결과물을 신뢰할 수 있는지 판단하는 평가까지를 맡습니다",
     j3_b1:"<strong>분명한 공백을 중심으로 사업을 세웠습니다.</strong> 팀이 AI를 도입하는 속도가 그 결과물을 검증하는 속도를 앞지른다는 문제입니다. 수행 범위는 아키텍처, 운영 환경 적용, 그리고 그 결과물이 행동으로 옮길 만한지 판단하는 평가 작업까지입니다",
     j3_b2:"<strong>AI 음악 분석 스타트업을 방어 가능한 영역으로 다시 자리매김했습니다.</strong> 중요한 성장 국면에서 경쟁 분석과 사용자 조사, 시장 세분화를 이끌어 그 제품이 실제로 이길 수 있는 지점을 규명했습니다",
     j3_b3:"<strong>기술과 함께 사업 측면도 직접 맡았습니다.</strong> 포지셔닝, 메시지, 가격 정책, 채널 제휴를 직접 정했으며, 전략을 자료 형태로 고객에게 돌려주지 않았습니다",
@@ -2031,46 +1668,11 @@ const T = {
     px_t5:"IETF PLANTS 작업반",
     px_t6:"Cloudflare TLS 시험",
     px_t7:"해석 수준 이론",
-    el_sub:"FieldCRM을 설계했습니다. 공개 출처의 신호를 조사가 끝난 접촉 가능 대상으로 바꾸는 실제 운영 중인 영업 인텔리전스 플랫폼으로, 데이터 수집과 대규모 언어 모델 조율, 그리고 시스템이 언제 사실을 단정해도 되는지를 정하는 안전장치를 맡았습니다",
-    el_b1:"<strong>여섯 단계 에이전트 파이프라인을 설계</strong>했습니다. 출처 탐색, 이상적 고객상 분류, 도메인 확인, 계정 생성, 공개 출처 정보 보강, 접촉 문안 작성으로 이어집니다. 각 단계는 따로 이어서 실행할 수 있고 행 단위로 상태를 남기므로, 도중에 멈춘 작업은 다시 돌리지 않고도 읽어낼 수 있습니다",
-    el_b2:"<strong>도구가 제공하지 않던 장애 탐지를 직접 만들었습니다.</strong> 토큰 잘림이 모든 행의 품질을 소리 없이 떨어뜨렸고, 중복 실행되던 서비스는 옛 코드를 돌리면서도 상태 점검에는 응답했으며, API 단계의 추측은 실재하는 인물을 엉뚱한 회사에 연결했습니다. 셋 모두 성공했다고 보고했습니다",
-    el_b3:"<strong>「찾지 못함」을 유효한 답으로 만들었습니다.</strong> 확인할 수 없는 기록은 그럴듯한 추측으로 채우지 않고 사람이 검토하도록 따로 보관하며, 이 원칙은 검토자의 판단에 맡기지 않고 파이프라인에서 지킵니다",
-    el_L1:"규모와 결과",
-    el_m1:"자격 판정과 고객상 평가를 마친 잠재 고객",
-    el_m2:"인계 전 도메인을 확인한 기업",
-    el_m3:"파이프라인 단계, 각각 따로 이어서 실행 가능",
-    el_m4:"조건을 통제한 접촉 문안 시험",
-    el_L2:"무엇을 보여주는가",
-    el_b4:"<strong>파이프라인 구조.</strong> 출처 탐색 → 고객상 분류 → 도메인 확인 → 계정 생성 → 공개 출처 조사 → 접촉 문안 작성으로, 각 단계를 따로 이어서 실행할 수 있습니다",
-    el_b5:"<strong>대규모 언어 모델 기반 시스템 구축.</strong> 여러 모델의 조율, 문서화된 기준에 따른 구조화 출력 분류, 주장의 근거에 관한 안전장치, A/B 시험을 위한 통제된 변형 생성",
-    el_b6:"<strong>장애 유형에 대한 대비.</strong> 「성공」이라고 보고하는 종류의 장애를 겨냥한 검증입니다. 토큰 잘림, 옛 코드로 도는 중복 서비스, API 단계의 추측이 그 대상입니다",
-    el_b7:"<strong>데이터 정확성을 제품 원칙으로.</strong> <em>찾지 못함</em>은 유효한 답이며, 검토자의 재량이 아니라 파이프라인에서 지켜집니다",
-    el_L3:"AI와 함께 일하기",
-    el_b8:"<strong>여러 에이전트가 참여하는 조사의 범위를 정하고 관리</strong>했습니다. 결과물처럼 보이는 빈 문장을 돌려주던 에이전트를 찾아냈고, 그런 출력을 부르던 지시 방식을 폐기했습니다",
-    el_b9:"<strong>모델 출력을 데이터베이스에 대조해 검증</strong>했습니다. 종료 코드나 HTTP 상태, 에이전트가 스스로 보고한 진행 상황에 기대지 않았으며, 독립적인 확인이 있기 전까지 주장은 결과가 아니라는 원칙을 따랐습니다",
-    el_b10:"<strong>출처가 모델의 기억에 우선하도록 했습니다.</strong> 새로 수집한 자료는 모델이 그 회사에 대해 기억하는 내용보다 언제나 앞섭니다",
-    el_b11:"<strong>40시간이 걸리던 순차 조사를 병렬 야간 작업으로 다시 설계</strong>했고, 의존 대상이 멈춘 상태에서 비용만 쓰던 실행은 중단시켰습니다",
-    el_L4:"실제 운영에서의 판단",
-    el_b12:"<strong>돌아가기는 하지만 아무것도 막지 않던 품질 관문을 찾아냈습니다.</strong> 조작 방지 검사는 모든 기업 보고서에 대해 게시 여부를 판정했지만, 저장 단계는 그 결과와 무관하게 보고서를 데이터베이스에 기록했습니다. 차단 판정을 받은 보고서도 문제없는 보고서와 똑같이 저장되고 있었습니다. 빠져 있던 조건을 짚어내고 해당 줄을 밝힌 뒤, 보고서가 영업 담당자의 화면에 닿기 전에 수정 방향을 정리했습니다.",
-    el_b13:"<strong>시스템이 가지고 있지도 않은 최신성과 확신을 지어내고 있음을 포착했습니다.</strong> 구매 신호의 시각이 실제 관측일이 아니라 요청 시점으로 기록되어, 19개월 전 투자 유치가 「오늘」로 표시되고 있었습니다. 출처 주소는 버려지고 빈 문자열로 대체되었습니다. 신호별·담당자별 신뢰도는 하나의 기본값으로 고정되어, 확인된 의사결정자와 확인되지 않은 이름의 실질적 차이가 지워졌습니다.",
-    el_b14:"<strong>하나의 투자 유치가 두 장의 카드가 되어 두 번 계산되었습니다.</strong> 정규식 잘림 결함이 단일 사건을 두 장의 신호 카드로 쪼갰고, 이후 같은 기업의 「시점」과 「예산」 두 평가 축에 각각 반영되었습니다. 하나의 사실이 우선순위를 올릴 서로 독립된 두 가지 근거로 둔갑한 셈입니다.",
-    el_b15:"위의 결함은 모두 코드를 읽어 짐작한 것이 아니라, 운영 중인 API 응답과 데이터베이스 기록에 대조해 확인했습니다. 각 수정 문서에는 파일과 줄 번호, 그리고 문제를 재현하는 질의를 함께 적었습니다.",
-    el_L5:"기술 스택",
-    el_t1:"Next.js / React / TypeScript",
-    el_t2:"FastAPI / Python",
-    el_t3:"PostgreSQL + pgvector",
-    el_t4:"대규모 언어 모델 조율",
-    el_t5:"검색 증강 생성(RAG)",
-    el_t6:"자체 GPU 추론",
-    el_t7:"공개 출처 조사 도구",
-    el_t8:"MCP",
-    el_t9:"다중 에이전트 시스템",
     j5_prior_label:"이전 직책",
     j5_prior1:"<strong>어소시에이트 컨설턴트 인턴</strong>, 2021년 여름",
     j5_prior2:"<strong>Building Entrepreneurial Leaders(BEL) 인턴</strong>, 2020년 여름",
     more:"자세히 보기",
     less:"접기",
-    j3_eng_label:"고객 프로젝트",
     px_r1:"<strong>Protexxa의 양자내성 방법론과 프레임워크 개발을 지원합니다.</strong> 정해진 절차를 적용하는 것이 아니라, 이제 만들어지고 있는 분야에 구조를 더하는 자리입니다",
     px_r2:"<strong>고객 환경의 PQC 준비도 평가에 참여합니다.</strong> 암호 키와 인증서를 찾아 평가하여, 어떤 전환 계획을 세우기 전에 조직이 실제로 어디에 서 있는지를 확인합니다",
     px_r3:"<strong>최신 오픈소스 도구로 암호 자산 목록을 만듭니다.</strong> 대부분의 조직은 어떤 알고리즘에 어디서 의존하는지 답하지 못하며, 이 목록이야말로 이후 모든 결정의 전제입니다",
@@ -2078,9 +1680,7 @@ const T = {
     px_r5:"<strong>프랙티스 리드와 직접 협업합니다.</strong> 표준이 나온 지 얼마 되지 않았고 도구도 정리되지 않았으며 구현 지침이 아직 쓰이고 있는 분야입니다",
     px_proj_label:"프로젝트",
     px_proj_meta:"직접 집필 &middot; 2부 구성 프로그램",
-    px_proj_sub:"양자내성암호 자료 대부분이 놓치는 전제, 곧 같은 전환이라도 어느 자리에 앉아 있느냐에 따라 전혀 다른 문제로 읽힌다는 점에서 출발했습니다",
-    el_client:"직업 교육 플랫폼",
-    el_role:"AI 시스템 아키텍트"
+    px_proj_sub:"양자내성암호 자료 대부분이 놓치는 전제, 곧 같은 전환이라도 어느 자리에 앉아 있느냐에 따라 전혀 다른 문제로 읽힌다는 점에서 출발했습니다"
   }
 };
 
