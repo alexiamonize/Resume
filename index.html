@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alexia Monize | AI Product Leader &amp; Conversational AI Strategist</title>
+<meta name="description" content="Alexia Monize — AI product leader, conversational AI strategist, and NLU architect. Scaled Porter Airlines' AI platform to 2M+ users. Available for AI consulting, contract, and leadership roles.">
+<meta name="keywords" content="Alexia Monize, AI product manager, conversational AI, NLU strategist, AI consultant, IVR modernization, Dialogflow CX, Amazon Connect, AI governance, AI engineer, AI consultant Toronto, AI integration, post-quantum cryptography, responsible AI, generative AI product leader">
+<meta name="author" content="Alexia Monize">
+<meta property="og:title" content="Alexia Monize | AI Product Leader">
+<meta property="og:description" content="AI systems architect and conversational design strategist. Available for AI consulting, contract, and leadership roles.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://alexiamonize.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --seafoam:#7fffd4; --seafoam-dim:#4dd9c0; --seafoam-faint:rgba(127,255,212,0.10);
+  --seafoam-glow:rgba(127,255,212,0.22); --teal:#2dd4bf; --accent-blue:#67e8f9; --accent-violet:#a78bfa;
+  --bg-deep:#060c12; --bg-mid:#0b1420; --bg-glass:rgba(127,255,212,0.04);
+  --border-glass:rgba(127,255,212,0.18); --border-dim:rgba(127,255,212,0.07);
+  --text-white:#f0faf7; --text-light:#c8ede4; --text-mid:#7fb3a4; --text-dim:#3d6b5e;
+  --toggle-bg:rgba(127,255,212,0.12); --toggle-icon:#7fffd4;
+  --beam-opacity:0.55; --font-display:'Syne',sans-serif; --font-body:'DM Sans',sans-serif;
+}
+body.light {
+  --seafoam:#0d9488; --seafoam-dim:#0f766e; --seafoam-faint:rgba(13,148,136,0.08);
+  --seafoam-glow:rgba(13,148,136,0.18); --teal:#14b8a6; --accent-blue:#0891b2; --accent-violet:#7c3aed;
+  --bg-deep:#f0faf8; --bg-mid:#e2f5f1; --bg-glass:rgba(13,148,136,0.05);
+  --border-glass:rgba(13,148,136,0.22); --border-dim:rgba(13,148,136,0.10);
+  --text-white:#0a2420; --text-light:#134e4a; --text-mid:#2d6a62; --text-dim:#7fb3a4;
+  --toggle-bg:rgba(13,148,136,0.12); --toggle-icon:#0d9488; --beam-opacity:0.28;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);background:var(--bg-deep);color:var(--text-light);line-height:1.65;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background 0.5s ease,color 0.4s ease;}
+#beamCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:var(--beam-opacity);transition:opacity 0.5s ease;}
+body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(var(--border-dim) 1px,transparent 1px),linear-gradient(90deg,var(--border-dim) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:1;transition:background-image 0.5s ease;}
+.top-bar{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:flex-end;gap:16px;padding:14px 48px;background:rgba(6,12,18,0.76);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);border-bottom:1px solid var(--border-dim);transition:background 0.5s ease,border-color 0.4s ease;flex-wrap:wrap;}
+body.light .top-bar{background:rgba(240,250,248,0.85);}
+.lang-selector{display:flex;align-items:center;gap:4px;flex-wrap:wrap;}
+.lang-btn{background:none;border:1px solid transparent;color:var(--text-mid);font-family:var(--font-body);font-size:12px;font-weight:500;letter-spacing:0.5px;padding:5px 10px;cursor:pointer;border-radius:3px;transition:all 0.22s ease;white-space:nowrap;}
+.lang-btn:hover{border-color:var(--border-glass);color:var(--text-white);}
+.lang-btn.active{border-color:var(--seafoam);color:var(--seafoam);background:var(--seafoam-faint);}
+.lang-divider{width:1px;height:18px;background:var(--border-glass);margin:0 6px;flex-shrink:0;}
+.theme-toggle{display:flex;align-items:center;gap:8px;background:var(--toggle-bg);border:1px solid var(--border-glass);border-radius:40px;padding:6px 14px;cursor:pointer;transition:all 0.25s ease;font-family:var(--font-body);font-size:12px;color:var(--toggle-icon);font-weight:500;letter-spacing:0.5px;white-space:nowrap;}
+.theme-toggle:hover{border-color:var(--seafoam);background:var(--seafoam-faint);}
+.theme-toggle svg{width:14px;height:14px;fill:currentColor;flex-shrink:0;transition:transform 0.4s ease;}
+body.light .theme-toggle .icon-moon{display:none;}
+body:not(.light) .theme-toggle .icon-sun{display:none;}
+.container{max-width:1320px;margin:0 auto;padding:120px 64px 80px;position:relative;z-index:10;}
+.glass{background:var(--bg-glass);border:1px solid var(--border-glass);backdrop-filter:blur(14px) saturate(130%);-webkit-backdrop-filter:blur(14px) saturate(130%);position:relative;overflow:hidden;transition:border-color 0.3s ease,background 0.3s ease,transform 0.3s ease,box-shadow 0.3s ease;}
+.glass::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(127,255,212,0.05) 0%,transparent 55%,rgba(103,232,249,0.03) 100%);pointer-events:none;transition:opacity 0.4s ease;}
+body.light .glass::after{background:linear-gradient(135deg,rgba(13,148,136,0.04) 0%,transparent 55%,rgba(8,145,178,0.02) 100%);}
+.glass:hover{border-color:rgba(127,255,212,0.42);background:rgba(127,255,212,0.07);box-shadow:0 4px 32px rgba(127,255,212,0.08);}
+body.light .glass:hover{border-color:rgba(13,148,136,0.42);background:rgba(13,148,136,0.07);box-shadow:0 4px 32px rgba(13,148,136,0.08);}
+.header{margin-bottom:80px;padding-bottom:60px;border-bottom:1px solid var(--border-dim);transition:border-color 0.4s ease;}
+.name{font-family:var(--font-display);font-size:clamp(52px,7vw,88px);font-weight:800;letter-spacing:-2px;line-height:1;margin-bottom:16px;background:linear-gradient(100deg,var(--seafoam) 0%,var(--accent-blue) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:riseIn 0.9s cubic-bezier(.22,1,.36,1) both;}
+.tagline{font-family:var(--font-display);font-size:14px;font-weight:500;color:var(--seafoam-dim);letter-spacing:3px;text-transform:uppercase;margin-bottom:44px;animation:riseIn 0.9s cubic-bezier(.22,1,.36,1) 0.1s both;transition:color 0.4s ease;}
+.contact-links{display:flex;gap:36px;flex-wrap:wrap;animation:riseIn 0.9s cubic-bezier(.22,1,.36,1) 0.2s both;}
+.contact-link{color:var(--text-mid);text-decoration:none;font-size:14px;font-weight:400;position:relative;padding-bottom:4px;transition:color 0.25s;}
+.contact-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--seafoam);transition:width 0.3s ease;}
+.contact-link:hover{color:var(--seafoam);}
+.contact-link:hover::after{width:100%;}
+.section{margin-bottom:80px;}
+.section-label{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-size:11px;font-weight:700;color:var(--seafoam);letter-spacing:4px;text-transform:uppercase;margin-bottom:28px;transition:color 0.4s ease;}
+.section-label::before{content:'';display:block;width:3px;height:16px;background:linear-gradient(180deg,var(--seafoam) 0%,var(--accent-blue) 100%);border-radius:2px;box-shadow:0 0 8px var(--seafoam-glow);flex-shrink:0;transition:background 0.4s ease,box-shadow 0.4s ease;}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border-dim);transition:background 0.4s ease;}
+.summary-text{font-size:16px;line-height:1.85;color:var(--text-light);font-weight:300;max-width:980px;transition:color 0.4s ease;}
+.summary-text strong{color:var(--seafoam);font-weight:500;}
+.job{padding:40px 44px;margin-bottom:20px;border-radius:2px;}
+.job:hover{transform:translateX(8px);}
+.job::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:linear-gradient(180deg,var(--seafoam) 0%,var(--accent-blue) 100%);transition:height 0.35s ease;box-shadow:0 0 12px var(--seafoam-glow);}
+.job:hover::before{height:100%;}
+.job-title{font-family:var(--font-display);font-size:19px;font-weight:700;color:var(--text-white);letter-spacing:-0.3px;transition:color 0.4s ease;}
+.job-sep{color:var(--border-glass);margin:0 8px;font-weight:300;}
+.job-company{font-family:var(--font-display);font-size:19px;font-weight:700;color:var(--seafoam);transition:color 0.4s ease;}
+.job-meta{font-size:12px;color:var(--text-dim);font-weight:400;letter-spacing:1px;text-transform:uppercase;margin:6px 0 10px;transition:color 0.4s ease;}
+.job-subtitle{font-size:14px;font-style:italic;color:var(--accent-blue);margin-bottom:20px;font-weight:300;transition:color 0.4s ease;}
+.achievements{list-style:none;padding:0;}
+.achievements li{font-size:14.5px;line-height:1.75;margin-bottom:12px;padding-left:22px;position:relative;color:var(--text-mid);font-weight:300;transition:color 0.4s ease;}
+.achievements li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;background:var(--seafoam-dim);transform:rotate(45deg);border-radius:1px;transition:background 0.4s ease;}
+.achievements li strong{color:var(--text-white);font-weight:500;transition:color 0.4s ease;}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+.skill-card{padding:28px 32px;border-radius:2px;}
+.skill-label{font-family:var(--font-display);font-size:11px;font-weight:700;color:var(--seafoam);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px;transition:color 0.4s ease;}
+.skill-items{font-size:13.5px;color:var(--text-mid);line-height:1.85;font-weight:300;transition:color 0.4s ease;}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:20px;}
+.edu-card{padding:36px 40px;border-radius:2px;}
+.edu-degree{font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--text-white);margin-bottom:6px;transition:color 0.4s ease;}
+.edu-school{font-size:15px;font-weight:500;color:var(--seafoam);margin-bottom:12px;transition:color 0.4s ease;}
+.edu-details{font-size:13.5px;color:var(--text-mid);line-height:1.75;font-weight:300;transition:color 0.4s ease;}
+.tags{display:flex;flex-wrap:wrap;gap:12px;}
+.tag{background:var(--bg-glass);border:1px solid var(--border-glass);color:var(--text-mid);padding:10px 20px;font-size:13px;font-weight:400;letter-spacing:0.3px;cursor:default;position:relative;overflow:hidden;border-radius:1px;transition:all 0.25s ease;}
+.tag::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(127,255,212,0.08),transparent);transform:translateX(-100%);transition:transform 0.5s ease;}
+body.light .tag::before{background:linear-gradient(90deg,transparent,rgba(13,148,136,0.08),transparent);}
+.tag:hover{border-color:var(--seafoam);color:var(--text-white);}
+.tag:hover::before{transform:translateX(100%);}
+.tag[data-cert]{cursor:pointer;}
+.two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;}
+.info-card{padding:36px 40px;border-radius:2px;}
+.info-content{font-size:14.5px;color:var(--text-mid);line-height:1.9;font-weight:300;transition:color 0.4s ease;}
+.cert-modal{display:none;position:fixed;inset:0;z-index:9000;background:rgba(6,12,18,0.94);backdrop-filter:blur(10px);animation:fadeIn 0.25s ease;}
+body.light .cert-modal{background:rgba(240,250,248,0.92);}
+.cert-modal-inner{position:relative;margin:2% auto;width:90%;max-width:1100px;height:90vh;border:1px solid var(--border-glass);background:var(--bg-mid);box-shadow:0 0 60px rgba(127,255,212,0.12);animation:slideDown 0.35s cubic-bezier(.22,1,.36,1);}
+.cert-close{position:absolute;top:-44px;right:0;font-size:36px;font-weight:300;color:var(--text-mid);cursor:pointer;line-height:1;transition:color 0.2s,transform 0.3s;}
+.cert-close:hover{color:var(--seafoam);transform:rotate(90deg);}
+.cert-frame{width:100%;height:100%;border:none;background:white;}
+.job-contract{font-size:13px;font-weight:400;font-style:italic;color:var(--text-dim);letter-spacing:0;text-transform:none;transition:color 0.4s ease;}
+.engagement-label{font-family:var(--font-display);font-size:10px;font-weight:700;color:var(--seafoam-dim);letter-spacing:2px;text-transform:uppercase;margin:26px 0 14px;padding-top:18px;border-top:1px solid var(--border-dim);transition:color 0.4s ease,border-color 0.4s ease;}
+.engagement{position:relative;padding:22px 26px;margin-bottom:14px;border-left:2px solid var(--border-glass);background:var(--bg-glass);border-radius:2px;transition:border-color 0.3s ease,background 0.3s ease;}
+.engagement:hover{border-left-color:var(--seafoam);background:rgba(127,255,212,0.05);}
+body.light .engagement:hover{background:rgba(13,148,136,0.05);}
+.engagement-header{margin-bottom:4px;}
+.engagement-client{font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--seafoam);transition:color 0.4s ease;}
+.engagement-role{font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--text-white);transition:color 0.4s ease;}
+.engagement-meta{font-size:11.5px;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;transition:color 0.4s ease;}
+@media(max-width:768px){.engagement{padding:16px 18px;}}
+.job-progression{margin-top:18px;padding-top:14px;border-top:1px solid var(--border-dim);font-size:13.5px;color:var(--text-mid);font-weight:300;line-height:1.75;transition:color 0.4s ease,border-color 0.4s ease;}
+.job-progression strong{color:var(--text-white);font-weight:500;}
+.job-progression-label{font-family:var(--font-display);font-size:10px;font-weight:700;color:var(--seafoam-dim);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+.job-more{margin-top:18px;}
+.job-more-toggle{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-display);font-size:11px;font-weight:700;color:var(--seafoam);letter-spacing:2px;text-transform:uppercase;padding:8px 0;transition:color 0.25s ease;user-select:none;}
+.job-more-toggle::-webkit-details-marker{display:none;}
+.job-more-toggle::before{content:'+';font-size:15px;line-height:1;transition:transform 0.25s ease;}
+.job-more[open] .job-more-toggle::before{content:'\2212';}
+.job-more-toggle:hover{color:var(--text-white);}
+.job-more .show-less{display:none;}
+.job-more[open] .show-more{display:none;}
+.job-more[open] .show-less{display:inline;}
+.job-more-content{padding-top:14px;animation:riseIn 0.4s cubic-bezier(.22,1,.36,1) both;}
+.job-more-block{margin-top:28px;}
+.job-more-block:first-child{margin-top:8px;}
+.job-more-label{font-family:var(--font-display);font-size:11px;font-weight:700;color:var(--seafoam-dim);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px;transition:color 0.4s ease;}
+.job-more-quote{font-size:14.5px;line-height:1.85;color:var(--text-light);font-weight:300;padding-left:16px;border-left:2px solid var(--seafoam-dim);transition:color 0.4s ease,border-color 0.4s ease;}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;}
+.metric{padding:20px 18px;border-radius:2px;text-align:left;}
+.metric-n{font-family:var(--font-display);font-size:28px;font-weight:800;letter-spacing:-1px;line-height:1;background:linear-gradient(100deg,var(--seafoam) 0%,var(--accent-blue) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.metric-l{font-size:11px;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase;margin-top:8px;line-height:1.5;transition:color 0.4s ease;}
+.footer{text-align:center;padding:56px 20px 40px;border-top:1px solid var(--border-dim);margin-top:60px;color:var(--text-dim);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;transition:border-color 0.4s ease,color 0.4s ease;}
+.footer span{color:var(--seafoam);}
+@keyframes riseIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-40px);}to{opacity:1;transform:translateY(0);}}
+::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-track{background:var(--bg-deep);}::-webkit-scrollbar-thumb{background:var(--border-dim);border-radius:3px;}::-webkit-scrollbar-thumb:hover{background:var(--seafoam-dim);}
+@media(max-width:900px){.top-bar{padding:12px 20px;gap:8px;}.lang-btn{font-size:11px;padding:4px 7px;}}
+@media(max-width:768px){.container{padding:110px 20px 60px;}.name{font-size:44px;letter-spacing:-1px;}.contact-links{flex-direction:column;gap:16px;}.job{padding:24px;}.job:hover{transform:translateX(4px);}.skill-card,.edu-card,.info-card{padding:20px;}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important;}#beamCanvas{display:none;}}
+</style>
+</head>
+<body>
+<canvas id="beamCanvas" aria-hidden="true"></canvas>
+<div class="top-bar" role="navigation" aria-label="Site controls">
+  <div class="lang-selector" role="group" aria-label="Language selector">
+    <button class="lang-btn active" data-lang="en"  aria-pressed="true">EN</button>
+    <button class="lang-btn"        data-lang="fr"  aria-pressed="false">FR</button>
+    <button class="lang-btn"        data-lang="es"  aria-pressed="false">ES</button>
+    <button class="lang-btn"        data-lang="it"  aria-pressed="false">IT</button>
+    <button class="lang-btn"        data-lang="zh"  aria-pressed="false">中文</button>
+    <button class="lang-btn"        data-lang="ru"  aria-pressed="false">RU</button>
+    <button class="lang-btn"        data-lang="no"  aria-pressed="false">NO</button>
+    <button class="lang-btn"        data-lang="ja"  aria-pressed="false">日本語</button>
+    <button class="lang-btn"        data-lang="ko"  aria-pressed="false">한국어</button>
+  </div>
+  <div class="lang-divider" aria-hidden="true"></div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+    <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <span id="toggleLabel">Light</span>
+  </button>
+</div>
+<div class="container">
+<header class="header">
+  <h1 class="name">ALEXIA MONIZE</h1>
+  <p class="tagline" data-i18n="tagline">AI Product Leader · Conversational AI Architect · Emerging Technology Strategist</p>
+  <nav class="contact-links" aria-label="Contact">
+    <a href="https://linkedin.com/in/alexia-monize" class="contact-link" target="_blank" rel="noopener">linkedin.com/in/alexia-monize</a>
+    <a href="https://alexiamonize.github.io/Resume/" class="contact-link" target="_blank" rel="noopener">alexiamonize.github.io/Resume</a>
+  </nav>
+</header>
+<section class="section" aria-labelledby="lbl-about">
+  <div class="section-label" id="lbl-about" data-i18n="sec_about">About</div>
+  <p class="summary-text" data-i18n="summary"><strong>AI product leader and conversational systems architect</strong> with a track record of building AI-powered products from the ground up and scaling them to enterprise impact. Led end-to-end ownership of Porter Airlines' conversational AI platform—from architecture and NLU design through cross-functional deployment and governance—achieving <strong>750% intent expansion</strong> across <strong>2M+ annual customer interactions</strong>. Deep hands-on fluency across the AI stack: Amazon Connect, Dialogflow CX, AWS Lambda, ML pipeline design, and LLM integration. Grounded in Cognitive Science (University of Toronto, HBSc with Distinction, 2022) with active credentialing in cybersecurity, quantum computing, and responsible AI. Available for AI consulting, contract engagements, and senior leadership roles.</p>
+</section>
+
+<section class="section" aria-labelledby="lbl-exp">
+  <div class="section-label" id="lbl-exp" data-i18n="sec_experience">Experience</div>
+
+  <article class="job glass">
+    <div class="job-header"><span class="job-title">Post-Quantum Cryptography (PQC) Associate <span class="job-contract">(Contract)</span></span><span class="job-sep">|</span><span class="job-company">Protexxa</span></div>
+    <div class="job-meta">Toronto, ON &middot; April 2026 &ndash; Present</div>
+  </article>
+
+
+  <article class="job glass">
+    <div class="job-header"><span class="job-title" data-i18n="j3_title">Founder &amp; CEO</span><span class="job-sep">|</span><span class="job-company">ARM Innovation Solutions</span></div>
+    <div class="job-meta" data-i18n="j3_meta">Toronto, ON · January 2025 – Present</div>
+    <div class="job-subtitle" data-i18n="j3_sub">Independent AI consultancy delivering production systems and advisory work on contract, from architecture through to the evaluation that determines whether output can be trusted</div>
+    <ul class="achievements">
+      <li data-i18n="j3_b1"><strong>Built the practice around a specific gap:</strong> teams adopting AI faster than they can verify what it produces. Engagements cover architecture, production delivery, and the evaluation work that determines whether output is trustworthy enough to act on</li>
+      <li data-i18n="j3_b2"><strong>Repositioned an AI-music analytics startup into a defensible niche</strong> during a critical growth phase, running the competitive analysis, user research, and segmentation that established where the product could actually win</li>
+      <li data-i18n="j3_b3"><strong>Owned the commercial layer alongside the technical one</strong>, setting positioning, messaging, pricing, and channel partnerships rather than handing strategy back to the client as a deck</li>
+      <li data-i18n="j3_b4"><strong>Co-designed the core algorithm</strong> with the engineering team, translating commercial requirements into technical specifications for behavioural models linking auditory preference data to team performance measures</li>
+    </ul>
+  </article>
+
+  <article class="job glass">
+    <div class="job-header"><span class="job-title" data-i18n="j1_title">CCAI Lead</span><span class="job-sep">|</span><span class="job-company">Porter Airlines</span></div>
+    <div class="job-meta" data-i18n="j1_meta">Toronto, ON · February 2024 – September 2025</div>
+    <div class="job-subtitle" data-i18n="j1_sub">IVR Developer & Technical Project Manager — end-to-end ownership of a conversational AI platform serving 2M+ customers</div>
+    <ul class="achievements">
+      <li data-i18n="j1_b1"><strong>Defined and executed product strategy</strong> for conversational AI platform serving 2M+ annual customers, scaling from 6 to 51 intents (750% growth) through roadmap planning, user journey mapping, and data-driven feature prioritization</li>
+      <li data-i18n="j1_b2"><strong>Architected and deployed</strong> end-to-end NLU/IVR systems on Amazon Connect — from initial design through production launch — while managing product strategy, cross-functional alignment, and operational scaling simultaneously</li>
+      <li data-i18n="j1_b3"><strong>Led cross-functional delivery</strong> across Engineering, CX, Operations, and Product teams to ship the NLU modernization initiative, standardizing release processes and aligning stakeholders on quarterly OKRs</li>
+      <li data-i18n="j1_b4"><strong>Drove activation and engagement</strong> by analyzing high-volume behavioural data, implementing A/B testing frameworks, and optimizing conversation flows — increasing self-service completion rates and reducing escalations</li>
+      <li data-i18n="j1_b5"><strong>Built performance analytics infrastructure</strong> with real-time dashboards tracking intent accuracy, routing precision, and CSAT — enabling data-driven iterations and executive reporting</li>
+      <li data-i18n="j1_b6"><strong>Established AI governance framework</strong> including model evaluation standards, version control protocols, and SLA definitions across 100+ agent operations</li>
+      <li data-i18n="j1_b7"><strong>Authored enterprise AI Operations Playbook</strong> reducing stakeholder onboarding time by 40% and scaling organizational AI literacy</li>
+      <li data-i18n="j1_b8"><strong>Led bilingual product expansion</strong> (English/French), partnering with language experts and conducting market analysis to ensure full feature parity</li>
+    </ul>
+  </article>
+
+  <article class="job glass">
+    <div class="job-header"><span class="job-title" data-i18n="j2_title">Director of Artificial Intelligence</span><span class="job-sep">|</span><span class="job-company">Braintech Robotics LC</span></div>
+    <div class="job-meta" data-i18n="j2_meta">Toronto, ON · August 2025 – Present</div>
+    <div class="job-subtitle" data-i18n="j2_sub">Defining AI product roadmap for adaptive learning, ML-driven personalization, and ethical AI deployment across youth STEM education platform</div>
+    <ul class="achievements">
+      <li data-i18n="j2_b1"><strong>Leading AI product transformation</strong> of STEM learning platform through adaptive curriculum design, real-time analytics integration, and personalized learning pathways</li>
+      <li data-i18n="j2_b2"><strong>Defining AI product roadmap</strong> including feature prioritization, success metrics, and partnership strategy to enhance safety monitoring and operational efficiency</li>
+      <li data-i18n="j2_b3"><strong>Establishing AI ethics and governance standards</strong> for youth-facing products — privacy compliance, bias mitigation, and responsible AI deployment at scale</li>
+    </ul>
+  </article>
+
+  <article class="job glass">
+    <div class="job-header"><span class="job-title" data-i18n="j4_title">Chief Technology Officer</span><span class="job-sep">|</span><span class="job-company">StealthAICo.</span></div>
+    <div class="job-meta" data-i18n="j4_meta">Toronto, ON · January 2024 – May 2024</div>
+    <ul class="achievements">
+      <li data-i18n="j4_b1"><strong>Led platform architecture decisions</strong> for AI-powered fashion technology — build vs. buy tradeoffs, technology stack selection, and integration of AR, database systems, and design tools</li>
+      <li data-i18n="j4_b2"><strong>Architected business continuity strategy</strong> ensuring platform resilience and data protection during disaster scenarios, defining recovery time objectives and data protocols</li>
+      <li data-i18n="j4_b3"><strong>Translated technical complexity</strong> into executive risk frameworks, technology roadmaps, and investment prioritization recommendations for C-suite decision-making</li>
+    </ul>
+  </article>
+
+  <article class="job glass">
+    <div class="job-header"><span class="job-title" data-i18n="j5_title">Associate Consultant</span><span class="job-sep">|</span><span class="job-company">Bain &amp; Company</span></div>
+    <div class="job-meta" data-i18n="j5_meta">Toronto, ON · August 2022 – November 2023</div>
+    <div class="job-subtitle" data-i18n="j5_sub">Strategic transformation for Fortune 500 clients across financial services and mining — delivering 25%+ value creation through organisational design and operational optimisation</div>
+    <ul class="achievements">
+      <li data-i18n="j5_b1"><strong>Supported major Canadian bank's regulatory transition</strong> (Category 4 to Category 3) through risk analysis, expert network engagement, and stakeholder alignment</li>
+      <li data-i18n="j5_b2"><strong>Designed organisational restructuring</strong> across multiple mining sites, delivering 25%+ value creation through operational efficiency and structural optimisation</li>
+      <li data-i18n="j5_b3"><strong>Led DE&amp;I product development</strong> — built digital dashboard, designed stakeholder surveys, and streamlined data operations enabling data-driven diversity metrics</li>
+    </ul>
+    <div class="job-progression">
+      <div class="job-progression-label" data-i18n="j5_prior_label">Prior Roles</div>
+      <span data-i18n="j5_prior1"><strong>Associate Consultant Intern</strong>, Summer 2021</span><br>
+      <span data-i18n="j5_prior2"><strong>Building Entrepreneurial Leaders (BEL) Intern</strong>, Summer 2020</span>
+    </div>
+  </article>
+
+  <article class="job glass">
+    <div class="job-header"><span class="job-title" data-i18n="j6_title">AI Training Specialist</span><span class="job-sep">|</span><span class="job-company">ByteDance</span></div>
+    <div class="job-meta" data-i18n="j6_meta">Toronto, ON · April 2019 – October 2019</div>
+    <div class="job-subtitle" data-i18n="j6_sub">Trained and optimised ML-powered caption generation systems for one of the world's leading AI-driven social platforms</div>
+    <ul class="achievements">
+      <li data-i18n="j6_b1"><strong>Trained and evaluated caption generation models</strong> through large-scale dataset labelling and systematic feedback on AI outputs to improve accuracy and contextual relevance</li>
+      <li data-i18n="j6_b2"><strong>Collaborated with ML engineering teams</strong> to identify edge cases, biases, and performance gaps in automated caption systems</li>
+      <li data-i18n="j6_b3"><strong>Documented failure patterns and recommended training data enhancements</strong> to support iterative model improvements and annotation quality</li>
+    </ul>
+  </article>
+
+  <article class="job glass">
+    <div class="job-header"><span class="job-title" data-i18n="j7_title">STEM Program Director</span><span class="job-sep">|</span><span class="job-company">Braintech Robotics LC</span></div>
+    <div class="job-meta" data-i18n="j7_meta">Toronto, ON · April 2019 – August 2023</div>
+    <ul class="achievements">
+      <li data-i18n="j7_b1">Instructed youth ages 6–18 in programming, robotics, and drones while optimising event strategy through data-driven content creation to secure program funding</li>
+      <li data-i18n="j7_b2">Managed budgeting, scheduling, and resource allocation across operations</li>
+    </ul>
+  </article>
+</section>
+
+<section class="section" aria-labelledby="lbl-skills">
+  <div class="section-label" id="lbl-skills" data-i18n="sec_skills">Core Competencies</div>
+  <div class="skills-grid">
+    <div class="skill-card glass"><div class="skill-label" data-i18n="sk1_label">AI Product &amp; Strategy</div><div class="skill-items" data-i18n="sk1_items">Conversational AI Design · NLU Architecture · IVR Modernization · Generative AI Integration · LLM Product Design · AI Adoption &amp; Change Management · AI Frameworks &amp; Governance · Responsible AI · AI Agents · AI Security · Product Roadmap Development · Go-to-Market Strategy · OKR Framework Design · Feature Prioritization</div></div>
+    <div class="skill-card glass"><div class="skill-label" data-i18n="sk2_label">Technical Stack</div><div class="skill-items" data-i18n="sk2_items">Amazon Connect · AWS Lambda · AWS Lex · AWS Glue · Amazon Q · AWS QuickSight · Dialogflow CX · Google Cloud Platform · Python · APIs &amp; Integration · SQL Fundamentals · ML Pipeline Design · AI Prompting &amp; Optimization · Google Workspace · Microsoft Office</div></div>
+    <div class="skill-card glass"><div class="skill-label" data-i18n="sk3_label">Research &amp; Analysis</div><div class="skill-items" data-i18n="sk3_items">Market Research &amp; Competitor Analysis · Market Trend Research · Deep Learning Concepts · Data Storytelling · Behavioural Analytics · Audience Analysis · Funnel Analysis · Retention Strategy · User Research &amp; Personas · A/B Testing &amp; Experimentation</div></div>
+    <div class="skill-card glass"><div class="skill-label" data-i18n="sk4_label">Execution &amp; Delivery</div><div class="skill-items" data-i18n="sk4_items">Agile / Scrum · Waterfall · IT &amp; Agile Change Management · Lean Change Management · Technical Project Management · Data Tracking · Documentation &amp; Playbook Creation · Quality Assurance · Operational Scaling · Risk Management · Compliance Strategy</div></div>
+    <div class="skill-card glass"><div class="skill-label" data-i18n="sk5_label">Content &amp; Communication</div><div class="skill-items" data-i18n="sk5_items">Educational Content Development · Training Content Development · Adapting Content for Diverse Audiences · Digital &amp; Oral Storytelling · Public Speaking · Executive Reporting · Stakeholder Communication · Cross-Functional Team Alignment · Conflict Resolution</div></div>
+    <div class="skill-card glass"><div class="skill-label" data-i18n="sk6_label">Leadership &amp; Character</div><div class="skill-items" data-i18n="sk6_items">Emotional Intelligence · Interpersonal Relationships · Motivating &amp; Supervising Teams · Analytical Thinking · High Attention to Detail · Growth Mindset · Active Learning · Creative Teams Leadership · Sales · Strategic Insights</div></div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="lbl-edu">
+  <div class="section-label" id="lbl-edu" data-i18n="sec_education">Education</div>
+  <div class="edu-grid">
+    <div class="edu-card glass"><div class="edu-degree" data-i18n="edu1_deg">Honours Bachelor of Science with Distinction</div><div class="edu-school" data-i18n="edu1_school">University of Toronto (St. George)</div><div class="edu-details" data-i18n="edu1_details">Major: Cognitive Science (Computational Cognition)<br>Major: Book &amp; Media Studies<br>Minor: Digital Humanities<br>Graduated: 2022</div></div>
+    <div class="edu-card glass"><div class="edu-degree" data-i18n="edu2_deg">Certificate in Cybersecurity, Quantum Computing and Artificial Intelligence</div><div class="edu-school" data-i18n="edu2_school">Ontario Tech University · Protexxa</div><div class="edu-details" data-i18n="edu2_details">2025–2026 · Score: 92.86%</div></div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="lbl-certs">
+  <div class="section-label" id="lbl-certs" data-i18n="sec_certs">Certifications</div>
+  <div class="tags">
+    <span class="tag" data-cert="certificates/AI & Law.pdf" data-i18n="cert1">AI &amp; Law — Lund University</span>
+    <span class="tag" data-cert="certificates/Generative AI with Large Language Models.pdf" data-i18n="cert2">Generative AI with LLMs — DeepLearning.AI</span>
+    <span class="tag" data-cert="certificates/Customer Experiences with Contact Center AI - Dialogflow CX.pdf" data-i18n="cert3">Dialogflow CX Specialization — Google</span>
+    <span class="tag" data-cert="certificates/Virtual Agent Development in Dialogflow CX for Citizen Devs.pdf" data-i18n="cert4">Dialogflow CX — Citizen Devs</span>
+    <span class="tag" data-cert="certificates/Contact Center AI- Conversational Design Fundamentals.pdf" data-i18n="cert5">Conversational Design Fundamentals</span>
+    <span class="tag" data-cert="certificates/Contact Center AI- Operations and Implementation.pdf" data-i18n="cert6">Contact Center AI Operations</span>
+    <span class="tag" data-cert="certificates/Amazon Connect - Troubleshooting.pdf" data-i18n="cert7">Amazon Connect — Troubleshooting</span>
+    <span class="tag" data-cert="certificates/Instance Fundamentals.pdf" data-i18n="cert8">Amazon Connect — Instance Fundamentals</span>
+    <span class="tag" data-cert="certificates/Getting Started with AI using IBM Watson.pdf" data-i18n="cert9">IBM Watson</span>
+    <span class="tag" data-cert="certificates/Introduction to Artificial Intelligence (AI).pdf" data-i18n="cert10">IBM AI Introduction</span>
+    <span class="tag" data-cert="certificates/Learning and Artificial Intelligence.pdf" data-i18n="cert11">ML &amp; AI Fundamentals</span>
+    <span class="tag" data-cert="certificates/Exploring Artificial Intelligence.pdf" data-i18n="cert12">Exploring AI Use Cases</span>
+    <span class="tag" data-cert="certificates/Learn to Program- The Fundamentals.pdf" data-i18n="cert13">Programming Fundamentals — UofT</span>
+    <span class="tag" data-cert="certificates/MIT Sustainability in Action.pdf" data-i18n="cert14">Bain Sustainability in Action — MIT Sloan</span>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="lbl-beta">
+  <div class="section-label" id="lbl-beta" data-i18n="sec_beta">Early Technology Adoption</div>
+  <div class="tags">
+    <span class="tag" data-i18n="beta1">OpenAI Private Beta — GPT &amp; Codex (2020–2021)</span>
+    <span class="tag" data-i18n="beta2">Apple iOS Public Beta (2017–2022)</span>
+    <span class="tag" data-i18n="beta3">Instagram Beta — Pre-Meta Acquisition (2009–2021)</span>
+    <span class="tag" data-i18n="beta4">Snapchat Beta Tester (2018–2020)</span>
+    <span class="tag" data-i18n="beta5">Skype Translator Beta (2014)</span>
+    <span class="tag" data-i18n="beta6">Hype Machine Beta (2012–2015)</span>
+  </div>
+</section>
+
+<section class="section">
+  <div class="two-col">
+    <div class="info-card glass"><div class="section-label" data-i18n="sec_languages">Languages</div><div class="info-content" data-i18n="lang_content">English — Fluent<br>French — Fluent</div></div>
+    <div class="info-card glass"><div class="section-label" data-i18n="sec_interests">Interests</div><div class="info-content" data-i18n="interests_content">Classical pianist, vocalist &amp; percussionist<br>Youth STEM mentorship<br>AI policy research &amp; ethics<br>Entrepreneurship<br>Emerging science &amp; technologies<br>Kayaking</div></div>
+  </div>
+</section>
+
+<footer class="footer"><p data-i18n="footer">&copy; 2026 <span>Alexia Monize</span> &nbsp;&middot;&nbsp; Built with precision &amp; <span>purpose</span></p></footer>
+</div>
+
+<div id="certModal" class="cert-modal" role="dialog" aria-modal="true">
+  <div class="cert-modal-inner">
+    <span class="cert-close" role="button" tabindex="0" aria-label="Close">&times;</span>
+    <iframe id="certFrame" class="cert-frame" title="Certificate"></iframe>
+  </div>
+</div>
+<script>
+const T = {
+  en: {
+    tagline:"AI Product Leader · Conversational AI Architect · Emerging Technology Strategist",
+    toggleDark:"Dark",
+    toggleLight:"Light",
+    sec_about:"About",
+    sec_experience:"Experience",
+    sec_skills:"Core Competencies",
+    sec_education:"Education",
+    sec_certs:"Certifications",
+    sec_beta:"Early Technology Adoption",
+    sec_languages:"Languages",
+    sec_interests:"Interests",
+    summary:"<strong>AI product leader and conversational systems architect</strong> with a track record of building AI-powered products from the ground up and scaling them to enterprise impact. Led end-to-end ownership of Porter Airlines’ conversational AI platform—from architecture and NLU design through cross-functional deployment and governance—achieving <strong>750% intent expansion</strong> across <strong>2M+ annual customer interactions</strong>. Deep hands-on fluency across the AI stack: Amazon Connect, Dialogflow CX, AWS Lambda, ML pipeline design, and LLM integration. Grounded in Cognitive Science (University of Toronto, HBSc with Distinction, 2022) with active credentialing in cybersecurity, quantum computing, and responsible AI. Available for AI consulting, contract engagements, and senior leadership roles.",
+    j1_title:"CCAI Lead",
+    j1_meta:"Toronto, ON · February 2024 – September 2025",
+    j1_sub:"IVR Developer & Technical Project Manager — end-to-end ownership of a conversational AI platform serving 2M+ customers",
+    j1_b1:"<strong>Defined and executed product strategy</strong> for conversational AI platform serving 2M+ annual customers, scaling from 6 to 51 intents (750% growth) through roadmap planning, user journey mapping, and data-driven feature prioritization",
+    j1_b2:"<strong>Architected and deployed</strong> end-to-end NLU/IVR systems on Amazon Connect — from initial design through production launch — while managing product strategy, cross-functional alignment, and operational scaling simultaneously",
+    j1_b3:"<strong>Led cross-functional delivery</strong> across Engineering, CX, Operations, and Product teams to ship the NLU modernization initiative, standardizing release processes and aligning stakeholders on quarterly OKRs",
+    j1_b4:"<strong>Drove activation and engagement</strong> by analyzing high-volume behavioural data, implementing A/B testing frameworks, and optimizing conversation flows — increasing self-service completion rates and reducing escalations",
+    j1_b5:"<strong>Built performance analytics infrastructure</strong> with real-time dashboards tracking intent accuracy, routing precision, and CSAT — enabling data-driven iterations and executive reporting",
+    j1_b6:"<strong>Established AI governance framework</strong> including model evaluation standards, version control protocols, and SLA definitions across 100+ agent operations",
+    j1_b7:"<strong>Authored enterprise AI Operations Playbook</strong> reducing stakeholder onboarding time by 40% and scaling organizational AI literacy",
+    j1_b8:"<strong>Led bilingual product expansion</strong> (English/French), partnering with language experts and conducting market analysis to ensure full feature parity",
+    j2_title:"Director of Artificial Intelligence",
+    j2_meta:"Toronto, ON · August 2025 – Present",
+    j2_sub:"Defining AI product roadmap for adaptive learning, ML-driven personalization, and ethical AI deployment across youth STEM education platform",
+    j2_b1:"<strong>Leading AI product transformation</strong> of STEM learning platform through adaptive curriculum design, real-time analytics integration, and personalized learning pathways",
+    j2_b2:"<strong>Defining AI product roadmap</strong> including feature prioritization, success metrics, and partnership strategy to enhance safety monitoring and operational efficiency",
+    j2_b3:"<strong>Establishing AI ethics and governance standards</strong> for youth-facing products — privacy compliance, bias mitigation, and responsible AI deployment at scale",
+    j3_title:"Founder &amp; CEO",
+    j3_meta:"Toronto, ON · January 2025 – Present",
+    j3_sub:"Independent AI consultancy delivering production systems and advisory work on contract, from architecture through to the evaluation that determines whether output can be trusted",
+    j3_b1:"<strong>Built the practice around a specific gap:</strong> teams adopting AI faster than they can verify what it produces. Engagements cover architecture, production delivery, and the evaluation work that determines whether output is trustworthy enough to act on",
+    j3_b2:"<strong>Repositioned an AI-music analytics startup into a defensible niche</strong> during a critical growth phase, running the competitive analysis, user research, and segmentation that established where the product could actually win",
+    j3_b3:"<strong>Owned the commercial layer alongside the technical one</strong>, setting positioning, messaging, pricing, and channel partnerships rather than handing strategy back to the client as a deck",
+    j3_b4:"<strong>Co-designed the core algorithm</strong> with the engineering team, translating commercial requirements into technical specifications for behavioural models linking auditory preference data to team performance measures",
+    j4_title:"Chief Technology Officer",
+    j4_meta:"Toronto, ON · January 2024 – May 2024",
+    j4_b1:"<strong>Led platform architecture decisions</strong> for AI-powered fashion technology — build vs. buy tradeoffs, technology stack selection, and integration of AR, database systems, and design tools",
+    j4_b2:"<strong>Architected business continuity strategy</strong> ensuring platform resilience and data protection during disaster scenarios, defining recovery time objectives and data protocols",
+    j4_b3:"<strong>Translated technical complexity</strong> into executive risk frameworks, technology roadmaps, and investment prioritization recommendations for C-suite decision-making",
+    j5_title:"Associate Consultant",
+    j5_meta:"Toronto, ON · August 2022 – November 2023",
+    j5_sub:"Strategic transformation for Fortune 500 clients across financial services and mining — delivering 25%+ value creation through organisational design and operational optimisation",
+    j5_b1:"<strong>Supported major Canadian bank’s regulatory transition</strong> (Category 4 to Category 3) through risk analysis, expert network engagement, and stakeholder alignment",
+    j5_b2:"<strong>Designed organisational restructuring</strong> across multiple mining sites, delivering 25%+ value creation through operational efficiency and structural optimisation",
+    j5_b3:"<strong>Led DE&amp;I product development</strong> — built digital dashboard, designed stakeholder surveys, and streamlined data operations enabling data-driven diversity metrics",
+    j6_title:"AI Training Specialist",
+    j6_meta:"Toronto, ON · April 2019 – October 2019",
+    j6_sub:"Trained and optimised ML-powered caption generation systems for one of the world’s leading AI-driven social platforms",
+    j6_b1:"<strong>Trained and evaluated caption generation models</strong> through large-scale dataset labelling and systematic feedback on AI outputs to improve accuracy and contextual relevance",
+    j6_b2:"<strong>Collaborated with ML engineering teams</strong> to identify edge cases, biases, and performance gaps in automated caption systems",
+    j6_b3:"<strong>Documented failure patterns and recommended training data enhancements</strong> to support iterative model improvements and annotation quality",
+    j7_title:"STEM Program Director",
+    j7_meta:"Toronto, ON · April 2019 – August 2023",
+    j7_b1:"Instructed youth ages 6–18 in programming, robotics, and drones while optimising event strategy through data-driven content creation to secure program funding",
+    j7_b2:"Managed budgeting, scheduling, and resource allocation across operations",
+    sk1_label:"AI Product &amp; Strategy",
+    sk1_items:"Conversational AI Design · NLU Architecture · IVR Modernization · Generative AI Integration · LLM Product Design · AI Adoption &amp; Change Management · AI Frameworks &amp; Governance · Responsible AI · AI Agents · AI Security · Product Roadmap Development · Go-to-Market Strategy · OKR Framework Design · Feature Prioritization",
+    sk2_label:"Technical Stack",
+    sk2_items:"Amazon Connect · AWS Lambda · AWS Lex · AWS Glue · Amazon Q · AWS QuickSight · Dialogflow CX · Google Cloud Platform · Python · APIs &amp; Integration · SQL Fundamentals · ML Pipeline Design · AI Prompting &amp; Optimization · Google Workspace · Microsoft Office",
+    sk3_label:"Research &amp; Analysis",
+    sk3_items:"Market Research &amp; Competitor Analysis · Market Trend Research · Deep Learning Concepts · Data Storytelling · Behavioural Analytics · Audience Analysis · Funnel Analysis · Retention Strategy · User Research &amp; Personas · A/B Testing &amp; Experimentation",
+    sk4_label:"Execution &amp; Delivery",
+    sk4_items:"Agile / Scrum · Waterfall · IT &amp; Agile Change Management · Lean Change Management · Technical Project Management · Data Tracking · Documentation &amp; Playbook Creation · Quality Assurance · Operational Scaling · Risk Management · Compliance Strategy",
+    sk5_label:"Content &amp; Communication",
+    sk5_items:"Educational Content Development · Training Content Development · Adapting Content for Diverse Audiences · Digital &amp; Oral Storytelling · Public Speaking · Executive Reporting · Stakeholder Communication · Cross-Functional Team Alignment · Conflict Resolution",
+    sk6_label:"Leadership &amp; Character",
+    sk6_items:"Emotional Intelligence · Interpersonal Relationships · Motivating &amp; Supervising Teams · Analytical Thinking · High Attention to Detail · Growth Mindset · Active Learning · Creative Teams Leadership · Sales · Strategic Insights",
+    edu1_deg:"Honours Bachelor of Science with Distinction",
+    edu1_school:"University of Toronto (St. George)",
+    edu1_details:"Major: Cognitive Science (Computational Cognition)<br>Major: Book &amp; Media Studies<br>Minor: Digital Humanities<br>Graduated: 2022",
+    edu2_deg:"Certificate in Cybersecurity, Quantum Computing and Artificial Intelligence",
+    edu2_school:"Ontario Tech University · Protexxa",
+    edu2_details:"2025–2026 · Score: 92.86%",
+    cert1:"AI &amp; Law — Lund University",
+    cert2:"Generative AI with LLMs — DeepLearning.AI",
+    cert3:"Dialogflow CX Specialization — Google",
+    cert4:"Dialogflow CX — Citizen Devs",
+    cert5:"Conversational Design Fundamentals",
+    cert6:"Contact Center AI Operations",
+    cert7:"Amazon Connect — Troubleshooting",
+    cert8:"Amazon Connect — Instance Fundamentals",
+    cert9:"IBM Watson",
+    cert10:"IBM AI Introduction",
+    cert11:"ML &amp; AI Fundamentals",
+    cert12:"Exploring AI Use Cases",
+    cert13:"Programming Fundamentals — UofT",
+    cert14:"Bain Sustainability in Action — MIT Sloan",
+    beta1:"OpenAI Private Beta — GPT &amp; Codex (2020–2021)",
+    beta2:"Apple iOS Public Beta (2017–2022)",
+    beta3:"Instagram Beta — Pre-Meta Acquisition (2009–2021)",
+    beta4:"Snapchat Beta Tester (2018–2020)",
+    beta5:"Skype Translator Beta (2014)",
+    beta6:"Hype Machine Beta (2012–2015)",
+    lang_content:"English — Fluent<br>French — Fluent",
+    interests_content:"Classical pianist, vocalist &amp; percussionist<br>Youth STEM mentorship<br>AI policy research &amp; ethics<br>Entrepreneurship<br>Emerging science &amp; technologies<br>Kayaking",
+    footer:"&copy; 2026 <span>Alexia Monize</span> &nbsp;&middot;&nbsp; Built with precision &amp; <span>purpose</span>",
+    j5_prior_label:"Prior Roles",
+    j5_prior1:"<strong>Associate Consultant Intern</strong>, Summer 2021",
+    j5_prior2:"<strong>Building Entrepreneurial Leaders (BEL) Intern</strong>, Summer 2020",
+    more:"View more",
+    less:"View less"
+  },
+  fr: {
+    tagline:"Leader en Produits IA · Architecte IA Conversationnelle · Stratège en Technologies Émergentes",
+    toggleDark:"Sombre",
+    toggleLight:"Clair",
+    sec_about:"À Propos",
+    sec_experience:"Expérience",
+    sec_skills:"Compétences Clés",
+    sec_education:"Formation",
+    sec_certs:"Certifications",
+    sec_beta:"Adoption Technologique Précoce",
+    sec_languages:"Langues",
+    sec_interests:"Intérêts",
+    summary:"<strong>Leader en produits IA et architecte de systèmes conversationnels</strong> avec un historique prouvé de création de produits propulsés par l'IA et de déploiement à l'échelle entreprise. Gestion de bout en bout de la plateforme d'IA conversationnelle de Porter Airlines—de l'architecture et la conception NLU jusqu'au déploiement et à la gouvernance—atteignant une <strong>expansion de 750% des intentions</strong> sur <strong>plus de 2 millions d'interactions clients annuelles</strong>. Maîtrise approfondie de la pile IA : Amazon Connect, Dialogflow CX, AWS Lambda, conception de pipelines ML et intégration LLM. Formée en Sciences Cognitives (Université de Toronto, HBSc avec distinction, 2022) avec des accréditations actives en cybersécurité, informatique quantique et IA responsable. Disponible pour du conseil en IA, des mandats contractuels et des postes de direction senior.",
+    j1_title:"Responsable CCAI",
+    j1_meta:"Toronto, ON · Février 2024 – Septembre 2025",
+    j1_sub:"Développeuse IVR et cheffe de projet technique — responsabilité de bout en bout d'une plateforme d'IA conversationnelle desservant plus de 2 millions de clients",
+    j1_b1:"<strong>Défini et exécuté la stratégie produit</strong> d'une plateforme d'IA conversationnelle servant plus de 2 M de clients par an, passant de 6 à 51 intentions (croissance de 750%) grâce à la planification de la feuille de route, la cartographie des parcours utilisateurs et une priorisation des fonctionnalités fondée sur les données",
+    j1_b2:"<strong>Conçu et déployé</strong> des systèmes NLU/IVR de bout en bout sur Amazon Connect, de la conception initiale au lancement en production, tout en menant simultanément la stratégie produit, l'alignement transversal et la montée en charge opérationnelle",
+    j1_b3:"<strong>Dirigé la livraison transversale</strong> avec les équipes Ingénierie, Expérience client, Opérations et Produit pour livrer la modernisation du NLU, en standardisant les processus de mise en production et en alignant les parties prenantes sur des OKR trimestriels",
+    j1_b4:"<strong>Augmenté l'activation et l'engagement</strong> en analysant des données comportementales à grand volume, en mettant en place des tests A/B et en optimisant les parcours conversationnels, ce qui a amélioré le taux de résolution en libre-service et réduit les escalades",
+    j1_b5:"<strong>Construit l'infrastructure d'analyse de performance</strong> avec des tableaux de bord en temps réel suivant la précision des intentions, la justesse du routage et le CSAT, permettant des itérations fondées sur les données et un reporting destiné à la direction",
+    j1_b6:"<strong>Établi un cadre de gouvernance de l'IA</strong> comprenant des standards d'évaluation des modèles, des protocoles de gestion des versions et des définitions de niveaux de service couvrant plus de 100 opérations d'agents",
+    j1_b7:"<strong>Rédigé le manuel d'exploitation de l'IA</strong> de l'entreprise, réduisant de 40% le temps d'intégration des parties prenantes et développant la culture IA de l'organisation",
+    j1_b8:"<strong>Piloté le déploiement bilingue du produit</strong> (anglais et français), en collaboration avec des spécialistes linguistiques et avec une analyse de marché garantissant une parité fonctionnelle complète",
+    j2_title:"Directrice de l'Intelligence Artificielle",
+    j2_meta:"Toronto, ON · Août 2025 – Présent",
+    j2_sub:"Définition de la feuille de route produit IA pour l'apprentissage adaptatif et le déploiement éthique de l'IA",
+    j2_b1:"<strong>Je dirige la transformation produit</strong> de la plateforme d'apprentissage STEM par la conception d'un programme adaptatif, l'intégration d'analyses en temps réel et des parcours d'apprentissage personnalisés",
+    j2_b2:"<strong>Je définis la feuille de route produit IA</strong>, y compris la priorisation des fonctionnalités, les indicateurs de réussite et la stratégie de partenariats, afin de renforcer la sécurité et l'efficacité opérationnelle",
+    j2_b3:"<strong>J'établis les normes d'éthique et de gouvernance de l'IA</strong> pour des produits destinés aux jeunes : conformité en matière de vie privée, réduction des biais et déploiement responsable à grande échelle",
+    j3_title:"Fondatrice &amp; PDG",
+    j3_meta:"Toronto, ON · Janvier 2025 – Présent",
+    j3_sub:"Cabinet de conseil indépendant en IA, livrant des systèmes en production et des missions de conseil sous contrat, de l'architecture jusqu'à l'évaluation qui détermine si les résultats méritent qu'on s'y fie",
+    j3_b1:"<strong>J'ai bâti le cabinet autour d'un manque précis :</strong> des équipes qui adoptent l'IA plus vite qu'elles ne peuvent vérifier ce qu'elle produit. Les missions couvrent l'architecture, la mise en production et le travail d'évaluation qui détermine si les résultats méritent qu'on agisse dessus",
+    j3_b2:"<strong>J'ai repositionné une start-up d'analyse musicale par IA sur une niche défendable</strong> lors d'une phase de croissance décisive, en menant l'analyse concurrentielle, la recherche utilisateur et la segmentation qui ont établi où le produit pouvait réellement l'emporter",
+    j3_b3:"<strong>J'ai porté le volet commercial autant que le volet technique</strong>, en définissant positionnement, discours, tarification et partenariats de distribution, plutôt que de rendre la stratégie au client sous forme de présentation",
+    j3_b4:"<strong>J'ai co-conçu l'algorithme central</strong> avec l'équipe d'ingénierie, en traduisant les exigences commerciales en spécifications techniques pour des modèles comportementaux reliant les données de préférence musicale aux indicateurs de performance des équipes",
+    j4_title:"Directrice Technique",
+    j4_meta:"Toronto, ON · Janvier 2024 – Mai 2024",
+    j4_b1:"<strong>Dirigé la stratégie technique et le développement produit</strong> en phase de pré-lancement, en définissant l'architecture et l'ordre des travaux malgré des ressources limitées",
+    j4_b2:"<strong>Mis en place les processus d'ingénierie depuis zéro</strong> : gestion des versions, procédures de livraison et standards de code pour une petite équipe",
+    j4_b3:"<strong>Traduit la vision des fondateurs en plan technique exécutable</strong>, en alignant les besoins produit sur des délais de développement réalistes et sur les capacités de l'équipe",
+    j5_title:"Consultante Associée",
+    j5_meta:"Toronto, ON · Août 2022 – Novembre 2023",
+    j5_sub:"Transformation stratégique pour des clients Fortune 500 — 25%+ de création de valeur",
+    j5_b1:"<strong>Accompagné la transition réglementaire d'une grande banque canadienne</strong> (de la catégorie 4 à la catégorie 3) par l'analyse des risques, la mobilisation de réseaux d'experts et l'alignement des parties prenantes",
+    j5_b2:"<strong>Conçu la restructuration organisationnelle</strong> de plusieurs sites miniers, générant plus de 25% de création de valeur par l'efficacité opérationnelle et l'optimisation des structures",
+    j5_b3:"<strong>Dirigé le développement d'un produit dédié à la diversité et à l'inclusion</strong> : création d'un tableau de bord numérique, conception d'enquêtes auprès des parties prenantes et rationalisation des données permettant un suivi chiffré de la diversité",
+    j6_title:"Spécialiste en Formation IA",
+    j6_meta:"Toronto, ON · Avril 2019 – Octobre 2019",
+    j6_sub:"Formation et optimisation de systèmes de génération de légendes propulsés par ML",
+    j6_b1:"<strong>Entraîné et optimisé des modèles d'apprentissage automatique</strong> pour la génération automatique de sous-titres, en améliorant la précision par une annotation et une vérification systématiques des données",
+    j6_b2:"<strong>Évalué la qualité des sorties de modèles</strong> selon des critères définis, en repérant des erreurs systématiques invisibles à l'échelle d'un exemple isolé",
+    j6_b3:"<strong>Travaillé sur des jeux de données multilingues</strong>, en veillant à la justesse des sous-titres selon les langues et les contextes culturels",
+    j7_title:"Directrice du Programme STEM",
+    j7_meta:"Toronto, ON · Avril 2019 – Août 2023",
+    j7_b1:"<strong>Dirigé des programmes d'enseignement STEM</strong>, en prenant en charge le contenu des cours, la formation des intervenants et la communication avec les familles",
+    j7_b2:"<strong>Élargi la portée du programme</strong> en nouant des partenariats scolaires et en structurant le recrutement et l'intégration des nouveaux participants",
+    sk1_label:"Produit IA &amp; Stratégie",
+    sk1_items:"Conception d'IA Conversationnelle · Architecture NLU · Modernisation IVR · Intégration IA Générative · Conception de Produits LLM · Adoption de l'IA · Gouvernance IA · IA Responsable · Agents IA · Sécurité IA · Feuille de Route · Go-to-Market · OKR",
+    sk2_label:"Stack Technique",
+    sk2_items:"Amazon Connect · AWS Lambda · AWS Lex · AWS Glue · Amazon Q · AWS QuickSight · Dialogflow CX · Google Cloud Platform · Python · APIs &amp; Intégration · SQL · Pipelines ML · Optimisation des Prompts IA",
+    sk3_label:"Recherche &amp; Analyse",
+    sk3_items:"Étude de Marché &amp; Analyse Concurrentielle · Tendances de Marché · Deep Learning · Storytelling de Données · Analytique Comportementale · Tests A/B",
+    sk4_label:"Exécution &amp; Livraison",
+    sk4_items:"Agile / Scrum · Cascade · Gestion du Changement · Gestion de Projet Technique · Documentation · Assurance Qualité · Gestion des Risques",
+    sk5_label:"Contenu &amp; Communication",
+    sk5_items:"Développement de Contenu Éducatif · Formation · Adaptation de Contenu · Storytelling · Prise de Parole · Rapports Exécutifs · Communication avec les Parties Prenantes",
+    sk6_label:"Leadership &amp; Caractère",
+    sk6_items:"Intelligence Émotionnelle · Relations Interpersonnelles · Motivation d'Équipes · Pensée Analytique · Souci du Détail · Mentalité de Croissance · Apprentissage Actif · Leadership Créatif",
+    edu1_deg:"Baccalauréat ès sciences avec distinction",
+    edu1_school:"Université de Toronto (St. George)",
+    edu1_details:"Majeure : Sciences Cognitives (Cognition Computationnelle)<br>Majeure : Études du Livre et des Médias<br>Mineure : Humanités Numériques<br>Obtenu : 2022",
+    edu2_deg:"Certificat en cybersécurité, informatique quantique et intelligence artificielle",
+    edu2_school:"Ontario Tech University · Protexxa",
+    edu2_details:"2025–2026 · Note : 92.86%",
+    cert1:"IA &amp; Droit — Université de Lund",
+    cert2:"IA Générative avec LLM — DeepLearning.AI",
+    cert3:"Spécialisation Dialogflow CX — Google",
+    cert4:"Dialogflow CX — Développeurs Citoyens",
+    cert5:"Fondamentaux de la Conception Conversationnelle",
+    cert6:"Opérations IA Contact Center",
+    cert7:"Amazon Connect — Dépannage",
+    cert8:"Amazon Connect — Fondamentaux",
+    cert9:"IBM Watson",
+    cert10:"Introduction à l'IA IBM",
+    cert11:"Fondamentaux ML &amp; IA",
+    cert12:"Cas d'Usage IA",
+    cert13:"Fondamentaux de Programmation — UofT",
+    cert14:"Durabilité Bain — MIT Sloan",
+    beta1:"Bêta Privée OpenAI — GPT &amp; Codex (2020–2021)",
+    beta2:"Bêta iOS Publique Apple (2017–2022)",
+    beta3:"Bêta Instagram — Pré-Acquisition Meta (2009–2021)",
+    beta4:"Testeur Bêta Snapchat (2018–2020)",
+    beta5:"Bêta Skype Translator (2014)",
+    beta6:"Bêta Hype Machine (2012–2015)",
+    lang_content:"Anglais — Courant<br>Français — Courant",
+    interests_content:"Pianiste classique, chanteuse &amp; percussionniste<br>Mentorat jeunesse STEM<br>Recherche en politique IA &amp; éthique<br>Entrepreneuriat<br>Sciences &amp; technologies émergentes<br>Kayak",
+    footer:"&copy; 2026 <span>Alexia Monize</span> &nbsp;&middot;&nbsp; Construit avec précision &amp; <span>intention</span>",
+    j5_prior_label:"Postes précédents",
+    j5_prior1:"<strong>Stagiaire Associate Consultant</strong>, été 2021",
+    j5_prior2:"<strong>Stagiaire Building Entrepreneurial Leaders (BEL)</strong>, été 2020",
+    more:"Voir plus",
+    less:"Voir moins"
+  },
+  es: {
+    tagline:"Líder de Producto IA · Arquitecta de IA Conversacional · Estratéga en Tecnologías Emergentes",
+    toggleDark:"Oscuro",
+    toggleLight:"Claro",
+    sec_about:"Sobre Mí",
+    sec_experience:"Experiencia",
+    sec_skills:"Competencias Clave",
+    sec_education:"Formación",
+    sec_certs:"Certificaciones",
+    sec_beta:"Adopción Temprana de Tecnología",
+    sec_languages:"Idiomas",
+    sec_interests:"Intereses",
+    summary:"<strong>Líder de producto de IA y arquitecta de sistemas conversacionales</strong> con experiencia creando productos de IA desde cero y llevándolos a escala empresarial. Asumí la responsabilidad completa de la plataforma de IA conversacional de Porter Airlines, desde la arquitectura y el diseño del NLU hasta el despliegue transversal y la gobernanza, logrando una <strong>ampliación del 750% en el número de intenciones</strong> sobre <strong>más de 2 millones de interacciones anuales con clientes</strong>. Manejo práctico y profundo de toda la pila de IA: Amazon Connect, Dialogflow CX, AWS Lambda, diseño de pipelines de ML e integración de LLM. Con base en ciencias cognitivas (Universidad de Toronto, licenciatura con distinción, 2022) y certificaciones vigentes en ciberseguridad, computación cuántica e IA responsable. Disponible para consultoría en IA, proyectos por contrato y puestos de dirección.",
+    j1_title:"Líder de CCAI",
+    j1_meta:"Toronto, ON · Febrero 2024 – Septiembre 2025",
+    j1_sub:"Desarrolladora de IVR y gerente de proyectos técnicos — responsabilidad integral de una plataforma de IA conversacional que atiende a más de 2 millones de clientes",
+    j1_b1:"<strong>Definí y ejecuté la estrategia de producto</strong> de una plataforma de IA conversacional que atiende a más de 2 millones de clientes al año, pasando de 6 a 51 intenciones (un crecimiento del 750%) mediante la planificación de la hoja de ruta, el mapeo de recorridos de usuario y la priorización de funciones basada en datos",
+    j1_b2:"<strong>Diseñé y desplegué</strong> sistemas NLU/IVR de extremo a extremo sobre Amazon Connect, desde el diseño inicial hasta la puesta en producción, llevando al mismo tiempo la estrategia de producto, la coordinación entre áreas y el escalado operativo",
+    j1_b3:"<strong>Dirigí la entrega transversal</strong> con los equipos de Ingeniería, Experiencia de Cliente, Operaciones y Producto para sacar adelante la modernización del NLU, estandarizando los procesos de publicación y alineando a las partes interesadas en OKR trimestrales",
+    j1_b4:"<strong>Impulsé la activación y la interacción</strong> analizando datos de comportamiento a gran volumen, implantando pruebas A/B y optimizando los flujos conversacionales, lo que elevó la resolución en autoservicio y redujo las escaladas",
+    j1_b5:"<strong>Construí la infraestructura de analítica de rendimiento</strong> con paneles en tiempo real que seguían la precisión de las intenciones, el acierto del enrutamiento y el CSAT, permitiendo iterar con datos y reportar a dirección",
+    j1_b6:"<strong>Establecí un marco de gobernanza de IA</strong> con estándares de evaluación de modelos, protocolos de control de versiones y definiciones de niveles de servicio para más de 100 operaciones de agentes",
+    j1_b7:"<strong>Redacté el manual corporativo de operaciones de IA</strong>, reduciendo un 40% el tiempo de incorporación de las partes interesadas y elevando la alfabetización en IA de la organización",
+    j1_b8:"<strong>Dirigí la expansión bilingüe del producto</strong> (inglés y francés), colaborando con especialistas lingüísticos y realizando análisis de mercado para garantizar plena paridad de funciones",
+    j2_title:"Directora de Inteligencia Artificial",
+    j2_meta:"Toronto, ON · Agosto 2025 – Presente",
+    j2_sub:"Definición de la hoja de ruta de producto de IA para aprendizaje adaptativo, personalización mediante aprendizaje automático y despliegue ético de IA en una plataforma educativa STEM para jóvenes",
+    j2_b1:"<strong>Dirijo la transformación del producto</strong> de la plataforma de aprendizaje STEM mediante el diseño de un currículo adaptativo, la integración de analítica en tiempo real y rutas de aprendizaje personalizadas",
+    j2_b2:"<strong>Defino la hoja de ruta de producto de IA</strong>, incluyendo la priorización de funciones, las métricas de éxito y la estrategia de alianzas para reforzar la seguridad y la eficiencia operativa",
+    j2_b3:"<strong>Establezco los estándares de ética y gobernanza de IA</strong> para productos dirigidos a menores: cumplimiento en privacidad, mitigación de sesgos y despliegue responsable a escala",
+    j3_title:"Fundadora &amp; CEO",
+    j3_meta:"Toronto, ON · Enero 2025 – Presente",
+    j3_sub:"Consultoría independiente de IA que entrega sistemas en producción y trabajo de asesoría por contrato, desde la arquitectura hasta la evaluación que determina si se puede confiar en el resultado",
+    j3_b1:"<strong>Construí la consultoría en torno a una carencia concreta:</strong> equipos que adoptan la IA más rápido de lo que pueden verificar lo que produce. Los encargos abarcan arquitectura, puesta en producción y el trabajo de evaluación que determina si un resultado merece que se actúe sobre él",
+    j3_b2:"<strong>Reposicioné una empresa de análisis musical con IA en un nicho defendible</strong> durante una fase de crecimiento decisiva, dirigiendo el análisis competitivo, la investigación de usuarios y la segmentación que establecieron dónde podía ganar realmente el producto",
+    j3_b3:"<strong>Asumí la capa comercial junto con la técnica</strong>, fijando posicionamiento, mensajes, precios y alianzas de canal, en lugar de devolverle la estrategia al cliente en forma de presentación",
+    j3_b4:"<strong>Codiseñé el algoritmo central</strong> con el equipo de ingeniería, traduciendo los requisitos comerciales en especificaciones técnicas para modelos de comportamiento que vinculan los datos de preferencia musical con las medidas de rendimiento de los equipos",
+    j4_title:"Directora de Tecnología",
+    j4_meta:"Toronto, ON · Enero 2024 – Mayo 2024",
+    j4_b1:"<strong>Dirigí la estrategia técnica y el desarrollo de producto</strong> en la etapa previa al lanzamiento, definiendo la arquitectura y el orden del trabajo con recursos limitados",
+    j4_b2:"<strong>Implanté los procesos de ingeniería desde cero</strong>: control de versiones, procedimientos de publicación y estándares de código para un equipo reducido",
+    j4_b3:"<strong>Traduje la visión de los fundadores en un plan técnico ejecutable</strong>, ajustando los requisitos de producto a plazos de desarrollo realistas y a la capacidad del equipo",
+    j5_title:"Consultora Asociada",
+    j5_meta:"Toronto, ON · Agosto 2022 – Noviembre 2023",
+    j5_sub:"Transformación estratégica para clientes del Fortune 500 en servicios financieros y minería: más de un 25% de creación de valor mediante diseño organizativo y optimización operativa",
+    j5_b1:"<strong>Acompañé la transición regulatoria de un gran banco canadiense</strong> (de categoría 4 a categoría 3) mediante análisis de riesgos, consulta a redes de expertos y alineación de las partes interesadas",
+    j5_b2:"<strong>Diseñé la reestructuración organizativa</strong> de varias explotaciones mineras, generando más de un 25% de creación de valor a través de la eficiencia operativa y la optimización estructural",
+    j5_b3:"<strong>Dirigí el desarrollo de un producto de diversidad e inclusión</strong>: creé un panel digital, diseñé encuestas para las partes interesadas y ordené las operaciones de datos para poder medir la diversidad con cifras",
+    j6_title:"Especialista en Entrenamiento IA",
+    j6_meta:"Toronto, ON · Abril 2019 – Octubre 2019",
+    j6_sub:"Entrenamiento y optimización de sistemas de generación de subtítulos basados en aprendizaje automático para una de las principales plataformas sociales del mundo impulsadas por IA",
+    j6_b1:"<strong>Entrené y optimicé modelos de aprendizaje automático</strong> para la generación automática de subtítulos, mejorando la precisión mediante anotación y verificación sistemática de datos",
+    j6_b2:"<strong>Evalué la calidad de las salidas del modelo</strong> según criterios definidos, detectando errores sistemáticos que no se aprecian en un ejemplo aislado",
+    j6_b3:"<strong>Trabajé con conjuntos de datos multilingües</strong>, garantizando la corrección de los subtítulos en distintos idiomas y contextos culturales",
+    j7_title:"Directora del Programa STEM",
+    j7_meta:"Toronto, ON · Abril 2019 – Agosto 2023",
+    j7_b1:"<strong>Dirigí programas de enseñanza STEM</strong>, responsabilizándome del contenido de los cursos, la formación del profesorado y la comunicación con las familias",
+    j7_b2:"<strong>Amplié el alcance del programa</strong> estableciendo alianzas con centros educativos y ordenando la captación e incorporación de nuevos participantes",
+    sk1_label:"Producto IA &amp; Estrategia",
+    sk1_items:"Diseño de IA Conversacional · Arquitectura NLU · Modernización IVR · Integración IA Generativa · IA Responsable · Agentes IA · Seguridad IA · Go-to-Market · OKR",
+    sk2_label:"Stack Técnico",
+    sk2_items:"Amazon Connect · AWS Lambda · AWS Lex · Dialogflow CX · Google Cloud Platform · Python · SQL · ML Pipelines",
+    sk3_label:"Investigación &amp; Análisis",
+    sk3_items:"Investigación de Mercado · Análisis Competitivo · Deep Learning · Storytelling de Datos · Tests A/B",
+    sk4_label:"Ejecución &amp; Entrega",
+    sk4_items:"Agile / Scrum · Gestión del Cambio · Gestión de Proyectos · Documentación · Gestión de Riesgos",
+    sk5_label:"Contenido &amp; Comunicación",
+    sk5_items:"Desarrollo de Contenido Educativo · Formación · Storytelling · Hablar en Público · Comunicación con Partes Interesadas",
+    sk6_label:"Liderazgo &amp; Carácter",
+    sk6_items:"Inteligencia Emocional · Motivación de Equipos · Pensamiento Analítico · Mentalidad de Crecimiento · Liderazgo Creativo",
+    edu1_deg:"Licenciatura en Ciencias con Distinción",
+    edu1_school:"Universidad de Toronto (St. George)",
+    edu1_details:"Especialización: Ciencias Cognitivas (Cognición Computacional)<br>Especialización: Estudios del Libro y los Medios<br>Menor: Humanidades Digitales<br>Graduada: 2022",
+    edu2_deg:"Certificado en Ciberseguridad, Computación Cuántica e Inteligencia Artificial",
+    edu2_school:"Ontario Tech University · Protexxa",
+    edu2_details:"2025–2026 · Calificación: 92.86%",
+    cert1:"IA &amp; Derecho — Universidad de Lund",
+    cert2:"IA Generativa con LLMs — DeepLearning.AI",
+    cert3:"Especialización Dialogflow CX — Google",
+    cert4:"Dialogflow CX — Devs Ciudadanos",
+    cert5:"Fundamentos de Diseño Conversacional",
+    cert6:"Operaciones IA Contact Center",
+    cert7:"Amazon Connect — Solución de Problemas",
+    cert8:"Amazon Connect — Fundamentos",
+    cert9:"IBM Watson",
+    cert10:"Introducción IA IBM",
+    cert11:"Fundamentos ML &amp; IA",
+    cert12:"Casos de Uso IA",
+    cert13:"Fundamentos de Programación — UofT",
+    cert14:"Sostenibilidad Bain — MIT Sloan",
+    beta1:"Beta Privada OpenAI — GPT &amp; Codex (2020–2021)",
+    beta2:"Beta iOS Pública Apple (2017–2022)",
+    beta3:"Beta Instagram — Pre-Adquisición Meta (2009–2021)",
+    beta4:"Tester Beta Snapchat (2018–2020)",
+    beta5:"Beta Skype Translator (2014)",
+    beta6:"Beta Hype Machine (2012–2015)",
+    lang_content:"Inglés — Fluido<br>Francés — Fluido",
+    interests_content:"Pianista clásica, vocalista &amp; percusionista<br>Mentoría juvenil STEM<br>Investigación en política IA &amp; ética<br>Emprendimiento<br>Ciencias &amp; tecnologías emergentes<br>Kayak",
+    footer:"&copy; 2026 <span>Alexia Monize</span> &nbsp;&middot;&nbsp; Construido con precisión &amp; <span>propósito</span>",
+    j5_prior_label:"Puestos anteriores",
+    j5_prior1:"<strong>Associate Consultant Intern</strong>, verano de 2021",
+    j5_prior2:"<strong>Building Entrepreneurial Leaders (BEL) Intern</strong>, verano de 2020",
+    more:"Ver más",
+    less:"Ver menos"
+  },
+  it: {
+    tagline:"Leader di Prodotto IA · Architetta di IA Conversazionale · Stratega in Tecnologie Emergenti",
+    toggleDark:"Scuro",
+    toggleLight:"Chiaro",
+    sec_about:"Chi Sono",
+    sec_experience:"Esperienza",
+    sec_skills:"Competenze Chiave",
+    sec_education:"Formazione",
+    sec_certs:"Certificazioni",
+    sec_beta:"Adozione Precoce della Tecnologia",
+    sec_languages:"Lingue",
+    sec_interests:"Interessi",
+    summary:"<strong>Product leader nell'IA e architetta di sistemi conversazionali</strong>, con esperienza nella creazione di prodotti basati sull'IA dalle fondamenta e nel portarli a scala aziendale. Ho avuto la responsabilità completa della piattaforma di IA conversazionale di Porter Airlines, dall'architettura e progettazione del NLU fino al rilascio interfunzionale e alla governance, ottenendo un <strong>ampliamento del 750% degli intent</strong> su <strong>oltre 2 milioni di interazioni con i clienti all'anno</strong>. Padronanza pratica dell'intero stack di IA: Amazon Connect, Dialogflow CX, AWS Lambda, progettazione di pipeline di ML e integrazione di LLM. Formazione in scienze cognitive (Università di Toronto, laurea con lode, 2022) e certificazioni attive in cybersecurity, calcolo quantistico e IA responsabile. Disponibile per consulenza sull'IA, incarichi a contratto e ruoli di direzione.",
+    j1_title:"Responsabile CCAI",
+    j1_meta:"Toronto, ON · Febbraio 2024 – Settembre 2025",
+    j1_sub:"Sviluppatrice IVR e responsabile di progetto tecnico — piena responsabilità di una piattaforma di IA conversazionale al servizio di oltre 2 milioni di clienti",
+    j1_b1:"<strong>Ho definito ed eseguito la strategia di prodotto</strong> di una piattaforma di IA conversazionale al servizio di oltre 2 milioni di clienti all'anno, passando da 6 a 51 intent (crescita del 750%) attraverso la pianificazione della roadmap, la mappatura dei percorsi utente e una prioritizzazione delle funzionalità guidata dai dati",
+    j1_b2:"<strong>Ho progettato e messo in produzione</strong> sistemi NLU/IVR end-to-end su Amazon Connect, dalla progettazione iniziale al rilascio, gestendo contemporaneamente strategia di prodotto, allineamento tra funzioni e crescita operativa",
+    j1_b3:"<strong>Ho guidato la consegna interfunzionale</strong> con i team di Ingegneria, Customer Experience, Operations e Prodotto per rilasciare la modernizzazione del NLU, standardizzando i processi di rilascio e allineando gli stakeholder su OKR trimestrali",
+    j1_b4:"<strong>Ho aumentato attivazione e coinvolgimento</strong> analizzando dati comportamentali ad alto volume, introducendo test A/B e ottimizzando i flussi conversazionali, con un aumento delle richieste risolte in autonomia e una riduzione delle escalation",
+    j1_b5:"<strong>Ho costruito l'infrastruttura di analisi delle prestazioni</strong> con dashboard in tempo reale che monitorano l'accuratezza degli intent, la precisione dell'instradamento e il CSAT, rendendo possibili iterazioni basate sui dati e la rendicontazione alla direzione",
+    j1_b6:"<strong>Ho definito un quadro di governance dell'IA</strong> con standard di valutazione dei modelli, protocolli di controllo delle versioni e definizioni dei livelli di servizio per oltre 100 operazioni di agenti",
+    j1_b7:"<strong>Ho scritto il manuale operativo aziendale sull'IA</strong>, riducendo del 40% i tempi di inserimento degli stakeholder e accrescendo la cultura dell'IA nell'organizzazione",
+    j1_b8:"<strong>Ho guidato l'espansione bilingue del prodotto</strong> (inglese e francese), collaborando con esperti linguistici e conducendo analisi di mercato per garantire piena parità funzionale",
+    j2_title:"Direttrice dell'Intelligenza Artificiale",
+    j2_meta:"Toronto, ON · Agosto 2025 – Presente",
+    j2_sub:"Definizione della roadmap di prodotto IA per apprendimento adattivo, personalizzazione basata sul machine learning e adozione etica dell'IA su una piattaforma educativa STEM per i più giovani",
+    j2_b1:"<strong>Guido la trasformazione di prodotto</strong> della piattaforma di apprendimento STEM attraverso la progettazione di un percorso adattivo, l'integrazione di analisi in tempo reale e itinerari di studio personalizzati",
+    j2_b2:"<strong>Definisco la roadmap di prodotto IA</strong>, inclusa la prioritizzazione delle funzionalità, le metriche di successo e la strategia di partnership per rafforzare sicurezza ed efficienza operativa",
+    j2_b3:"<strong>Stabilisco gli standard di etica e governance dell'IA</strong> per prodotti rivolti ai minori: conformità sulla privacy, mitigazione dei bias e adozione responsabile su larga scala",
+    j3_title:"Fondatrice &amp; CEO",
+    j3_meta:"Toronto, ON · Gennaio 2025 – Presente",
+    j3_sub:"Consulenza indipendente sull'IA che realizza sistemi in produzione e attività di advisory a contratto, dall'architettura fino alla valutazione che stabilisce se ci si possa fidare del risultato",
+    j3_b1:"<strong>Ho costruito l'attività attorno a una carenza precisa:</strong> team che adottano l'IA più rapidamente di quanto riescano a verificare ciò che produce. Gli incarichi coprono architettura, messa in produzione e il lavoro di valutazione che stabilisce se un risultato meriti di essere seguito da un'azione",
+    j3_b2:"<strong>Ho riposizionato una startup di analisi musicale basata sull'IA in una nicchia difendibile</strong> in una fase di crescita decisiva, conducendo l'analisi competitiva, la ricerca sugli utenti e la segmentazione che hanno stabilito dove il prodotto potesse davvero affermarsi",
+    j3_b3:"<strong>Ho tenuto insieme il piano commerciale e quello tecnico</strong>, definendo posizionamento, messaggi, prezzi e partnership di canale invece di restituire la strategia al cliente sotto forma di presentazione",
+    j3_b4:"<strong>Ho co-progettato l'algoritmo centrale</strong> con il team di ingegneria, traducendo i requisiti commerciali in specifiche tecniche per modelli comportamentali che collegano i dati sulle preferenze musicali agli indicatori di rendimento dei team",
+    j4_title:"Chief Technology Officer",
+    j4_meta:"Toronto, ON · Gennaio 2024 – Maggio 2024",
+    j4_b1:"<strong>Ho guidato la strategia tecnica e lo sviluppo del prodotto</strong> nella fase precedente al lancio, definendo l'architettura e la sequenza dei lavori con risorse limitate",
+    j4_b2:"<strong>Ho impostato i processi di ingegneria da zero</strong>: controllo delle versioni, procedure di rilascio e standard di codice per un team ristretto",
+    j4_b3:"<strong>Ho tradotto la visione dei fondatori in un piano tecnico eseguibile</strong>, allineando i requisiti di prodotto a tempi di sviluppo realistici e alle capacità del team",
+    j5_title:"Consulente Associata",
+    j5_meta:"Toronto, ON · Agosto 2022 – Novembre 2023",
+    j5_sub:"Trasformazione strategica per clienti Fortune 500 nei servizi finanziari e nel settore minerario: oltre il 25% di creazione di valore attraverso progettazione organizzativa e ottimizzazione operativa",
+    j5_b1:"<strong>Ho supportato la transizione regolamentare di una grande banca canadese</strong> (dalla categoria 4 alla categoria 3) attraverso analisi del rischio, consultazione di reti di esperti e allineamento degli stakeholder",
+    j5_b2:"<strong>Ho progettato la ristrutturazione organizzativa</strong> di più siti minerari, generando oltre il 25% di creazione di valore tramite efficienza operativa e ottimizzazione delle strutture",
+    j5_b3:"<strong>Ho guidato lo sviluppo di un prodotto dedicato a diversità e inclusione</strong>: ho creato una dashboard digitale, progettato questionari per gli stakeholder e riordinato la gestione dei dati, rendendo misurabili gli indicatori di diversità",
+    j6_title:"Specialista in Training IA",
+    j6_meta:"Toronto, ON · Aprile 2019 – Ottobre 2019",
+    j6_sub:"Addestramento e ottimizzazione di sistemi di generazione di sottotitoli basati sul machine learning per una delle principali piattaforme social al mondo fondate sull'IA",
+    j6_b1:"<strong>Ho addestrato e ottimizzato modelli di machine learning</strong> per la generazione automatica di sottotitoli, migliorando l'accuratezza attraverso annotazione e verifica sistematica dei dati",
+    j6_b2:"<strong>Ho valutato la qualità degli output dei modelli</strong> secondo criteri definiti, individuando errori sistematici non visibili sul singolo esempio",
+    j6_b3:"<strong>Ho lavorato su dataset multilingue</strong>, garantendo la correttezza dei sottotitoli tra lingue e contesti culturali diversi",
+    j7_title:"Direttrice del Programma STEM",
+    j7_meta:"Toronto, ON · Aprile 2019 – Agosto 2023",
+    j7_b1:"<strong>Ho diretto programmi di didattica STEM</strong>, occupandomi dei contenuti dei corsi, della formazione dei docenti e della comunicazione con le famiglie",
+    j7_b2:"<strong>Ho ampliato la portata del programma</strong> costruendo partnership con le scuole e riordinando selezione e inserimento dei nuovi partecipanti",
+    sk1_label:"Prodotto IA &amp; Strategia",
+    sk1_items:"Progettazione IA Conversazionale · Architettura NLU · Modernizzazione IVR · Integrazione IA Generativa · IA Responsabile · Agenti IA · Sicurezza IA · Go-to-Market · OKR",
+    sk2_label:"Stack Tecnico",
+    sk2_items:"Amazon Connect · AWS Lambda · Dialogflow CX · Google Cloud Platform · Python · SQL · Pipeline ML",
+    sk3_label:"Ricerca &amp; Analisi",
+    sk3_items:"Ricerca di Mercato · Analisi Competitiva · Deep Learning · Data Storytelling · Test A/B",
+    sk4_label:"Esecuzione &amp; Consegna",
+    sk4_items:"Agile / Scrum · Change Management · Project Management · Documentazione · Risk Management",
+    sk5_label:"Contenuto &amp; Comunicazione",
+    sk5_items:"Sviluppo di Contenuti Educativi · Formazione · Storytelling · Public Speaking · Reporting Esecutivo",
+    sk6_label:"Leadership &amp; Carattere",
+    sk6_items:"Intelligenza Emotiva · Motivazione dei Team · Pensiero Analitico · Mentalità di Crescita · Leadership Creativa",
+    edu1_deg:"Laurea Triennale in Scienze con Distinzione",
+    edu1_school:"Università di Toronto (St. George)",
+    edu1_details:"Specializzazione: Scienze Cognitive<br>Specializzazione: Studi del Libro e dei Media<br>Minor: Umanità Digitali<br>Laureata: 2022",
+    edu2_deg:"Certificato in Cybersecurity, Quantum Computing e Intelligenza Artificiale",
+    edu2_school:"Ontario Tech University · Protexxa",
+    edu2_details:"2025–2026 · Voto: 92.86%",
+    cert1:"IA &amp; Diritto — Università di Lund",
+    cert2:"IA Generativa con LLM — DeepLearning.AI",
+    cert3:"Specializzazione Dialogflow CX — Google",
+    cert4:"Dialogflow CX — Citizen Dev",
+    cert5:"Fondamentali di Progettazione Conversazionale",
+    cert6:"Operazioni IA Contact Center",
+    cert7:"Amazon Connect — Troubleshooting",
+    cert8:"Amazon Connect — Fondamentali",
+    cert9:"IBM Watson",
+    cert10:"Introduzione IA IBM",
+    cert11:"Fondamentali ML &amp; IA",
+    cert12:"Casi d'Uso IA",
+    cert13:"Fondamentali di Programmazione — UofT",
+    cert14:"Sostenibilità Bain — MIT Sloan",
+    beta1:"Beta Privata OpenAI — GPT &amp; Codex (2020–2021)",
+    beta2:"Beta iOS Pubblica Apple (2017–2022)",
+    beta3:"Beta Instagram — Pre-Acquisizione Meta (2009–2021)",
+    beta4:"Tester Beta Snapchat (2018–2020)",
+    beta5:"Beta Skype Translator (2014)",
+    beta6:"Beta Hype Machine (2012–2015)",
+    lang_content:"Inglese — Fluente<br>Francese — Fluente",
+    interests_content:"Pianista classica, cantante &amp; percussionista<br>Mentoring giovanile STEM<br>Ricerca in politica IA &amp; etica<br>Imprenditorialità<br>Scienze &amp; tecnologie emergenti<br>Kayak",
+    footer:"&copy; 2026 <span>Alexia Monize</span> &nbsp;&middot;&nbsp; Costruito con precisione &amp; <span>scopo</span>",
+    j5_prior_label:"Ruoli precedenti",
+    j5_prior1:"<strong>Associate Consultant Intern</strong>, estate 2021",
+    j5_prior2:"<strong>Building Entrepreneurial Leaders (BEL) Intern</strong>, estate 2020",
+    more:"Mostra altro",
+    less:"Mostra meno"
+  },
+  zh: {
+    tagline:"AI 产品负责人 · 对话式AI架构师 · 新兴技术战略家",
+    toggleDark:"深色",
+    toggleLight:"浅色",
+    sec_about:"关于我",
+    sec_experience:"工作经历",
+    sec_skills:"核心能力",
+    sec_education:"教育背景",
+    sec_certs:"证书认定",
+    sec_beta:"早期技术采用",
+    sec_languages:"语言能力",
+    sec_interests:"兴趣爱好",
+    summary:"<strong>人工智能产品负责人、对话式系统架构师</strong>，具备从零构建人工智能产品并将其扩展至企业级规模的完整经验。曾全面负责 Porter Airlines 的对话式人工智能平台，从架构设计、自然语言理解设计到跨部门上线与治理，实现<strong>意图数量增长 750%</strong>，覆盖<strong>每年超过 200 万次客户交互</strong>。对整个人工智能技术栈具备扎实的实操能力：Amazon Connect、Dialogflow CX、AWS Lambda、机器学习流水线设计与大语言模型集成。学术背景为认知科学（多伦多大学理学学士，优等，2022 年），并持有网络安全、量子计算与负责任人工智能领域的有效认证。可承接人工智能咨询、合同制项目及高级管理职位。",
+    j1_title:"CCAI 负责人",
+    j1_meta:"多伦多, ON · 2024年2月 – 2025年9月",
+    j1_sub:"IVR开发人员兼技术项目经理——全面负责服务超过200万客户的对话式人工智能平台",
+    j1_b1:"<strong>制定并执行产品战略</strong>，面向每年服务超过 200 万客户的对话式人工智能平台，通过路线图规划、用户旅程梳理和以数据为依据的功能优先级排序，将意图数量从 6 个扩展到 51 个（增长 750%）",
+    j1_b2:"<strong>设计并上线</strong>基于 Amazon Connect 的端到端自然语言理解与语音导航系统，从最初设计直至投入生产，同时统筹产品战略、跨部门协同与运营扩展",
+    j1_b3:"<strong>主导跨部门交付</strong>，联合工程、客户体验、运营与产品团队完成自然语言理解系统的现代化改造，统一发布流程，并推动各方在季度目标上达成一致",
+    j1_b4:"<strong>提升激活率与参与度</strong>，通过分析大规模行为数据、引入 A/B 测试并优化对话流程，提高了自助解决率并减少了人工升级",
+    j1_b5:"<strong>搭建性能分析基础设施</strong>，配备实时仪表板追踪意图识别准确率、路由精度与客户满意度，使团队能够依据数据迭代并向管理层汇报",
+    j1_b6:"<strong>建立人工智能治理框架</strong>，涵盖模型评估标准、版本控制规范以及覆盖 100 多个坐席运营场景的服务水平约定",
+    j1_b7:"<strong>撰写企业人工智能运营手册</strong>，将相关方的上手时间缩短 40%，并提升了组织整体的人工智能素养",
+    j1_b8:"<strong>主导产品的双语拓展</strong>（英语与法语），与语言专家协作并开展市场分析，确保功能完全对等",
+    j2_title:"人工智能总监",
+    j2_meta:"多伦多, ON · 2025年8月 – 至今",
+    j2_sub:"为面向青少年的 STEM 学习平台制定人工智能产品路线图，涵盖自适应学习、基于机器学习的个性化以及合乎伦理的人工智能落地",
+    j2_b1:"<strong>主导该 STEM 学习平台的产品转型</strong>，通过自适应课程设计、实时数据分析集成与个性化学习路径推进",
+    j2_b2:"<strong>制定人工智能产品路线图</strong>，包括功能优先级、成效指标与合作策略，以增强安全监测与运营效率",
+    j2_b3:"<strong>建立人工智能伦理与治理标准</strong>，面向青少年产品落实隐私合规、偏见缓解与大规模负责任部署",
+    j3_title:"创始人 &amp; 首席执行官",
+    j3_meta:"多伦多, ON · 2025年1月 – 至今",
+    j3_sub:"独立人工智能咨询业务，以合同形式交付生产级系统与顾问服务，涵盖从架构设计到判定产出是否值得信赖的评估工作",
+    j3_b1:"<strong>这项业务围绕一个具体的空缺建立：</strong>团队采用人工智能的速度，快过他们核验其产出的能力。项目涵盖架构设计、生产落地，以及决定某项产出是否值得据以行动的评估工作",
+    j3_b2:"<strong>在关键增长阶段，将一家人工智能音乐分析初创公司重新定位到具备防御力的细分领域</strong>，主导竞争分析、用户研究与市场细分，厘清产品真正能够取胜的方向",
+    j3_b3:"<strong>商业层面与技术层面一并承担</strong>，确定定位、信息表达、定价与渠道合作，而不是把战略以一份演示文稿的形式交还客户",
+    j3_b4:"<strong>与工程团队共同设计核心算法</strong>，将商业需求转化为技术规格，构建把音乐偏好数据与团队绩效指标相关联的行为模型",
+    j4_title:"首席技术官",
+    j4_meta:"多伦多, ON · 2024年1月 – 2024年5月",
+    j4_b1:"<strong>主导技术战略与产品开发</strong>，在产品上市前阶段于资源有限的条件下确定架构与工作顺序",
+    j4_b2:"<strong>从零建立工程流程</strong>，包括版本管理、发布规范与适合小团队的代码标准",
+    j4_b3:"<strong>将创始人的设想转化为可执行的技术方案</strong>，使产品需求与切实可行的开发周期和团队能力相匹配",
+    j5_title:"副顾问",
+    j5_meta:"多伦多, ON · 2022年8月 – 2023年11月",
+    j5_sub:"为金融服务与矿业领域的《财富》500 强客户提供战略转型服务：通过组织设计与运营优化实现超过 25% 的价值创造",
+    j5_b1:"<strong>协助一家加拿大大型银行完成监管类别转换</strong>（由第四类转为第三类），开展风险分析、引入专家网络并推动各方达成一致",
+    j5_b2:"<strong>设计多个矿区的组织重组方案</strong>，通过运营效率提升与结构优化实现超过 25% 的价值创造",
+    j5_b3:"<strong>主导多元与包容主题的产品开发</strong>：搭建数字化仪表板、设计相关方调研问卷并理顺数据流程，使多元化指标得以量化衡量",
+    j6_title:"AI 训练专家",
+    j6_meta:"多伦多, ON · 2019年4月 – 2019年10月",
+    j6_sub:"为全球领先的人工智能驱动社交平台之一训练并优化基于机器学习的字幕生成系统",
+    j6_b1:"<strong>训练并优化机器学习模型</strong>以实现字幕自动生成，通过系统化的数据标注与校验提升准确率",
+    j6_b2:"<strong>依据既定标准评估模型输出质量</strong>，识别出在单个样本层面难以察觉的系统性偏差",
+    j6_b3:"<strong>处理多语种数据集</strong>，确保字幕在不同语言与文化语境下均准确恰当",
+    j7_title:"STEM项目总监",
+    j7_meta:"多伦多, ON · 2019年4月 – 2023年8月",
+    j7_b1:"<strong>负责 STEM 教学项目</strong>，统筹课程内容、师资培训与家长沟通",
+    j7_b2:"<strong>扩大项目覆盖范围</strong>，与学校建立合作，并理顺新学员的招募与入门流程",
+    sk1_label:"AI产品与战略",
+    sk1_items:"对话 AI 设计 · NLU 架构 · IVR 现代化 · 生成式 AI 集成 · 责任年 AI · AI 代理 · AI 安全 · GTM 战略 · OKR",
+    sk2_label:"技术栈",
+    sk2_items:"Amazon Connect · AWS Lambda · Dialogflow CX · Google Cloud Platform · Python · SQL · ML 管道",
+    sk3_label:"研究与分析",
+    sk3_items:"市场调查 · 竞争分析 · 深度学习 · 数据故事讲述 · A/B 测试",
+    sk4_label:"执行与交付",
+    sk4_items:"敏捷/Scrum · 变革管理 · 项目管理 · 文档化 · 风险管理",
+    sk5_label:"内容与沟通",
+    sk5_items:"教育内容开发 · 培训 · 故事讲述 · 公开演讲 · 利益相关者沟通",
+    sk6_label:"领导力与人格",
+    sk6_items:"情商 · 对人关系 · 激励团队 · 分析思维 · 成长型思维",
+    edu1_deg:"理学荣誉学士（优异毕业）",
+    edu1_school:"多伦多大学（圣乔治校区）",
+    edu1_details:"主修：认知科学（计算认知）<br>主修：图书与媒体研究<br>辅修：数字人文<br>毕业：2022年",
+    edu2_deg:"网络安全、量子计算与人工智能证书",
+    edu2_school:"安大略理工大学 · Protexxa",
+    edu2_details:"2025–2026 · 成绩：92.86%",
+    cert1:"AI与法律 — 隆德大学",
+    cert2:"生成式AI与LLM — DeepLearning.AI",
+    cert3:"Dialogflow CX专项认证 — Google",
+    cert4:"Dialogflow CX — 公民开发者",
+    cert5:"对话设计基础",
+    cert6:"联系中心AI运营",
+    cert7:"Amazon Connect — 故障排除",
+    cert8:"Amazon Connect — 实例基础",
+    cert9:"IBM Watson",
+    cert10:"IBM AI简介",
+    cert11:"机器学习与AI基础",
+    cert12:"AI应用场景探索",
+    cert13:"编程基础 — 多大",
+    cert14:"Bain可持续发展 — MIT斯隆",
+    beta1:"OpenAI私人测试版 — GPT &amp; Codex (2020–2021)",
+    beta2:"Apple iOS公开测试版 (2017–2022)",
+    beta3:"Instagram测试版 — Meta收购前 (2009–2021)",
+    beta4:"Snapchat测试员 (2018–2020)",
+    beta5:"Skype翻试测试版 (2014)",
+    beta6:"Hype Machine测试版 (2012–2015)",
+    lang_content:"英语 — 流利<br>法语 — 流利",
+    interests_content:"古典锢琴家、歌手和打击乐演奏者<br>青少年STEM导师<br>AI政策研究与伦理<br>创业<br>新兴科学与技术<br>皮划荡",
+    footer:"&copy; 2026 <span>Alexia Monize</span> &nbsp;&middot;&nbsp; 以精准与<span>目标</span>构建",
+    j5_prior_label:"此前职位",
+    j5_prior1:"<strong>顾问助理实习生（Associate Consultant Intern）</strong>，2021 年夏季",
+    j5_prior2:"<strong>Building Entrepreneurial Leaders（BEL）项目实习生</strong>，2020 年夏季",
+    more:"展开详情",
+    less:"收起"
+  },
+  ru: {
+    tagline:"Лидер продукта ИИ · Архитектор разговорного ИИ · Стратег в области новых технологий",
+    toggleDark:"Тёмный",
+    toggleLight:"Светлый",
+    sec_about:"О себе",
+    sec_experience:"Опыт работы",
+    sec_skills:"Ключевые компетенции",
+    sec_education:"Образование",
+    sec_certs:"Сертификаты",
+    sec_beta:"Раннее освоение технологий",
+    sec_languages:"Языки",
+    sec_interests:"Интересы",
+    summary:"<strong>Лидер продуктов ИИ и архитектор разговорных систем</strong> с опытом создания продуктов на базе ИИ с нуля и их масштабирования до уровня предприятия. Полностью отвечала за платформу разговорного ИИ Porter Airlines: от архитектуры и проектирования NLU до межфункционального внедрения и управления, добившись <strong>расширения набора намерений на 750%</strong> при <strong>более чем 2 млн клиентских обращений в год</strong>. Уверенно работаю со всем стеком ИИ: Amazon Connect, Dialogflow CX, AWS Lambda, проектирование ML-конвейеров и интеграция LLM. В основе — когнитивные науки (Университет Торонто, бакалавр наук с отличием, 2022) и действующие сертификации в области кибербезопасности, квантовых вычислений и ответственного ИИ. Открыта для консалтинга в сфере ИИ, контрактных проектов и руководящих позиций.",
+    j1_title:"Руководитель CCAI",
+    j1_meta:"Торонто, ON · Февраль 2024 – Сентябрь 2025",
+    j1_sub:"Разработчик IVR и технический руководитель проектов — полная ответственность за платформу разговорного ИИ, обслуживающую более 2 млн клиентов",
+    j1_b1:"<strong>Определила и реализовала продуктовую стратегию</strong> платформы разговорного ИИ, обслуживающей более 2 млн клиентов в год, расширив набор намерений с 6 до 51 (рост 750%) за счёт планирования дорожной карты, проработки пользовательских сценариев и приоритизации функций на основе данных",
+    j1_b2:"<strong>Спроектировала и внедрила</strong> сквозные системы NLU/IVR на Amazon Connect, от первоначального проекта до запуска в эксплуатацию, одновременно ведя продуктовую стратегию, межфункциональную координацию и операционное масштабирование",
+    j1_b3:"<strong>Руководила межфункциональной поставкой</strong> силами команд инженерии, клиентского опыта, операций и продукта, чтобы выпустить проект модернизации NLU, стандартизировав процессы релизов и согласовав заинтересованные стороны по квартальным целям OKR",
+    j1_b4:"<strong>Повысила активацию и вовлечённость</strong>, проанализировав большие объёмы поведенческих данных, внедрив A/B-тестирование и оптимизировав диалоговые сценарии, что увеличило долю самостоятельно решённых обращений и сократило число эскалаций",
+    j1_b5:"<strong>Построила инфраструктуру аналитики эффективности</strong> с дашбордами в реальном времени, отслеживающими точность распознавания намерений, корректность маршрутизации и CSAT, что позволило вести итерации на основе данных и отчитываться перед руководством",
+    j1_b6:"<strong>Выстроила систему управления ИИ</strong>, включая стандарты оценки моделей, протоколы контроля версий и соглашения об уровне обслуживания для операций более чем 100 агентов",
+    j1_b7:"<strong>Написала корпоративное руководство по эксплуатации ИИ</strong>, сократив время подключения заинтересованных сторон на 40% и повысив уровень понимания ИИ в организации",
+    j1_b8:"<strong>Руководила запуском двуязычной версии продукта</strong> (английский и французский) в партнёрстве с лингвистами и с проведением анализа рынка для обеспечения полного паритета функций",
+    j2_title:"Директор по искусственному интеллекту",
+    j2_meta:"Торонто, ON · Август 2025 – настоящее время",
+    j2_sub:"Определение продуктовой дорожной карты ИИ для адаптивного обучения, персонализации на основе машинного обучения и этичного внедрения ИИ на образовательной STEM-платформе для молодёжи",
+    j2_b1:"<strong>Веду продуктовую трансформацию</strong> обучающей STEM-платформы через проектирование адаптивной программы, интеграцию аналитики в реальном времени и персонализированные траектории обучения",
+    j2_b2:"<strong>Формирую продуктовую дорожную карту ИИ</strong>, включая приоритизацию функций, метрики успеха и партнёрскую стратегию для повышения безопасности и операционной эффективности",
+    j2_b3:"<strong>Устанавливаю стандарты этики и управления ИИ</strong> для продуктов, ориентированных на молодёжь: соблюдение приватности, снижение предвзятости и ответственное внедрение ИИ в масштабе",
+    j3_title:"Основатель &amp; генеральный директор",
+    j3_meta:"Торонто, ON · Январь 2025 – настоящее время",
+    j3_sub:"Независимый консалтинг в области ИИ: разработка систем для промышленной эксплуатации и экспертное сопровождение по контракту — от архитектуры до оценки, которая определяет, можно ли доверять результату",
+    j3_b1:"<strong>Я построила практику вокруг конкретного пробела:</strong> команды внедряют ИИ быстрее, чем успевают проверять то, что он выдаёт. Проекты охватывают архитектуру, вывод в эксплуатацию и ту оценочную работу, которая определяет, заслуживает ли результат того, чтобы на его основании действовать",
+    j3_b2:"<strong>Перевела стартап в области ИИ-анализа музыки в защищённую нишу</strong> на решающем этапе роста, проведя конкурентный анализ, исследование пользователей и сегментацию, которые показали, где продукт действительно может выигрывать",
+    j3_b3:"<strong>Вела коммерческую сторону наравне с технической</strong>, определяя позиционирование, коммуникацию, ценообразование и канальные партнёрства, а не возвращая клиенту стратегию в виде презентации",
+    j3_b4:"<strong>Участвовала в проектировании основного алгоритма</strong> вместе с инженерной командой, переводя коммерческие требования в технические спецификации для поведенческих моделей, связывающих данные о музыкальных предпочтениях с показателями работы команд",
+    j4_title:"Технический директор",
+    j4_meta:"Торонто, ON · Январь 2024 – Май 2024",
+    j4_b1:"<strong>Руководила технической стратегией и разработкой продукта</strong> на стадии до выхода на рынок, определяя архитектуру и последовательность работ в условиях ограниченных ресурсов",
+    j4_b2:"<strong>Выстроила инженерные процессы с нуля</strong>, включая контроль версий, порядок релизов и стандарты кода для небольшой команды",
+    j4_b3:"<strong>Перевела концепцию основателей в исполнимый технический план</strong>, согласовав требования продукта с реальными сроками разработки и возможностями команды",
+    j5_title:"Младший консультант",
+    j5_meta:"Торонто, ON · Август 2022 – Ноябрь 2023",
+    j5_sub:"Стратегические преобразования для клиентов из списка Fortune 500 в финансовом секторе и горнодобывающей отрасли: создание стоимости свыше 25% за счёт организационного дизайна и операционной оптимизации",
+    j5_b1:"<strong>Сопровождала переход крупного канадского банка в новую регуляторную категорию</strong> (с четвёртой на третью) через анализ рисков, привлечение отраслевых экспертов и согласование позиций заинтересованных сторон",
+    j5_b2:"<strong>Спроектировала организационную реструктуризацию</strong> нескольких горнодобывающих площадок, обеспечив создание стоимости свыше 25% за счёт операционной эффективности и оптимизации структуры",
+    j5_b3:"<strong>Возглавила разработку продукта в области многообразия и инклюзивности</strong>: создала цифровой дашборд, спроектировала опросы для заинтересованных сторон и упорядочила работу с данными, что позволило измерять показатели многообразия",
+    j6_title:"Специалист по обучению ИИ",
+    j6_meta:"Торонто, ON · Апрель 2019 – Октябрь 2019",
+    j6_sub:"Обучение и оптимизация систем генерации подписей на основе машинного обучения для одной из ведущих мировых социальных платформ, построенных на ИИ",
+    j6_b1:"<strong>Обучала и оптимизировала модели машинного обучения</strong> для автоматической генерации подписей, повышая точность за счёт систематической разметки и проверки данных",
+    j6_b2:"<strong>Оценивала качество вывода моделей</strong> по заданным критериям, выявляя систематические ошибки, незаметные на уровне отдельных примеров",
+    j6_b3:"<strong>Работала с многоязычными наборами данных</strong>, обеспечивая корректность подписей в разных языках и культурных контекстах",
+    j7_title:"Директор программы STEM",
+    j7_meta:"Торонто, ON · Апрель 2019 – Август 2023",
+    j7_b1:"<strong>Руководила программами STEM-образования</strong> для учащихся, отвечая за содержание курсов, подготовку преподавателей и коммуникацию с родителями",
+    j7_b2:"<strong>Расширила охват программы</strong>, выстроив партнёрства со школами и упорядочив набор и адаптацию новых участников",
+    sk1_label:"Продукт ИИ &amp; Стратегия",
+    sk1_items:"Проектирование разговорного ИИ · Архитектура NLU · Модернизация IVR · Интеграция генеративного ИИ · Ответственный ИИ · Агенты ИИ · Go-to-Market · OKR",
+    sk2_label:"Технологический стек",
+    sk2_items:"Amazon Connect · AWS Lambda · Dialogflow CX · Google Cloud Platform · Python · SQL · ML-конвейеры",
+    sk3_label:"Исследования &amp; Анализ",
+    sk3_items:"Исследование рынка · Конкурентный анализ · Глубокое обучение · A/B-тестирование",
+    sk4_label:"Исполнение &amp; Поставка",
+    sk4_items:"Agile / Scrum · Управление изменениями · Управление проектами · Документация",
+    sk5_label:"Контент &amp; Коммуникации",
+    sk5_items:"Образовательный контент · Обучение · Сторителлинг · Публичные выступления",
+    sk6_label:"Лидерство &amp; Характер",
+    sk6_items:"Эмоциональный интеллект · Мотивация команд · Аналитическое мышление · Установка на рост",
+    edu1_deg:"Бакалавр наук с отличием",
+    edu1_school:"Университет Торонто (Сент-Джордж)",
+    edu1_details:"Специализация: когнитивные науки<br>Специализация: книговедение и медиаисследования<br>Дополнительный курс: цифровые гуманитарные науки<br>Год окончания: 2022",
+    edu2_deg:"Сертификат по кибербезопасности, квантовым вычислениям и искусственному интеллекту",
+    edu2_school:"Онтарио Технологический университет · Protexxa",
+    edu2_details:"2025–2026 · Оценка: 92.86%",
+    cert1:"ИИ &amp; право — Университет Лунда",
+    cert2:"Генеративный ИИ с LLM — DeepLearning.AI",
+    cert3:"Специализация Dialogflow CX — Google",
+    cert4:"Dialogflow CX — гражданские разработчики",
+    cert5:"Основы разговорного дизайна",
+    cert6:"Операции ИИ контакт-центра",
+    cert7:"Amazon Connect — устранение неполадок",
+    cert8:"Amazon Connect — основы",
+    cert9:"IBM Watson",
+    cert10:"Введение в ИИ IBM",
+    cert11:"Основы ML &amp; ИИ",
+    cert12:"Сценарии использования ИИ",
+    cert13:"Основы программирования — UofT",
+    cert14:"Bain устойчивое развитие — MIT Sloan",
+    beta1:"Частная бета OpenAI — GPT &amp; Codex (2020–2021)",
+    beta2:"Публичная бета Apple iOS (2017–2022)",
+    beta3:"Бета Instagram — до приобретения Meta (2009–2021)",
+    beta4:"Бета-тестер Snapchat (2018–2020)",
+    beta5:"Бета Skype Translator (2014)",
+    beta6:"Бета Hype Machine (2012–2015)",
+    lang_content:"Английский — свободный<br>Французский — свободный",
+    interests_content:"Классический пианист, вокалист &amp; ударник<br>Наставничество STEM<br>Исследования в области политики ИИ &amp; этики<br>Предпринимательство<br>Новые науки &amp; технологии<br>Каякинг",
+    footer:"&copy; 2026 <span>Alexia Monize</span> &nbsp;&middot;&nbsp; Создано с точностью &amp; <span>целью</span>",
+    j5_prior_label:"Предыдущие позиции",
+    j5_prior1:"<strong>Стажёр-консультант (Associate Consultant Intern)</strong>, лето 2021",
+    j5_prior2:"<strong>Стажёр программы Building Entrepreneurial Leaders (BEL)</strong>, лето 2020",
+    more:"Подробнее",
+    less:"Свернуть"
+  },
+  no: {
+    tagline:"AI-produktleder · Arkitekt for konversasjons-AI · Strateg innen fremvoksende teknologier",
+    toggleDark:"Mørk",
+    toggleLight:"Lys",
+    sec_about:"Om meg",
+    sec_experience:"Erfaring",
+    sec_skills:"Kjernekompetanser",
+    sec_education:"Utdanning",
+    sec_certs:"Sertifiseringer",
+    sec_beta:"Tidlig teknologiadopsjon",
+    sec_languages:"Språk",
+    sec_interests:"Interesser",
+    summary:"<strong>Produktleder innen KI og arkitekt for samtalesystemer</strong>, med erfaring i å bygge KI-drevne produkter fra bunnen av og skalere dem til virksomhetsnivå. Jeg hadde fullt ansvar for Porter Airlines' plattform for samtalebasert KI, fra arkitektur og NLU-design til tverrfaglig utrulling og styring, og oppnådde en <strong>utvidelse av intensjoner på 750%</strong> over <strong>mer enn 2 millioner kundehenvendelser i året</strong>. Solid praktisk kjennskap til hele KI-stakken: Amazon Connect, Dialogflow CX, AWS Lambda, utforming av ML-pipelines og integrasjon av språkmodeller. Bakgrunn i kognitiv vitenskap (Universitetet i Toronto, bachelorgrad med utmerkelse, 2022) og gyldige sertifiseringer innen cybersikkerhet, kvantedatabehandling og ansvarlig KI. Tilgjengelig for KI-rådgivning, kontraktsoppdrag og lederstillinger.",
+    j1_title:"CCAI-leder",
+    j1_meta:"Toronto, ON · Februar 2024 – September 2025",
+    j1_sub:"IVR-utvikler og teknisk prosjektleder — fullt ansvar for en plattform for samtalebasert KI som betjener over 2 millioner kunder",
+    j1_b1:"<strong>Definerte og gjennomførte produktstrategien</strong> for en plattform for samtalebasert KI som betjener over 2 millioner kunder i året, og utvidet fra 6 til 51 intensjoner (750% vekst) gjennom veikartplanlegging, kartlegging av brukerreiser og datadrevet prioritering av funksjoner",
+    j1_b2:"<strong>Utformet og satte i drift</strong> gjennomgående NLU- og IVR-systemer på Amazon Connect, fra første design til produksjonssetting, samtidig som jeg ledet produktstrategi, tverrfaglig samordning og operasjonell oppskalering",
+    j1_b3:"<strong>Ledet tverrfaglig leveranse</strong> med team innen utvikling, kundeopplevelse, drift og produkt for å få NLU-moderniseringen ut, standardiserte utgivelsesprosessene og samlet interessentene om kvartalsvise mål",
+    j1_b4:"<strong>Økte aktivering og engasjement</strong> ved å analysere store mengder atferdsdata, innføre A/B-testing og forbedre samtaleflytene, noe som ga flere saker løst uten agent og færre eskaleringer",
+    j1_b5:"<strong>Bygde infrastrukturen for ytelsesanalyse</strong> med sanntidsdashbord som fulgte treffsikkerhet på intensjoner, riktig ruting og kundetilfredshet, slik at arbeidet kunne itereres på data og rapporteres til ledelsen",
+    j1_b6:"<strong>Etablerte et rammeverk for KI-styring</strong> med standarder for modellevaluering, rutiner for versjonskontroll og definerte tjenestenivåer på tvers av mer enn 100 agentoperasjoner",
+    j1_b7:"<strong>Skrev virksomhetens driftshåndbok for KI</strong>, som kortet ned tiden det tok å få interessenter i gang med 40% og hevet KI-forståelsen i organisasjonen",
+    j1_b8:"<strong>Ledet den tospråklige lanseringen av produktet</strong> (engelsk og fransk) i samarbeid med språkfaglige og med markedsanalyse som sikret full funksjonell likhet",
+    j2_title:"Direktør for kunstig intelligens",
+    j2_meta:"Toronto, ON · August 2025 – nå",
+    j2_sub:"Utforming av produktveikartet for KI innen adaptiv læring, personalisering basert på maskinlæring og etisk bruk av KI på en STEM-læringsplattform for unge",
+    j2_b1:"<strong>Jeg leder produktomstillingen</strong> av STEM-læringsplattformen gjennom adaptivt læreløp, integrering av sanntidsanalyse og personlige læringsveier",
+    j2_b2:"<strong>Jeg utformer produktveikartet for KI</strong>, inkludert prioritering av funksjoner, suksessmål og partnerstrategi for å styrke sikkerhet og driftseffektivitet",
+    j2_b3:"<strong>Jeg fastsetter standarder for KI-etikk og styring</strong> for produkter rettet mot barn og unge: personvern, tiltak mot skjevheter og ansvarlig bruk i stor skala",
+    j3_title:"Grunnlegger &amp; administrerende direktør",
+    j3_meta:"Toronto, ON · Januar 2025 – nå",
+    j3_sub:"Uavhengig KI-rådgivning som leverer systemer i drift og rådgivningsarbeid på kontrakt, fra arkitektur til den vurderingen som avgjør om resultatet er til å stole på",
+    j3_b1:"<strong>Jeg bygde virksomheten rundt et bestemt hull:</strong> team som tar i bruk KI raskere enn de rekker å kontrollere hva den produserer. Oppdragene omfatter arkitektur, produksjonssetting og det vurderingsarbeidet som avgjør om et resultat er til å handle på",
+    j3_b2:"<strong>Jeg flyttet en oppstart innen KI-basert musikkanalyse over i en nisje som lot seg forsvare</strong> i en avgjørende vekstfase, og ledet konkurrentanalysen, brukerundersøkelsene og segmenteringen som fastslo hvor produktet faktisk kunne vinne",
+    j3_b3:"<strong>Jeg tok ansvar for det kommersielle så vel som det tekniske</strong>, og fastsatte posisjonering, budskap, prissetting og kanalsamarbeid i stedet for å levere strategien tilbake til kunden som en presentasjon",
+    j3_b4:"<strong>Jeg var med på å utforme kjernealgoritmen</strong> sammen med utviklingsteamet, og oversatte kommersielle krav til tekniske spesifikasjoner for atferdsmodeller som knytter data om musikkpreferanser til målene for teamenes ytelse",
+    j4_title:"Teknologidirektør",
+    j4_meta:"Toronto, ON · Januar 2024 – Mai 2024",
+    j4_b1:"<strong>Ledet teknisk strategi og produktutvikling</strong> i fasen før lansering, og fastsatte arkitektur og rekkefølge på arbeidet med begrensede ressurser",
+    j4_b2:"<strong>Bygde utviklingsprosessene fra bunnen av</strong>: versjonskontroll, rutiner for utgivelser og kodestandarder for et lite team",
+    j4_b3:"<strong>Oversatte grunnleggernes idé til en gjennomførbar teknisk plan</strong>, og tilpasset produktkravene til realistiske utviklingstider og teamets kapasitet",
+    j5_title:"Assosiert konsulent",
+    j5_meta:"Toronto, ON · August 2022 – November 2023",
+    j5_sub:"Strategisk omstilling for Fortune 500-kunder innen finans og gruvedrift: over 25% verdiskaping gjennom organisasjonsdesign og driftsoptimalisering",
+    j5_b1:"<strong>Bisto en stor kanadisk bank gjennom en regulatorisk overgang</strong> (fra kategori 4 til kategori 3) med risikoanalyse, bruk av ekspertnettverk og samordning av interessenter",
+    j5_b2:"<strong>Utformet omorganiseringen</strong> av flere gruveanlegg, med over 25% verdiskaping gjennom driftseffektivitet og strukturell optimalisering",
+    j5_b3:"<strong>Ledet utviklingen av et produkt for mangfold og inkludering</strong>: bygde et digitalt dashbord, utformet spørreundersøkelser for interessenter og ryddet opp i datahåndteringen slik at mangfold kunne måles i tall",
+    j6_title:"AI-treningsspesialist",
+    j6_meta:"Toronto, ON · April 2019 – Oktober 2019",
+    j6_sub:"Trening og optimalisering av maskinlæringsbaserte systemer for automatisk teksting for en av verdens ledende KI-drevne sosiale plattformer",
+    j6_b1:"<strong>Trente og optimaliserte maskinlæringsmodeller</strong> for automatisk teksting, og økte treffsikkerheten gjennom systematisk merking og kontroll av data",
+    j6_b2:"<strong>Vurderte kvaliteten på modellenes resultater</strong> etter fastsatte kriterier, og fant systematiske feil som ikke er synlige i et enkelt eksempel",
+    j6_b3:"<strong>Arbeidet med flerspråklige datasett</strong>, og sikret at tekstingen ble riktig på tvers av språk og kulturelle sammenhenger",
+    j7_title:"STEM-programdirektør",
+    j7_meta:"Toronto, ON · April 2019 – August 2023",
+    j7_b1:"<strong>Ledet undervisningsprogrammer innen STEM</strong>, med ansvar for kursinnhold, opplæring av instruktører og kontakt med foresatte",
+    j7_b2:"<strong>Utvidet programmets rekkevidde</strong> gjennom samarbeid med skoler og ved å rydde opp i rekruttering og mottak av nye deltakere",
+    sk1_label:"AI-produkt &amp; Strategi",
+    sk1_items:"Konversasjons-AI-design · NLU-arkitektur · IVR-modernisering · Generativ AI-integrasjon · Ansvarlig AI · AI-agenter · Go-to-Market · OKR",
+    sk2_label:"Teknologistakk",
+    sk2_items:"Amazon Connect · AWS Lambda · Dialogflow CX · Google Cloud Platform · Python · SQL · ML-pipelines",
+    sk3_label:"Forskning &amp; Analyse",
+    sk3_items:"Markedsundersøkelse · Konkurrentanalyse · Deep Learning · Datastorytelling · A/B-testing",
+    sk4_label:"Utførelse &amp; Leveranse",
+    sk4_items:"Agile / Scrum · Endringsledelse · Prosjektledelse · Dokumentasjon · Risikostyring",
+    sk5_label:"Innhold &amp; Kommunikasjon",
+    sk5_items:"Utvikling av pedagogisk innhold · Opplæring · Historiefortelling · Offentlig tale · Interessentkommunikasjon",
+    sk6_label:"Lederskap &amp; Karakter",
+    sk6_items:"Emosjonell intelligens · Motivering av team · Analytisk tenkning · Vekstmentalitet · Kreativt lederskap",
+    edu1_deg:"Honours Bachelor of Science med utmerkelse",
+    edu1_school:"Universitetet i Toronto (St. George)",
+    edu1_details:"Hovedfag: Kognisjonsvitenskap<br>Hovedfag: Bok- og mediestudier<br>Bifag: Digital humaniora<br>Uteksaminert: 2022",
+    edu2_deg:"Sertifikat i cybersikkerhet, kvanteberegning og kunstig intelligens",
+    edu2_school:"Ontario Tech University · Protexxa",
+    edu2_details:"2025–2026 · Karakter: 92.86%",
+    cert1:"AI &amp; Rett — Universitetet i Lund",
+    cert2:"Generativ AI med LLM — DeepLearning.AI",
+    cert3:"Dialogflow CX-spesialisering — Google",
+    cert4:"Dialogflow CX — Borgerutviklere",
+    cert5:"Grunnleggende samtaldesign",
+    cert6:"Kontaktsenter AI-operasjoner",
+    cert7:"Amazon Connect — Feilsøking",
+    cert8:"Amazon Connect — Instansgrunnleggende",
+    cert9:"IBM Watson",
+    cert10:"IBM AI-introduksjon",
+    cert11:"ML &amp; AI-grunnleggende",
+    cert12:"Utforske AI-brukstilfeller",
+    cert13:"Programmeringsgrunnleggende — UofT",
+    cert14:"Bain bærekraft — MIT Sloan",
+    beta1:"OpenAI privat beta — GPT &amp; Codex (2020–2021)",
+    beta2:"Apple iOS offentlig beta (2017–2022)",
+    beta3:"Instagram beta — Før Meta-oppkjøp (2009–2021)",
+    beta4:"Snapchat-betatester (2018–2020)",
+    beta5:"Skype Translator beta (2014)",
+    beta6:"Hype Machine beta (2012–2015)",
+    lang_content:"Engelsk — Flütende<br>Fransk — Flütende",
+    interests_content:"Klassisk pianist, vokalist &amp; perkusjonist<br>STEM-mentoring for ungdom<br>AI-politikkforskning &amp; etikk<br>Entrepenjørskap<br>Fremvoksende vitenskap &amp; teknologier<br>Kajakk",
+    footer:"&copy; 2026 <span>Alexia Monize</span> &nbsp;&middot;&nbsp; Bygd med presisjon &amp; <span>formål</span>",
+    j5_prior_label:"Tidligere roller",
+    j5_prior1:"<strong>Associate Consultant Intern</strong>, sommeren 2021",
+    j5_prior2:"<strong>Building Entrepreneurial Leaders (BEL) Intern</strong>, sommeren 2020",
+    more:"Vis mer",
+    less:"Vis mindre"
+  },
+  ja: {
+    tagline:"AIプロダクトリーダー · 会話型AIアーキテクト · 新興技術ストラテジスト",
+    toggleDark:"ダーク",
+    toggleLight:"ライト",
+    sec_about:"プロフィール",
+    sec_experience:"職歴",
+    sec_skills:"コアコンピテンシー",
+    sec_education:"学歴",
+    sec_certs:"資格・認定",
+    sec_beta:"テクノロジーアーリーアダプター",
+    sec_languages:"言語",
+    sec_interests:"趣味・関心",
+    summary:"<strong>AIプロダクト責任者／会話型システムアーキテクト</strong>。AIを用いたプロダクトをゼロから立ち上げ、企業規模まで拡大してきた経験を持つ。Porter Airlinesの会話型AIプラットフォームでは、アーキテクチャと自然言語理解の設計から部門横断での展開・ガバナンスまで一貫して担当し、<strong>インテント数を750%拡大</strong>、<strong>年間200万件を超える顧客対応</strong>を支えた。AIスタック全般にわたる実務経験を有する（Amazon Connect、Dialogflow CX、AWS Lambda、機械学習パイプライン設計、大規模言語モデルの統合）。認知科学の学士号（トロント大学、優等、2022年）を基盤に、サイバーセキュリティ、量子コンピューティング、責任あるAIの各分野で有効な資格を保持。AIコンサルティング、業務委託、上級管理職いずれのご相談にも対応可能。",
+    j1_title:"CCAIリード",
+    j1_meta:"トロント, ON · 2024年2月 – 2025年9月",
+    j1_sub:"IVR開発者 兼 テクニカルプロジェクトマネージャー — 200万人を超える顧客を支える会話型AIプラットフォームの全面的な責任を担当",
+    j1_b1:"<strong>プロダクト戦略を策定し実行</strong>。年間200万人超の顧客に対応する会話型AIプラットフォームにおいて、ロードマップ策定、ユーザー行動の可視化、データに基づく機能の優先順位付けを通じ、インテントを6件から51件へ拡大（750%増）",
+    j1_b2:"<strong>Amazon Connect上でエンドツーエンドの自然言語理解／音声自動応答システムを設計・本番導入</strong>。初期設計から稼働開始まで担当しつつ、プロダクト戦略、部門間調整、運用面の拡張を並行して推進",
+    j1_b3:"<strong>部門横断の開発を主導</strong>。エンジニアリング、顧客体験、オペレーション、プロダクトの各チームと連携して自然言語理解基盤の刷新をリリースし、リリース手順を標準化するとともに、四半期目標について関係者の認識を揃えた",
+    j1_b4:"<strong>利用率とエンゲージメントを向上</strong>。大量の行動データを分析し、A/Bテストを導入、会話フローを改善したことで、自己解決率が高まりオペレーターへの引き継ぎが減少",
+    j1_b5:"<strong>パフォーマンス分析基盤を構築</strong>。インテント判定の精度、振り分けの正確さ、顧客満足度をリアルタイムのダッシュボードで追跡し、データに基づく改善と経営層への報告を可能にした",
+    j1_b6:"<strong>AIガバナンスの枠組みを整備</strong>。モデル評価基準、バージョン管理の手順、100を超えるエージェント運用に対するサービス水準の定義を含む",
+    j1_b7:"<strong>全社向けAI運用ハンドブックを執筆</strong>。関係者の習熟にかかる時間を40%短縮し、組織全体のAIリテラシーを底上げした",
+    j1_b8:"<strong>プロダクトの二言語対応を主導</strong>（英語・フランス語）。言語の専門家と協働し、市場分析を行ったうえで機能面の完全な同等性を確保",
+    j2_title:"人工知能ディレクター",
+    j2_meta:"トロント, ON · 2025年8月 – 現在",
+    j2_sub:"若年層向けSTEM学習プラットフォームにおける、適応学習・機械学習による個別最適化・倫理的なAI導入のプロダクトロードマップ策定",
+    j2_b1:"<strong>STEM学習プラットフォームのプロダクト変革を主導</strong>。適応型カリキュラムの設計、リアルタイム分析の統合、個別化された学習経路により推進",
+    j2_b2:"<strong>AIプロダクトのロードマップを策定</strong>。機能の優先順位、成果指標、提携戦略を定め、安全性の監視と運用効率の向上につなげる",
+    j2_b3:"<strong>AI倫理とガバナンスの基準を策定</strong>。若年層向けプロダクトにおけるプライバシー遵守、バイアスの低減、大規模での責任ある導入を対象とする",
+    j3_title:"創業者 &amp; CEO",
+    j3_meta:"トロント, ON · 2025年1月 – 現在",
+    j3_sub:"独立系のAIコンサルティング。本番稼働するシステムの構築と助言業務を業務委託で提供し、アーキテクチャから、その出力が信頼に足るかを見極める評価までを担う",
+    j3_b1:"<strong>事業は明確な欠落を軸に立ち上げた。</strong>すなわち、AIの導入速度が、その出力を検証できる速度を上回っているという状況である。案件はアーキテクチャ、本番導入、そしてその出力が行動に値するかを見極める評価作業までを対象とする",
+    j3_b2:"<strong>AI音楽解析のスタートアップを、守りやすい領域へ位置づけ直した。</strong>重要な成長局面で競合分析、ユーザー調査、市場セグメンテーションを主導し、その製品が実際に勝てる場所を明らかにした",
+    j3_b3:"<strong>技術面と併せて事業面も担った。</strong>ポジショニング、訴求メッセージ、価格設定、販売パートナーシップを自ら定め、戦略を資料として顧客に返す形はとらなかった",
+    j3_b4:"<strong>中核アルゴリズムをエンジニアリングチームと共同設計</strong>。事業上の要件を技術仕様に落とし込み、音楽の嗜好データとチームの業績指標を結びつける行動モデルを構築した",
+    j4_title:"最高技術責任者",
+    j4_meta:"トロント, ON · 2024年1月 – 2024年5月",
+    j4_b1:"<strong>技術戦略とプロダクト開発を主導</strong>。市場投入前の段階で、限られた資源のなかアーキテクチャと作業の優先順位を定めた",
+    j4_b2:"<strong>開発プロセスをゼロから整備</strong>。バージョン管理、リリース手順、少人数チームに適したコード規約を導入",
+    j4_b3:"<strong>創業者の構想を実行可能な技術計画に落とし込み</strong>、プロダクト要件を現実的な開発期間とチームの力量に見合うよう調整",
+    j5_title:"アソシエイトコンサルタント",
+    j5_meta:"トロント, ON · 2022年8月 – 2023年11月",
+    j5_sub:"金融サービスおよび鉱業分野のFortune 500企業に対する戦略的変革支援。組織設計と業務最適化により25%超の価値創出を実現",
+    j5_b1:"<strong>カナダ大手銀行の規制区分移行を支援</strong>（第4区分から第3区分へ）。リスク分析、専門家ネットワークの活用、関係者間の合意形成を担当",
+    j5_b2:"<strong>複数の鉱山拠点の組織再編を設計</strong>。業務効率の改善と構造の最適化により25%超の価値創出を実現",
+    j5_b3:"<strong>ダイバーシティとインクルージョンに関するプロダクト開発を主導</strong>。デジタルダッシュボードを構築し、関係者向けの調査を設計、データ運用を整理して多様性の指標を数値で把握できるようにした",
+    j6_title:"AIトレーニングスペシャリスト",
+    j6_meta:"トロント, ON · 2019年4月 – 2019年10月",
+    j6_sub:"世界有数のAI活用ソーシャルプラットフォームにおける、機械学習による字幕生成システムの学習と最適化",
+    j6_b1:"<strong>機械学習モデルの学習と最適化</strong>を担当。字幕の自動生成において、体系的なデータ注釈と検証により精度を高めた",
+    j6_b2:"<strong>モデル出力の品質を所定の基準で評価</strong>し、個々の事例では気づきにくい体系的な誤りを特定",
+    j6_b3:"<strong>多言語データセットを扱い</strong>、言語や文化的文脈の違いを越えて字幕が適切であることを担保",
+    j7_title:"STEMプログラムディレクター",
+    j7_meta:"トロント, ON · 2019年4月 – 2023年8月",
+    j7_b1:"<strong>STEM教育プログラムを統括</strong>。カリキュラム内容、指導者の育成、保護者との連絡を担当",
+    j7_b2:"<strong>プログラムの対象範囲を拡大</strong>。学校との連携を築き、新規参加者の募集と受け入れの流れを整えた",
+    sk1_label:"AI製品 &amp; 戦略",
+    sk1_items:"会話型AI設計 · NLUアーキテクチャ · IVRモダナイゼーション · 生成AI統合 · 責任あるAI · AIエージェント · GTM · OKR",
+    sk2_label:"技術スタック",
+    sk2_items:"Amazon Connect · AWS Lambda · Dialogflow CX · Google Cloud Platform · Python · SQL · MLパイプライン",
+    sk3_label:"調査 &amp; 分析",
+    sk3_items:"市場調査 · 競合分析 · ディープラーニング · データストーリーテリング · A/Bテスト",
+    sk4_label:"実行 &amp; デリバリー",
+    sk4_items:"アジャイル/スクラム · チェンジマネジメント · プロジェクトマネジメント · ドキュメント作成",
+    sk5_label:"コンテンツ &amp; コミュニケーション",
+    sk5_items:"教育コンテンツ開発 · 研修 · ストーリーテリング · パブリックスピーキング · ステークホルダーコミュニケーション",
+    sk6_label:"リーダーシップ &amp; 人格",
+    sk6_items:"エモーショナルインテリジェンス · チームのモチベーション向上 · 分析的思考 · 成長マインドセット · クリエイティブリーダーシップ",
+    edu1_deg:"理学優等学士（優等卒業）",
+    edu1_school:"トロント大学（セントジョージ）",
+    edu1_details:"主専攻：認知科学（計算認知）<br>主専攻：図書・メディア研究<br>副専攻：デジタル人文学<br>卒業：2022年",
+    edu2_deg:"サイバーセキュリティ・量子コンピューティング・人工知能 修了証",
+    edu2_school:"オンタリオ工科大学 · Protexxa",
+    edu2_details:"2025–2026 · スコア：92.86%",
+    cert1:"AI &amp; 法律 — ルンド大学",
+    cert2:"LLMによる生成AI — DeepLearning.AI",
+    cert3:"Dialogflow CX専門認定 — Google",
+    cert4:"Dialogflow CX — シチズンデベロッパー",
+    cert5:"会話設計の基礎",
+    cert6:"コンタクトセンターAI運用",
+    cert7:"Amazon Connect — トラブルシューティング",
+    cert8:"Amazon Connect — インスタンス基礎",
+    cert9:"IBM Watson",
+    cert10:"IBM AI入門",
+    cert11:"ML &amp; AI基礎",
+    cert12:"AIユースケース探索",
+    cert13:"プログラミング基礎 — UofT",
+    cert14:"Bainサステナビリティ — MITスローン",
+    beta1:"OpenAIプライベートベータ — GPT &amp; Codex (2020–2021)",
+    beta2:"Apple iOSパブリックベータ (2017–2022)",
+    beta3:"Instagramベータ — Meta買収前 (2009–2021)",
+    beta4:"Snapchatベータテスター (2018–2020)",
+    beta5:"Skype Translatorベータ (2014)",
+    beta6:"Hype Machineベータ (2012–2015)",
+    lang_content:"英語 — 流數<br>フランス語 — 流數",
+    interests_content:"クラシックピアニスト、ボーカリスト &amp; パーカッショニスト<br>青少年STEMメンタリング<br>AI政策研究 &amp; 倫理<br>起業家精神<br>新興科学 &amp; 技術<br>カヤック",
+    footer:"&copy; 2026 <span>Alexia Monize</span> &nbsp;&middot;&nbsp; 精射さと<span>目的</span>を持って構築",
+    j5_prior_label:"それ以前の職務",
+    j5_prior1:"<strong>アソシエイトコンサルタント・インターン</strong>、2021年夏",
+    j5_prior2:"<strong>Building Entrepreneurial Leaders（BEL）インターン</strong>、2020年夏",
+    more:"詳細を見る",
+    less:"閉じる"
+  },
+  ko: {
+    tagline:"AI 제품 리더 · 대화형 AI 아키텍트 · 신흥 기술 전략가",
+    toggleDark:"다크",
+    toggleLight:"라이트",
+    sec_about:"소개",
+    sec_experience:"경력",
+    sec_skills:"핵심 역량",
+    sec_education:"학력",
+    sec_certs:"자격증",
+    sec_beta:"초기 기술 도입",
+    sec_languages:"언어",
+    sec_interests:"관심사",
+    summary:"<strong>AI 프로덕트 리더이자 대화형 시스템 아키텍트</strong>로, AI 기반 제품을 처음부터 만들어 기업 규모까지 확장해 온 경험을 갖추고 있습니다. Porter Airlines의 대화형 AI 플랫폼을 아키텍처와 자연어 이해 설계부터 부서 간 배포와 거버넌스까지 전담하여 <strong>인텐트 750% 확장</strong>을 달성했고, <strong>연간 200만 건이 넘는 고객 응대</strong>를 뒷받침했습니다. Amazon Connect, Dialogflow CX, AWS Lambda, 머신러닝 파이프라인 설계, 대규모 언어 모델 연동 등 AI 스택 전반에 걸친 실무 역량을 보유하고 있습니다. 인지과학 학사(토론토대학교, 우등, 2022년)를 기반으로 사이버 보안, 양자 컴퓨팅, 책임 있는 AI 분야의 자격을 유지하고 있으며, AI 컨설팅과 계약 프로젝트, 고위 관리직 모두 논의 가능합니다.",
+    j1_title:"CCAI 리드",
+    j1_meta:"토론토, ON · 2024년 2월 – 2025년 9월",
+    j1_sub:"IVR 개발자 겸 기술 프로젝트 관리자 — 200만 명이 넘는 고객을 지원하는 대화형 AI 플랫폼을 전담",
+    j1_b1:"<strong>제품 전략을 수립하고 실행</strong>했습니다. 연간 200만 명 이상을 응대하는 대화형 AI 플랫폼에서 로드맵 수립, 사용자 여정 분석, 데이터에 근거한 기능 우선순위 결정을 통해 인텐트를 6개에서 51개로 확장했습니다(750% 증가)",
+    j1_b2:"<strong>Amazon Connect 기반의 자연어 이해·음성 응답 시스템을 설계하고 운영에 투입</strong>했습니다. 초기 설계부터 실제 서비스 개시까지 맡으면서 제품 전략, 부서 간 조율, 운영 확장을 함께 이끌었습니다",
+    j1_b3:"<strong>부서 간 개발을 주도</strong>했습니다. 엔지니어링, 고객경험, 운영, 제품 팀과 함께 자연어 이해 시스템 현대화를 배포하고, 릴리스 절차를 표준화했으며 분기 목표에 관해 이해관계자의 합의를 이끌었습니다",
+    j1_b4:"<strong>활성화율과 참여도를 높였습니다.</strong> 대량의 행동 데이터를 분석하고 A/B 테스트를 도입했으며 대화 흐름을 개선한 결과, 상담원 연결 없이 해결되는 비율이 늘고 상위 이관은 줄었습니다",
+    j1_b5:"<strong>성능 분석 기반을 구축</strong>했습니다. 인텐트 인식 정확도, 라우팅 정확성, 고객 만족도를 실시간 대시보드로 추적하여 데이터에 근거한 개선과 경영진 보고가 가능해졌습니다",
+    j1_b6:"<strong>AI 거버넌스 체계를 마련</strong>했습니다. 모델 평가 기준, 버전 관리 절차, 100곳이 넘는 상담 운영에 대한 서비스 수준 정의를 포함합니다",
+    j1_b7:"<strong>전사 AI 운영 지침서를 집필</strong>하여 이해관계자의 적응 기간을 40% 단축하고 조직 전반의 AI 이해도를 끌어올렸습니다",
+    j1_b8:"<strong>제품의 이중 언어 확장을 주도</strong>했습니다(영어·프랑스어). 언어 전문가와 협업하고 시장 분석을 수행하여 기능의 완전한 동등성을 확보했습니다",
+    j2_title:"인공지능 디렉터",
+    j2_meta:"토론토, ON · 2025년 8월 – 현재",
+    j2_sub:"청소년 대상 STEM 학습 플랫폼에서 적응형 학습, 머신러닝 기반 개인화, 윤리적 AI 도입을 위한 제품 로드맵 수립",
+    j2_b1:"<strong>STEM 학습 플랫폼의 제품 전환을 이끌고 있습니다.</strong> 적응형 커리큘럼 설계, 실시간 분석 연동, 개인별 학습 경로를 통해 추진합니다",
+    j2_b2:"<strong>AI 제품 로드맵을 수립하고 있습니다.</strong> 기능 우선순위, 성과 지표, 제휴 전략을 정해 안전 모니터링과 운영 효율을 강화합니다",
+    j2_b3:"<strong>AI 윤리·거버넌스 기준을 마련하고 있습니다.</strong> 청소년 대상 제품의 개인정보 보호 준수, 편향 완화, 대규모 환경에서의 책임 있는 도입을 다룹니다",
+    j3_title:"창업자 &amp; CEO",
+    j3_meta:"토론토, ON · 2025년 1월 – 현재",
+    j3_sub:"독립 AI 컨설팅으로 실제 운영되는 시스템 구축과 자문 업무를 계약 형태로 수행하며, 아키텍처부터 그 결과물을 신뢰할 수 있는지 판단하는 평가까지를 맡습니다",
+    j3_b1:"<strong>분명한 공백을 중심으로 사업을 세웠습니다.</strong> 팀이 AI를 도입하는 속도가 그 결과물을 검증하는 속도를 앞지른다는 문제입니다. 수행 범위는 아키텍처, 운영 환경 적용, 그리고 그 결과물이 행동으로 옮길 만한지 판단하는 평가 작업까지입니다",
+    j3_b2:"<strong>AI 음악 분석 스타트업을 방어 가능한 영역으로 다시 자리매김했습니다.</strong> 중요한 성장 국면에서 경쟁 분석과 사용자 조사, 시장 세분화를 이끌어 그 제품이 실제로 이길 수 있는 지점을 규명했습니다",
+    j3_b3:"<strong>기술과 함께 사업 측면도 직접 맡았습니다.</strong> 포지셔닝, 메시지, 가격 정책, 채널 제휴를 직접 정했으며, 전략을 자료 형태로 고객에게 돌려주지 않았습니다",
+    j3_b4:"<strong>핵심 알고리즘을 엔지니어링 팀과 공동 설계</strong>했습니다. 사업 요건을 기술 명세로 옮겨, 음악 취향 데이터와 팀 성과 지표를 연결하는 행동 모델을 구축했습니다",
+    j4_title:"최고기술책임자",
+    j4_meta:"토론토, ON · 2024년 1월 – 2024년 5월",
+    j4_b1:"<strong>기술 전략과 제품 개발을 주도</strong>했습니다. 출시 이전 단계에서 제한된 자원으로 아키텍처와 작업 순서를 정했습니다",
+    j4_b2:"<strong>개발 프로세스를 처음부터 구축</strong>했습니다. 소규모 팀에 맞는 버전 관리, 릴리스 절차, 코드 기준을 마련했습니다",
+    j4_b3:"<strong>창업자의 구상을 실행 가능한 기술 계획으로 옮겼습니다.</strong> 제품 요건을 현실적인 개발 일정과 팀 역량에 맞추어 조정했습니다",
+    j5_title:"어소시에이트 컨설턴트",
+    j5_meta:"토론토, ON · 2022년 8월 – 2023년 11월",
+    j5_sub:"금융 서비스와 광업 분야의 포춘 500대 고객을 위한 전략적 전환. 조직 설계와 운영 최적화를 통해 25% 이상의 가치 창출",
+    j5_b1:"<strong>캐나다 대형 은행의 규제 등급 전환을 지원</strong>했습니다(4등급에서 3등급으로). 리스크 분석, 전문가 네트워크 활용, 이해관계자 조율을 담당했습니다",
+    j5_b2:"<strong>여러 광산 사업장의 조직 개편을 설계</strong>하여 운영 효율과 구조 최적화를 통해 25% 이상의 가치 창출을 이뤘습니다",
+    j5_b3:"<strong>다양성과 포용 관련 제품 개발을 주도</strong>했습니다. 디지털 대시보드를 만들고 이해관계자 설문을 설계했으며 데이터 처리 과정을 정리해 다양성 지표를 수치로 관리할 수 있게 했습니다",
+    j6_title:"AI 트레이닝 스페셜리스트",
+    j6_meta:"토론토, ON · 2019년 4월 – 2019년 10월",
+    j6_sub:"세계 유수의 AI 기반 소셜 플랫폼에서 머신러닝 자막 생성 시스템의 학습과 최적화 담당",
+    j6_b1:"<strong>머신러닝 모델을 학습시키고 최적화</strong>했습니다. 자막 자동 생성에서 체계적인 데이터 주석과 검증을 통해 정확도를 높였습니다",
+    j6_b2:"<strong>정해진 기준에 따라 모델 출력 품질을 평가</strong>하고, 개별 사례로는 드러나지 않는 구조적 오류를 찾아냈습니다",
+    j6_b3:"<strong>다국어 데이터셋을 다루며</strong> 언어와 문화적 맥락이 달라도 자막이 정확하도록 했습니다",
+    j7_title:"STEM 프로그램 디렉터",
+    j7_meta:"토론토, ON · 2019년 4월 – 2023년 8월",
+    j7_b1:"<strong>STEM 교육 프로그램을 총괄</strong>했습니다. 수업 내용, 강사 교육, 학부모 소통을 맡았습니다",
+    j7_b2:"<strong>프로그램의 대상 범위를 넓혔습니다.</strong> 학교와 협력 관계를 맺고 신규 참가자 모집과 등록 절차를 정비했습니다",
+    sk1_label:"AI 제품 &amp; 전략",
+    sk1_items:"대화형 AI 설계 · NLU 아키텍치 · IVR 현대화 · 생성형 AI 통합 · 송임는 AI · AI 에이전트 · GTM 전략 · OKR",
+    sk2_label:"기술 스택",
+    sk2_items:"Amazon Connect · AWS Lambda · Dialogflow CX · Google Cloud Platform · Python · SQL · ML 파이프라인",
+    sk3_label:"리서치 &amp; 분석",
+    sk3_items:"시장 조사 · 경쟁사 분석 · 딥러닝 · 데이터 스토리텔링 · A/B 테스트",
+    sk4_label:"실행 &amp; 딘리버리",
+    sk4_items:"애자일/스크럼 · 변화 관리 · 프로젝트 관리 · 문서화 · 리스크 관리",
+    sk5_label:"콘텐츠 &amp; 커뮤니케이션",
+    sk5_items:"교육 콘텐츠 개발 · 교육 · 스토리텔링 · 퍼블릭 스피킹 · 이해관계자 소통",
+    sk6_label:"리더십 &amp; 인성",
+    sk6_items:"감성 지능 · 팀 동기부여 · 분석적 사고 · 성장 마인드셋 · 크리에이티브 리더십",
+    edu1_deg:"이학 우등 학사(우등 점언)",
+    edu1_school:"토론토 대학교(세인트 조지)",
+    edu1_details:"전공: 인지과학(쪼산 인지)<br>전공: 도서 및 미디어 연구<br>부전공: 디지털 인문학<br>졸업: 2022년",
+    edu2_deg:"사이버보안, 양자 컴퓨팅 및 인공지능 수료증",
+    edu2_school:"온타리오 공과대학교 · Protexxa",
+    edu2_details:"2025–2026 · 점수: 92.86%",
+    cert1:"AI &amp; 법률 — 룬드 대학교",
+    cert2:"LLM을 이용한 생성형 AI — DeepLearning.AI",
+    cert3:"Dialogflow CX 전문화 — Google",
+    cert4:"Dialogflow CX — 시민 개발자",
+    cert5:"대화 설계 기초",
+    cert6:"콘택트 센터 AI 운영",
+    cert7:"Amazon Connect — 문제 해결",
+    cert8:"Amazon Connect — 인스턴스 기초",
+    cert9:"IBM Watson",
+    cert10:"IBM AI 소개",
+    cert11:"ML &amp; AI 기초",
+    cert12:"AI 사용 사례 탐색",
+    cert13:"프로그래밍 기초 — UofT",
+    cert14:"Bain 지속가능성 — MIT 슬론",
+    beta1:"OpenAI 비공개 베타 — GPT &amp; Codex (2020–2021)",
+    beta2:"Apple iOS 공개 베타 (2017–2022)",
+    beta3:"Instagram 베타 — Meta 인수 이전 (2009–2021)",
+    beta4:"Snapchat 베타 테스터 (2018–2020)",
+    beta5:"Skype 번역기 베타 (2014)",
+    beta6:"Hype Machine 베타 (2012–2015)",
+    lang_content:"영어 — 유cc3d니다㰮유림<br>프랑스어 — 유cc3d니다",
+    interests_content:"클래식 피아니스트, 보컀리스트 &amp; 타악기 연주자<br>청소년 STEM 멘토링<br>AI 정쇅 연구 &amp; 윤리<br>기업가 정신<br>신흥 과학 &amp; 기술<br>카약",
+    footer:"&copy; 2026 <span>Alexia Monize</span> &nbsp;&middot;&nbsp; 정밀함과 <span>목적</span>으로 구축",
+    j5_prior_label:"이전 직책",
+    j5_prior1:"<strong>어소시에이트 컨설턴트 인턴</strong>, 2021년 여름",
+    j5_prior2:"<strong>Building Entrepreneurial Leaders(BEL) 인턴</strong>, 2020년 여름",
+    more:"자세히 보기",
+    less:"접기"
+  }
+};
+
+let currentLang = 'en';
+
+function applyTranslation(lang) {
+  const t = T[lang];
+  if (!t) return;
+  currentLang = lang;
+  const langMap = {en:'en',fr:'fr',es:'es',it:'it',zh:'zh-Hans',ru:'ru',no:'no',ja:'ja',ko:'ko'};
+  document.documentElement.lang = langMap[lang] || lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  const label = document.getElementById('toggleLabel');
+  const isLight = document.body.classList.contains('light');
+  if (label) label.textContent = isLight ? (t.toggleDark || 'Dark') : (t.toggleLight || 'Light');
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const active = btn.dataset.lang === lang;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', String(active));
+  });
+}
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => applyTranslation(btn.dataset.lang));
+});
+
+const themeToggle = document.getElementById('themeToggle');
+const toggleLabel = document.getElementById('toggleLabel');
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('light');
+  const isLight = document.body.classList.contains('light');
+  const t = T[currentLang];
+  toggleLabel.textContent = isLight ? (t.toggleDark || 'Dark') : (t.toggleLight || 'Light');
+});
+
+(function() {
+  const canvas = document.getElementById('beamCanvas');
+  const ctx = canvas.getContext('2d');
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+  const BEAMS = [
+    { angle:35,  speed:0.18, width:160, color:[127,255,212], alpha:0.28, offset:0 },
+    { angle:-28, speed:0.11, width:90,  color:[103,232,249], alpha:0.22, offset:0.4 },
+    { angle:52,  speed:0.09, width:200, color:[167,139,250], alpha:0.16, offset:0.2 },
+    { angle:-15, speed:0.14, width:120, color:[45,212,191],  alpha:0.20, offset:0.7 },
+    { angle:70,  speed:0.07, width:80,  color:[103,232,249], alpha:0.18, offset:0.55 },
+    { angle:-50, speed:0.12, width:140, color:[127,255,212], alpha:0.14, offset:0.85 },
+  ];
+  let t = 0;
+  const diag = Math.sqrt(Math.max(window.screen.width,1920)**2 + Math.max(window.screen.height,1080)**2);
+  function drawBeam(beam, time) {
+    const w = canvas.width, h = canvas.height;
+    const isLight = document.body.classList.contains('light');
+    const opacityScale = isLight ? 0.45 : 1.0;
+    const phase = (time * beam.speed + beam.offset) % 1;
+    const rad = (beam.angle * Math.PI) / 180;
+    const perpX = Math.cos(rad + Math.PI/2), perpY = Math.sin(rad + Math.PI/2);
+    const sweep = Math.sin(phase * Math.PI * 2) * 0.5 + 0.5;
+    const cx = w * sweep, cy = h * 0.5;
+    const dx = Math.cos(rad)*diag, dy = Math.sin(rad)*diag;
+    const bw = beam.width;
+    const grad = ctx.createLinearGradient(cx+perpX*bw, cy+perpY*bw, cx-perpX*bw, cy-perpY*bw);
+    const [r,g,b] = beam.color;
+    const a = beam.alpha * opacityScale;
+    grad.addColorStop(0,   `rgba(${r},${g},${b},0)`);
+    grad.addColorStop(0.4, `rgba(${r},${g},${b},0)`);
+    grad.addColorStop(0.5, `rgba(${r},${g},${b},${a})`);
+    grad.addColorStop(0.6, `rgba(${r},${g},${b},0)`);
+    grad.addColorStop(1,   `rgba(${r},${g},${b},0)`);
+    ctx.save();
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = bw * 2;
+    ctx.beginPath();
+    ctx.moveTo(cx-dx, cy-dy);
+    ctx.lineTo(cx+dx, cy+dy);
+    ctx.stroke();
+    ctx.restore();
+  }
+  function frame() { ctx.clearRect(0,0,canvas.width,canvas.height); t+=0.0015; BEAMS.forEach(b=>drawBeam(b,t)); requestAnimationFrame(frame); }
+  frame();
+})();
+
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => { entry.target.style.opacity='1'; entry.target.style.transform='translateY(0)'; }, i*75);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold:0.08, rootMargin:'0px 0px -60px 0px' });
+document.querySelectorAll('.job,.skill-card,.edu-card,.info-card').forEach(el => {
+  el.style.opacity='0'; el.style.transform='translateY(22px)';
+  el.style.transition='opacity 0.55s ease, transform 0.55s ease';
+  revealObserver.observe(el);
+});
+
+const modal = document.getElementById('certModal');
+const certFrame = document.getElementById('certFrame');
+const closeBtn = document.querySelector('.cert-close');
+function openModal(src) { certFrame.src=src; modal.style.display='block'; document.body.style.overflow='hidden'; }
+function closeModal() { modal.style.display='none'; certFrame.src=''; document.body.style.overflow=''; }
+document.querySelectorAll('.tag[data-cert]').forEach(tag => tag.addEventListener('click', ()=>openModal(tag.dataset.cert)));
+if(closeBtn){ closeBtn.addEventListener('click', closeModal); closeBtn.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' ') closeModal(); }); }
+if(modal){ modal.addEventListener('click', e=>{ if(e.target===modal) closeModal(); }); }
+document.addEventListener('keydown', e=>{ if(e.key==='Escape'&&modal&&modal.style.display==='block') closeModal(); });
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Alexia Monize","jobTitle":"AI Product Leader & Conversational AI Architect","description":"AI product leader and conversational systems architect specializing in NLU optimization, IVR modernization, AI governance, and enterprise AI strategy.","email":"alexiarmonize@gmail.com","url":"https://alexiamonize.github.io/Resume/","sameAs":["https://linkedin.com/in/alexia-monize"],"alumniOf":{"@type":"CollegeOrUniversity","name":"University of Toronto"},"knowsAbout":["Artificial Intelligence","Conversational AI","NLU","Amazon Connect","Dialogflow CX","AI Governance","Post-Quantum Cryptography","Machine Learning","Generative AI","Product Management","AI Ethics"]}
+</script>
+</body>
+</html>
